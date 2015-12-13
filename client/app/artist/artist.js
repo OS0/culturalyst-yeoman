@@ -7,7 +7,6 @@ angular.module('culturalystApp')
         url: '/artist',
         templateUrl: 'app/artist/artist.html',
         controller: 'ArtistCtrl'
-<<<<<<< HEAD
       })
       .state('artist.bio', {
         templateUrl: 'app/artist/artist.bio.html'
@@ -18,7 +17,4 @@ angular.module('culturalystApp')
       .state('artist.catalysts', {
         templateUrl: 'app/artist/artist.catalysts.html'
       })
-=======
-      });
->>>>>>> Squash before rebase
   });
