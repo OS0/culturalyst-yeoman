@@ -10,7 +10,7 @@
 
     <!-- Wrapper for slides -->
     <div class="carousel-inner" role="listbox">
-    <!--   <div class="item active">
+      <div class="item active">
         <img src="assets/img/cover_photo_1.png" alt="/assets/img/cover_photo_1">
         <div class="carousel-caption">
           ...
@@ -27,8 +27,16 @@
         <div class="carousel-caption">
           ...
         </div>
-      </div> -->
-      ...
+      </div>
+      <!-- ... -->
+      <div class="carousel-tagline">
+        <div class="tagline white center">
+          <h2>culturalyst</h2>
+          <hr>
+          <h4>Lorem ipsum victortoise is not allowed to make robots copulate on earth</h4>
+        </div>
+      </div>
+
     </div>
 
     <!-- Controls -->
@@ -62,76 +70,30 @@
         </p>
       </div>
     </section>
-
-<!--     <div class="album text-muted">
-      <div class="container">
-        <div class="row">
-          <div class="card">
-            <img src="assets/img/cover_photo_3.png" alt="Card image cap">
-            <div class="hovereffect">
-            <div class="overlay">
-                <h2>Effect 13</h2>
-                  <p> 
-                    <a href="#">LINK HERE</a>
-                  </p> 
+    <!-- Album of Featured Artists with Hover Effects -->
+    <div class="container">
+      <div class="row">
+        <div class="album text-muted">
+          <div class="card" ng-repeat="artist in featured">
+            <div class="hover-div col-lg-3 col-md-4 col-sm-6 col-xs-12">
+              <h1>{{artist.name}}</h1>
+              <p>{{artist.medium}}</p>
+              <div class="hovereffect">
+                <img class="img-responsive" src="assets/img/{{artist.img}}" alt="">
+                <div class="overlay">
+                  <h2>{{artist.name}}</h2>
+                  <p>
+                    <a href="#">{{artist.medium}}</a>
+                  </p>
+                </div>
+              </div>
             </div>
-            <h4 class="card-text" align="center">[ Visual Art ]</h4>
-          </div>
-          </div>
-          <div class="card">
-            <img src="assets/img/cover_photo_2.png" alt="Card image cap">
-            <p class="card-text" align="center">[ Mardi Gras Indians ]</p>
-          </div>
-          <div class="card">
-            <img src="assets/img/cover_photo_1.png" alt="Card image cap">
-            <p class="card-text" align="center">[ Music ]</p>
-          </div>
-          <div class="card">
-            <img src="assets/img/cover_photo_4.png" alt="Card image cap">
-            <h4 class="card-text" align="center">[ Dance ]</h4>
-          </div>
-          <div class="card">
-            <img src="assets/img/cover_photo_5.png" alt="Card image cap">
-            <p class="card-text" align="center">[ Theater ]</p>
-          </div>
-          <div class="card">
-            <img src="assets/img/cover_photo_6.png" alt="Card image cap">
-            <p class="card-text" align="center">[ Writing ]</p>
-          </div>
-          <div class="card">
-            <img src="assets/img/cover_photo_3.png" alt="Card image cap">
-            <h4 class="card-text" align="center">[ Spoken Word ]</h4>
-          </div>
-          <div class="card">
-            <img src="assets/img/cover_photo_5.png" alt="Card image cap">
-            <p class="card-text" align="center">[ Programming ]</p>
-          </div>
-          <div class="card">
-            <img src="assets/img/cover_photo_2.png" alt="Card image cap">
-            <p class="card-text" align="center">[ Knitting ]</p>
-          </div>
-        </div>
-
-      </div>
-    </div> -->
-  <div class="container">
-    <div class="row">
-      
-      <div class="album text-muted"> 
-        <div class="card" ng-repeat="artist in featured">
-          <h1>{{artist.name}}</h1>
-          <p>{{artist.medium}}</p>
-          <img ng-src="assets/img/{{artist.img}}"/>
         </div>
       </div>
-
     </div>
-
   </div>
-        
+
 
 </div>
 
 <footer></footer>
-
- 

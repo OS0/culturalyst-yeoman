@@ -22,24 +22,24 @@ class MainController {
         medium: 'Sculpture',
         img:'cover_photo_1.png'
       }, {
-        name: 'Mykia Smith', 
+        name: 'Mykia Smith',
         medium: 'Writing',
         img:'cover_photo_2.png'
       },{
-        name: 'Victor York-Carter', 
-        medium: 'Sex Robots',
+        name: 'Victor York-Carter',
+        medium: 'Resident Weirdo',
         img:'cover_photo_3.png'
       },{
-        name: 'Victor York-Carter', 
-        medium: 'Sex Robots',
+        name: 'Alon Robinson',
+        medium: 'Forced Retired Rapper',
         img:'cover_photo_4.png'
       },{
-        name: 'Victor York-Carter', 
-        medium: 'Sex Robots',
+        name: 'Alice Green',
+        medium: 'Pep Talk Queen',
         img:'cover_photo_5.png'
       }, {
-        name: 'Victor York-Carter', 
-        medium: 'Sex Robots',
+        name: 'Ryan Bascle',
+        medium: 'Sexy Dancer',
         img:'cover_photo_6.png'
       }];
   }
