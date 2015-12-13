@@ -1,0 +1,11 @@
+.profile {
+  padding: 0;
+  background-color: #eee;
+  height: 300px;
+}
+
+.postBod {
+  background-color: #5bc0de;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}

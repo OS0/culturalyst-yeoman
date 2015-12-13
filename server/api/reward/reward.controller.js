@@ -1,17 +1,17 @@
 /**
  * Using Rails-like standard naming convention for endpoints.
- * GET     /api/things              ->  index
- * POST    /api/things              ->  create
- * GET     /api/things/:id          ->  show
- * PUT     /api/things/:id          ->  update
- * DELETE  /api/things/:id          ->  destroy
+ * GET     /api/rewards              ->  index
+ * POST    /api/rewards              ->  create
+ * GET     /api/rewards/:id          ->  show
+ * PUT     /api/rewards/:id          ->  update
+ * DELETE  /api/rewards/:id          ->  destroy
  */
 
 'use strict';
 
 var _ = require('lodash');
 var sqldb = require('../../sqldb');
-var Thing = sqldb.Thing;
+var Reward = sqldb.Reward;
 
 function handleError(res, statusCode) {
   statusCode = statusCode || 500;
@@ -59,16 +59,16 @@ function removeEntity(res) {
   };
 }
 
-// Gets a list of Things
+// Gets a list of Rewards
 exports.index = function(req, res) {
-  Thing.findAll()
+  Reward.findAll()
     .then(responseWithResult(res))
     .catch(handleError(res));
 };
 
-// Gets a single Thing from the DB
+// Gets a single Reward from the DB
 exports.show = function(req, res) {
-  Thing.find({
+  Reward.find({
     where: {
       _id: req.params.id
     }
@@ -78,19 +78,19 @@ exports.show = function(req, res) {
     .catch(handleError(res));
 };
 
-// Creates a new Thing in the DB
+// Creates a new Reward in the DB
 exports.create = function(req, res) {
-  Thing.create(req.body)
+  Reward.create(req.body)
     .then(responseWithResult(res, 201))
     .catch(handleError(res));
 };
 
-// Updates an existing Thing in the DB
+// Updates an existing Reward in the DB
 exports.update = function(req, res) {
   if (req.body._id) {
     delete req.body._id;
   }
-  Thing.find({
+  Reward.find({
     where: {
       _id: req.params.id
     }
@@ -101,9 +101,9 @@ exports.update = function(req, res) {
     .catch(handleError(res));
 };
 
-// Deletes a Thing from the DB
+// Deletes a Reward from the DB
 exports.destroy = function(req, res) {
-  Thing.find({
+  Reward.find({
     where: {
       _id: req.params.id
     }
