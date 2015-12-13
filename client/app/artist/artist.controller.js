@@ -1,6 +1,6 @@
 'use strict';
 
 angular.module('culturalystApp')
-  .controller('ArtistCtrl', function ($scope) {
-    $scope.message = 'Hello';
-  });
+  .controller('ArtistCtrl', ['$state', function($state){
+    $state.go('artist.bio')
+  }])

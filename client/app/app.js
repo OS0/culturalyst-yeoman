@@ -12,7 +12,7 @@ angular.module('culturalystApp', [
   'ui.bootstrap',
   'validation.match'
 ])
-  .config(function($urlRouterProvider, $locationProvider) {
+  .config(function($urlRouterProvider, $stateProvider, $locationProvider) {
     $urlRouterProvider
       .otherwise('/');
 
