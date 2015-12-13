@@ -36,6 +36,9 @@ module.exports = function(sequelize, DataTypes) {
         notEmpty: true
       }
     },
+    location: DataTypes.STRING,
+    picUrl: DataTypes.STRING,
+    bio: DataTypes.TEXT,
     provider: DataTypes.STRING,
     salt: DataTypes.STRING,
     facebook: DataTypes.TEXT,

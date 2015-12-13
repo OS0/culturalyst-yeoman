@@ -3,6 +3,7 @@
 angular.module('culturalystApp')
   .controller('DiscoveryCtrl', function ($scope) {
     $scope.message = 'Hello';
+<<<<<<< HEAD
     $scope.medium = ['Music','Writing','Film'];
     $scope.submedium = {
     	'Music': ['Blues','Violin','Singer','Bluegrass']
@@ -20,4 +21,6 @@ angular.module('culturalystApp')
     		},200);
     	}
     };
+=======
+>>>>>>> Squash before rebase
   });
