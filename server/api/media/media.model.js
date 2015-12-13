@@ -13,7 +13,7 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false
     },
     submedium: {
-      DataTypes.STRING,
+      type: DataTypes.STRING,
       defaultValue: 'other'
     },
     active: DataTypes.BOOLEAN
