@@ -19,33 +19,38 @@
   <h1>You've searched for Musicians!</h1>
 </div>
 
+  <!-- <input ng-model="searchText" placeholder="Search" class="discSearch"> -->
 
-<div class="album text-muted">
   <div class="container">
     <div class="row">
-      <div class="col-md-12">
-        <div class="row-fluid">
-          <div class="col-md-3">
-
-            <h2>Guitarists</h2>
-              <div class="card card-inverse" style="background-color: #333; border-color: #333;">
-                <div class="card-block">
-                  <h3 class="card-title">Special title treatment</h3>
-                  <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                  <a href="#" class="btn btn-primary">Button</a>
-                </div>
-              </div>
-
-           
-            
-          </div>
+      <div id="custom-search-input">
+        <div class="input-group col-md-12">
+          <input type="text" class="search-query form-control" placeholder="Search" ng-model="searchText" />
         </div>
       </div>
     </div>
   </div>
+
+
+
+  <div class="container">
+    <div class="row">
+        
+        <div class="album text-muted"> 
+          <div class="card" ng-repeat="artist in featured | filter:searchText">
+            <h1>{{artist.name}}</h1>
+            <p>{{artist.medium}}</p>
+            <img ng-src="assets/img/{{artist.img}}"/>
+          </div>
+        </div>
+
+    </div>
+  </div>
+
 </div>
 
 
 
 
 <footer></footer>
+

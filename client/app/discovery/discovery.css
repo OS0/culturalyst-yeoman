@@ -1,6 +1,74 @@
+#custom-search-input {
+    margin:0;
+    margin-top: 10px;
+    padding: 0;
+}
+
+#custom-search-input .search-query {
+    padding-right: 3px;
+    padding-right: 4px \9;
+    padding-left: 3px;
+    padding-left: 4px \9;
+    /* IE7-8 doesn't have border-radius, so don't indent the padding */
+
+    margin-bottom: 0;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+
+#custom-search-input button {
+    border: 0;
+    background: none;
+    /** belows styles are working good */
+    padding: 2px 5px;
+    margin-top: 2px;
+    position: relative;
+    left: -28px;
+    /* IE7-8 doesn't have border-radius, so don't indent the padding */
+    margin-bottom: 0;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    color:#D9230F;
+}
+
+.genre {
+  margin: auto;
+  width: 50%;
+}
+
+.thing-form {
+  margin: 20px 0;
+}
+
+#banner {
+  border-bottom: none;
+  margin-top: -20px;
+}
+
+#banner h1 {
+  font-size: 60px;
+  line-height: 1;
+  letter-spacing: -1px;
+}
+
+.hero-unit {
+  position: relative;
+  padding: 30px 15px;
+  color: #F5F5F5;
+  text-align: center;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+  background: #4393B9;
+}
+
+.navbar-text {
+  margin-left: 15px;
+}
+
 .about {
   float: left;
-  max-width: 30rem;
+  max-width: 70rem;
   margin-right: 3rem;
 }
 
@@ -28,7 +96,7 @@
 }
 
 .jumbotron .container {
-  max-width: 40rem;
+  max-width: 90rem;
 }
 
 .album {
@@ -63,6 +131,16 @@ footer {
 
 footer p {
   margin-bottom: .25rem;
+}
+
+.btn-primary {
+  margin: 5px;
+  width:200px;
+}
+
+.navbar-brand img{
+  width:169px;
+  height:32px;
 }
 
 .hovereffect {
@@ -145,3 +223,4 @@ footer p {
   -webkit-transform: translate3d(0,0,0);
   transform: translate3d(0,0,0);
 }
+  
