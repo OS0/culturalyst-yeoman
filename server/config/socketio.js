@@ -19,8 +19,6 @@ function onConnect(socket) {
 
   // Insert sockets below
   require('../api/reward/reward.socket').register(socket);
-  require('../api/creative/creative.socket').register(socket);
-  require('../api/thing/thing.socket').register(socket);
 
 }
 
