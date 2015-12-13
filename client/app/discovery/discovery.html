@@ -1,1 +1,16 @@
-<div>This is the discovery view.</div>
+<navbar></navbar>
+<div ng-controller="DiscoveryCtrl">
+	
+	<section class="jumbotron text-xs-center">
+      <div class="container">
+        <h1 class="jumbotron-heading">Featured Artists in New Orleans</h1>
+        <p class="lead text-muted" align="center">BEGIN TO DISCOVER THE CULTURE AROUND YOU. </p>
+        <select ng-model="medium1" ng-options="medium for medium in medium" ng-change="loadSubMediums(medium1)"> </select>
+        <select ng-model="submedium1" ng-options="submedia for submedia in submedium[medium1]"></select>	
+       
+      </div>
+    </section>
+
+</div>
+
+<footer></footer>
