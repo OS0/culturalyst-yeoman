@@ -3,40 +3,40 @@
 var app = require('../..');
 var request = require('supertest');
 
-var newThing;
+var newReward;
 
-describe('Thing API:', function() {
+describe('Reward API:', function() {
 
-  describe('GET /api/things', function() {
-    var things;
+  describe('GET /api/rewards', function() {
+    var rewards;
 
     beforeEach(function(done) {
       request(app)
-        .get('/api/things')
+        .get('/api/rewards')
         .expect(200)
         .expect('Content-Type', /json/)
         .end(function(err, res) {
           if (err) {
             return done(err);
           }
-          things = res.body;
+          rewards = res.body;
           done();
         });
     });
 
     it('should respond with JSON array', function() {
-      things.should.be.instanceOf(Array);
+      rewards.should.be.instanceOf(Array);
     });
 
   });
 
-  describe('POST /api/things', function() {
+  describe('POST /api/rewards', function() {
     beforeEach(function(done) {
       request(app)
-        .post('/api/things')
+        .post('/api/rewards')
         .send({
-          name: 'New Thing',
-          info: 'This is the brand new thing!!!'
+          name: 'New Reward',
+          info: 'This is the brand new reward!!!'
         })
         .expect(201)
         .expect('Content-Type', /json/)
@@ -44,55 +44,55 @@ describe('Thing API:', function() {
           if (err) {
             return done(err);
           }
-          newThing = res.body;
+          newReward = res.body;
           done();
         });
     });
 
-    it('should respond with the newly created thing', function() {
-      newThing.name.should.equal('New Thing');
-      newThing.info.should.equal('This is the brand new thing!!!');
+    it('should respond with the newly created reward', function() {
+      newReward.name.should.equal('New Reward');
+      newReward.info.should.equal('This is the brand new reward!!!');
     });
 
   });
 
-  describe('GET /api/things/:id', function() {
-    var thing;
+  describe('GET /api/rewards/:id', function() {
+    var reward;
 
     beforeEach(function(done) {
       request(app)
-        .get('/api/things/' + newThing._id)
+        .get('/api/rewards/' + newReward._id)
         .expect(200)
         .expect('Content-Type', /json/)
         .end(function(err, res) {
           if (err) {
             return done(err);
           }
-          thing = res.body;
+          reward = res.body;
           done();
         });
     });
 
     afterEach(function() {
-      thing = {};
+      reward = {};
     });
 
-    it('should respond with the requested thing', function() {
-      thing.name.should.equal('New Thing');
-      thing.info.should.equal('This is the brand new thing!!!');
+    it('should respond with the requested reward', function() {
+      reward.name.should.equal('New Reward');
+      reward.info.should.equal('This is the brand new reward!!!');
     });
 
   });
 
-  describe('PUT /api/things/:id', function() {
-    var updatedThing
+  describe('PUT /api/rewards/:id', function() {
+    var updatedReward
 
     beforeEach(function(done) {
       request(app)
-        .put('/api/things/' + newThing._id)
+        .put('/api/rewards/' + newReward._id)
         .send({
-          name: 'Updated Thing',
-          info: 'This is the updated thing!!!'
+          name: 'Updated Reward',
+          info: 'This is the updated reward!!!'
         })
         .expect(200)
         .expect('Content-Type', /json/)
@@ -100,27 +100,27 @@ describe('Thing API:', function() {
           if (err) {
             return done(err);
           }
-          updatedThing = res.body;
+          updatedReward = res.body;
           done();
         });
     });
 
     afterEach(function() {
-      updatedThing = {};
+      updatedReward = {};
     });
 
-    it('should respond with the updated thing', function() {
-      updatedThing.name.should.equal('Updated Thing');
-      updatedThing.info.should.equal('This is the updated thing!!!');
+    it('should respond with the updated reward', function() {
+      updatedReward.name.should.equal('Updated Reward');
+      updatedReward.info.should.equal('This is the updated reward!!!');
     });
 
   });
 
-  describe('DELETE /api/things/:id', function() {
+  describe('DELETE /api/rewards/:id', function() {
 
     it('should respond with 204 on successful removal', function(done) {
       request(app)
-        .delete('/api/things/' + newThing._id)
+        .delete('/api/rewards/' + newReward._id)
         .expect(204)
         .end(function(err, res) {
           if (err) {
@@ -130,9 +130,9 @@ describe('Thing API:', function() {
         });
     });
 
-    it('should respond with 404 when thing does not exist', function(done) {
+    it('should respond with 404 when reward does not exist', function(done) {
       request(app)
-        .delete('/api/things/' + newThing._id)
+        .delete('/api/rewards/' + newReward._id)
         .expect(404)
         .end(function(err, res) {
           if (err) {

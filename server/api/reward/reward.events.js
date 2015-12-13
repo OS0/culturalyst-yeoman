@@ -1,15 +1,15 @@
 /**
- * Thing model events
+ * Reward model events
  */
 
 'use strict';
 
 var EventEmitter = require('events').EventEmitter;
-var Thing = require('../../sqldb').Thing;
-var ThingEvents = new EventEmitter();
+var Reward = require('../../sqldb').Reward;
+var RewardEvents = new EventEmitter();
 
 // Set max event listeners (0 == unlimited)
-ThingEvents.setMaxListeners(0);
+RewardEvents.setMaxListeners(0);
 
 // Model events
 var events = {
@@ -21,15 +21,15 @@ var events = {
 // Register the event emitter to the model events
 for (var e in events) {
   var event = events[e];
-  Thing.hook(e, emitEvent(event));
+  Reward.hook(e, emitEvent(event));
 }
 
 function emitEvent(event) {
   return function(doc, options, done) {
-    ThingEvents.emit(event + ':' + doc._id, doc);
-    ThingEvents.emit(event, doc);
+    RewardEvents.emit(event + ':' + doc._id, doc);
+    RewardEvents.emit(event, doc);
     done(null);
   }
 }
 
-module.exports = ThingEvents;
+module.exports = RewardEvents;
