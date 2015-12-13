@@ -19,7 +19,8 @@ class SignupController {
       this.Auth.createUser({
         name: this.user.name,
         email: this.user.email,
-        password: this.user.password
+        password: this.user.password,
+        profileImage: this.user.profileImage
       })
       .then(() => {
         // Account created, redirect to home
