@@ -14,12 +14,20 @@
 
 </div>
 
+<div>
+  <h2 ng-repeat="user in artists">
+   <!--  <p>{{user.$$hashKey}}</p>
+    <p>{{user._id}}</p> -->
+    <p>{{user.name}}</p>
+    <p>{{user.email}}</p>
+    <p>{{user.role}}</p>
+  </h2>
+</div>
+
 
 <div>
   <h1>You've searched for Musicians!</h1>
 </div>
-
-  <!-- <input ng-model="searchText" placeholder="Search" class="discSearch"> -->
 
   <div class="container">
     <div class="row">

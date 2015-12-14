@@ -1,8 +1,7 @@
 'use strict';
 
 angular.module('culturalystApp')
-  .controller('DiscoveryCtrl', function ($scope) {
-    $scope.message = 'Hello';
+  .controller('DiscoveryCtrl', function ($scope, $http) {
     $scope.medium = ['Music','Writing','Film'];
     $scope.submedium = {
     	'Music': ['Blues','Violin','Singer','Bluegrass']
@@ -20,6 +19,13 @@ angular.module('culturalystApp')
     		},200);
     	}
     };
+
+    // First iteration of get request
+    $scope.artists = [];
+    $http.get('/api/users/discovery/:medium/:submedium').then(function(response) {
+      $scope.artists = response.data;
+      console.log($scope.artists)
+    })
 
     $scope.featured = [{
         name: 'Sam Bowler',
