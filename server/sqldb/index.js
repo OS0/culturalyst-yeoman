@@ -14,6 +14,7 @@ var db = {
 };
 
 // Insert models below
+db.Artist = db.sequelize.import('../api/artist/artist.model');
 db.Reward = db.sequelize.import('../api/reward/reward.model');
 db.User = db.sequelize.import('../api/user/user.model');
 db.Media = db.sequelize.import('../api/media/media.model');
