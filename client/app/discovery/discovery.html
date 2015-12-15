@@ -6,22 +6,12 @@
       <div class="container">
         <h1 class="jumbotron-heading">Featured Artists in New Orleans</h1>
         <p class="lead text-muted" align="center">BEGIN TO DISCOVER THE CULTURE AROUND YOU. </p>
-        <select ng-model="medium1" ng-options="medium for medium in medium" ng-change="loadSubMediums(medium1)"> </select>
-        <select ng-model="submedium1" ng-options="submedia for submedia in submedium[medium1]"></select>	
+        <select ng-model="medium" ng-options="medium as medium.name for medium in mediaList" ng-change="loadSubMediums(medium); getArtists()"></select>
+        <select ng-model="selectedSubmedium" ng-options="submedium for submedium in submedia" ng-change="getArtists()"></select>
        
       </div>
     </section>
 
-</div>
-
-<div>
-  <h2 ng-repeat="user in artists">
-   <!--  <p>{{user.$$hashKey}}</p>
-    <p>{{user._id}}</p> -->
-    <p>{{user.name}}</p>
-    <p>{{user.email}}</p>
-    <p>{{user.role}}</p>
-  </h2>
 </div>
 
 
