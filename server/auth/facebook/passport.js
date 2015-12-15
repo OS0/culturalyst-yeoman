@@ -8,7 +8,8 @@ exports.setup = function(User, config) {
     callbackURL: config.facebook.callbackURL,
     profileFields: [
       'displayName',
-      'emails'
+      'emails',
+      'photos'
     ]
   },
   function(accessToken, refreshToken, profile, done) {
@@ -20,6 +21,7 @@ exports.setup = function(User, config) {
           user = User.build({
             name: profile.displayName,
             email: profile.emails[0].value,
+            picture: profile.photos ? profile.photos[0].value : '/img/faces/unknown-user-pic.jpg',
             role: 'user',
             provider: 'facebook',
             facebook: profile._json
