@@ -1,72 +1,56 @@
-<navbar></navbar>
+<script>
+  $(document).ready(function() {
+    $('.sub').hide();
+    $('#film').on('click', function() {
+      $('#filmSub').toggle();
+    })
+    $('#music').on('click', function() {
+      $('#musicSub').toggle();
+    })
+    $('#dance').on('click', function() {
+      $('#dtSub').toggle();
+    })
+    $('#lit').on('click', function() {
+      $('#litSub').toggle();
+    })
+    $('#comics').on('click', function() {
+      $('#comicSub').toggle();
+    })
+    $('#drawPaint').on('click', function() {
+      $('#drawPaintSub').toggle();
+    })
+    $('#animation').on('click', function() {
+      $('#animateSub').toggle();
+    })
+    $('#photography').on('click', function() {
+      $('#photoSub').toggle();
+    })
+    $('#craftsDIY').on('click', function() {
+      $('#craftSub').toggle();
+    })
+  });
+</script>
+
+<button ng-click="next">
+  next
+</button>
+
 <div>
-  <h1 align="center">Catalyst Profile</h1><br>
-
-  <div align="center">
-    <h2>Welcome, {{vm.currentUser()().name}}!</h2><br>
-    We're glad you're here. We just need a bit more information to get you set
-    up.
-  </div>
-  <br><br>
-  <div class="container" align="center">
-    <div class="user">
-      <img class="img-circle img-responsive"
-           src={{vm.currentUser()().profileImageUrl}}/>
-    </div>
-  </div>
-  <br><br><br>
-  <form class="form-horizontal" role="form">
-    <div class="form-group">
-      <label for="firstName" class="col-sm-3 control-label">Full Name</label>
-      <div class="col-sm-9">
-        <input type="text" id="firstName" class="form-control"
-               value="{{vm.currentUser()().name}}">
-      </div>
-    </div>
-
-    <div class="form-group">
-      <label for="email" class="col-sm-3 control-label">Email</label>
-      <div class="col-sm-9">
-        <input type="email" id="email" class="form-control"
-               value="{{vm.currentUser()().email}}">
-      </div>
-    </div>
-    <div class="form-group">
-      <label for="location" class="col-sm-3 control-label">Location</label>
-      <div class="col-sm-9">
-        <input type="text" id="location" placeholder="City, State"
-               class="form-control">
-      </div>
-    </div>
-
-    <div class="form-group">
-      <label class="col-sm-3 control-label">Birthday</label>
-      <div class="col-sm-9">
-        <input type="date" id="birthDate" class="form-control">
-      </div>
-    </div>
-
-    <div class="form-group">
-      <div class="col-sm-9 col-sm-offset-3">
-        <div class="checkbox">
-          <label>
-            <input type="checkbox">I accept <a href="#">terms and conditions of
-            Culturalyst</a>
-          </label>
-        </div>
-      </div>
-    </div>
-
-    <div class="form-group">
-      <div class="col-sm-9 col-sm-offset-3">
-        <button type="submit" class="btn btn-primary btn-block">
-          Save Profile
-        </button>
-      </div>
-    </div>
-
+  <form>
     <div class="form-group" style="width: 80%; margin: 5% 10% 0% 10%">
-      <label>Medium</label>
+      <label for="exampleName">Name</label>
+      <input type="text" class="form-control" id="exampleName" placeholder="Name">
+    </div>
+    <div class="form-group" style="width: 80%; margin: 5% 10% 0% 10%">
+      <label for="exapmleInputEmail1">Email address</label>
+      <input type="email" class="form-control" id="exampleInputEmail" placeholder="Email">
+    </div>
+    <div class="form-group" style="width: 80%; margin: 5% 10% 0% 10%">
+      <label for="bio">Biography</label>
+      <textarea class="form-control" rows="3" placeholder="About You"></textarea>
+    </div>
+    <div class="form-group" style="width: 80%; margin: 5% 10% 0% 10%">
+      <label for="medium">Medium</label>
       <div class="checkbox">
         <label>
           <input type="checkbox" id="film" value="film">Video and Film
@@ -137,8 +121,7 @@
       </div>
       <div class="checkbox">
         <label>
-          <input type="checkbox" id="drawPaint" value="drawPaint">Drawing and
-          Painting
+          <input type="checkbox" id="drawPaint" value="drawPaint">Drawing and Painting
         </label>
         <div class="sub" id="drawPaintSub">
           <label>Sub-Medium</label>
@@ -192,7 +175,7 @@
       </div>
       <div class="checkbox">
         <label>
-          <input type="checkbox" value="science">Science
+          <input type="checkbox"value="science">Science
         </label>
       </div>
       <div class="checkbox">
@@ -215,7 +198,6 @@
         </div>
       </div>
     </div>
-
+    <button type="submit" class="btm btn-default" style="margin: 10% 45%">Next</button>
   </form>
 </div>
-
