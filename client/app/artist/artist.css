@@ -9,3 +9,25 @@
   margin-top: 10px;
   margin-bottom: 10px;
 }
+
+.jumbo {
+  position: absolute;
+  background-image: url('http://topcartooncharacters.com/wp-content/uploads/2015/11/Batman-13-1024x576.jpg');
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.sideBar {
+  background-color: grey;
+  padding-bottom: 60px;
+  padding-top: 60px;
+}
+
+.profileImg {
+  border-radius: 50%;
+  border: 1px solid white;
+}
+
+.navbar {
+  margin-bottom: 0px;
+}

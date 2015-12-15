@@ -4,7 +4,7 @@ angular.module('culturalystApp')
   .config(function ($stateProvider) {
     $stateProvider
       .state('artist', {
-        url: '/artist',
+        url: '/artist/:id',
         templateUrl: 'app/artist/artist.html',
         controller: 'ArtistCtrl'
       })
