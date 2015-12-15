@@ -55,7 +55,11 @@ module.exports = function(sequelize, DataTypes) {
       // Public profile information
       profile: function() {
         return {
+          '_id': this._id,
           'name': this.name,
+          'location': this.location,
+          'picUrl': this.picUrl,
+          'bio': this.bio,
           'role': this.role
         };
       },

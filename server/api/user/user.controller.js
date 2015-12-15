@@ -85,6 +85,68 @@ exports.show = function(req, res, next) {
     });
 };
 
+exports.showArtist = function(req, res, next) {
+  var userId = req.params.id;
+  var artistInfo = {};
+
+  User.find({
+    where: {
+      _id: userId
+    }
+  })
+    .then(function(user) {
+      if (!user) {
+        return res.status(404).end();
+      }
+      (function() {/////THIS WILL PROBABLY NEED SOME ASYNC HELP!?!?
+        User.getCreatives().then(function(info) {
+          artistInfo.info = info;
+        });
+        User.getRewards().then(function(rewards) {
+          artistInfo.rewards = rewards;
+        });
+        User.getMediums().then(function(media) {
+          artistInfo.media = media;
+        })
+        artistInfo.profile = user.profile;
+      }()).then(funtion() {
+        res.json(artistInfo);
+      })
+    })
+    .catch(function(err) {
+      return next(err);
+    });
+};
+
+exports.showResults = function(req, res, next) {
+
+  if (req.param.submedium) {
+    var field = submedium;
+    var param = req.params.submedium;
+  } else {
+    var field = medium;
+    var param = req.params.medium;
+  }
+
+  Media.findAll({
+    where: {
+      field: param
+    }
+  })
+    .then(function(users) {
+      if (!user) {
+        return res.status(404).end();
+      }
+      users.map(function(user) {
+        return user.profile;
+      })
+      res.json(users);
+    })
+    .catch(function(err) {
+      return next(err);
+    });
+};
+
 /**
  * Deletes a user
  * restriction: 'admin'
