@@ -1,0 +1,221 @@
+<navbar></navbar>
+<div>
+  <h1 align="center">Catalyst Profile</h1><br>
+
+  <div align="center">
+    <h2>Welcome, {{name}}!</h2><br>
+    We're glad you're here. We just need a bit more information to get you set
+    up.
+  </div>
+  <br><br>
+  <div class="container" align="center">
+    <div class="user">
+      <img class="img-circle img-responsive" src={{user.profileImageUrl}}/>
+    </div>
+  </div>
+  <br><br><br>
+  <form class="form-horizontal" role="form">
+    <div class="form-group">
+      <label ng-model="vm.user.name" for="firstName"
+             class="col-sm-3 control-label">Full Name</label>
+      <div class="col-sm-9">
+        <input type="text" id="firstName" class="form-control" ng-model="vm.user.name"
+               value="{{vm.getCurrentUser()}}" autofocus>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="email" class="col-sm-3 control-label">Email</label>
+      <div class="col-sm-9">
+        <input type="email" id="email" class="form-control" ng-model="email">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="location" class="col-sm-3 control-label">Location</label>
+      <div class="col-sm-9">
+        <input type="text" id="location" placeholder="City, State"
+               ng-model="user.address" class="form-control">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="col-sm-3 control-label">Birthday</label>
+      <div class="col-sm-9">
+        <input type="date" id="birthDate" class="form-control"
+               ng-model="user.birthday">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="col-sm-9 col-sm-offset-3">
+        <div class="checkbox">
+          <label>
+            <input type="checkbox">I accept <a href="#">terms and conditions of
+            Culturalyst</a>
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="col-sm-9 col-sm-offset-3">
+        <button type="submit" class="btn btn-primary btn-block"
+                ng-click="saveData()">Save Profile
+        </button>
+      </div>
+    </div>
+
+    <div class="form-group" style="width: 80%; margin: 5% 10% 0% 10%">
+      <label>Medium</label>
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" id="film" value="film">Video and Film
+        </label>
+        <div class="sub" id="filmSub">
+          <label>Sub-Medium</label>
+          <select class="form-control">
+            <option>Short Films</option>
+            <option>Documentaries</option>
+            <option>Feature Films</option>
+          </select>
+        </div>
+      </div>
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" id="music" value="music">Music
+        </label>
+        <div class="sub" id="musicSub">
+          <label>Sub-Medium</label>
+          <select class="form-control">
+            <option>Jazz</option>
+            <option>Rock</option>
+            <option>Experimental</option>
+            <option>Classical</option>
+          </select>
+        </div>
+      </div>
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" id="dance" value="dance">Dance and Theater
+        </label>
+        <div class="sub" id="dtSub">
+          <label>Sub-Medium</label>
+          <select class="form-control">
+            <option>Ballet</option>
+            <option>Hip Hop</option>
+            <option>Lyrical</option>
+            <option>Ballroom</option>
+            <option>Plays</option>
+            <option>Musicals</option>
+          </select>
+        </div>
+      </div>
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" id="lit" value="literature">Writing
+        </label>
+        <div class="sub" id="litSub">
+          <label>Sub-Medium</label>
+          <select class="form-control">
+            <option>Fiction</option>
+            <option>Poetry</option>
+            <option>Non-Fiction</option>
+          </select>
+        </div>
+      </div>
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" id="comics" value="comics">Comics
+        </label>
+        <div class="sub" id="comicSub">
+          <label>Sub-Medium</label>
+          <select class="form-control">
+            <option>Anime</option>
+            <option>Graphic Novels</option>
+          </select>
+        </div>
+      </div>
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" id="drawPaint" value="drawPaint">Drawing and
+          Painting
+        </label>
+        <div class="sub" id="drawPaintSub">
+          <label>Sub-Medium</label>
+          <select class="form-control">
+            <option>Acrylics</option>
+            <option>Watercolor</option>
+            <option>Pastels</option>
+            <option>Charcoal</option>
+          </select>
+        </div>
+      </div>
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" id="animation" value="animation">Animation
+        </label>
+        <div class="sub" id="animateSub">
+          <label>Sub-Medium</label>
+          <select class="form-control">
+            <option>Drawn Animation</option>
+            <option>Stop Animation</option>
+            <option>Claymation</option>
+          </select>
+        </div>
+      </div>
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" value="podcasts">Podcasts
+        </label>
+      </div>
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" value="games">Games
+        </label>
+      </div>
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" id="photography" value="photography">Photography
+        </label>
+        <div class="sub" id="photoSub">
+          <label>Sub-Medium</label>
+          <select class="form-control">
+            <option>Digital</option>
+            <option>Film</option>
+          </select>
+        </div>
+      </div>
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" value="comedy">Comedy
+        </label>
+      </div>
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" value="science">Science
+        </label>
+      </div>
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" value="education">Education
+        </label>
+      </div>
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" id="craftsDIY" value="craftsDIY">Crafts and DIY
+        </label>
+        <div class="sub" id="craftSub">
+          <label>Sub-Medium</label>
+          <select class="form-control">
+            <option>Knitting</option>
+            <option>Crochet</option>
+            <option>Cross Stitching</option>
+            <option>Lettering Arts</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+  </form>
+</div>
+

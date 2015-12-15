@@ -6,8 +6,10 @@ class SettingsController {
   submitted = false;
   //end-non-standard
 
-  constructor(Auth) {
+  constructor(Auth, $log) {
     this.Auth = Auth;
+    this.$log = $log;
+    this.$log.log(this.Auth.getCurrentUser());
   }
 
   changePassword(form) {
