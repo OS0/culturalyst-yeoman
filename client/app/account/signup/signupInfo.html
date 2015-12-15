@@ -38,24 +38,25 @@
  -->
   <div class="container" align="center">
     <div class="user">
-      <img class="img-circle img-responsive" src={{user.profileImageUrl}}/>
+      <img class="img-circle img-responsive"
+           src={{vm.currentUser()().profileImageUrl}}/>
     </div>
   </div>
   <br><br><br>
   <form class="form-horizontal" role="form">
     <div class="form-group">
-      <label ng-model="vm.user.name" for="firstName"
-             class="col-sm-3 control-label">Full Name</label>
+      <label for="firstName" class="col-sm-3 control-label">Full Name</label>
       <div class="col-sm-9">
-        <input type="text" id="firstName" class="form-control" ng-model="vm.user.name"
-               value="{{vm.getCurrentUser()}}" autofocus>
+        <input type="text" id="firstName" class="form-control"
+               value="{{vm.currentUser()().name}}">
       </div>
     </div>
 
     <div class="form-group">
       <label for="email" class="col-sm-3 control-label">Email</label>
       <div class="col-sm-9">
-        <input type="email" id="email" class="form-control" ng-model="email">
+        <input type="email" id="email" class="form-control"
+               value="{{vm.currentUser()().email}}">
       </div>
     </div>
 

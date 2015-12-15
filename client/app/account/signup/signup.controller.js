@@ -7,7 +7,7 @@ class SignupController {
   submitted = false;
   //end-non-standard
 
-  constructor(Auth, $state, $log, $scope, $http) {
+  constructor(Auth, $state, $log, $scope) {
     this.Auth = Auth;
     this.$state = $state;
     this.$log = $log;
@@ -16,14 +16,8 @@ class SignupController {
   }
 
   currentUser() {
-    //this.$log.info(this.Auth.getCurrentUser());
+    this.$log.info(this.Auth.getCurrentUser());
     return this.Auth.getCurrentUser;
-
-    this.$log.info(this.Auth.getCurrentUser()._id);
-
-    this.$scope.user = this.Auth.getCurrentUser();
-
-    this.$log.info(this.$scope.name);
   }
 
   register(form) {
@@ -39,15 +33,6 @@ class SignupController {
         })
         .then(() => {
           // Account created, redirect to signup details view
-          profileImage: null,
-          name: this.user.name,
-          email: this.user.email,
-          password: this.user.password,
-          location: null
-        })
-        .then(() => {
-          // Account created, redirect to signupInfo for detailed signup page
-          // view
           this.$state.go('signupInfo');
         })
         .catch(err => {
@@ -77,9 +62,6 @@ class SignupController {
       .then(() => {
         this.$state.go('main');
       });
-
-    
-  }
 
   userDetailZ(){
     this.$state.go('main');
