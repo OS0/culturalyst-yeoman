@@ -5,5 +5,5 @@ angular.module('culturalystApp')
     $scope.amount;
     $scope.charge = function(){
       chargeUser($scope.amount);
-    }
-  })
+    };
+  });

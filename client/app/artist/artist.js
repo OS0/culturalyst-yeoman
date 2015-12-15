@@ -16,5 +16,5 @@ angular.module('culturalystApp')
       })
       .state('artist.catalysts', {
         templateUrl: 'app/artist/artist.catalysts.html'
-      })
+      });
   });

@@ -6,6 +6,6 @@ angular.module('culturalystApp')
       $http({
         method: 'GET',
         url: '/artist/' + id
-      })
-    }
+      });
+    };
   }]);
