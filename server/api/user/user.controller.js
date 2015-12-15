@@ -99,7 +99,7 @@ exports.showArtist = function(req, res, next) {
         return res.status(404).end();
       }
       (function() {/////THIS WILL PROBABLY NEED SOME ASYNC HELP!?!?
-        User.getCreatives().then(function(info) {
+        User.getArtists().then(function(info) {
           artistInfo.info = info;
         });
         User.getRewards().then(function(rewards) {
@@ -128,7 +128,7 @@ exports.showResults = function(req, res, next) {
     var param = req.params.medium;
   }
 
-  Media.findAll({
+  User.findAll({
     where: {
       field: param
     }
