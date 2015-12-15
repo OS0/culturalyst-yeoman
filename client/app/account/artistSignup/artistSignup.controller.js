@@ -1,6 +1,12 @@
 'use strict';
 
 class ArtistSignupController {
+  //start-non-standard
+  user = {};
+  errors = {};
+  submitted = false;
+  //end-non-standard
+
   constructor(Auth, $state, $log, $scope, $http) {
     this.Auth = Auth;
     this.$state = $state;
@@ -30,8 +36,7 @@ class ArtistSignupController {
   // go to main
   rewards() {
     this.$state.go('main');
-  }
-}
+ }
 
 angular.module('culturalystApp')
   .controller('ArtistSignupController', ArtistSignupController);

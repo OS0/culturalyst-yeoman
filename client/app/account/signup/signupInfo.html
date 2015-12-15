@@ -15,42 +15,10 @@
     up.
   </div>
   <br><br>
-
-  <!--Code for rendering images-->
-  <!--<div>
-    <div class="container" align="center">
-      <div class="user">
-        <img class="img-circle img-responsive"
-             src={{vm.currentUser()().profileImageUrl}}/>
-      </div>
-    </div>
-
-    &lt;!&ndash;Mykia's html for rendering an image&ndash;&gt;
-    <div id="uploader">
-      <h3 class='upload-header'>Add Your Profile and Cover Photos</h3>
-      <div ngf-drop ngf-select ng-model="files"
-           class="drop-box profile-box form-group"
-           ngf-drag-over-class="'dragover'" ngf-multiple="true"
-           ngf-allow-dir="true" accept="image/*,application/pdf"
-           ngf-pattern="'image/*,application/pdf'">
-        Click to add your photo dordrop it here
-      </div>
-      <div class="preview">
-        <div class="img-view">
-          <img ngf-src="!files[0].$error && files[0]">
-        </div>
-      </div>
-      <div ngf-no-file-drop>File Drag/Drop is not supported for this browser
-      </div>
-      <button class="btn btn-default btn-md continue-btn" type="button"
-              name="button"> Save & Continue
-      </button>
-    </div>
-  </div>-->
+<!-- 
   <br><br><br>
   <form class="form" name="form" ng-submit="vm.userDetail(form)" novalidate>
 
-    <!--Name-->
     <div class="form-group">
       <label for="firstName" class="col-sm-3 control-label">Full Name</label>
       <div class="col-sm-9">
@@ -59,7 +27,6 @@
       </div>
     </div>
 
-    <!--Email-->
     <div class="form-group">
       <label for="email" class="col-sm-3 control-label">Email</label>
       <div class="col-sm-9">
@@ -68,7 +35,30 @@
       </div>
     </div>
 
-    <!--Location-->
+ -->
+  <div class="container" align="center">
+    <div class="user">
+      <img class="img-circle img-responsive" src={{user.profileImageUrl}}/>
+    </div>
+  </div>
+  <br><br><br>
+  <form class="form-horizontal" role="form">
+    <div class="form-group">
+      <label ng-model="vm.user.name" for="firstName"
+             class="col-sm-3 control-label">Full Name</label>
+      <div class="col-sm-9">
+        <input type="text" id="firstName" class="form-control" ng-model="vm.user.name"
+               value="{{vm.getCurrentUser()}}" autofocus>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="email" class="col-sm-3 control-label">Email</label>
+      <div class="col-sm-9">
+        <input type="email" id="email" class="form-control" ng-model="email">
+      </div>
+    </div>
+
     <div class="form-group">
       <label for="location" class="col-sm-3 control-label">Location</label>
       <div class="col-sm-9">
@@ -104,7 +94,6 @@
         </button>
       </div>
     </div>
-
   </form>
 </div>
 
