@@ -1,6 +1,6 @@
 'use strict';
 
-class SignupController {
+class ArtistSignupController {
   //start-non-standard
   user = {};
   errors = {};
@@ -13,13 +13,7 @@ class SignupController {
     this.$log = $log;
     this.$scope = $scope;
     this.$http = $http;
-
-    this.$log.info(this.Auth.getCurrentUser()._id);
-
-    this.$scope.user = this.Auth.getCurrentUser();
-
-    this.$log.info(this.$scope.name);
-  }
+ }
 
   register(form) {
     this.submitted = true;
@@ -29,8 +23,7 @@ class SignupController {
           profileImage: null,
           name: this.user.name,
           email: this.user.email,
-          password: this.user.password,
-          location: null
+          password: this.user.password
         })
         .then(() => {
           // Account created, redirect to signupInfo for detailed signup page
@@ -53,7 +46,7 @@ class SignupController {
   }
 
   completeSignup(form) {
-    //submit will save the form to the database and update push the user to
+    // submit will save the form to the database and update push the user to
     // the discovery page
     //this.$state.go('discovery');
   }

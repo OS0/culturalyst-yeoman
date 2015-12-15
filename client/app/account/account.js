@@ -27,6 +27,20 @@ angular.module('culturalystApp')
         controller: 'SignupController',
         controllerAs: 'vm'
       })
+      .state('artistSignup', {
+        url: '/artistSignup',
+        templateUrl: 'app/account/artistSignup/artistSignup.html',
+        controller: 'ArtistSignupController',
+        controllerAs: 'vm',
+        authenticate: true
+      })
+      .state('signupInfo', {
+        url: '/signupInfo',
+        templateUrl: 'app/account/signup/signupInfo.html',
+        controller: 'SignupController',
+        controllerAs: 'vm',
+        authenticate: true
+      })
       .state('settings', {
         url: '/settings',
         templateUrl: 'app/account/settings/settings.html',
