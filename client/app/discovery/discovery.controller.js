@@ -7,6 +7,7 @@ angular.module('culturalystApp')
     $scope.artists = [];
 
     $scope.loadSubMediums = function(medium){
+      console.log(medium.name)
       $scope.selectedMedium = medium.name;
       $scope.submedia = medium.submedia;
     };
@@ -14,7 +15,6 @@ angular.module('culturalystApp')
     $scope.getArtists = function() {
       $http.get('/api/users/discovery/' + $scope.selectedMedium + '/' + $scope.selectedSubmedium).then(function(response) {
         $scope.artists = response.data;
-        // console.log('duuuude')
       })
     }
     
@@ -56,5 +56,10 @@ angular.module('culturalystApp')
         medium: 'Musician',
         img:'cover_photo_3.png'
       }];
+  })
+  .controller('SearcherCtrl', function ($scope) {
+    $scope.currentSel = function() {
+      console.log($scope.selectedMedium);
+    }
   });
   
