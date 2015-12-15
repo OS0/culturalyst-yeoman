@@ -8,10 +8,6 @@ class NavbarController {
   }, {
     'title':'Discovery',
     'state':'discovery'
-  },
-  {
-    'title':'Artists',
-    'state':'artist'
   }
   ];
 

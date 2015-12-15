@@ -11,8 +11,10 @@
 }
 
 .jumbo {
-  height: 100%;
-  background-image: url(http://topcartooncharacters.com/wp-content/uploads/2015/11/Batman-13-1024x576.jpg);
+  position: absolute;
+  background-image: url('http://topcartooncharacters.com/wp-content/uploads/2015/11/Batman-13-1024x576.jpg');
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 
 .sideBar {
