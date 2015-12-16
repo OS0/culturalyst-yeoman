@@ -32,14 +32,14 @@ function respondWith(res, statusCode) {
  */
 exports.index = function(req, res) {
   User.findAll({
-    attributes: [
-      '_id',
-      'name',
-      'email',
-      'role',
-      'provider'
-    ]
-  })
+      attributes: [
+        '_id',
+        'name',
+        'email',
+        'role',
+        'provider'
+      ]
+    })
     .then(function(users) {
       res.status(200).json(users);
     })
@@ -55,10 +55,10 @@ exports.create = function(req, res, next) {
   newUser.setDataValue('role', 'user');
   newUser.save()
     .then(function(user) {
-      var token = jwt.sign({ _id: user._id }, config.secrets.session, {
+      var token = jwt.sign({_id: user._id}, config.secrets.session, {
         expiresInMinutes: 60 * 5
       });
-      res.json({ token: token });
+      res.json({token: token});
     })
     .catch(validationError(res));
 };
@@ -70,10 +70,10 @@ exports.show = function(req, res, next) {
   var userId = req.params.id;
 
   User.find({
-    where: {
-      _id: userId
-    }
-  })
+      where: {
+        _id: userId
+      }
+    })
     .then(function(user) {
       if (!user) {
         return res.status(404).end();
@@ -90,7 +90,7 @@ exports.show = function(req, res, next) {
  * restriction: 'admin'
  */
 exports.destroy = function(req, res) {
-  User.destroy({ _id: req.params.id })
+  User.destroy({_id: req.params.id})
     .then(function() {
       res.status(204).end();
     })
@@ -106,10 +106,10 @@ exports.changePassword = function(req, res, next) {
   var newPass = String(req.body.newPassword);
 
   User.find({
-    where: {
-      _id: userId
-    }
-  })
+      where: {
+        _id: userId
+      }
+    })
     .then(function(user) {
       if (user.authenticate(oldPass)) {
         user.password = newPass;
@@ -125,23 +125,49 @@ exports.changePassword = function(req, res, next) {
 };
 
 /**
+ * Update the users information
+ */
+exports.updateUserInfo = function(req, res, next) {
+  var userId = req.user._id;
+  var name = String(req.body.name);
+  var location = String(req.body.location);
+  var birthday = String(req.body.birthday);
+
+  User.find({
+      where: {
+        _id: userId
+      }
+    })
+    .then(function(user) {
+      user.name = name;
+      user.location = location;
+      user.birthday = birthday;
+      return user.save()
+        .then(function() {
+          res.status(204).end();
+        })
+        .catch(validationError(res));
+    });
+};
+
+/**
  * Get my info
  */
 exports.me = function(req, res, next) {
   var userId = req.user._id;
 
   User.find({
-    where: {
-      _id: userId
-    },
-    attributes: [
-      '_id',
-      'name',
-      'email',
-      'role',
-      'provider'
-    ]
-  })
+      where: {
+        _id: userId
+      },
+      attributes: [
+        '_id',
+        'name',
+        'email',
+        'role',
+        'provider'
+      ]
+    })
     .then(function(user) { // don't ever give out the password or salt
       if (!user) {
         return res.status(401).end();

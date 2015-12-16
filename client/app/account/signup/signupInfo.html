@@ -1,4 +1,5 @@
 <navbar></navbar>
+
 <div>
   <h1 align="center">Catalyst Profile</h1><br>
 
@@ -8,14 +9,42 @@
     up.
   </div>
   <br><br>
-  <div class="container" align="center">
-    <div class="user">
-      <img class="img-circle img-responsive"
-           src={{vm.currentUser()().profileImageUrl}}/>
+
+  <!--Code for rendering images-->
+  <!--<div>
+    <div class="container" align="center">
+      <div class="user">
+        <img class="img-circle img-responsive"
+             src={{vm.currentUser()().profileImageUrl}}/>
+      </div>
     </div>
-  </div>
+
+    &lt;!&ndash;Mykia's html for rendering an image&ndash;&gt;
+    <div id="uploader">
+      <h3 class='upload-header'>Add Your Profile and Cover Photos</h3>
+      <div ngf-drop ngf-select ng-model="files"
+           class="drop-box profile-box form-group"
+           ngf-drag-over-class="'dragover'" ngf-multiple="true"
+           ngf-allow-dir="true" accept="image/*,application/pdf"
+           ngf-pattern="'image/*,application/pdf'">
+        Click to add your photo dordrop it here
+      </div>
+      <div class="preview">
+        <div class="img-view">
+          <img ngf-src="!files[0].$error && files[0]">
+        </div>
+      </div>
+      <div ngf-no-file-drop>File Drag/Drop is not supported for this browser
+      </div>
+      <button class="btn btn-default btn-md continue-btn" type="button"
+              name="button"> Save & Continue
+      </button>
+    </div>
+  </div>-->
   <br><br><br>
-  <form class="form-horizontal" role="form">
+  <form class="form" name="form" ng-submit="vm.userDetail(form)" novalidate>
+
+    <!--Name-->
     <div class="form-group">
       <label for="firstName" class="col-sm-3 control-label">Full Name</label>
       <div class="col-sm-9">
@@ -24,6 +53,7 @@
       </div>
     </div>
 
+    <!--Email-->
     <div class="form-group">
       <label for="email" class="col-sm-3 control-label">Email</label>
       <div class="col-sm-9">
@@ -31,18 +61,22 @@
                value="{{vm.currentUser()().email}}">
       </div>
     </div>
+
+    <!--Location-->
     <div class="form-group">
       <label for="location" class="col-sm-3 control-label">Location</label>
       <div class="col-sm-9">
         <input type="text" id="location" placeholder="City, State"
-               class="form-control">
+               class="form-control" ng-model="vm.user.location">
       </div>
     </div>
 
+    <!--Birthday-->
     <div class="form-group">
       <label class="col-sm-3 control-label">Birthday</label>
       <div class="col-sm-9">
-        <input type="date" id="birthDate" class="form-control">
+        <input type="date" id="birthDate" class="form-control"
+               ng-model="vm.user.birthday">
       </div>
     </div>
 
@@ -62,157 +96,6 @@
         <button type="submit" class="btn btn-primary btn-block">
           Save Profile
         </button>
-      </div>
-    </div>
-
-    <div class="form-group" style="width: 80%; margin: 5% 10% 0% 10%">
-      <label>Medium</label>
-      <div class="checkbox">
-        <label>
-          <input type="checkbox" id="film" value="film">Video and Film
-        </label>
-        <div class="sub" id="filmSub">
-          <label>Sub-Medium</label>
-          <select class="form-control">
-            <option>Short Films</option>
-            <option>Documentaries</option>
-            <option>Feature Films</option>
-          </select>
-        </div>
-      </div>
-      <div class="checkbox">
-        <label>
-          <input type="checkbox" id="music" value="music">Music
-        </label>
-        <div class="sub" id="musicSub">
-          <label>Sub-Medium</label>
-          <select class="form-control">
-            <option>Jazz</option>
-            <option>Rock</option>
-            <option>Experimental</option>
-            <option>Classical</option>
-          </select>
-        </div>
-      </div>
-      <div class="checkbox">
-        <label>
-          <input type="checkbox" id="dance" value="dance">Dance and Theater
-        </label>
-        <div class="sub" id="dtSub">
-          <label>Sub-Medium</label>
-          <select class="form-control">
-            <option>Ballet</option>
-            <option>Hip Hop</option>
-            <option>Lyrical</option>
-            <option>Ballroom</option>
-            <option>Plays</option>
-            <option>Musicals</option>
-          </select>
-        </div>
-      </div>
-      <div class="checkbox">
-        <label>
-          <input type="checkbox" id="lit" value="literature">Writing
-        </label>
-        <div class="sub" id="litSub">
-          <label>Sub-Medium</label>
-          <select class="form-control">
-            <option>Fiction</option>
-            <option>Poetry</option>
-            <option>Non-Fiction</option>
-          </select>
-        </div>
-      </div>
-      <div class="checkbox">
-        <label>
-          <input type="checkbox" id="comics" value="comics">Comics
-        </label>
-        <div class="sub" id="comicSub">
-          <label>Sub-Medium</label>
-          <select class="form-control">
-            <option>Anime</option>
-            <option>Graphic Novels</option>
-          </select>
-        </div>
-      </div>
-      <div class="checkbox">
-        <label>
-          <input type="checkbox" id="drawPaint" value="drawPaint">Drawing and
-          Painting
-        </label>
-        <div class="sub" id="drawPaintSub">
-          <label>Sub-Medium</label>
-          <select class="form-control">
-            <option>Acrylics</option>
-            <option>Watercolor</option>
-            <option>Pastels</option>
-            <option>Charcoal</option>
-          </select>
-        </div>
-      </div>
-      <div class="checkbox">
-        <label>
-          <input type="checkbox" id="animation" value="animation">Animation
-        </label>
-        <div class="sub" id="animateSub">
-          <label>Sub-Medium</label>
-          <select class="form-control">
-            <option>Drawn Animation</option>
-            <option>Stop Animation</option>
-            <option>Claymation</option>
-          </select>
-        </div>
-      </div>
-      <div class="checkbox">
-        <label>
-          <input type="checkbox" value="podcasts">Podcasts
-        </label>
-      </div>
-      <div class="checkbox">
-        <label>
-          <input type="checkbox" value="games">Games
-        </label>
-      </div>
-      <div class="checkbox">
-        <label>
-          <input type="checkbox" id="photography" value="photography">Photography
-        </label>
-        <div class="sub" id="photoSub">
-          <label>Sub-Medium</label>
-          <select class="form-control">
-            <option>Digital</option>
-            <option>Film</option>
-          </select>
-        </div>
-      </div>
-      <div class="checkbox">
-        <label>
-          <input type="checkbox" value="comedy">Comedy
-        </label>
-      </div>
-      <div class="checkbox">
-        <label>
-          <input type="checkbox" value="science">Science
-        </label>
-      </div>
-      <div class="checkbox">
-        <label>
-          <input type="checkbox" value="education">Education
-        </label>
-      </div>
-      <div class="checkbox">
-        <label>
-          <input type="checkbox" id="craftsDIY" value="craftsDIY">Crafts and DIY
-        </label>
-        <div class="sub" id="craftSub">
-          <label>Sub-Medium</label>
-          <select class="form-control">
-            <option>Knitting</option>
-            <option>Crochet</option>
-            <option>Cross Stitching</option>
-            <option>Lettering Arts</option>
-          </select>
-        </div>
       </div>
     </div>
 
