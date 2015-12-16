@@ -25,7 +25,11 @@ User.sync()
         email: 'admin@example.com',
         password: 'admin',
         profilePicture: null
+<<<<<<< HEAD
       }/*, {
+=======
+      }, {
+>>>>>>> Attempt to allow users to update profile information.
         provider: 'local',
         role: 'catalyst',
         name: 'Catalyst',
@@ -39,7 +43,11 @@ User.sync()
         email: 'creative@example.com',
         password: 'creative',
         profilePicture: null
+<<<<<<< HEAD
       }*/])
+=======
+      }])
+>>>>>>> Attempt to allow users to update profile information.
       .then(function() {
         console.log('finished populating users');
       });

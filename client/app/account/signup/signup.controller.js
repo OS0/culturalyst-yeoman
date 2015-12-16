@@ -16,7 +16,7 @@ class SignupController {
   }
 
   currentUser() {
-    this.$log.info(this.Auth.getCurrentUser());
+    //this.$log.info(this.Auth.getCurrentUser());
     return this.Auth.getCurrentUser;
   }
 
