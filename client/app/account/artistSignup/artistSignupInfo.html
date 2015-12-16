@@ -40,7 +40,7 @@
 <!--</a>-->
 
 <div>
-  <form>
+  <form ng-submit="vm.register(InfoForm)">
     <div class="form-group" style="width: 80%; margin: 5% 10% 0% 10%">
       <label for="exampleName">Name</label>
       <input type="text" class="form-control" id="exampleName"
@@ -128,7 +128,8 @@
       </div>
       <div class="checkbox">
         <label>
-          <input type="checkbox" id="drawPaint" value="drawPaint">Drawing and Painting
+          <input type="checkbox" id="drawPaint" value="drawPaint">Drawing and
+          Painting
         </label>
         <div class="sub" id="drawPaintSub">
           <label>Sub-Medium</label>
@@ -182,7 +183,7 @@
       </div>
       <div class="checkbox">
         <label>
-          <input type="checkbox"value="science">Science
+          <input type="checkbox" value="science">Science
         </label>
       </div>
       <div class="checkbox">

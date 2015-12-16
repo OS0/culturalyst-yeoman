@@ -54,6 +54,9 @@ class SignupController {
   userDetail() {
     this.submitted = true;
 
+    this.state.go('main');
+
+
     this.Auth.updateUserInfo({
         name: this.user.name,
         location: this.user.location,
@@ -65,7 +68,8 @@ class SignupController {
 
   userDetailZ(){
     this.$state.go('main');
-  }
+        this.state.go('main')
+      });
 
 }
 

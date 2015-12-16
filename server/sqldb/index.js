@@ -14,7 +14,11 @@ var db = {
 };
 
 // Insert models below
+<<<<<<< HEAD
 db.Artist = db.sequelize.import('../api/artist/artist.model');
+=======
+db.Test = db.sequelize.import('../api/test/test.model');
+>>>>>>> Add test to the api to check against the user modifications.
 db.Reward = db.sequelize.import('../api/reward/reward.model');
 db.User = db.sequelize.import('../api/user/user.model');
 db.Media = db.sequelize.import('../api/media/media.model');

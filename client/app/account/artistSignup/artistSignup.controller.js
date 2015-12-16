@@ -38,5 +38,7 @@ class ArtistSignupController {
     this.$state.go('main');
  }
 
+}
+
 angular.module('culturalystApp')
   .controller('ArtistSignupController', ArtistSignupController);
