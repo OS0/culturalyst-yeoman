@@ -14,12 +14,32 @@ var db = {
 };
 
 // Insert models below
-db.Artist = db.sequelize.import('../api/artist/artist.model');
 db.Reward = db.sequelize.import('../api/reward/reward.model');
 db.User = db.sequelize.import('../api/user/user.model');
 db.Media = db.sequelize.import('../api/media/media.model');
 
-db.Media.belongsTo(db.User, { as: 'Medium' });
-db.Reward.belongsTo(db.User, { as: 'Reward' });
+// db.Artist.belongsTo(db.User, { as: 'Artist'});
+db.Media.hasMany(db.User, {
+  through: 'User_Media',
+  foreignKey: 'user_id',
+  constraints: false,
+  as: 'User'});
+db.User.hasMany(db.Media, {
+  through: 'User_Media',
+  foreignKey: 'media_id',
+  constraints: false,
+  as: 'Media'});
+})
+db.Rewards.hasMany(db.User, {
+  through: 'User_Rewards',
+  foreignKey: 'user_id',
+  constraints: false,
+  as: 'User'});
+db.User.hasMany(db.Rewards, {
+  through: 'User_Rewards',
+  foreignKey: 'reward_id',
+  constraints: false,
+  as: 'Reward'});
+})
 
 module.exports = db;

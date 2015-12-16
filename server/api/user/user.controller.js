@@ -85,6 +85,71 @@ exports.show = function(req, res, next) {
     });
 };
 
+exports.showArtist = function(req, res, next) {
+  var userId = req.params.id;
+  var artistInfo = {};
+
+  User.find({
+    where: {
+      _id: userId
+    }
+  })
+    .then(function(user) {
+      if (!user) {
+        return res.status(404).end();
+      }
+      (function() {/////THIS WILL PROBABLY NEED SOME ASYNC HELP!?!?
+        // User.getRewards().then(function(rewards) {
+        //   artistInfo.rewards = rewards;
+        // });
+        User.getMediums().then(function(media) {
+          artistInfo.media = media;
+        })
+        artistInfo.profile = user.profile;
+      }()).then(function() {
+        res.json(artistInfo);
+      })
+    })
+    .catch(function(err) {
+      return next(err);
+    });
+};
+
+exports.showResults = function(req, res, next) {
+  var query;
+
+  if (req.param.submedium) {
+    query = {
+      medium: req.params.medium,
+      submedium: req.params.submedium
+    };
+  } else {
+    query = {
+      medium: req.params.medium
+    };
+  }
+
+  User.getMedia(
+    // { where: query }
+    )
+  // User.getMedia({
+  //   where: query
+  // })
+    .then(function(users) {
+      if (!user) {
+        return res.status(404).end();
+      }
+      console.log(users)
+      // users.map(function(user) {
+      //   return user.profile;
+      // })
+      res.json(users);
+    })
+    .catch(function(err) {
+      return next(err);
+    });
+};
+
 /**
  * Deletes a user
  * restriction: 'admin'
