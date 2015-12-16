@@ -12,6 +12,8 @@ router.put('/:id', controller.update);
 router.patch('/:id', controller.update);
 router.delete('/:id', controller.destroy);
 router.get('/medium', controller.show);
-router.get('/submedium', controller.show)
+router.get('/submedium', controller.show);
+router.get('/discovery/:medium/:submedium', controller.showResults);
+
 
 module.exports = router;

@@ -5,10 +5,10 @@ angular.module('culturalystApp')
     // Service logic
 
     var mediaList = [
-      {'name': 'Musician', 'submedia': ['Instrumental', 'Rock', 'Country', 'Folk', 'R&B']},
-      {'name': 'Writing', 'submedia': ['Poetry', 'Sci-Fi', 'Fantasy', 'Non-Fiction', 'Romance']},
+      {'name': 'Musicians', 'submedia': ['Instrumental', 'Rock', 'Country', 'Folk', 'R&B']},
+      {'name': 'Writers', 'submedia': ['Poetry', 'Sci-Fi', 'Fantasy', 'Non-Fiction', 'Romance']},
       {'name': 'Film-Makers', 'submedia': ['Documentary', 'Action', 'Romance', 'Fantasy', 'Comedy']},
-      {'name': 'Visual-Artist', 'submedia': ['Digital', 'Oil', 'Acrylics', 'Welding','Wood-Work']}
+      {'name': 'Visual-Artists', 'submedia': ['Digital', 'Oil', 'Acrylics', 'Welding','Wood-Work']}
     ]
 
     // Public API here

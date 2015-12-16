@@ -20,6 +20,8 @@ function handleError(res, statusCode) {
   };
 }
 
+
+
 function responseWithResult(res, statusCode) {
   statusCode = statusCode || 200;
   return function(entity) {
@@ -64,6 +66,41 @@ exports.index = function(req, res) {
   Media.findAll()
     .then(responseWithResult(res))
     .catch(handleError(res));
+};
+
+exports.showResults = function(req, res, next) {
+  var query;
+
+  if (req.param.submedium) {
+    query = {
+      medium: req.params.medium,
+      submedium: req.params.submedium
+    };
+  } else {
+    query = {
+      medium: req.params.medium
+    };
+  }
+
+  Media.getUsers(
+  // { where: query }
+  )
+  // User.getMedia({
+  //   where: query
+  // })
+    .then(function(users) {
+      if (!user) {
+        return res.status(404).end();
+      }
+      console.log(users)
+      // users.map(function(user) {
+      //   return user.profile;
+      // })
+      res.json(users);
+    })
+    .catch(function(err) {
+      return next(err);
+    });
 };
 
 // Gets a list of users with medium or submedium

@@ -99,17 +99,14 @@ exports.showArtist = function(req, res, next) {
         return res.status(404).end();
       }
       (function() {/////THIS WILL PROBABLY NEED SOME ASYNC HELP!?!?
-        User.getArtists().then(function(info) {
-          artistInfo.info = info;
-        });
-        User.getRewards().then(function(rewards) {
-          artistInfo.rewards = rewards;
-        });
+        // User.getRewards().then(function(rewards) {
+        //   artistInfo.rewards = rewards;
+        // });
         User.getMediums().then(function(media) {
           artistInfo.media = media;
         })
         artistInfo.profile = user.profile;
-      }()).then(funtion() {
+      }()).then(function() {
         res.json(artistInfo);
       })
     })
@@ -119,27 +116,33 @@ exports.showArtist = function(req, res, next) {
 };
 
 exports.showResults = function(req, res, next) {
+  var query;
 
   if (req.param.submedium) {
-    var field = submedium;
-    var param = req.params.submedium;
+    query = {
+      medium: req.params.medium,
+      submedium: req.params.submedium
+    };
   } else {
-    var field = medium;
-    var param = req.params.medium;
+    query = {
+      medium: req.params.medium
+    };
   }
 
-  User.findAll({
-    where: {
-      field: param
-    }
-  })
+  User.getMedia(
+    // { where: query }
+    )
+  // User.getMedia({
+  //   where: query
+  // })
     .then(function(users) {
       if (!user) {
         return res.status(404).end();
       }
-      users.map(function(user) {
-        return user.profile;
-      })
+      console.log(users)
+      // users.map(function(user) {
+      //   return user.profile;
+      // })
       res.json(users);
     })
     .catch(function(err) {
