@@ -5,6 +5,7 @@ module.exports = function(sequelize, DataTypes) {
     _id: {
       type: DataTypes.INTEGER,
       allowNull: false,
+      autoIncrement: true,
       primaryKey: true,
     },
     medium: {
@@ -14,7 +15,6 @@ module.exports = function(sequelize, DataTypes) {
     submedium: {
       type: DataTypes.STRING,
       defaultValue: 'other'
-    },
-    active: DataTypes.BOOLEAN
+    }
   });
 };
