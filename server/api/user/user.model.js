@@ -56,7 +56,9 @@ module.exports = function(sequelize, DataTypes) {
       profile: function() {
         return {
           'name': this.name,
-          'role': this.role
+          'role': this.role,
+          'location': this.location,
+          'birthday': this.birthday
         };
       },
 
