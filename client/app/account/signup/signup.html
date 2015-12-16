@@ -8,27 +8,34 @@
     <div class="col-sm-12">
       <form class="form" name="form" ng-submit="vm.register(form)" novalidate>
 
+        <!--Name-->
         <div class="form-group" ng-class="{ 'has-success': form.name.$valid && vm.submitted,
                                             'has-error': form.name.$invalid && vm.submitted }">
           <label>Full Name</label>
 
-          <input type="text" name="name" class="form-control" ng-model="vm.user.name"
+          <input type="text" name="name" class="form-control"
+                 ng-model="vm.user.name"
                  required/>
-          <p class="help-block" ng-show="form.name.$error.required && vm.submitted">
+          <p class="help-block"
+             ng-show="form.name.$error.required && vm.submitted">
             A name is required
           </p>
         </div>
 
+        <!--Email-->
         <div class="form-group" ng-class="{ 'has-success': form.email.$valid && vm.submitted,
                                             'has-error': form.email.$invalid && vm.submitted }">
           <label>Email</label>
 
-          <input type="email" name="email" class="form-control" ng-model="vm.user.email"
+          <input type="email" name="email" class="form-control"
+                 ng-model="vm.user.email"
                  required mongoose-error/>
-          <p class="help-block" ng-show="form.email.$error.email && vm.submitted">
+          <p class="help-block"
+             ng-show="form.email.$error.email && vm.submitted">
             Doesn't look like a valid email.
           </p>
-          <p class="help-block" ng-show="form.email.$error.required && vm.submitted">
+          <p class="help-block"
+             ng-show="form.email.$error.required && vm.submitted">
             What's your email address?
           </p>
           <p class="help-block" ng-show="form.email.$error.mongoose">
@@ -40,7 +47,8 @@
                                             'has-error': form.password.$invalid && vm.submitted }">
           <label>Password</label>
 
-          <input type="password" name="password" class="form-control" ng-model="vm.user.password"
+          <input type="password" name="password" class="form-control"
+                 ng-model="vm.user.password"
                  ng-minlength="3"
                  required
                  mongoose-error/>
@@ -56,7 +64,8 @@
         <div class="form-group" ng-class="{ 'has-success': form.confirmPassword.$valid && vm.submitted,
                                             'has-error': form.confirmPassword.$invalid && vm.submitted }">
           <label>Confirm Password</label>
-          <input type="password" name="confirmPassword" class="form-control" ng-model="vm.user.confirmPassword"
+          <input type="password" name="confirmPassword" class="form-control"
+                 ng-model="vm.user.confirmPassword"
                  match="vm.user.password"
                  ng-minlength="3" required/>
           <p class="help-block"
