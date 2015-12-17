@@ -52,10 +52,7 @@ class SignupController {
 
   // edit this to work on the next page
   userDetail() {
-    this.submitted = true;
-
-    this.state.go('main');
-
+    //this.state.go('main');
 
     this.Auth.updateUserInfo({
         name: this.user.name,
