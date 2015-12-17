@@ -10,24 +10,36 @@
   margin-bottom: 10px;
 }
 
-.jumbo {
-  position: absolute;
-  background-image: url('http://topcartooncharacters.com/wp-content/uploads/2015/11/Batman-13-1024x576.jpg');
-  background-repeat: no-repeat;
-  background-size: contain;
-}
-
-.sideBar {
-  background-color: grey;
-  padding-bottom: 60px;
-  padding-top: 60px;
+.jumbotron {
+  background-image: url('http://www.planwallpaper.com/static/images/abstract-colourful-cool-wallpapers-55ec7905a6a4f.jpg');
+  color: white;
 }
 
 .profileImg {
+  height: 200px;
   border-radius: 50%;
   border: 1px solid white;
 }
 
 .navbar {
   margin-bottom: 0px;
+}
+
+.feedNearned {
+  margin-top: 30px;
+  margin-left: -40px;
+}
+
+.earned {
+  border: 1px solid rgba(0, 0, 0, .2);
+  border-radius: 6px;
+  width: 30%;
+}
+
+.modal-dialog {
+  margin-top: 0px;
+}
+
+.modal-content {
+  box-shadow: none;
 }
