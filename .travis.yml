@@ -1,11 +1,18 @@
 language: node_js
 node_js:
-  - 4.2.3
+- 4.2.3
 matrix:
   fast_finish: true
   allow_failures:
-    - node_js: 5.1.1
+  - node_js: 5.1.1
 before_script:
-  - npm install -g bower grunt-cli
-  - bower install
+- npm install -g bower grunt-cli
+- bower install
+script:
+- npm test
 services: mongodb
+deploy:
+  provider: heroku
+  api_key:
+    secure: kDIOA1BuiS+110wNdgxppuL3HmoC1Rkn/dUB3/DwQxosH7mQ/JJgrSJYXaY7yGfV0NjkMqs+kKpEdLckTgWZlV1igMKNFwL7Iz2cVE6m9Suoh49yjICMKrS8hOmGly0uDScbTZD+oUeA23AJKLVvk1vl2+TVKlNNE6oppU7RdNlU8eadZ6U1MzV6ludnZSe6EfHCkCnFFTvUGANPs3UH8XjZuNGe+Rw0WkVkfTBsCqpaplI3YHOgD644goA/wy40VWq7zJihFgPsSOMsE72abZaERtS6CuRuW3ENiLmQqJ4tYZw959WKkWGweoT4AsL3rVpdTFlFcUhVIThW7HwhlTFo78X+w4bOf2+YUQU7AvuGQyj/SwA79oGpp9xplYdvFzx59mC3dLEzkSS9GC9juRGYUL4bVyVWJYJfxTE4Kl2u7v3i+/z0xDAZPsohAqORjFI4YptZWcvdlXgMAPwxpQb4MK97B33XORgxjhdNJ8a3F/Vsz+4DhIe8LT6fitgHR5InCioOtwWg75KQJASEPQafY9rEkoY0DBluwCVk6vbn6XKmZ5YLVp8XDhyL/n+AI7QrchUgdFGicpqhPEBdSZWMTc2Q7jGOoZcKbBlK+Etz0QvvUl4Gzf/R9yVKQaH12iK/ma70b4yDvxhdR2W9tmRpipAKIBc5CWvo/F14LXs=
+  app: culturalyst
