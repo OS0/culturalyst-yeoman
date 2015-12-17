@@ -10,8 +10,11 @@ angular.module('culturalystApp', [
   'btford.socket-io',
   'ui.router',
   'ui.bootstrap',
-  'validation.match'
+  'validation.match',
+  'firebase'
 ])
+
+
   .config(function($urlRouterProvider, $stateProvider, $locationProvider) {
     $urlRouterProvider
       .otherwise('/');
