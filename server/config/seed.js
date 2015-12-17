@@ -25,7 +25,7 @@ User.sync()
         email: 'admin@example.com',
         password: 'admin',
         profilePicture: null
-      }, {
+      }/*, {
         provider: 'local',
         role: 'catalyst',
         name: 'Catalyst',
@@ -39,7 +39,7 @@ User.sync()
         email: 'creative@example.com',
         password: 'creative',
         profilePicture: null
-      }])
+      }*/])
       .then(function() {
         console.log('finished populating users');
       });

@@ -6,8 +6,8 @@
 // You will need to set these on the server you deploy to.
 
 module.exports = {
-  DOMAIN:           'http://localhost:9000',
-  SESSION_SECRET:   'culturalyst-secret',
+  DOMAIN:           'domain',
+  SESSION_SECRET:   'session-secret',
 
   FACEBOOK_ID:      'app-id',
   FACEBOOK_SECRET:  'secret',

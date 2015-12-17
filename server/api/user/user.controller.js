@@ -36,6 +36,8 @@ exports.index = function(req, res) {
         '_id',
         'name',
         'email',
+        'location',
+        'birthday',
         'role',
         'provider'
       ]
@@ -164,6 +166,8 @@ exports.me = function(req, res, next) {
         '_id',
         'name',
         'email',
+        'location',
+        'birthday',
         'role',
         'provider'
       ]

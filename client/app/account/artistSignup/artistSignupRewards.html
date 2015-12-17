@@ -1,6 +1,14 @@
-<button ng-click="next">
-  next
-</button>
+<navbar></navbar>
+
+<!--<a ui-sref="main">-->
+  <!--<button>-->
+    <!--put shit here-->
+  <!--</button>-->
+<!--</a>-->
+
+<!--<button ng-click="next" ng-submit="vm.register(RewardsForm)">-->
+  <!--next-->
+<!--</button>-->
 
 <div class="container rwds">
   <h2 class="rewards-header"> What rewards would you like to offer? </h2>
@@ -13,13 +21,16 @@
           <h3>$1</h3>
         </div>
         <div class="reward-header input-group-sm">
-          <input ng-model="signupService.newUserObject.data.rewards.defaultRewards.d0.title" type="text"
-                 class="form-control"
-                 placeholder="Title">
+          <input
+            ng-model="signupService.newUserObject.data.rewards.defaultRewards.d0.title"
+            type="text"
+            class="form-control"
+            placeholder="Title">
         </div>
         <div class="reward-description input-group-lg">
           <input
-            ng-model="signupService.newUserObject.data.rewards.defaultRewards.d0.description" type="text"
+            ng-model="signupService.newUserObject.data.rewards.defaultRewards.d0.description"
+            type="text"
             class="form-control"
             placeholder="Description">
         </div>
@@ -80,14 +91,14 @@
 
   <p>
     <a href="#" class="btn btn-primary" role="button" id="add-new-rewards"
-       ng-click="addField()">
+       ng-click="vm.addField()">
       add one more
     </a>
   </p>
 
   <div class="rewards container-fluid">
     <div class="custom-rewards">
-      <div ng-repeat="item in rewardFields">
+      <div ng-repeat="item in vm.list">
         <div class="col-md-3">
           <div class="reward-price">
             <input min="0.01" step="0.01" type="number"
@@ -104,5 +115,10 @@
       </div>
     </div>
   </div>
+
+  <button class="btn btn-default btn-md continue-btn" type="button"
+          name="button" ng-click="vm.rewards()">
+    Save & Continue
+  </button>
 
 </div>

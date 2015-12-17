@@ -7,8 +7,30 @@ class ArtistSignupController {
     this.$log = $log;
     this.$scope = $scope;
     this.$http = $http;
+    this.list = [];
   }
 
+  // go to content
+  register() {
+    this.$state.go('artistSignupContent');
+  }
+
+  // go to rewards
+  content() {
+    this.$state.go('artistSignupRewards');
+  }
+
+  //list(){}
+
+  addField() {
+    this.$log.log('this was called');
+    this.list.push({});
+  };
+
+  // go to main
+  rewards() {
+    this.$state.go('main');
+  }
 }
 
 angular.module('culturalystApp')

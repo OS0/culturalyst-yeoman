@@ -1,53 +1,60 @@
+<navbar></navbar>
+
 <script>
   $(document).ready(function() {
     $('.sub').hide();
     $('#film').on('click', function() {
       $('#filmSub').toggle();
-    })
+    });
     $('#music').on('click', function() {
       $('#musicSub').toggle();
-    })
+    });
     $('#dance').on('click', function() {
       $('#dtSub').toggle();
-    })
+    });
     $('#lit').on('click', function() {
       $('#litSub').toggle();
-    })
+    });
     $('#comics').on('click', function() {
       $('#comicSub').toggle();
-    })
+    });
     $('#drawPaint').on('click', function() {
       $('#drawPaintSub').toggle();
-    })
+    });
     $('#animation').on('click', function() {
       $('#animateSub').toggle();
-    })
+    });
     $('#photography').on('click', function() {
       $('#photoSub').toggle();
-    })
+    });
     $('#craftsDIY').on('click', function() {
       $('#craftSub').toggle();
     })
   });
 </script>
 
-<button ng-click="next">
-  next
-</button>
+<!--<a ui-sref="artistSignupContent">-->
+  <!--<button>-->
+    <!--put shit here-->
+  <!--</button>-->
+<!--</a>-->
 
 <div>
   <form>
     <div class="form-group" style="width: 80%; margin: 5% 10% 0% 10%">
       <label for="exampleName">Name</label>
-      <input type="text" class="form-control" id="exampleName" placeholder="Name">
+      <input type="text" class="form-control" id="exampleName"
+             placeholder="Name">
     </div>
     <div class="form-group" style="width: 80%; margin: 5% 10% 0% 10%">
       <label for="exapmleInputEmail1">Email address</label>
-      <input type="email" class="form-control" id="exampleInputEmail" placeholder="Email">
+      <input type="email" class="form-control" id="exampleInputEmail"
+             placeholder="Email">
     </div>
     <div class="form-group" style="width: 80%; margin: 5% 10% 0% 10%">
       <label for="bio">Biography</label>
-      <textarea class="form-control" rows="3" placeholder="About You"></textarea>
+      <textarea class="form-control" rows="3"
+                placeholder="About You"></textarea>
     </div>
     <div class="form-group" style="width: 80%; margin: 5% 10% 0% 10%">
       <label for="medium">Medium</label>
@@ -121,7 +128,8 @@
       </div>
       <div class="checkbox">
         <label>
-          <input type="checkbox" id="drawPaint" value="drawPaint">Drawing and Painting
+          <input type="checkbox" id="drawPaint" value="drawPaint">Drawing and
+          Painting
         </label>
         <div class="sub" id="drawPaintSub">
           <label>Sub-Medium</label>
@@ -175,7 +183,7 @@
       </div>
       <div class="checkbox">
         <label>
-          <input type="checkbox"value="science">Science
+          <input type="checkbox" value="science">Science
         </label>
       </div>
       <div class="checkbox">
@@ -198,6 +206,8 @@
         </div>
       </div>
     </div>
-    <button type="submit" class="btm btn-default" style="margin: 10% 45%">Next</button>
+    <button type="submit" class="btm btn-default" style="margin: 10% 45%" ng-click="vm.register()">
+      Next
+    </button>
   </form>
 </div>
