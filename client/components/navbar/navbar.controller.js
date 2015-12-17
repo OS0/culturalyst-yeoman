@@ -9,7 +9,11 @@ class NavbarController {
     'title':'Discovery',
     'state':'discovery'
   }
+<<<<<<< 7409b19465e62361ae6249907dc6eafab06a414a
   ];
+=======
+];
+>>>>>>> Add culturalyst to footer
 
   isCollapsed = true;
   //end-non-standard
