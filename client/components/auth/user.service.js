@@ -13,6 +13,12 @@ function UserResource($resource) {
         controller:'password'
       }
     },
+    updateUserInfo: {
+    method: 'PUT',
+    params: {
+      controller:'updateUserInfo'
+    }
+  },
     get: {
       method: 'GET',
       params: {
