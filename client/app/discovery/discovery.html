@@ -35,11 +35,11 @@
     <div class="row">
         <!-- for $scope to work we would need a controller -->
         <div class="album text-muted">
-          <div class="card" ng-repeat="artist in artists | filter:searchText | filter:{$:medium.name}">
+          <a ng-repeat="artist in artists | filter:searchText | filter:{$:medium.name}"href="/artist/{{artist.$id}}"><div class="card" >
             <h1>{{artist.name}}</h1>
             <p>{{artist.medium}}</p>
             <img ng-src="assets/img/{{artist.img}}"/>
-          </div>
+          </div></a>
         </div>
 
     </div>

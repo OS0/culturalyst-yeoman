@@ -1,6 +1,6 @@
 <navbar></navbar>
 
-<div class="jumbotron text-center">
+<div class="jumbotron text-center artistBack">
   <div class="container">
     <img class="profileImg" src="http://findicons.com/files/icons/1293/the_batman_vol_1/128/batman.png"/>
     <h2>{{artist.name}}</h2>
@@ -22,13 +22,13 @@
             <div class="modal-body">
                 <form class="form center-block">
                   <div class="form-group">
-                    <textarea class="form-control input-lg" autofocus="" placeholder="What do you want to share?"></textarea>
+                    <textarea class="form-control input-lg" autofocus="" placeholder="What do you want to share?" ng-model="post"></textarea>
                   </div>
                 </form>
             </div>
             <div class="modal-footer">
                 <div>
-                <button class="btn btn-primary btn-sm" data-dismiss="modal" aria-hidden="true">Post</button>
+                <button class="btn btn-primary btn-sm" data-dismiss="modal" aria-hidden="true" ng-click="addPost(post)">Post</button>
                   <ul class="pull-left list-inline"><li><a href=""><i class="glyphicon glyphicon-upload"></i></a></li><li><a href=""><i class="glyphicon glyphicon-camera"></i></a></li><li><a href=""><i class="glyphicon glyphicon-map-marker"></i></a></li></ul>
       		  </div>
             </div>
@@ -43,11 +43,32 @@
             <h2 class="earneded">{{artist.earned | currency}}</h2>
           </div>
           <h4>per month</h4>
-
       </div>
     </div>
   </div>
 </div>
+
+<div class="modal-dialog" ng-repeat="post in posts | limitTo: 5 | orderBy: created">
+  <div class="modal-content">
+    <div class="modal-body">
+      <div class="row">
+        <div class="col-md-1 postImg">
+          <img src="http://placehold.it/50x50"/>
+        </div>
+        <div class="col-md-3">
+          <span>{{artist.name}}</span>
+          <span>{{post.created}}</span>
+        </div>
+      </div>
+      <div class="">
+        <p>
+          {{post.text}}
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
 
 
 <div class="container">
