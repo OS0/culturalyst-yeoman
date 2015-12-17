@@ -18,11 +18,7 @@ function onConnect(socket) {
   });
 
   // Insert sockets below
-<<<<<<< HEAD
   require('../api/artist/artist.socket').register(socket);
-=======
-  require('../api/test/test.socket').register(socket);
->>>>>>> Add test to the api to check against the user modifications.
   require('../api/reward/reward.socket').register(socket);
   require('../api/media/media.socket').register(socket);
 
