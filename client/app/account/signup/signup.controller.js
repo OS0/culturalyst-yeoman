@@ -51,10 +51,21 @@ class SignupController {
   }
 
   // edit this to work on the next page
-  userDetail(form) {
-    this.submitted = true;
+  userDetail() {
+    this.state.go('main');
 
-    if (form.$valid) {
+    /*this.submitted = true;
+
+    this.Auth.updateUserInfo({
+        name: this.user.name,
+        location: this.user.location,
+        birthday: this.user.birthday
+      })
+      .then(() => {
+        this.state.go('main')
+      });*/
+
+    /*if (form.$valid) {
       this.Auth.updateUserInfo({
           name: this.user.name,
           location: this.user.location,
@@ -67,15 +78,15 @@ class SignupController {
           err = err.data;
           this.errors = {};
 
-          /*// Update validity of form fields that match the sequelize errors
+          /!*!// Update validity of form fields that match the sequelize errors
           if (err.name) {
             angular.forEach(err.fields, field => {
               form[field].$setValidity('mongoose', false);
               this.errors[field] = err.message;
             });
-          }*/
+          }*!/
         });
-    }
+    }*/
   }
 }
 

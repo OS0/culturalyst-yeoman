@@ -9,6 +9,20 @@ class ArtistSignupController {
     this.$http = $http;
   }
 
+  //// go to content
+  //register(InfoForm) {
+  //  this.state.go('artistSignupContent');
+  //}
+  //
+  //// go to rewards
+  //content(ContentUpload) {
+  //  this.state.go('artistSignupRewards');
+  //}
+  //
+  //// go to main
+  //rewards(RewardsForm) {
+  //  this.state.go('main');
+  //}
 }
 
 angular.module('culturalystApp')
