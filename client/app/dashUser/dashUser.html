@@ -1,1 +1,95 @@
 <div>This is the dashUser view.</div>
+
+<navbar></navbar>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <h1>User Dashboard</h1>
+    </div>
+    <div class="col-sm-12">
+
+      <!--profile picture || upload mechanism-->
+      <div>profile image goes here as a circle</div>
+
+      <form class="form" name="form" ng-submit="vm.register(form)" novalidate>
+
+        <!--name-->
+        <div class="form-group" ng-class="{ 'has-success': form.name.$valid && vm.submitted,
+                                            'has-error': form.name.$invalid && vm.submitted }">
+          <label>Name</label>
+
+          <input type="text" name="name" class="form-control" ng-model="vm.user.name"
+                 required/>
+          <p class="help-block" ng-show="form.name.$error.required && vm.submitted">
+            A name is required
+          </p>
+        </div>
+
+        <!--email-->
+        <div class="form-group" ng-class="{ 'has-success': form.email.$valid && vm.submitted,
+                                            'has-error': form.email.$invalid && vm.submitted }">
+          <label>Email</label>
+
+          <input type="email" name="email" class="form-control" ng-model="vm.user.email"
+                 required
+                 mongoose-error/>
+          <p class="help-block" ng-show="form.email.$error.email && vm.submitted">
+            Doesn't look like a valid email.
+          </p>
+          <p class="help-block" ng-show="form.email.$error.required && vm.submitted">
+            What's your email address?
+          </p>
+          <p class="help-block" ng-show="form.email.$error.mongoose">
+            {{ vm.errors.email }}
+          </p>
+        </div>
+
+        <!--location up date this to be a State/City specific || or pipe
+        default if captured-->
+        <div class="form-group" ng-class="{ 'has-success': form.email.$valid && vm.submitted,
+                                            'has-error': form.email.$invalid && vm.submitted }">
+          <label>Location</label>
+
+          <input type="email" name="email" class="form-control" ng-model="vm.user.email"
+                 required
+                 mongoose-error/>
+          <p class="help-block" ng-show="form.email.$error.email && vm.submitted">
+            Doesn't look like a valid email.
+          </p>
+          <p class="help-block" ng-show="form.email.$error.required && vm.submitted">
+            What's your email address?
+          </p>
+          <p class="help-block" ng-show="form.email.$error.mongoose">
+            {{ vm.errors.email }}
+          </p>
+        </div>
+
+        <div>
+          <button class="btn btn-inverse btn-lg btn-register-Artist" type="submit">
+            Become an Artist
+          </button>
+        </div>
+
+        <!--Update information, build the logic for this is shared with auth
+        maybe-->
+        <div>
+          <button class="btn btn-inverse btn-lg btn-register-Artist" type="submit">
+            Update profile information
+          </button>
+        </div>
+
+        <!--Render list of creatives we're catalyzing and rewards, figure out
+         how to render info from that object-->
+        <div>Render the the list of creatives you're catalyzing and
+          rewards</div>
+
+        <!--Display total cash flow throughput-->
+        <div>Display total cash flow throughput</div>
+
+        <hr/>
+      </form>
+    </div>
+  </div>
+  <hr>
+</div>

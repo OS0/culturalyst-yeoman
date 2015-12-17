@@ -41,6 +41,7 @@ var all = {
     }
   },
 
+  // add for other services like esty later
   facebook: {
     clientID:     process.env.FACEBOOK_ID || 'id',
     clientSecret: process.env.FACEBOOK_SECRET || 'secret',

@@ -1,0 +1,29 @@
+<navbar></navbar>
+
+<!--<a ui-sref="artistSignupRewards">-->
+  <!--<button>-->
+    <!--put shit here-->
+  <!--</button>-->
+<!--</a>-->
+
+<div id="uploader" ng-submit="vm.register(ContentUpload)">
+  <h3 class='upload-header'>Add Your Profile and Cover Photos</h3>
+  <div ngf-drop ngf-select ng-model="files"
+       class="drop-box profile-box form-group"
+       ngf-drag-over-class="'dragover'" ngf-multiple="true" ngf-allow-dir="true"
+       accept="image/*,application/pdf" ngf-pattern="'image/*,application/pdf'">
+    Click to add your photo or drop it here
+  </div>
+  <div class="preview">
+    <div class="img-view">
+      <img ngf-src="!files[0].$error && files[0]">
+    </div>
+  </div>
+  <div ngf-no-file-drop>
+    File Drag/Drop is not supported for this browser
+  </div>
+  <button class="btn btn-default btn-md continue-btn" type="button"
+          name="button" ng-click="vm.content()">
+    Save & Continue
+  </button>
+</div>
