@@ -3,6 +3,7 @@
 (function() {
 
 function AuthService($location, $http, $cookies, $q, appConfig, Util, User) {
+  // var ref = new Firebase('')
   var safeCb = Util.safeCb;
   var currentUser = {};
   var userRoles = appConfig.userRoles || [];

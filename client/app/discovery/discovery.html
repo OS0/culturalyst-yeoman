@@ -1,14 +1,14 @@
 <navbar></navbar>
 
 <div ng-controller="DiscoveryCtrl">
-	
+
 	<section class="jumbotron text-xs-center">
       <div class="container">
         <h1 class="jumbotron-heading">Featured Artists in New Orleans</h1>
         <p class="lead text-muted" align="center">BEGIN TO DISCOVER THE CULTURE AROUND YOU. </p>
         <select ng-model="medium" ng-options="medium as medium.name for medium in mediaList" ng-change="loadSubMediums(medium); getArtists()" ng-selected="medium"></select>
         <select ng-model="selectedSubmedium" ng-options="submedium for submedium in submedia" ng-change="getArtists()"></select>
-       
+
       </div>
     </section>
 
@@ -34,8 +34,8 @@
   <div class="container" ng-controller="SearcherCtrl">
     <div class="row">
         <!-- for $scope to work we would need a controller -->
-        <div class="album text-muted"> 
-          <div class="card" ng-repeat="artist in featured | filter:searchText | filter:{$:medium.name}">
+        <div class="album text-muted">
+          <div class="card" ng-repeat="artist in artists | filter:searchText | filter:{$:medium.name}">
             <h1>{{artist.name}}</h1>
             <p>{{artist.medium}}</p>
             <img ng-src="assets/img/{{artist.img}}"/>
@@ -51,4 +51,3 @@
 
 
 <footer></footer>
-

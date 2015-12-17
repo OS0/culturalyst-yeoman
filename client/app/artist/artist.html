@@ -1,18 +1,62 @@
 <navbar></navbar>
 
-<div class="text-center">
-  <div class="row-height">
-    <div class="col-height jumbo col-md-9">
-    </div>
-    <div class="col-height sideBar col-md-3">
-      <div class="container col-md-offset-1 col-md-10">
-        <img class="profileImg" src="http://findicons.com/files/icons/1293/the_batman_vol_1/128/batman.png"/>
-        <h2>Batman</h2>
-        <p>
-          Superhero. Lover of the knight. <== See what I did there?
-        </p>
-        <a href="#/payment" class="btn btn-default btn-lg">Catalyze Me</a>
+<div class="jumbotron text-center">
+  <div class="container">
+    <img class="profileImg" src="http://findicons.com/files/icons/1293/the_batman_vol_1/128/batman.png"/>
+    <h2>{{artist.name}}</h2>
+    <p>
+      {{artist.short}}
+    </p>
+    <a href="/payment" class="btn btn-default btn-lg">Catalyze Me</a>
+  </div>
+</div>
+
+<div class="feedNearned">
+  <div class="container">
+    <div class="row">
+      <div class="modal-dialog col-md-3">
+        <div class="modal-content">
+            <div class="modal-header">
+      			Newsworthy Stuffs
+            </div>
+            <div class="modal-body">
+                <form class="form center-block">
+                  <div class="form-group">
+                    <textarea class="form-control input-lg" autofocus="" placeholder="What do you want to share?"></textarea>
+                  </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <div>
+                <button class="btn btn-primary btn-sm" data-dismiss="modal" aria-hidden="true">Post</button>
+                  <ul class="pull-left list-inline"><li><a href=""><i class="glyphicon glyphicon-upload"></i></a></li><li><a href=""><i class="glyphicon glyphicon-camera"></i></a></li><li><a href=""><i class="glyphicon glyphicon-map-marker"></i></a></li></ul>
+      		  </div>
+            </div>
+        </div>
+        </div>
+      <div class="earned col-md-offset-2 col-md-3 text-center">
+          <div class="numCats">
+            <h2 class="supporters">{{artist.supporters}} catalysts</h2>
+          </div>
+          <h4>contributing</h4>
+          <div class="">
+            <h2 class="earneded">{{artist.earned | currency}}</h2>
+          </div>
+          <h4>per month</h4>
+
       </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="container">
+  <div class="row">
+    <div class="card card-block text-xs-center" ng-repeat="reward in rewards">
+      <h4 class="card-title">{{reward.title}}</h4>
+      <p class="card-text">{{reward.info}}</p>
+      <a href="#" class="btn btn-primary">Choose this reward</a>
+    </div>
     </div>
   </div>
 </div>
