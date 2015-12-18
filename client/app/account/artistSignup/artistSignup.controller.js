@@ -2,7 +2,10 @@
 
 class ArtistSignupController {
   //start-non-standard
-  user = {};
+  user = {
+    catalyst: true,
+    creative: true
+  };
   errors = {};
   submitted = false;
   //end-non-standard
@@ -17,12 +20,26 @@ class ArtistSignupController {
   }
 
   currentUser() {
-    //this.$log.info(this.Auth.getCurrentUser());
     return this.Auth.getCurrentUser;
   }
 
   // go to content
   register() {
+
+    this.$http.put('/api/users/' + this.Auth.getCurrentUser()._id + '/updateUserInfo', {
+        catalyst: this.user.catalyst,
+        creative: this.user.creative,
+        name: this.user.name,
+        email: this.user.email,
+        password: this.user.password,
+        location: this.user.location,
+        birthday: this.user.birthday,
+        bio: this.user.bio,
+      })
+      .then(() => {
+        this.$state.go('main');
+      });
+
 
     // refactor to grab from the html forms
     //this.Auth.updateUserInfo({
@@ -72,8 +89,12 @@ class ArtistSignupController {
     //    this.$state.go('main');
     //  });
 
-    this.$state.go('main');
- }
+    this.done()
+  }
+
+  done() {
+    this.state.go('main');
+  }
 }
 
 angular.module('culturalystApp')

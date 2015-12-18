@@ -1,9 +1,7 @@
 (function(angular, undefined) {
-'use strict';
+  'use strict';
 
-angular.module('culturalystApp.constants', [])
+  angular.module('culturalystApp.constants', [])
+    .constant('appConfig', {userRoles: ['guest', 'user', 'admin', 'catalyst', 'creative']});
 
-.constant('appConfig', {userRoles:['guest','user','admin','catalyst','creative']})
-
-;
 })(angular);
