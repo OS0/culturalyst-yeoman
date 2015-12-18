@@ -2,7 +2,10 @@
 
 class SignupController {
   //start-non-standard
-  user = {};
+  user = {
+    catalyst: true,
+    creative: false
+  };
   errors = {};
   submitted = false;
   //end-non-standard
@@ -25,6 +28,8 @@ class SignupController {
 
     if (form.$valid) {
       this.Auth.createUser({
+          catalyst: this.user.catalyst,
+          creative: this.user.creative,
           name: this.user.name,
           email: this.user.email,
           password: this.user.password,
@@ -53,10 +58,14 @@ class SignupController {
   // edit this to work on the next page
   userDetail() {
     this.submitted = true;
-    //this.state.go('main');
 
-    this.Auth.updateUserInfo({
+    // could I use currentUser()()._id instead of this.Auth.getCurrentUser
+    this.$http.put('/api/users/' + this.Auth.getCurrentUser()._id + '/updateUserInfo', {
+        catalyst: this.user.catalyst,
+        creative: this.user.creative,
         name: this.user.name,
+        email: this.user.email,
+        password: this.user.password,
         location: this.user.location,
         birthday: this.user.birthday
       })
@@ -65,7 +74,7 @@ class SignupController {
       });
   }
 
-  userDetailZ(){
+  done() {
     this.$state.go('main');
   }
 
