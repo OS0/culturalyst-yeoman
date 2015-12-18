@@ -2,6 +2,10 @@
   margin-left: 15px;
 }
 
+.navbar.navbar-default.navbar-static-top.ng-scope {
+    margin-bottom: 0;
+}
+
 .about {
   float: left;
   max-width: 70rem;

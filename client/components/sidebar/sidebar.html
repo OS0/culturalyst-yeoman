@@ -1,0 +1,39 @@
+<!-- Sidebar -->
+<div id="sidebar-wrapper" ng-controller='SidebarController'>
+  <div data-toggle="collapse" ng-mouseover="sidebar.sidebarToggle()">
+    <div data-toggle="collapse" aria-hidden="true">
+      <ul class="sidebar-nav nav-pills nav-stacked" id="menu" >
+
+        <li class="active medium" ng-click="sidebar.initMenu()">
+          <span class="fa-stack fa-lg pull-left"><i class="fa fa-music fa-stack-1x"></i></span><a href="#">Music</a>
+          <ul class="nav-pills nav-stacked" style="list-style-type:none;">
+            <li class="submedium"><a href="#">Hip Hop</a></li>
+            <li class="submedium"><a href="#">Zydeco</a></li>
+          </ul>
+        </li>
+        <li class="medium">
+          <span class="fa-stack fa-lg pull-left"><i class="fa fa-pencil-square-o fa-stack-1x"></i></span> <a href="#">Writing</a>
+          <ul class="nav-pills nav-stacked" style="list-style-type:none;">
+            <li class="submedium"><span class="fa-stack fa-lg pull-left"><i class="fa fa-pencil fa-stack-1x"></i></span><a href="#">fiction</a></li>
+            <li class="submedium"><span class="fa-stack fa-lg pull-left"><i class="fa fa-pencil fa-stack-1x"></i></span><a href="#">NonFiction</a></li>
+          </ul>
+        </li>
+        <li class="medium">
+          <span class="fa-stack fa-lg pull-left"><i class="fa fa-paint-brush fa-stack-1x"></i></span><a href="#">Visual Art</a>
+        </li>
+        <li class="medium">
+          <span class="fa-stack fa-lg pull-left"><i class="fa fa-camera-retro fa-stack-1x"></i></span><a href="#"> Photography</a>
+        </li>
+        <li class="medium">
+          <span class="fa-stack fa-lg pull-left"><i class="fa fa-film fa-stack-1x"></i></span><a href="#">Film</a>
+        </li>
+        <li class="medium">
+          <span class="fa-stack fa-lg pull-left"><i class="fa fa-tv fa-stack-1x"></i></span><a href="#">Television</a>
+        </li>
+        <li class="medium">
+          <span class="fa-stack fa-lg pull-left"><i class="fa fa-server fa-stack-1x"></i></span><a href="#">Contact</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div><!-- /#sidebar-wrapper -->

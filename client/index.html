@@ -13,10 +13,11 @@
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css(client) app/vendor.css -->
       <!-- bower:css -->
-      <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
-      <link rel="stylesheet" href="bower_components/bootstrap-social/bootstrap-social.css" />
+      <link rel='stylesheet' href='bower_components/bootstrap/dist/css/bootstrap.css' />
+      <link rel='stylesheet' href='bower_components/bootstrap-social/bootstrap-social.css' />
       <!-- endbower -->
     <!-- endbuild -->
+
     <!-- build:css({.tmp,client}) app/app.css -->
       <link rel="stylesheet" href="app/app.css">
       <!-- injector:css -->
@@ -31,8 +32,15 @@
       <link rel="stylesheet" href="components/footer/footer.css">
       <link rel="stylesheet" href="components/modal/modal.css">
       <link rel="stylesheet" href="components/oauth-buttons/oauth-buttons.css">
+      <link rel="stylesheet" href="components/sidebar/sidebar.css">
       <!-- endinjector -->
     <!-- endbuild -->
+
+
+    <!-- Add Font Awesome for side bar test -->
+    <link href="bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <!-- <link href='../bower_components/font-awesome/fonts/fontawesome-webfont.eot?v=4.1.0' rel="stylesheet"> -->
+    <!-- Add Font Awesome for side bar test -->
   </head>
   <body ng-app="culturalystApp">
     <!--[if lt IE 7]>
@@ -81,7 +89,7 @@
       <script src="app/admin/admin.module.js"></script>
       <script src="components/auth/auth.module.js"></script>
       <script src="components/util/util.module.js"></script>
-      <script src="app/main/main.controller.js"></script>
+      <script src="app/main/main.js"></script>
       <script src="app/account/signup/signup.controller.js"></script>
       <script src="app/admin/admin.controller.js"></script>
       <script src="app/account/account.js"></script>
@@ -98,8 +106,8 @@
       <script src="app/discovery/discovery.controller.js"></script>
       <script src="app/discovery/discovery.js"></script>
       <script src="app/discovery/mediaList/mediaList.service.js"></script>
+      <script src="app/main/main.controller.js"></script>
       <script src="app/account/artistSignup/artistSignup.controller.js"></script>
-      <script src="app/main/main.js"></script>
       <script src="app/payment/chargeUser/chargeUser.service.js"></script>
       <script src="app/payment/payment.controller.js"></script>
       <script src="app/payment/payment.js"></script>
@@ -115,6 +123,8 @@
       <script src="components/navbar/navbar.directive.js"></script>
       <script src="components/oauth-buttons/oauth-buttons.controller.js"></script>
       <script src="components/oauth-buttons/oauth-buttons.directive.js"></script>
+      <script src="components/sidebar/sidebar.controller.js"></script>
+      <script src="components/sidebar/sidebar.directive.js"></script>
       <script src="components/socket/socket.service.js"></script>
       <script src="app/account/settings/settings.controller.js"></script>
       <script src="components/util/util.service.js"></script>
