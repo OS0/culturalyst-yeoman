@@ -99,12 +99,12 @@
   max-width: 90rem;
 }
 
-.album {
-  min-height: 50rem; /* Can be removed; just added for demo purposes */
-  padding-top: 3rem;
-  padding-bottom: 3rem;
-  background-color: #f7f7f7;
+.row{
+  margin-left: 1px;
+  margin-right:1px;
+  width:100%;
 }
+
 
 .card {
   float: left;
@@ -118,10 +118,35 @@
   margin-bottom: .75rem;
   height:220px;
   width:320px;
+ /* margin-bottom: 2rem;
+  border: 0;
+  background-color: #d3d3d3;*/
 }
+
+/*.card > img {
+  height:230px;
+  width:320px;
+  padding-top: 10px;*/
+  
+
 
 .card-text {
   font-size: 100%;
+}
+
+.profilePic {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    display: inline;
+    border:solid #d3d3d3;
+}
+
+.profileName {
+  float:right;
 }
 
 footer {
@@ -223,3 +248,4 @@ footer p {
   -webkit-transform: translate3d(0,0,0);
   transform: translate3d(0,0,0);
 }
+

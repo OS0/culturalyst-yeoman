@@ -8,11 +8,6 @@ class MainController {
     this.$http = $http;
     this.awesomeThings = [];
 
-    $http.get('/api/things').then(response => {
-      this.awesomeThings = response.data;
-      socket.syncUpdates('thing', this.awesomeThings);
-    });
-
     $scope.$on('$destroy', function() {
       socket.unsyncUpdates('thing');
     });
@@ -20,11 +15,11 @@ class MainController {
     $scope.featured = [{
         name: 'Sam Bowler',
         medium: 'Sculpture',
-        img:'cover_photo_1.png'
+        img:'cover_photo_2.png'
       }, {
         name: 'Mykia Smith',
         medium: 'Writing',
-        img:'cover_photo_2.png'
+        img:'cover_photo_5.png'
       },{
         name: 'Victor York-Carter',
         medium: 'Resident Weirdo',
@@ -32,7 +27,7 @@ class MainController {
       },{
         name: 'Alon Robinson',
         medium: 'Forced Retired Rapper',
-        img:'cover_photo_4.png'
+        img:'cover_photo_2.png'
       },{
         name: 'Alice Green',
         medium: 'Pep Talk Queen',
@@ -41,20 +36,14 @@ class MainController {
         name: 'Ryan Bascle',
         medium: 'Sexy Dancer',
         img:'cover_photo_6.png'
-      }];
+    }];
+
+
   }
 
-  addThing() {
-    if (this.newThing) {
-      this.$http.post('/api/things', { name: this.newThing });
-      this.newThing = '';
-    }
-  }
 
-  deleteThing(thing) {
-    this.$http.delete('/api/things/' + thing._id);
-  }
 }
+
 
 angular.module('culturalystApp')
   .controller('MainController', MainController);

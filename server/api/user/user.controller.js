@@ -85,6 +85,31 @@ exports.show = function(req, res, next) {
     });
 };
 
+exports.showResults = function(req, res, next) {
+  var query;
+
+  if (req.params.submedium !== undefined){
+    query = {submedium: req.params.submedium};
+    console.log(req.params.submedium);
+  } else {
+    query = {medium:req.params.medium}
+  }
+
+  User.findAll({
+      where: query
+      })
+    .then(function(users) {
+      if (!users) {
+        console.log('No users');
+        return res.status(404).end();
+      }
+      res.json(users);
+    })
+    .catch(function(err) {
+      return next(err);
+    });
+};
+
 /**
  * Deletes a user
  * restriction: 'admin'

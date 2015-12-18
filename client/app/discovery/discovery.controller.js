@@ -1,72 +1,77 @@
 'use strict';
 
 angular.module('culturalystApp')
-.controller('DiscoveryCtrl', function($scope, cultFire, $firebaseArray, MediaList){
+.controller('DiscoveryCtrl', function($scope, cultFire, $firebaseArray, MediaList, $http){
   $scope.mediaList = MediaList.getMediaList();
   console.log('hi')
   $scope.artists = $firebaseArray(cultFire.child('Users'));
   console.log($scope.artists)
 
-})
+
+    $scope.getArtists = function() {
+      $http.get('/api/users/discovery/' + $scope.selectedMedium + '/' + $scope.selectedSubmedium).then(function(response) {
+        $scope.artists = response.data;
+        console.log(response.data);
+      })
+    }
+
+    $scope.loadSubMediums = function(medium){
+      console.log(medium.name)
+      $scope.selectedMedium = medium.name;
+      $scope.submedia = medium.submedia;
+    };
+});
 
   // .controller('DiscoveryCtrl', function ($scope, $http, MediaList) {
-  //
+
   //   $scope.mediaList = MediaList.getMediaList();
   //   $scope.artists = [];
-  //
-  //   $scope.loadSubMediums = function(medium){
-  //     console.log(medium.name)
-  //     $scope.selectedMedium = medium.name;
-  //     $scope.submedia = medium.submedia;
-  //   };
-  //
-  //   $scope.getArtists = function() {
-  //     $http.get('/api/users/discovery/' + $scope.selectedMedium + '/' + $scope.selectedSubmedium).then(function(response) {
-  //       $scope.artists = response.data;
-  //     })
-  //   }
-  //
-  //
+
+
+    
+
   //   $scope.featured = [{
   //       name: 'Sam Bowler',
   //       medium: 'Sculpture',
   //       img:'cover_photo_1.png'
   //     }, {
-  //       name: 'Mykia Smith',
+  //       name: 'Mykia Smith', 
   //       medium: 'Writing',
   //       img:'cover_photo_2.png'
   //     },{
-  //       name: 'Just Some Dude',
+  //       name: 'Alice Green', 
   //       medium: 'Musician',
   //       img:'cover_photo_3.png'
   //     },{
-  //       name: 'Victor York-Carter',
+  //       name: 'Alon Robinson', 
   //       medium: 'Musician',
-  //       img:'cover_photo_4.png'
+  //       img:'cover_photo_5.png'
   //     },{
-  //       name: 'Just Some Dude',
+  //       name: 'Ryan Bascle', 
   //       medium: 'Musician',
   //       img:'cover_photo_5.png'
   //     }, {
-  //       name: 'Victor York-Carter',
+  //       name: 'Brian Kustra', 
   //       medium: 'Musician',
-  //       img:'cover_photo_6.png'
+  //       img:'cover_photo_3.png'
   //     },{
-  //       name: 'Just Some Dude',
+  //       name: 'John Fraboni', 
   //       medium: 'Musician',
   //       img:'cover_photo_1.png'
   //     },{
-  //       name: 'Victor York-Carter',
+  //       name: 'Max Gaudin', 
   //       medium: 'Musician',
   //       img:'cover_photo_2.png'
   //     },{
-  //       name: 'Just Some Dude',
+  //       name: 'Raisin Canes', 
   //       medium: 'Musician',
   //       img:'cover_photo_3.png'
   //     }];
   // })
-  .controller('SearcherCtrl', function ($scope) {
-    $scope.currentSel = function() {
-      console.log($scope.selectedMedium);
-    }
-  });
+  // .controller('SearcherCtrl', function ($scope) {
+  //   $scope.currentSel = function() {
+  //     console.log($scope.selectedMedium);
+
+  //   }
+  // });
+  

@@ -17,8 +17,8 @@
 
 .profileImg {
   height: 200px;
-  border-radius: 50%;
-  border: 1px solid white;
+  border-radius:50%;
+  border:1px solid white;
 }
 
 .postImg {
@@ -47,3 +47,4 @@
 .modal-content {
   box-shadow: none;
 }
+

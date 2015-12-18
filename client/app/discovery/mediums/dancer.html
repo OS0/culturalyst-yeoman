@@ -1,0 +1,59 @@
+<navbar></navbar>
+
+<div ng-controller="DiscoveryCtrl">
+		<section class="jumbotron text-xs-center">
+
+
+      <div class="container">
+        <h1 align="center" class="jumbotron-heading">Featured Dancers in New Orleans</h1>
+        <p class="lead text-muted" align="center">BEGIN TO DISCOVER THE CULTURE AROUND YOU. </p>
+        <select align="center" ng-model="medium" ng-options="medium as medium.name for medium in mediaList" ng-change="loadSubMediums(medium); getArtists()" ng-selected="medium"></select>
+        <select align="center" ng-model="selectedSubmedium" ng-options="submedium for submedium in submedia" ng-change="getArtists()"></select>
+       
+
+      </div>
+
+   </section>
+
+
+</div>
+
+
+<div>
+  <h1 align="center">Dance</h1>
+</div>
+
+  <div class="container">
+    <div class="row">
+      <div id="custom-search-input">
+        <div class="input-group col-md-12">
+          <input type="text" class="search-query form-control" placeholder="Search" ng-model="searchText" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="container" ng-controller="SearcherCtrl">
+    <div class="row">
+        <!-- for $scope to work we would need a controller -->
+        <div class="album text-muted"> 
+          <div class="card" ng-repeat="artist in featured | filter:searchText | filter:{$:medium.name}">
+            <h1>{{artist.name}}</h1>
+            <p>{{artist.medium}}</p>
+            <img ng-src="assets/img/{{artist.img}}"/>
+          </div>
+        </div>
+
+    </div>
+  </div>
+
+</div>
+
+
+
+
+<footer></footer>
+
+
