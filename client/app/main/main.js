@@ -7,6 +7,14 @@ angular.module('culturalystApp')
         url: '/',
         templateUrl: 'app/main/main.html',
         controller: 'MainController',
-        controllerAs: 'main'
-      });
+        controllerAs: 'mc'
+      })
+      .state('.mediums',{
+        parent:'main',
+      	templateUrl:'app/main/main.mediums.html'
+      })
+      .state('.mymediums',{
+        parent:'main',
+      	templateUrl:'app/main/main.mymediums.html'
+      })
   });

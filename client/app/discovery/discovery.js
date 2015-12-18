@@ -7,5 +7,12 @@ angular.module('culturalystApp')
         url: '/discovery',
         templateUrl: 'app/discovery/discovery.html',
         controller: 'DiscoveryCtrl'
-      });
+      })
+      .state('dance', {
+        url: '/discovery/dance',
+        templateUrl: 'app/discovery/mediums/dancer.html',
+        controller: 'DiscoveryCtrl',
+      })
   });
+
+
