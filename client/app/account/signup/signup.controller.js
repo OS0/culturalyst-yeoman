@@ -7,7 +7,7 @@ class SignupController {
   submitted = false;
   //end-non-standard
 
-  constructor(Auth, $state, $log, $scope) {
+  constructor(Auth, $state, $log, $scope, $http) {
     this.Auth = Auth;
     this.$state = $state;
     this.$log = $log;
@@ -52,6 +52,7 @@ class SignupController {
 
   // edit this to work on the next page
   userDetail() {
+    this.submitted = true;
     //this.state.go('main');
 
     this.Auth.updateUserInfo({
@@ -62,11 +63,11 @@ class SignupController {
       .then(() => {
         this.$state.go('main');
       });
+  }
 
   userDetailZ(){
     this.$state.go('main');
-        this.state.go('main')
-      });
+  }
 
 }
 
