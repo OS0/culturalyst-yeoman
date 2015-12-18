@@ -29,7 +29,7 @@ class SignupController {
           email: this.user.email,
           password: this.user.password,
           location: null,
-          birthday: null
+          birthday: null,
         })
         .then(() => {
           // Account created, redirect to signup details view
@@ -55,8 +55,10 @@ class SignupController {
     this.submitted = true;
     //this.state.go('main');
 
-    this.Auth.updateUserInfo({
+    // could I use currentUser()()._id instead of this.Auth.getCurrentUser
+    this.$http.put('/api/users/' + this.Auth.getCurrentUser()._id + '/updateUserInfo', {
         name: this.user.name,
+        email: this.user.email,
         location: this.user.location,
         birthday: this.user.birthday
       })
@@ -65,7 +67,7 @@ class SignupController {
       });
   }
 
-  userDetailZ(){
+  userDetailZ() {
     this.$state.go('main');
   }
 

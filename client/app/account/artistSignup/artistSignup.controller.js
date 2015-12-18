@@ -16,14 +16,41 @@ class ArtistSignupController {
     this.list = [];
   }
 
+  currentUser() {
+    //this.$log.info(this.Auth.getCurrentUser());
+    return this.Auth.getCurrentUser;
+  }
+
   // go to content
   register() {
+
+    // refactor to grab from the html forms
+    //this.Auth.updateUserInfo({
+    //    name: this.user.name
+    //    //what properties do we need to grab from
+    //  })
+    //  .then(() => {
+    //    this.$state.go('artistSignupContent');
+    //  });
+
     this.$state.go('artistSignupContent');
+
   }
 
   // go to rewards
   content() {
+
+    // refactor to grab from the html forms
+    //this.Auth.updateUserInfo({
+    //    name: this.user.name
+    //    //what properties do we need to grab from
+    //  })
+    //  .then(() => {
+    //    this.$state.go('artistSignupRewards');
+    //  });
+
     this.$state.go('artistSignupRewards');
+
   }
 
   //list(){}
@@ -35,9 +62,18 @@ class ArtistSignupController {
 
   // go to main
   rewards() {
+
+    // refactor to grab from the html forms
+    //this.Auth.updateUserInfo({
+    //    name: this.user.name
+    //    //what properties do we need to grab from
+    //  })
+    //  .then(() => {
+    //    this.$state.go('main');
+    //  });
+
     this.$state.go('main');
  }
-
 }
 
 angular.module('culturalystApp')
