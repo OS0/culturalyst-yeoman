@@ -4,6 +4,7 @@ angular.module('culturalystApp', [
   'culturalystApp.auth',
   'culturalystApp.admin',
   'culturalystApp.constants',
+  'culturalystApp.uploadArtistContent',
   'ngCookies',
   'ngResource',
   'ngSanitize',
