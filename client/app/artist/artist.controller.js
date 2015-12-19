@@ -1,17 +1,18 @@
 'use strict';
 
 angular.module('culturalystApp')
-  .controller('ArtistCtrl', function($firebaseObject, $firebaseArray, $scope, $location, cultFire){
+  .controller('ArtistCtrl', function($firebaseObject, $firebaseArray, $scope, $location, cultFire, $http){
     var artistId = $location.path().split('/').pop();
     // Artist(artistId).then(function(artist){
     //   $scope.artistData = artist;
-    // })
-    $firebaseObject(cultFire.child('Users').child('/' + artistId))
-      .$loaded()
-      .then(function(data){
-      $scope.artist = data
-      console.log($scope.artist)
-    })
+    //
+
+    $scope.getArtistProfile = function() {
+      $http.get('/api/users/artist/' + artistId).then(function(response) {
+        $scope.artist = response.data;
+        console.log(response.data);
+      })
+    };
 
     $scope.posts = $firebaseArray(cultFire.child('posts').child('/' + artistId))
 
