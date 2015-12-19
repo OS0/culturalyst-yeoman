@@ -90,6 +90,5 @@ angular.module('culturalystApp')
         }
       });
     };
-    
-  }]);
 
+  }]);

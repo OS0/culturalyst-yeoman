@@ -51,7 +51,17 @@
             </div>
           </div>
 
+<<<<<<< HEAD
         </div>
+=======
+	<section class="jumbotron text-xs-center">
+      <div class="container">
+        <h1 class="jumbotron-heading">Featured Artists in New Orleans</h1>
+        <p class="lead text-muted" align="center">BEGIN TO DISCOVER THE CULTURE AROUND YOU. </p>
+        <select ng-model="medium" ng-options="medium as medium.$id for medium in mediaList" ng-change="getArtists(medium)" ng-selected="medium"></select>
+        <!-- <select ng-model="selectedSubmedium" ng-options="submedium for submedium in submedia" ng-change="getArtists()"></select> -->
+
+>>>>>>> feat/stripe-connect beginning functionality of stripe connect
       </div>
     </div><!-- /#wrapper -->
     <footer></footer>
@@ -123,6 +133,7 @@
 
 
 
+<<<<<<< HEAD
       <div class="container" ng-controller="SearcherCtrl">
         <div class="row">
             for $scope to work we would need a controller
@@ -134,6 +145,17 @@
               </div></a>
             </div>
 
+=======
+  <div class="container">
+    <div class="row">
+        <!-- for $scope to work we would need a controller -->
+        <div class="album text-muted">
+          <a ng-repeat="artist in artists | filter:searchText | filter:{$:medium.name}"href="/artist/{{artist.$id}}"><div class="card" >
+            <h1>{{artist.name}}</h1>
+            <p>{{artist.medium}}</p>
+            <img ng-src="assets/img/{{artist.img}}"/>
+          </div></a>
+>>>>>>> feat/stripe-connect beginning functionality of stripe connect
         </div>
       </div>
 
