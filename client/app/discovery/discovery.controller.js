@@ -4,7 +4,7 @@ angular.module('culturalystApp')
 .controller('DiscoveryCtrl', function($scope, cultFire, $firebaseArray, MediaList, $http){
   $scope.mediaList = MediaList.getMediaList();
   console.log('hi')
-  $scope.artists = $firebaseArray(cultFire.child('Users'));
+  //$scope.artists = $firebaseArray(cultFire.child('Users'));
   console.log($scope.artists)
 
 
@@ -20,6 +20,7 @@ angular.module('culturalystApp')
       $scope.selectedMedium = medium.name;
       $scope.submedia = medium.submedia;
     };
+
 });
 
   // .controller('DiscoveryCtrl', function ($scope, $http, MediaList) {

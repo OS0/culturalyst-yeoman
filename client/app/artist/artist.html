@@ -1,7 +1,8 @@
 <navbar></navbar>
-<div class="jumbotron text-center artistBack">
+
+<div class="jumbotron text-center artistBack" ng-init="getArtistProfile()">
   <div class="container">
-    <img class="profileImg" src="{{artist.pic}}"/>
+    <img class="profileImg" src="{{artist.img}}"/>
     <h2>{{artist.name}}</h2>
     <p>
       {{artist.short}}
@@ -9,6 +10,24 @@
     <a href="/payment" class="btn btn-default btn-lg">Catalyze Me</a>
   </div>
 </div>
+
+<div class="artistModal">
+<div class="middle col-md-offset-2 col-md-8">
+ <nav class="navbar navbar-default">
+   <div class="container">
+     <ul class="nav navbar-nav">
+       <li><a ui-sref=".bio">Bio</a></li>
+       <li><a ui-sref=".posts">Posts</a></li>
+       <li><a ui-sref=".catalysts">Catalysts</a></li>
+     </ul>
+   </div>
+ </nav>
+ <div class="profile">
+     <div ui-view></div>
+ </div>
+</div>
+</div>
+
 
 <div class="feedNearned">
   <div class="container">

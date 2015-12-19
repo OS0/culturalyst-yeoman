@@ -5,10 +5,7 @@ angular.module('culturalystApp')
     // Service logic
 
     var mediaList = [
-      {'name': 'Musician', 'submedia': ['Instrumental', 'Rock', 'Country', 'Folk', 'R&B']},
-      {'name': 'Writing', 'submedia': ['Poetry', 'Sci-Fi', 'Fantasy', 'Non-Fiction', 'Romance']},
-      {'name': 'Film-Makers', 'submedia': ['Documentary', 'Action', 'Romance', 'Fantasy', 'Comedy']},
-      {'name': 'Visual-Artist', 'submedia': ['Digital', 'Oil', 'Acrylics', 'Welding','Wood-Work']}
+      {'name': 'Music', 'submedia': ['Hip-hop', 'Guitar', 'Brass', 'Folk', 'Rock','Country']},
     ]
 
     // Public API here
@@ -18,3 +15,5 @@ angular.module('culturalystApp')
       }
     };
   });
+
+
