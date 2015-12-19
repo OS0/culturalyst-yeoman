@@ -1,0 +1,53 @@
+<navbar></navbar>
+
+<div class="container-fluid" ng-controller="DashUserCtrl">
+  <div class="row">
+    <div class="col-sm-3 col-md-2 sidebar">
+      <ul class="nav nav-sidebar">
+        <li class="active"><a href="#">My List<span class="sr-only">(current)</span></a></li>
+        <li><a href="#">Rewards</a></li>
+        <li><a href="#">Messages</a></li>
+        <li><a href="#">Mediums</a></li>
+      </ul>
+      <ul class="nav nav-sidebar">
+        <li><a href="">User Profile</a></li>
+        <li><a href="">Change Password</a></li>
+      </ul>
+    </div>
+    <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+      <br>
+      <h1 class="page-header">Hey You!</h1>
+        <div class="row placeholders">
+          <div class="col-xs-6 col-sm-3 placeholder">
+            <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
+            <h4>Alon</h4>
+            <span class="text-muted">Something else</span>
+          </div>
+          <div class="col-xs-6 col-sm-3 placeholder">
+            <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
+            <h4>{{vm.currentUser()().medium[1]}}</h4>
+
+          </div>
+          <div class="col-xs-6 col-sm-3 placeholder">
+            <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
+            <h4>{{vm.currentUser()().medium[2]}}</h4>
+          </div>
+          <div class="col-xs-6 col-sm-3 placeholder">
+            <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
+            <h4>{{vm.currentUser()().medium[3]}}</h4>
+          </div>
+        </div>
+
+        
+        <div>
+          <h2 class="sub-header">Local Culture Budget</h2>
+          <div class="progress">
+            <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
+            You have used 60% of your budget
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
