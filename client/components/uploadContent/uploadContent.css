@@ -1,0 +1,37 @@
+/*CONTENT UPLOAD STYLES*/
+#uploader {
+  text-align: center;
+  margin: 0 auto;
+}
+.upload-header{
+  margin-bottom: 30px;
+}
+
+.drop-box {
+  background: #F8F8F8;
+  border: 2px dashed #D2D2D2;
+  width: 200px;
+  height: 100px;
+  text-align: center;
+  padding: 25px;
+  margin: 0 auto;
+}
+
+.preview {
+  text-align: center;
+  width: 300px;
+  margin: 0 auto;
+}
+
+.preview img {
+  width: 200px;
+  height: 200px;
+  margin-top: 25px;
+  /*border-radius: 50%;*/
+}
+
+.continue-btn {
+  margin-top: 20px;
+}
+
+/*END CONTENT UPLOAD STYLES*/
