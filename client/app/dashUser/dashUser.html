@@ -4,10 +4,10 @@
   <div class="row">
     <div class="col-sm-3 col-md-2 sidebar">
       <ul class="nav nav-sidebar">
-        <li class="active"><a href="#">My List<span class="sr-only">(current)</span></a></li>
-        <li><a href="#">Rewards</a></li>
-        <li><a href="#">Messages</a></li>
-        <li><a href="#">Mediums</a></li>
+        <li class="active"><a href="/dashUser#">My List<span class="sr-only">(current)</span></a></li>
+        <li><a ui-sref=".rewards">Rewards</a></li>
+        <li><a ui-sref=".messages">Messages</a></li>
+        <li><a ui-sref=".mediums">Mediums</a></li>
       </ul>
       <ul class="nav nav-sidebar">
         <li><a href="">User Profile</a></li>
@@ -17,27 +17,30 @@
     <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
       <br>
       <h1 class="page-header">Hey You!</h1>
+      <div ui-view>
         <div class="row placeholders">
           <div class="col-xs-6 col-sm-3 placeholder">
             <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
             <h4>Alon</h4>
-            <span class="text-muted">Something else</span>
+            <span class="text-muted">Awful Rapper</span>
           </div>
           <div class="col-xs-6 col-sm-3 placeholder">
             <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
-            <h4>{{vm.currentUser()().medium[1]}}</h4>
-
+            <h4>Sam</h4>
+            <span class="text-muted">Sculptor</span>
           </div>
           <div class="col-xs-6 col-sm-3 placeholder">
             <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
-            <h4>{{vm.currentUser()().medium[2]}}</h4>
+            <h4>Brian</h4>
+            <span class="text-muted">Genius</span>
           </div>
           <div class="col-xs-6 col-sm-3 placeholder">
             <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
-            <h4>{{vm.currentUser()().medium[3]}}</h4>
+            <h4>Mykia</h4>
+            <span class="text-muted">Token Girl</span>
           </div>
         </div>
-
+      </div>
         
         <div>
           <h2 class="sub-header">Local Culture Budget</h2>
