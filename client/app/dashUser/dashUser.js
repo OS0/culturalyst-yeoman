@@ -8,6 +8,9 @@ angular.module('culturalystApp')
         templateUrl: 'app/dashUser/dashUser.html',
         controller: 'DashUserCtrl'
       })
+      .state('dashUser.myList', {
+        templateUrl: 'app/dashUser/dashUser.myList.html'
+      })
       .state('dashUser.rewards', {
         templateUrl: 'app/dashUser/dashUser.rewards.html'
       })
@@ -16,5 +19,8 @@ angular.module('culturalystApp')
       })
       .state('dashUser.mediums', {
         templateUrl: 'app/dashUser/dashUser.mediums.html'
+      })
+      .state('dashUser.profile', {
+        templateUrl: 'app/dashUser/dashUser.profile.html'
       });
   });
