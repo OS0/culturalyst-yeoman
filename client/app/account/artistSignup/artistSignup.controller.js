@@ -3,43 +3,50 @@
 class ArtistSignupController {
   //start-non-standard
   user = {
-    catalyst: true,
-    creative: true
+    //catalyst: true,
+    //creative: true
   };
   errors = {};
   submitted = false;
   //end-non-standard
 
-  constructor(Auth, $state, $log, $scope, $http) {
+  constructor(Auth, $state, $log, $scope, $http, $timeout, MediaList) {
     this.Auth = Auth;
     this.$state = $state;
     this.$log = $log;
     this.$scope = $scope;
     this.$http = $http;
+    this.$scope.currentUser = this.Auth.getCurrentUser();
+    this.$timeout = $timeout;
+    this.MediaList = MediaList;
     this.list = [];
+    this.$scope.mediaList = this.MediaList.getMediaList();
   }
 
-  currentUser() {
-    return this.Auth.getCurrentUser;
-  }
+  //currentUser() {
+  //  return this.Auth.getCurrentUser;
+  //}
+
+  loadSubMediums(medium) {
+    this.$scope.selectedMedium = medium.name;
+    this.$scope.submedia = medium.submedia;
+  };
 
   // go to content
   register() {
+    let context = this;
 
-    this.$http.put('/api/users/' + this.Auth.getCurrentUser()._id + '/updateUserInfo', {
-        catalyst: this.user.catalyst,
-        creative: this.user.creative,
-        name: this.user.name,
-        email: this.user.email,
-        password: this.user.password,
-        location: this.user.location,
-        birthday: this.user.birthday,
-        bio: this.user.bio,
-      })
-      .then(() => {
-        this.$state.go('main');
-      });
+    this.$http.put('/api/users/' + this.$scope.currentUser._id + '/updateArtistInfo', {
+      bio: context.$scope.bio,
+      medium: context.$scope.selectedMedium,
+      submedium: context.$scope.selectedSubmedium
+    });
 
+    this.$state.go('artistSignupContent');
+    //.then(() => {
+    //  context.$timeout(this.$state.go('artistSignupContent'), 1000);
+    //  //this.$state.go('main');
+    //});
 
     // refactor to grab from the html forms
     //this.Auth.updateUserInfo({
@@ -50,7 +57,7 @@ class ArtistSignupController {
     //    this.$state.go('artistSignupContent');
     //  });
 
-    this.$state.go('artistSignupContent');
+    //this.$state.go('artistSignupContent');
 
   }
 
@@ -89,6 +96,8 @@ class ArtistSignupController {
     //    this.$state.go('main');
     //  });
 
+    // note about user is becoming a creative change the role,
+    // after submit, role changes to artist
     this.done()
   }
 

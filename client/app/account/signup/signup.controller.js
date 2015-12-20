@@ -2,20 +2,18 @@
 
 class SignupController {
   //start-non-standard
-  user = {
-    catalyst: true,
-    creative: false
-  };
+  user = {};
   errors = {};
   submitted = false;
   //end-non-standard
 
-  constructor(Auth, $state, $log, $scope, $http) {
+  constructor(Auth, $state, $log, $scope, $http, $timeout) {
     this.Auth = Auth;
     this.$state = $state;
     this.$log = $log;
     this.$scope = $scope;
     this.$http = $http;
+    this.$timeout = $timeout;
   }
 
   currentUser() {
@@ -26,19 +24,22 @@ class SignupController {
   register(form) {
     this.submitted = true;
 
+    let context = this;
+
     if (form.$valid) {
       this.Auth.createUser({
-          catalyst: this.user.catalyst,
-          creative: this.user.creative,
+          //catalyst: this.user.catalyst,
+          //creative: this.user.creative,
           name: this.user.name,
           email: this.user.email,
           password: this.user.password,
-          location: null,
-          birthday: null
+          // location: null,
+          // birthday: null
         })
         .then(() => {
+          context.$log.log(context.user);
           // Account created, redirect to signup details view
-          this.$state.go('signupInfo');
+          this.$state.go('userInfo');
         })
         .catch(err => {
           err = err.data;
@@ -57,27 +58,19 @@ class SignupController {
 
   // edit this to work on the next page
   userDetail() {
-    this.submitted = true;
+    //this.submitted = true;
+    let context = this;
 
-    // could I use currentUser()()._id instead of this.Auth.getCurrentUser
-    this.$http.put('/api/users/' + this.Auth.getCurrentUser()._id + '/updateUserInfo', {
-        catalyst: this.user.catalyst,
-        creative: this.user.creative,
-        name: this.user.name,
-        email: this.user.email,
-        password: this.user.password,
-        location: this.user.location,
-        birthday: this.user.birthday
-      })
-      .then(() => {
-        this.$state.go('main');
-      });
+    //   // could I use currentUser()()._id instead of this.Auth.getCurrentUser
+    //   this.$http.put('/api/users/' + this.Auth.getCurrentUser()._id +
+    // '/updateUserInfo', { name: this.user.name, email: this.user.email,
+    // password: this.user.password, location: this.user.location, birthday:
+    // this.user.birthday }) .then(() => { // this.$state.go('main'); }); }
+
+    //done() {
+    //  this.$state.go('main');
+    //}
   }
-
-  done() {
-    this.$state.go('main');
-  }
-
 }
 
 angular.module('culturalystApp')

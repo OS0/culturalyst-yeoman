@@ -98,11 +98,11 @@
           name: name,
           location: location,
           birthday: birthday
-        }, function() {
+        }/*, function() {
           return safeCb(callback)(null);
         }, function(err) {
           return safeCb(callback)(err);
-        }).$promise;
+        }*/).$promise;
       },
 
       /**
