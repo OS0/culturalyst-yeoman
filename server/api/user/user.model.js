@@ -37,10 +37,12 @@ module.exports = function(sequelize, DataTypes) {
       }
     },
     location: DataTypes.STRING,
+    birthday: DataTypes.DATE,
     picUrl: DataTypes.STRING,
     img: DataTypes.STRING,
     medium: DataTypes.STRING,
     submedium: DataTypes.STRING,
+    reward: DataTypes.STRING,
     earned: DataTypes.STRING,
     supporters: DataTypes.STRING,
     short: DataTypes.TEXT,
@@ -63,7 +65,13 @@ module.exports = function(sequelize, DataTypes) {
           'name': this.name,
           'role': this.role,
           'location': this.location,
-          'birthday': this.birthday
+          'short': this.short,
+          'medium': this.medium,
+          'submedium': this.submedium,
+          'picUrl': this.picUrl,
+          'img': this.img,
+          'earned': this.earned,
+          'supporters': this.supporters
         };
       },
 

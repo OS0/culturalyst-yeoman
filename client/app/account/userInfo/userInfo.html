@@ -4,7 +4,7 @@
   <h1 align="center">Catalyst Profile</h1><br>
 
   <div align="center">
-    <h2>Welcome, {{vm.currentUser()().name}}!</h2><br>
+    <h2>Welcome, {{currentUser.name}}!</h2><br>
     We're glad you're here. We just need a bit more information to get you set
     up.
   </div>
@@ -41,7 +41,6 @@
       </button>
     </div>
   </div>-->
-
   <br><br><br>
   <form class="form" name="form" ng-submit="vm.userDetail(form)" novalidate>
 
@@ -49,8 +48,8 @@
     <div class="form-group">
       <label for="firstName" class="col-sm-3 control-label">Full Name</label>
       <div class="col-sm-9">
-        <input type="text" id="firstName" class="form-control"
-               value="{{vm.currentUser()().name}}">
+        <input type="text" id="firstName" class="form-control" ng-model="currentUser.name"
+               value="{{currentUser.name}}">
       </div>
     </div>
 
@@ -58,8 +57,8 @@
     <div class="form-group">
       <label for="email" class="col-sm-3 control-label">Email</label>
       <div class="col-sm-9">
-        <input type="email" id="email" class="form-control"
-               value="{{vm.currentUser()().email}}">
+        <input type="email" id="email" class="form-control" ng-model="currentUser.email"
+               value="{{currentUser.email}}">
       </div>
     </div>
 
@@ -68,7 +67,7 @@
       <label for="location" class="col-sm-3 control-label">Location</label>
       <div class="col-sm-9">
         <input type="text" id="location" placeholder="City, State"
-               class="form-control" ng-model="vm.user.location">
+               class="form-control" ng-model="currentUser.location" value="{{currentUser.location}}">
       </div>
     </div>
 
@@ -77,7 +76,7 @@
       <label class="col-sm-3 control-label">Birthday</label>
       <div class="col-sm-9">
         <input type="date" id="birthDate" class="form-control"
-               ng-model="vm.user.birthday">
+               ng-model="currentUser.birthday" value="{{currentUser.birthday}}">
       </div>
     </div>
 
@@ -104,4 +103,3 @@
   </form>
 </div>
 
-<footer></footer>

@@ -87,17 +87,16 @@ exports.show = function(req, res, next) {
 
 exports.showResults = function(req, res, next) {
   var query;
-
-  if (req.params.submedium !== undefined){
+  if (req.params.submedium !== 'undefined' && req.params.submedium !== 'null'){
     query = {submedium: req.params.submedium};
     console.log(req.params.submedium);
   } else {
-    query = {medium:req.params.medium}
+    query = {medium: req.params.medium}
   }
 
   User.findAll({
       where: query
-      })
+    })
     .then(function(users) {
       if (!users) {
         console.log('No users');
@@ -153,10 +152,11 @@ exports.changePassword = function(req, res, next) {
  * Update the users information
  */
 exports.updateUserInfo = function(req, res, next) {
+  console.log("Updating Info!");
   var userId = req.user._id;
-  var name = String(req.body.name);
-  var location = String(req.body.location);
-  var birthday = String(req.body.birthday);
+  var name = req.body.name;
+  var email = req.body.email;
+  var location = req.body.location;
 
   User.find({
       where: {
@@ -164,14 +164,39 @@ exports.updateUserInfo = function(req, res, next) {
       }
     })
     .then(function(user) {
-      user.name = name;
-      user.location = location;
-      user.birthday = birthday;
-      return user.save()
-        .then(function() {
-          res.status(204).end();
-        })
-        .catch(validationError(res));
+        user.name = name;
+        user.email = email;
+        user.location = location;
+        return user.save()
+          .then(function() {
+            res.status(204).end();
+          })
+          .catch(validationError(res));
+    });
+};
+
+exports.updateArtistInfo = function(req, res, next) {
+  var userId = req.user._id;
+  var bio = req.body.bio;
+  var medium = req.body.medium;
+  var submedium = req.body.submedium;
+  var reward = req.body.reward;
+
+  User.find({
+      where: {
+        _id: userId
+      }
+    })
+    .then(function(user) {
+        user.short = bio;
+        user.medium = medium;
+        user.submedium = submedium;
+        user.reward = reward;
+        return user.save()
+          .then(function() {
+            res.status(204).end();
+          })
+          .catch(validationError(res));
     });
 };
 
@@ -190,6 +215,8 @@ exports.me = function(req, res, next) {
         'name',
         'email',
         'role',
+        'location',
+        'birthday',
         'provider'
       ]
     })

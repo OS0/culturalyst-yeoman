@@ -33,44 +33,60 @@
   });
 </script>
 
-<!--<a ui-sref="artistSignupContent">-->
-  <!--<button>-->
-    <!--put shit here-->
-  <!--</button>-->
-<!--</a>-->
-
 <div>
-  <form ng-submit="vm.register(InfoForm)">
-    <div class="form-group" style="width: 80%; margin: 5% 10% 0% 10%">
-      <label for="exampleName">Name</label>
-      <input type="text" class="form-control" id="exampleName"
-             placeholder="Name">
+  <!--<form ng-submit="vm.register(InfoForm)">-->
+  <form>
+    <!--Name-->
+    <div class="form-group" style="width: 80%; margin: 5% 10% 0 10%">
+      <label for="name">Name</label>
+      <input type="text" class="form-control" placeholder="Name"
+             value="{{currentUser.name}}">
     </div>
-    <div class="form-group" style="width: 80%; margin: 5% 10% 0% 10%">
-      <label for="exapmleInputEmail1">Email address</label>
-      <input type="email" class="form-control" id="exampleInputEmail"
-             placeholder="Email">
+    <!--Email-->
+    <div class="form-group" style="width: 80%; margin: 5% 10% 0 10%">
+      <label for="email">Email address</label>
+      <input type="email" class="form-control" placeholder="Email"
+             value="{{currentUser.name}}">
     </div>
+    <!--Bio-->
     <div class="form-group" style="width: 80%; margin: 5% 10% 0% 10%">
       <label for="bio">Biography</label>
-      <textarea class="form-control" rows="3"
-                placeholder="About You"></textarea>
+      <textarea class="form-control" rows="3" value="{{currentUser.bio}}"
+                ng-model="bio">
+      </textarea>
     </div>
+    <!--Media/Medium-->
     <div class="form-group" style="width: 80%; margin: 5% 10% 0% 10%">
-      <label for="medium">Medium</label>
+
+      <!--Medium-->
+      <select ng-model="medium"
+              ng-options="medium as medium.name for medium in mediaList"
+              ng-change="vm.loadSubMediums(medium)"
+              ng-selected="medium">
+      </select>
+
+      <!--subMedia-->
+      <select ng-model="selectedSubmedium"
+              ng-options="submedium for submedium in submedia">
+      </select>
+
+
+      <!--<label for="medium">Medium</label>
+      &lt;!&ndash;Video and Film&ndash;&gt;
       <div class="checkbox">
         <label>
           <input type="checkbox" id="film" value="film">Video and Film
         </label>
         <div class="sub" id="filmSub">
           <label>Sub-Medium</label>
-          <select class="form-control">
+          <select class="form-control" ng-model="medium" >
             <option>Short Films</option>
             <option>Documentaries</option>
             <option>Feature Films</option>
           </select>
         </div>
       </div>
+      &lt;!&ndash;Music&ndash;&gt;
       <div class="checkbox">
         <label>
           <input type="checkbox" id="music" value="music">Music
@@ -85,6 +101,7 @@
           </select>
         </div>
       </div>
+      &lt;!&ndash;Dance and Theater&ndash;&gt;
       <div class="checkbox">
         <label>
           <input type="checkbox" id="dance" value="dance">Dance and Theater
@@ -101,6 +118,7 @@
           </select>
         </div>
       </div>
+      &lt;!&ndash;Writing&ndash;&gt;
       <div class="checkbox">
         <label>
           <input type="checkbox" id="lit" value="literature">Writing
@@ -114,6 +132,7 @@
           </select>
         </div>
       </div>
+      &lt;!&ndash;Comics&ndash;&gt;
       <div class="checkbox">
         <label>
           <input type="checkbox" id="comics" value="comics">Comics
@@ -126,6 +145,7 @@
           </select>
         </div>
       </div>
+      &lt;!&ndash;Drawing and Painting&ndash;&gt;
       <div class="checkbox">
         <label>
           <input type="checkbox" id="drawPaint" value="drawPaint">Drawing and
@@ -141,6 +161,7 @@
           </select>
         </div>
       </div>
+      &lt;!&ndash;Animation&ndash;&gt;
       <div class="checkbox">
         <label>
           <input type="checkbox" id="animation" value="animation">Animation
@@ -154,16 +175,19 @@
           </select>
         </div>
       </div>
+      &lt;!&ndash;Podcasts&ndash;&gt;
       <div class="checkbox">
         <label>
           <input type="checkbox" value="podcasts">Podcasts
         </label>
       </div>
+      &lt;!&ndash;Games&ndash;&gt;
       <div class="checkbox">
         <label>
           <input type="checkbox" value="games">Games
         </label>
       </div>
+      &lt;!&ndash;Photography&ndash;&gt;
       <div class="checkbox">
         <label>
           <input type="checkbox" id="photography" value="photography">Photography
@@ -176,21 +200,25 @@
           </select>
         </div>
       </div>
+      &lt;!&ndash;Comedy&ndash;&gt;
       <div class="checkbox">
         <label>
           <input type="checkbox" value="comedy">Comedy
         </label>
       </div>
+      &lt;!&ndash;Science&ndash;&gt;
       <div class="checkbox">
         <label>
           <input type="checkbox" value="science">Science
         </label>
       </div>
+      &lt;!&ndash;Education&ndash;&gt;
       <div class="checkbox">
         <label>
           <input type="checkbox" value="education">Education
         </label>
       </div>
+      &lt;!&ndash;Crafts and DIY&ndash;&gt;
       <div class="checkbox">
         <label>
           <input type="checkbox" id="craftsDIY" value="craftsDIY">Crafts and DIY
@@ -204,20 +232,13 @@
             <option>Lettering Arts</option>
           </select>
         </div>
-      </div>
+      </div>-->
     </div>
 
-    <button type="submit" class="btm btn-default" style="margin: 10% 45%" ng-click="vm.register()">
+    <button type="submit" class="btm btn-default" style="margin: 10% 45%"
+            ng-click="vm.register()">
       Next
     </button>
-
-    <!--<button class="btn btn-lg btn-primary" type="submit">-->
-      <!--<a ui-sref="artistSignupInfo">-->
-        <!--<p style="color: white">-->
-          <!--next-->
-        <!--</p>-->
-      <!--</a>-->
-    <!--</button>-->
 
   </form>
 </div>

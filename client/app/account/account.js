@@ -43,7 +43,8 @@ angular.module('culturalystApp')
         url: '/artistSignupInfo',
         templateUrl: 'app/account/artistSignup/artistSignupInfo.html',
         controller: 'ArtistSignupController',
-        controllerAs: 'vm'
+        controllerAs: 'vm',
+        authenticate: true
       })
       // signup artist phase 2: upload content; a profile image and a banner
       // image
@@ -51,20 +52,29 @@ angular.module('culturalystApp')
         url: '/artistSignupContent',
         templateUrl: 'app/account/artistSignup/artistSignupContent.html',
         controller: 'ArtistSignupController',
-        controllerAs: 'vm'
+        controllerAs: 'vm',
+        authenticate: true
       })
       // signup artist phase 3: set up rewards
       .state('artistSignupRewards', {
         url: '/artistSignupRewards',
         templateUrl: 'app/account/artistSignup/artistSignupRewards.html',
         controller: 'ArtistSignupController',
-        controllerAs: 'vm'
+        controllerAs: 'vm',
+        authenticate: true
       })
       // settings page for passwords
       .state('settings', {
         url: '/settings',
         templateUrl: 'app/account/settings/settings.html',
         controller: 'SettingsController',
+        controllerAs: 'vm',
+        authenticate: true
+      })
+      .state('userInfo', {
+        url: '/userInfo',
+        templateUrl: 'app/account/userInfo/userInfo.html',
+        controller: 'UserInfoController',
         controllerAs: 'vm',
         authenticate: true
       });
