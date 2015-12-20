@@ -1,0 +1,9 @@
+.img-center {
+	margin: 0 auto;
+  width: 200px;
+  height: 200px;
+  /*object-fit: contain;*/
+}
+.leader {
+  margin: 0 auto;
+}

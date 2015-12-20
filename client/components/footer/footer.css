@@ -4,3 +4,19 @@ footer.footer {
   margin-top: 70px;
   border-top: 1px solid #E5E5E5;
 }
+
+.footer-img {
+  width: 100px;
+}
+.footer-columns {
+  width: 200px;
+}
+
+.social-media a i {
+  font-size: 25px;
+  color: #ccc;
+}
+
+.social-media a i:hover {
+  color: #888;
+}
