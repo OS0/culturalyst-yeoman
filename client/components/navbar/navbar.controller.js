@@ -8,7 +8,11 @@ class NavbarController {
   }, {
     'title':'Discovery',
     'state':'discovery'
-  }];
+  }, {
+    'title': 'Y?',
+    'state': 'about'
+  }
+  ];
 
   isCollapsed = true;
   //end-non-standard
