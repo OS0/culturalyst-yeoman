@@ -14,11 +14,8 @@ router.get('/:id', auth.isAuthenticated(), controller.show);
 router.post('/', controller.create);
 router.put('/:id/updateUserInfo', auth.isAuthenticated(), controller.updateUserInfo);
 router.get('/discovery/:medium/:submedium', controller.showResults);
-<<<<<<< HEAD
 router.get('/artist/:id', controller.show);
-=======
 router.put('/:id/updateArtistInfo', auth.isAuthenticated(), controller.updateArtistInfo);
->>>>>>> Userinfo as new controller and route.
 // set this up just like you did for the user info
 // router.put('/:id/updateArtist', auth.isAuthenticated(), controller.updateArtistInfo);
 
