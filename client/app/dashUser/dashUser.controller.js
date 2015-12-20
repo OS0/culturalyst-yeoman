@@ -23,6 +23,6 @@ angular.module('culturalystApp')
       gaming: false
     };
     $scope.toggleMedium = function(medium) {
-      $scope.mediums.medium = $scope.mediums.medium === false ? true : false;
+      $scope.mediums[medium] = $scope.mediums[medium] === false ? true : false;
     }
   });
