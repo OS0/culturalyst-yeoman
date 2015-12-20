@@ -1,0 +1,43 @@
+
+
+<section class="jumbotron text-xs-center">
+      <div class="container">
+        <h2 class="jumbotron-heading" align="center">Select Up to Five of Your Favorite Mediums</h2>
+        <div>
+        <button ng-class="{'btn btn-default': !mediums.music, 'btn btn-success chosen': mediums.music}" ng-click="toggleMedium('music')">Music</button>
+        <button ng-class="{'btn btn-default': !mediums.writing, 'btn btn-success chosen': mediums.writing}" ng-click="toggleMedium('writing')">Writing</button>
+        <button ng-class="{'btn btn-default': !mediums.film, 'btn btn-success chosen': mediums.film}" ng-click="toggleMedium('film')">Film</button>
+        <button ng-class="{'btn btn-default': !mediums.visualArt, 'btn btn-success': mediums.visualArt}" ng-click="toggleMedium('visualArt')">Visual Art</button>
+        <button ng-class="{'btn btn-default': !mediums.photography, 'btn btn-success': mediums.photography}" ng-click="toggleMedium('photography')">Photography</button>
+        <button ng-class="{'btn btn-default': !mediums.dance, 'btn btn-success': mediums.dance}" ng-click="toggleMedium('dance')">Dance</button>
+        <button ng-class="{'btn btn-default': !mediums.cultureBearers, 'btn btn-success': mediums.cultureBearers}" ng-click="toggleMedium('cultureBearers')">Culture Bearers</button>
+        <button ng-class="{'btn btn-default': !mediums.comedy, 'btn btn-success': mediums.comedy}" ng-click="toggleMedium('comedy')">Comedy</button>
+        <button ng-class="{'btn btn-default': !mediums.performingArts, 'btn btn-success': mediums.performingArts}" ng-click="toggleMedium('performingArts')">Performing Arts</button>
+        <button ng-class="{'btn btn-default': !mediums.design, 'btn btn-success': mediums.design}" ng-click="toggleMedium('design')">Design</button>
+        <button ng-class="{'btn btn-default': !mediums.code, 'btn btn-success': mediums.code}" ng-click="toggleMedium('code')">Code</button>
+        <button ng-class="{'btn btn-default': !mediums.gaming, 'btn btn-success': mediums.gaming}" ng-click="toggleMedium('gaming')">Gaming</button>
+      </div>
+
+      </div>
+    </section>
+
+<!--
+<h2>Select Up to Five of Your Favorite Mediums</h2>   
+
+
+
+<p>
+          <a href="#" ng-class="{true: 'btn btn-primary', false: 'btn btn-success'}" ng-click="toggleMedium()">Music</a>
+          <a href="#" ng-class="{true: 'btn btn-primary', false: 'btn btn-success'}" ng-click="toggleMedium()">Writing</a>
+          <a href="#" ng-class="{true: 'btn btn-primary', false: 'btn btn-success'}" ng-click="toggleMedium()">Film</a>
+          <a href="#" ng-class="{true: 'btn btn-primary', false: 'btn btn-success'}" ng-click="toggleMedium()">Visual Art</a>
+          <a href="#" ng-class="{true: 'btn btn-primary', false: 'btn btn-success'}" ng-click="toggleMedium()">Photography</a>
+          <a href="#" ng-class="{true: 'btn btn-primary', false: 'btn btn-success'}" ng-click="toggleMedium()">Dance</a>
+          <a href="#" ng-class="{true: 'btn btn-primary', false: 'btn btn-success'}" ng-click="toggleMedium()">Culture Bearers</a>
+          <a href="#" ng-class="{true: 'btn btn-primary', false: 'btn btn-success'}" ng-click="toggleMedium()">Comedy</a>
+          <a href="#" ng-class="{true: 'btn btn-primary', false: 'btn btn-success'}" ng-click="toggleMedium()">Performing Arts</a>
+          <a href="#" ng-class="{true: 'btn btn-primary', false: 'btn btn-success'}" ng-click="toggleMedium()">Design</a>
+          <a href="#" ng-class="{true: 'btn btn-primary', false: 'btn btn-success'}" ng-click="toggleMedium()">Code</a>
+          <a href="#" ng-class="{true: 'btn btn-primary', false: 'btn btn-success'}" ng-click="toggleMedium()">Gaming</a>
+        </p>  
+-->
