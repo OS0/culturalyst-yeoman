@@ -187,6 +187,11 @@
           .apply(Auth, [].concat.apply(['admin'], arguments));
       },
 
+      isArtist: function() {
+        return Auth.hasRole
+          .apply(Auth, [].concat.apply(['artist'], arguments));
+      },
+
       /**
        * Get auth token
        *
