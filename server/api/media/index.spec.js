@@ -44,15 +44,15 @@ describe('Media API Router:', function() {
 
   });
 
-  describe('GET /api/media/:id', function() {
+  // describe('GET /api/media/:id', function() {
 
-    it('should route to media.controller.show', function() {
-      routerStub.get
-        .withArgs('/:id', 'mediaCtrl.show')
-        .should.have.been.calledOnce;
-    });
+  //   it('should route to media.controller.show', function() {
+  //     routerStub.get
+  //       .withArgs('/:id', 'mediaCtrl.show')
+  //       .should.have.been.calledOnce;
+  //   });
 
-  });
+  // });
 
   describe('POST /api/media', function() {
 

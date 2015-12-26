@@ -105,14 +105,14 @@ describe('User API Router:', function() {
 
   });
 
-  describe('PUT /api/users/:id/updateUserInfo', function() {
+  // describe('PUT /api/users/:id/updateUserInfo', function() {
 
-    it('should route to user.controller.updateUserInfo', function() {
-      routerStub.put
-        .withArgs('/:id/updateUserInfo', 'auth.isAuthenticated()', 'controller.updateUserInfo')
-        .should.have.been.calledOnce;
-    });
+  //   it('should route to user.controller.updateUserInfo', function() {
+  //     routerStub.put
+  //       .withArgs('/:id/updateUserInfo', 'auth.isAuthenticated()', 'controller.updateUserInfo')
+  //       .should.have.been.calledOnce;
+  //   });
 
-  });
+  // });
 
 });
