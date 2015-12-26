@@ -1,4 +1,12 @@
 <div class="row placeholders">
+  <div ng-repeat="artist in favorites">
+    <div class="col-xs-6 col-sm-3 placeholder">
+      <img src="{{artist.img}}" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
+      <h4>{{artist.name}}</h4>
+      <span class="text-muted">{{artist.title}}</span>
+    </div>
+  </div>
+
   <div class="col-xs-6 col-sm-3 placeholder">
     <img src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">
     <h4>Alon</h4>
