@@ -1,4 +1,19 @@
+
 /*CONTENT UPLOAD STYLES*/
+/*
+.container{
+  width: 600px;
+}*/
+
+.wrapperBig {
+  width:600px;
+  height:590px;
+}
+.wrapperSmall {
+  width:900px;
+  height:390px;
+}
+
 #uploader {
   text-align: center;
   margin: 0 auto;
@@ -33,5 +48,24 @@
 .continue-btn {
   margin-top: 20px;
 }
+
+.upload_button {
+    display: inline-block;
+    position: relative;
+    font-weight: bold;
+    font-size: 14px;
+    background-color: rgb(15, 97, 172);
+    color: #fff;
+    padding: 5px 0;
+    border: 1px solid #000;
+    border-radius: 4px;
+    width: 100px;
+    height: 30px;
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+}
+
+
 
 /*END CONTENT UPLOAD STYLES*/

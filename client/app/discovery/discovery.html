@@ -2,6 +2,8 @@
 <div id="menu-toggle"></div>
 <div id="menu-toggle-2"></div>
 <sidebar></sidebar>
+<!-- <sidebar></sidebar> -->
+>>>>>>> Userinfo as new controller and route.
 <div ng-controller="DiscoveryCtrl">
 	<div id="wrapper">
 		<div id="page-content-wrapper">
@@ -19,10 +21,8 @@
 					</div>
 				</div>
 			</div>
-			<div>
-				<h1>You've searched for Musicians!</h1>
-			</div>
-			<div class="container">
+
+			<div class="container" align="center">
 				<div class="row">
 					<div id="custom-search-input">
 						<div class="input-group col-md-12">
@@ -39,7 +39,7 @@
               <a ng-repeat="artist in artists | filter:searchText | filter:{$:medium.name}" href="artist/{{artist._id}}">
               <div class="card" >
                 <div>
-                    <img class="profilePic" ng-src="{{artist.img}}"/>
+                    <img class="profilePic" ng-src="{{artist.picUrl}}"/>
                     <div class="profileName">
                       <h2 >{{artist.name}}</h2>
                       <p>{{artist.medium}} > {{artist.submedium}}</p>
@@ -76,10 +76,17 @@
              <a href="#" class="btn btn-primary">Button</a>
            </div>
          </div> -->
+<<<<<<< e45019be4be5054ee2614441ba45429660348f55
 
 
     <!-- <div class ="container">
 
+=======
+
+
+    <!-- <div class ="container">
+
+>>>>>>> Userinfo as new controller and route.
         <div class="row">
             <div class="album text-muted">
               <div class="card" ng-repeat="artist in artists | filter:searchText | filter:{$:medium.name}">

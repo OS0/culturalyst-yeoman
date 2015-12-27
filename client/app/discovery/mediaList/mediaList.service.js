@@ -6,6 +6,7 @@ angular.module('culturalystApp')
 
     var mediaList = [
       {'name': 'Music', 'submedia': ['Hip-hop', 'Guitar', 'Brass', 'Folk', 'Rock','Country']},
+      {'name': 'Performing Arts', 'submedia': ['Dance', 'Theater', 'Ballet']}
     ]
 
     // Public API here

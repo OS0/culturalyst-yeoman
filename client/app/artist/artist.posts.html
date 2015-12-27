@@ -1,7 +1,7 @@
 <div class="postBod">
   <div class="container">
     <div class="row">
-      <div class="col-md-1">
+<!--       <div class="col-md-1">
         <img src="http://placehold.it/40x40">
       </div>
       <div class="col-md-2">
@@ -12,52 +12,58 @@
           <p>
             Thank God for Culturalyst!
           </p>
+        </div> -->
+
+<div class="modal-dialog" ng-repeat="post in posts | limitTo: 10 | orderBy: created">
+  <div class="modal-content">
+    <div class="modal-body">
+      <div class="row">
+        <div class="card">
+          <!-- <img class="card-img-top" src="{{post.url}}"/> -->
+        </div>
+        <div class="col-md-3">
+          <span>{{artist.name}}</span>
+          <span>{{post.created}}</span>
         </div>
       </div>
+      <div>
+        <p>
+          {{post.info}}
+        </p>
+      </div>
+      <img class="post" src="{{post.url}}"/>
     </div>
   </div>
 </div>
 
-<div class="postBod">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-1">
-        <img src="http://placehold.it/40x40">
-      </div>
-      <div class="col-md-2">
-        <div class="userInfoPost">
-          <span>Uhlawn</span>
-        </div>
-        <div class="messagePost">
-          <p>
-            Thank God for Culturalyst!
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="postBod">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-1">
-        <img src="http://placehold.it/40x40">
-      </div>
-      <div class="col-md-2">
-        <div class="userInfoPost">
-          <span>Uhlawn</span>
-        </div>
-        <div class="messagePost">
-          <p>
-            Thank God for Culturalyst!
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
 
+
+        
+      </div>
+    </div>
+  </div>
+</div>
+<!-- 
 <div class="postBod">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-1">
+        <img src="http://placehold.it/40x40">
+      </div>
+      <div class="col-md-2">
+        <div class="userInfoPost">
+          <span>Uhlawn</span>
+        </div>
+        <div class="messagePost">
+          <p>
+            
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->
+<!-- <div class="postBod">
   <div class="container">
     <div class="row">
       <div class="col-md-1">
@@ -75,4 +81,24 @@
       </div>
     </div>
   </div>
-</div>
+</div> -->
+
+<!-- <div class="postBod">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-1">
+        <img src="http://placehold.it/40x40">
+      </div>
+      <div class="col-md-2">
+        <div class="userInfoPost">
+          <span>Uhlawn</span>
+        </div>
+        <div class="messagePost">
+          <p>
+            Thank God for Culturalyst!
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->

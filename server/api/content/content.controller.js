@@ -68,9 +68,11 @@ exports.index = function(req, res) {
 
 // Gets a single Content from the DB
 exports.show = function(req, res) {
+  var userId = req.params.id;
+  console.log(userId);
   Content.find({
     where: {
-      _id: req.params.id
+      user_id:userId
     }
   })
     .then(handleEntityNotFound(res))
@@ -80,7 +82,15 @@ exports.show = function(req, res) {
 
 // Creates a new Content in the DB
 exports.create = function(req, res) {
-  Content.create(req.body)
+  var id = req.params.id;
+  console.log(req.body.info);
+  Content.create({
+    name: req.body.name,
+    user_id: id,
+    url:req.body.url,
+    info: req.body.info,
+    type: req.body.type
+  })
     .then(responseWithResult(res, 201))
     .catch(handleError(res));
 };
@@ -111,4 +121,26 @@ exports.destroy = function(req, res) {
     .then(handleEntityNotFound(res))
     .then(removeEntity(res))
     .catch(handleError(res));
+};
+
+exports.showResults = function(req, res, next) {
+  var artist_id = req.params.user_id;
+
+  Content.findAll({
+      where: {
+        user_id: artist_id,
+        type: "post"
+      }
+    })
+    .then(function(content) {
+      console.log("AHHHHHHHHHHHHHHH");
+      if (!content) {
+        console.log('No content');
+        return res.status(444).end();
+      }
+      res.json(content);
+    })
+    .catch(function(err) {
+      return next(err);
+    });
 };
