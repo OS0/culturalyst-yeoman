@@ -1,4 +1,6 @@
 /*
+=======
+>>>>>>> Userinfo as new controller and route.
 'use strict';
 
 angular.module('culturalystApp')
@@ -10,4 +12,5 @@ angular.module('culturalystApp')
   //       controller: 'UserInfoCtrl'
   //     });
   // });
+<<<<<<< HEAD
 */

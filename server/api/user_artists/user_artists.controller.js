@@ -1,17 +1,17 @@
 /**
  * Using Rails-like standard naming convention for endpoints.
- * GET     /api/rewards              ->  index
- * POST    /api/rewards              ->  create
- * GET     /api/rewards/:id          ->  show
- * PUT     /api/rewards/:id          ->  update
- * DELETE  /api/rewards/:id          ->  destroy
+ * GET     /api/user_artists              ->  index
+ * POST    /api/user_artists              ->  create
+ * GET     /api/user_artists/:id          ->  show
+ * PUT     /api/user_artists/:id          ->  update
+ * DELETE  /api/user_artists/:id          ->  destroy
  */
 
 'use strict';
 
 var _ = require('lodash');
 var sqldb = require('../../sqldb');
-var Reward = sqldb.Reward;
+var UserArtists = sqldb.UserArtists;
 
 function handleError(res, statusCode) {
   statusCode = statusCode || 500;
@@ -59,16 +59,16 @@ function removeEntity(res) {
   };
 }
 
-// Gets a list of Rewards
+// Gets a list of UserArtistss
 exports.index = function(req, res) {
-  Reward.findAll()
+  UserArtists.findAll()
     .then(responseWithResult(res))
     .catch(handleError(res));
 };
 
-// Gets a single Reward from the DB
+// Gets a single UserArtists from the DB
 exports.show = function(req, res) {
-  Reward.find({
+  UserArtists.find({
     where: {
       _id: req.params.id
     }
@@ -78,38 +78,19 @@ exports.show = function(req, res) {
     .catch(handleError(res));
 };
 
-exports.showRewards = function(req, res) {
-  Reward.findAll({
-    where: {
-      user_id: req.params.user_id
-    }
-  })
-    .then(handleEntityNotFound(res))
-    .then(responseWithResult(res))
-    .catch(handleError(res));
-};
-
-// Creates a new Reward in the DB
+// Creates a new UserArtists in the DB
 exports.create = function(req, res) {
-  Reward.create(req.body)
+  UserArtists.create(req.body)
     .then(responseWithResult(res, 201))
     .catch(handleError(res));
 };
 
-exports.newReward = function(req, res) {
-  req.body.user_id = req.params.user_id;
-  console.log(req.body)
-  Reward.create(req.body)
-    .then(responseWithResult(res, 201))
-    .catch(handleError(res));
-}
-
-// Updates an existing Reward in the DB
+// Updates an existing UserArtists in the DB
 exports.update = function(req, res) {
   if (req.body._id) {
     delete req.body._id;
   }
-  Reward.find({
+  UserArtists.find({
     where: {
       _id: req.params.id
     }
@@ -120,9 +101,9 @@ exports.update = function(req, res) {
     .catch(handleError(res));
 };
 
-// Deletes a Reward from the DB
+// Deletes a UserArtists from the DB
 exports.destroy = function(req, res) {
-  Reward.find({
+  UserArtists.find({
     where: {
       _id: req.params.id
     }
