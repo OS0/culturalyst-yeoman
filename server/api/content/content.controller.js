@@ -83,7 +83,7 @@ exports.show = function(req, res) {
 // Creates a new Content in the DB
 exports.create = function(req, res) {
   var id = req.params.id;
-  console.log(req.body.info);
+  console.log(req.body);
   Content.create({
     name: req.body.name,
     user_id: id,

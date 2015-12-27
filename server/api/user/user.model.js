@@ -38,8 +38,8 @@ module.exports = function(sequelize, DataTypes) {
     },
     location: DataTypes.STRING,
     birthday: DataTypes.DATE,
-    profileImg: DataTypes.STRING,
-    coverImg: DataTypes.STRING,
+    picUrl: DataTypes.STRING,
+    img: DataTypes.STRING,
     //Medium and Submedium will be removed on join table connections
     medium: DataTypes.STRING,
     submedium: DataTypes.STRING,
@@ -72,8 +72,8 @@ module.exports = function(sequelize, DataTypes) {
           'short': this.bio,
           'medium': this.medium,
           'submedium': this.submedium,
-          'picUrl': this.profileImg,
-          'img': this.coverImg,
+          'picUrl': this.picUrl,
+          'img': this.img,
           'earned': this.earned,
           'budget': this.budget,
           'supporters': this.supporters
