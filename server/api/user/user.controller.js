@@ -35,8 +35,13 @@ exports.index = function(req, res) {
       attributes: [
         '_id',
         'name',
+        'location',
+        'birthday',
         'email',
         'role',
+        'supporters',
+        'budget',
+        'earned',
         'provider'
       ]
     })
@@ -78,7 +83,7 @@ exports.show = function(req, res, next) {
       if (!user) {
         return res.status(404).end();
       }
-      res.json(user);
+      res.json(user.profile);
     })
     .catch(function(err) {
       return next(err);
@@ -157,7 +162,6 @@ exports.changePassword = function(req, res, next) {
  * Update the users information
  */
 exports.updateUserInfo = function(req, res, next) {
-  console.log("Updating Info!");
   var userId = req.user._id;
   var name = req.body.name;
   var email = req.body.email;
@@ -179,7 +183,6 @@ exports.updateUserInfo = function(req, res, next) {
           .catch(validationError(res));
     });
 };
-
 exports.updateArtistContent = function(req, res, next) {
   console.log('this fired');
   var userId = req.user._id;
@@ -231,30 +234,7 @@ exports.updateArtistInfo = function(req, res, next) {
       }
     })
     .then(function(user) {
-        user.name = name;
-        user.email = email;
-        user.location = location;
-        return user.save()
-          .then(function() {
-            res.status(204).end();
-          })
-          .catch(validationError(res));
-    });
-};
-
-exports.updateArtistInfo = function(req, res, next) {
-  var userId = req.user._id;
-  var bio = req.body.bio;
-  var medium = req.body.medium;
-  var submedium = req.body.submedium;
-  var reward = req.body.reward;
-
-  User.find({
-      where: {
-        _id: userId
-      }
-    })
-    .then(function(user) {
+        user.role = "artist";
         user.short = bio;
         user.medium = medium;
         user.submedium = submedium;
@@ -280,10 +260,15 @@ exports.me = function(req, res, next) {
       attributes: [
         '_id',
         'name',
-        'email',
-        'role',
         'location',
         'birthday',
+        'email',
+        'role',
+        'profileImg',
+        'coverImg',
+        'supporters',
+        'budget',
+        'earned',
         'provider'
       ]
     })

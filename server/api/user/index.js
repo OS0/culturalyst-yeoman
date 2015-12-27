@@ -12,13 +12,11 @@ router.get('/me', auth.isAuthenticated(), controller.me);
 router.put('/:id/password', auth.isAuthenticated(), controller.changePassword);
 router.get('/:id', auth.isAuthenticated(), controller.show);
 router.post('/', controller.create);
-router.put('/:id/updateUserInfo', auth.isAuthenticated(), controller.updateUserInfo);
 router.get('/discovery/:medium/:submedium', controller.showResults);
 router.get('/artist/:id', controller.show);
+router.put('/:id/updateUserInfo', auth.isAuthenticated(), controller.updateUserInfo);
 router.put('/:id/updateArtistInfo', auth.isAuthenticated(), controller.updateArtistInfo);
 router.put('/:id/updateArtistContent', auth.isAuthenticated(), controller.updateArtistContent);
 router.put('/:id/updateArtistCover', auth.isAuthenticated(), controller.updateArtistCover);
-// set this up just like you did for the user info
-// router.put('/:id/updateArtist', auth.isAuthenticated(), controller.updateArtistInfo);
 
 module.exports = router;

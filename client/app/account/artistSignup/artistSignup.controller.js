@@ -19,7 +19,9 @@ class ArtistSignupController {
     this.$scope.currentUser = this.Auth.getCurrentUser();
     this.$timeout = $timeout;
     this.MediaList = MediaList;
-    this.list = [];
+    this.$scope.list = [];
+    this.$scope.rewards = this.showRewards() || [];
+    this.$scope.newReward = {};
     this.$scope.mediaList = this.MediaList.getMediaList();
   }
 
@@ -84,21 +86,34 @@ class ArtistSignupController {
     this.list.push({});
   };
 
+  showRewards() {
+    let context = this;
+    this.Auth.getCurrentUser(function(user) {
+      context.$http.get('api/rewards/myRewards/' + user._id)
+      .then(function(res) {
+        context.$scope.rewards = res.data;
+        console.log(context.$scope.rewards);
+      })
+    })
+  }
+
   // go to main
-  rewards() {
+  saveReward() {
+    let context = this;
+    console.log(context.$scope.newReward);
 
-    // refactor to grab from the html forms
-    //this.Auth.updateUserInfo({
-    //    name: this.user.name
-    //    //what properties do we need to grab from
-    //  })
-    //  .then(() => {
-    //    this.$state.go('main');
-    //  });
+    this.$http.post('/api/rewards/newReward/' + context.$scope.currentUser._id, context.$scope.newReward).then(function(res) {
+      context.$scope.rewards.push(context.$scope.newReward);
+      context.$scope.newReward = {};
+    })
+    
+  }
 
-    // note about user is becoming a creative change the role,
-    // after submit, role changes to artist
-    this.done()
+  deleteReward() {
+    console.log("DELETING!")
+    // this.$http.delete('/api/rewards/' + id).then(function(res) {
+    //   console.log(res);
+    // }
   }
 
   done() {
