@@ -15,11 +15,6 @@ class UserInfoController {
     this.$scope.currentUser = this.Auth.getCurrentUser();
   }
 
-  //currentUser() {
-  //  this.$scope.currentUser = this.Auth.getCurrentUser();
-  //  console.log(this.Auth.getCurrentUser());
-  //}
-
   userDetail() {
     console.log("Preparing to Update!")
     this.$http.put('/api/users/' + this.Auth.getCurrentUser()._id + '/updateUserInfo', {
@@ -27,10 +22,10 @@ class UserInfoController {
         email: this.$scope.currentUser.email,
         location: this.$scope.currentUser.location
       })
-       .then(() => {
-         console.log("I $promise I love you!");
-         // this.$state.go('main');
-       })
+      .then(() => {
+        console.log("I $promise I love you!");
+      // this.$state.go('main');
+      })
       .catch(err => {
         console.log(err.status, err.data);
       });

@@ -1,17 +1,17 @@
 /**
  * Using Rails-like standard naming convention for endpoints.
- * GET     /api/content              ->  index
- * POST    /api/content              ->  create
- * GET     /api/content/:id          ->  show
- * PUT     /api/content/:id          ->  update
- * DELETE  /api/content/:id          ->  destroy
+ * GET     /api/user_artists              ->  index
+ * POST    /api/user_artists              ->  create
+ * GET     /api/user_artists/:id          ->  show
+ * PUT     /api/user_artists/:id          ->  update
+ * DELETE  /api/user_artists/:id          ->  destroy
  */
 
 'use strict';
 
 var _ = require('lodash');
 var sqldb = require('../../sqldb');
-var Content = sqldb.Content;
+var UserArtists = sqldb.UserArtists;
 
 function handleError(res, statusCode) {
   statusCode = statusCode || 500;
@@ -59,20 +59,18 @@ function removeEntity(res) {
   };
 }
 
-// Gets a list of Contents
+// Gets a list of UserArtistss
 exports.index = function(req, res) {
-  Content.findAll()
+  UserArtists.findAll()
     .then(responseWithResult(res))
     .catch(handleError(res));
 };
 
-// Gets a single Content from the DB
+// Gets a single UserArtists from the DB
 exports.show = function(req, res) {
-  var userId = req.params.id;
-  console.log(userId);
-  Content.find({
+  UserArtists.find({
     where: {
-      user_id:userId
+      _id: req.params.id
     }
   })
     .then(handleEntityNotFound(res))
@@ -80,27 +78,19 @@ exports.show = function(req, res) {
     .catch(handleError(res));
 };
 
-// Creates a new Content in the DB
+// Creates a new UserArtists in the DB
 exports.create = function(req, res) {
-  var id = req.params.id;
-  console.log(req.body);
-  Content.create({
-    name: req.body.name,
-    user_id: id,
-    url:req.body.url,
-    info: req.body.info,
-    type: req.body.type
-  })
+  UserArtists.create(req.body)
     .then(responseWithResult(res, 201))
     .catch(handleError(res));
 };
 
-// Updates an existing Content in the DB
+// Updates an existing UserArtists in the DB
 exports.update = function(req, res) {
   if (req.body._id) {
     delete req.body._id;
   }
-  Content.find({
+  UserArtists.find({
     where: {
       _id: req.params.id
     }
@@ -111,9 +101,9 @@ exports.update = function(req, res) {
     .catch(handleError(res));
 };
 
-// Deletes a Content from the DB
+// Deletes a UserArtists from the DB
 exports.destroy = function(req, res) {
-  Content.find({
+  UserArtists.find({
     where: {
       _id: req.params.id
     }
@@ -121,26 +111,4 @@ exports.destroy = function(req, res) {
     .then(handleEntityNotFound(res))
     .then(removeEntity(res))
     .catch(handleError(res));
-};
-
-exports.showResults = function(req, res, next) {
-  var artist_id = req.params.user_id;
-
-  Content.findAll({
-      where: {
-        user_id: artist_id,
-        type: "post"
-      }
-    })
-    .then(function(content) {
-      console.log("AHHHHHHHHHHHHHHH");
-      if (!content) {
-        console.log('No content');
-        return res.status(444).end();
-      }
-      res.json(content);
-    })
-    .catch(function(err) {
-      return next(err);
-    });
 };
