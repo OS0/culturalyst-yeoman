@@ -23,18 +23,13 @@ class SignupController {
 
   register(form) {
     this.submitted = true;
-
     let context = this;
 
     if (form.$valid) {
       this.Auth.createUser({
-          //catalyst: this.user.catalyst,
-          //creative: this.user.creative,
           name: this.user.name,
           email: this.user.email,
           password: this.user.password,
-          // location: null,
-          // birthday: null
         })
         .then(() => {
           context.$log.log(context.user);
@@ -54,22 +49,6 @@ class SignupController {
           }
         });
     }
-  }
-
-  // edit this to work on the next page
-  userDetail() {
-    //this.submitted = true;
-    let context = this;
-
-    //   // could I use currentUser()()._id instead of this.Auth.getCurrentUser
-    //   this.$http.put('/api/users/' + this.Auth.getCurrentUser()._id +
-    // '/updateUserInfo', { name: this.user.name, email: this.user.email,
-    // password: this.user.password, location: this.user.location, birthday:
-    // this.user.birthday }) .then(() => { // this.$state.go('main'); }); }
-
-    //done() {
-    //  this.$state.go('main');
-    //}
   }
 }
 
