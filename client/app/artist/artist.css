@@ -11,7 +11,7 @@
 }
 
 .artistBack {
-  background-image: url('http://www.planwallpaper.com/static/images/abstract-colourful-cool-wallpapers-55ec7905a6a4f.jpg');
+  background-image: {{artist.img}};
   color: white;
 }
 
@@ -49,5 +49,8 @@
 }
 .artistModal{
   margin: 20px 0px;
+}
+.post{
+  height:300px;
 }
 
