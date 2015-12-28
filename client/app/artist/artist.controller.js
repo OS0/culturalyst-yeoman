@@ -18,6 +18,7 @@ angular.module('culturalystApp')
       $scope.artist = res.data;
     })
 
+
     $http.get('/api/content/' + $scope.artistId).then(function(res) {
       console.log(res);
       $scope.content = res.data;

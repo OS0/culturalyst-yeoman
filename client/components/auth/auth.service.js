@@ -2,7 +2,7 @@
 
 (function() {
 
-  function AuthService($location, $http, $cookies, $q, appConfig, Util, User, cultFire, $firebaseArray) {
+  function AuthService($location, $http, $cookies, $q, appConfig, Util, User) {
     // var ref = new Firebase('')
     var safeCb = Util.safeCb;
     var currentUser = {};
@@ -58,7 +58,6 @@
        * @return {Promise}
        */
       createUser: function(user, callback) {
-        // $firebaseArray(cultFire.child('Users')).$add(user)
         return User.save(user,
           function(data) {
             $cookies.put('token', data.token);

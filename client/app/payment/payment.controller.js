@@ -1,10 +1,29 @@
 'use strict';
 
 angular.module('culturalystApp')
-  .controller('PaymentCtrl', function ($scope, $http) {
-    $scope.get = function(){
-      $http.jsonp('https://connect.stripe.com/oauth/authorize?response_type=code&client_id=ca_7Yac6i1E5MoE5YvDGx9tNYRrBq1tKddQ&scope=read_write').success(function(data){
-        console.log('data: ',data)
+  .controller('PaymentCtrl', function ($scope, $location, stripe, $http) {
+    var artistId = $location.path().split('/').pop();
+    $scope.form = {};
+    $scope.recurring = false;
+
+
+
+    $scope.submit = function(){
+
+          //create token from their card credntials and send to /charge
+      stripe.card.createToken($scope.form).then(function(tok){
+        console.log('tok: ',tok)
+        $http({
+          method: 'POST',
+          url: 'api/users/charge',
+          data: {
+            token: tok.id,
+            amount: $scope.amount,
+            recurring: $scope.recurring,
+            _id: artistId
+          }
+        })
       })
     }
+
   });

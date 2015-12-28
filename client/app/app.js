@@ -12,7 +12,7 @@ angular.module('culturalystApp', [
   'ui.router',
   'ui.bootstrap',
   'validation.match',
-  'firebase'
+  'angular-stripe'
 ])
 
 

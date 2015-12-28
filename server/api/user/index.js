@@ -18,5 +18,9 @@ router.put('/:id/updateUserInfo', auth.isAuthenticated(), controller.updateUserI
 router.put('/:id/updateArtistInfo', auth.isAuthenticated(), controller.updateArtistInfo);
 router.put('/:id/updateArtistContent', auth.isAuthenticated(), controller.updateArtistContent);
 router.put('/:id/updateArtistCover', auth.isAuthenticated(), controller.updateArtistCover);
+router.put('/register', controller.register);
+router.post('/charge', controller.charge);
+// set this up just like you did for the user info
+// router.put('/:id/updateArtist', auth.isAuthenticated(), controller.updateArtistInfo);
 
 module.exports = router;

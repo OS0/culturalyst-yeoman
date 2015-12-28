@@ -6,6 +6,8 @@
 
 import errors from './components/errors';
 import path from 'path';
+import db from './sqldb'
+import auth from './auth/auth.service'
 
 var CLIENT_ID = 'ca_7Yac6i1E5MoE5YvDGx9tNYRrBq1tKddQ';
 var API_KEY = 'sk_test_iJGQtNCDSmOSroJKVAlFCdbB';

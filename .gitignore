@@ -9,4 +9,3 @@ dist
 npm-debug.log
 test.sqlite
 dev.sqlite
-
