@@ -55,7 +55,11 @@ module.exports = function(sequelize, DataTypes) {
     facebook: DataTypes.TEXT,
     twitter: DataTypes.TEXT,
     google: DataTypes.TEXT,
-    github: DataTypes.TEXT
+    github: DataTypes.TEXT,
+    account: {
+      type: DataTypes.STRING,
+      unique: true
+    }
 
   }, {
 

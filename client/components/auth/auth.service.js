@@ -62,6 +62,7 @@
           function(data) {
             $cookies.put('token', data.token);
             currentUser = User.get();
+            console.log(currentUser,data)
             return safeCb(callback)(null, user);
           },
           function(err) {

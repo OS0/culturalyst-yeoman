@@ -26,6 +26,7 @@
       <link rel="stylesheet" href="app/admin/admin.css">
       <link rel="stylesheet" href="app/app.css">
       <link rel="stylesheet" href="app/artist/artist.css">
+      <link rel="stylesheet" href="app/connect/connect.css">
       <link rel="stylesheet" href="app/dashArtist/dashArtist.css">
       <link rel="stylesheet" href="app/dashUser/dashUser.css">
       <link rel="stylesheet" href="app/discovery/discovery.css">
@@ -68,6 +69,10 @@
     <script src="bower_components/es5-shim/es5-shim.js"></script>
     <script src="bower_components/json3/lib/json3.min.js"></script>
     <![endif]-->
+    <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+    <script type="text/javascript">
+      Stripe.setPublishableKey('pk_test_fN4bxAyEBsyBxrDWpaOD4sHk')
+    </script>
     <!-- build:js({client,node_modules}) app/vendor.js -->
       <!-- bower:js -->
       <script src="bower_components/jquery/dist/jquery.js"></script>
@@ -88,6 +93,7 @@
       <script src="bower_components/blueimp-file-upload/js/jquery.fileupload.js"></script>
       <script src="bower_components/cloudinary_js/js/jquery.cloudinary.js"></script>
       <script src="bower_components/cloudinary_ng/js/angular.cloudinary.js"></script>
+      <script src="bower_components/angular-stripe/release/angular-stripe.js"></script>
       <!-- endbower -->
       <script src="socket.io-client/socket.io.js"></script>
     <!-- endbuild -->
@@ -110,7 +116,8 @@
       <script src="app/artist/artist.controller.js"></script>
       <script src="app/artist/artist.js"></script>
       <script src="app/artist/artist/artist.service.js"></script>
-      <script src="app/cultFire/cultFire.service.js"></script>
+      <script src="app/connect/connect.controller.js"></script>
+      <script src="app/connect/connect.js"></script>
       <script src="app/dashArtist/dashArtist.controller.js"></script>
       <script src="app/dashArtist/dashArtist.js"></script>
       <script src="app/dashUser/dashUser.controller.js"></script>

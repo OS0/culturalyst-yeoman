@@ -4,6 +4,10 @@ import {User} from '../../sqldb';
 import passport from 'passport';
 import config from '../../config/environment';
 import jwt from 'jsonwebtoken';
+var stripe = require('stripe')('sk_test_iJGQtNCDSmOSroJKVAlFCdbB')
+
+var CLIENT_ID = 'ca_7Yac6i1E5MoE5YvDGx9tNYRrBq1tKddQ';
+var API_KEY = 'sk_test_iJGQtNCDSmOSroJKVAlFCdbB';
 
 function validationError(res, statusCode) {
   statusCode = statusCode || 422;
@@ -289,3 +293,85 @@ exports.me = function(req, res, next) {
 exports.authCallback = function(req, res, next) {
   res.redirect('/');
 };
+
+//Artist Acct Registration
+exports.registerdb = function(account, id){
+  console.log('calling me')
+  User.find({
+      where: {
+        _id: id
+      }
+    })
+    .then(function(user) {
+        user.account = JSON.stringify(account)
+        return user.save()
+          .then(function() {
+            res.status(204).end();
+          })
+          .catch(validationError(res));
+    });
+}
+
+exports.register = function(req,res){
+  var userId = req.body._id
+  var data = req.body.data
+  stripe.accounts.create(data)
+    .then(function(acct){
+      exports.registerdb(acct, userId);
+    }).then(function() {
+      res.status(204).end();
+    })
+}
+
+//charge customer
+exports.charge = function(req,res){
+  var amount = req.body.amount
+  var artistId = req.body._id
+  //for subscriptions
+  var recurring = req.body.recurring
+  //find Artist by ID
+
+  User.find({
+      where: {
+        _id: artistId
+      }
+    })
+    .then(function(user) {
+      console.log('user: ', user)
+      console.log('useracct: ', JSON.parse(user.dataValues.account))
+      if(user){
+        //if custID
+        if(req.body.customer){
+          //create charge
+          stripe.charges.create({
+            amount: amount,
+            currency: 'usd',
+            customer: customer
+          }).then( function(charge){
+              //store charge to db for user/artist dashboard
+          })
+        } else {
+          //create cutomer from card token
+          return stripe.customers.create({
+            source: req.body.token
+          }).then(function(customer){
+            console.log('customer: ',customer)
+            //create charge from cust id
+            return stripe.charges.create({
+              amount: amount,
+              currency: 'usd',
+              customer: customer.id,
+              destination: JSON.parse(user.dataValues.account).id,
+              application_fee: 500
+            }).then(function(charge){
+              console.log('charges: ', charge)
+              //save charge to db for user/artist dashboard
+            })
+          })
+        }
+      } else {
+        console.log('no user found bruh')
+
+      }
+    });
+}
