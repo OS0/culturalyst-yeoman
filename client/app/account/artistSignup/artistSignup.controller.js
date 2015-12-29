@@ -38,10 +38,18 @@ class ArtistSignupController {
   register() {
     let context = this;
 
-    this.$http.put('/api/users/' + this.$scope.currentUser._id + '/updateArtistInfo', {
-      bio: context.$scope.bio,
-      medium: context.$scope.selectedMedium,
-      submedium: context.$scope.selectedSubmedium
+  this.$http.put('/api/users/' + this.$scope.currentUser._id + '/updateArtistInfo', {
+        bio: context.$scope.bio,
+        medium: context.$scope.selectedMedium,
+        submedium: context.$scope.selectedSubmedium,
+        facebook: context.$scope.faceBookUrl,
+        instagram: context.$scope.instagramUrl,
+        twitter: context.$scope.twitterUrl,
+        etsy: context.$scope.etsyUrl,
+        soundcloud: context.$scope.soundCloudUrl,
+        behance: context.$scope.behanceUrl
+      }).then(function(res) {
+      console.log(res);
     });
 
     this.$state.go('artistSignupContent');

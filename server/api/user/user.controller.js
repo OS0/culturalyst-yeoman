@@ -231,6 +231,12 @@ exports.updateArtistInfo = function(req, res, next) {
   var medium = req.body.medium;
   var submedium = req.body.submedium;
   var reward = req.body.reward;
+  var facebook = req.body.facebook;
+  var instagram = req.body.instagram;
+  var twitter = req.body.twitter;
+  var etsy = req.body.etsy;
+  var soundcloud = req.body.soundcloud;
+  var behance = req.body.behance;
 
   User.find({
       where: {
@@ -243,6 +249,12 @@ exports.updateArtistInfo = function(req, res, next) {
         user.medium = medium;
         user.submedium = submedium;
         user.reward = reward;
+        user.facebook = facebook;
+        user.instagram = instagram;
+        user.twitter = twitter;
+        user.etsy = etsy;
+        user.soundcloud = soundcloud;
+        user.behance = behance;
         return user.save()
           .then(function() {
             res.status(204).end();
