@@ -6,7 +6,8 @@ angular.module('culturalystApp')
       .state('dashUser', {
         url: '/dashUser',
         templateUrl: 'app/dashUser/dashUser.html',
-        controller: 'DashUserCtrl'
+        controller: 'DashUserCtrl',
+        controllerAs: 'dash'
       })
       .state('dashUser.myList', {
         templateUrl: 'app/dashUser/dashUser.myList.html'
@@ -26,6 +27,6 @@ angular.module('culturalystApp')
       .state('dashUser.changePassword', {
         templateUrl: 'app/account/settings/settings.html',
         controller: 'SettingsController',
-        controllerAs: 'vm'
+        controllerAs: 'vm2'
       });
   });

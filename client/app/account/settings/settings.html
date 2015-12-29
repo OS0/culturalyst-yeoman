@@ -5,17 +5,17 @@
       <h1>Change Password</h1>
     </div>
     <div class="col-sm-12">
-      <form class="form" name="form" ng-submit="vm.changePassword(form)"
+      <form class="form" name="form" ng-submit="vm2.changePassword(form)"
             novalidate>
 
         <div class="form-group">
           <label>Current Password</label>
 
           <input type="password" name="password" class="form-control"
-                 ng-model="vm.user.oldPassword"
+                 ng-model="vm2.user.oldPassword"
                  mongoose-error/>
           <p class="help-block" ng-show="form.password.$error.mongoose">
-            {{ vm.errors.other }}
+            {{ vm2.errors.other }}
           </p>
         </div>
 
@@ -23,11 +23,11 @@
           <label>New Password</label>
 
           <input type="password" name="newPassword" class="form-control"
-                 ng-model="vm.user.newPassword"
+                 ng-model="vm2.user.newPassword"
                  ng-minlength="3"
                  required/>
           <p class="help-block"
-             ng-show="(form.newPassword.$error.minlength || form.newPassword.$error.required) && (form.newPassword.$dirty || vm.submitted)">
+             ng-show="(form.newPassword.$error.minlength || form.newPassword.$error.required) && (form.newPassword.$dirty || vm2.submitted)">
             Password must be at least 3 characters.
           </p>
         </div>
@@ -36,18 +36,18 @@
           <label>Confirm New Password</label>
 
           <input type="password" name="confirmPassword" class="form-control"
-                 ng-model="vm.user.confirmPassword"
-                 match="vm.user.newPassword"
+                 ng-model="vm2.user.confirmPassword"
+                 match="vm2.user.newPassword"
                  ng-minlength="3"
                  required=""/>
           <p class="help-block"
-             ng-show="form.confirmPassword.$error.match && vm.submitted">
+             ng-show="form.confirmPassword.$error.match && vm2.submitted">
             Passwords must match.
           </p>
 
         </div>
 
-        <p class="help-block"> {{ vm.message }} </p>
+        <p class="help-block"> {{ vm2.message }} </p>
 
         <button class="btn btn-lg btn-primary" type="submit">Save changes
         </button>

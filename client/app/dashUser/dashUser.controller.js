@@ -34,4 +34,6 @@ angular.module('culturalystApp')
         $scope.rewards = rewards.data;
       })
     };
+
+    $scope.isArtist = Auth.isArtist;
   });

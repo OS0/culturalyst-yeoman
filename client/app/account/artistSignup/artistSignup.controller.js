@@ -10,7 +10,7 @@ class ArtistSignupController {
   submitted = false;
   //end-non-standard
 
-  constructor(Auth, $state, $log, $scope, $http, $timeout, MediaList) {
+  constructor(Auth, $state, $log, $scope, $http, $timeout, MediaList, $window) {
     this.Auth = Auth;
     this.$state = $state;
     this.$log = $log;
@@ -23,6 +23,7 @@ class ArtistSignupController {
     this.$scope.rewards = this.showRewards() || [];
     this.$scope.newReward = {};
     this.$scope.mediaList = this.MediaList.getMediaList();
+    this.$window = $window;
   }
 
   //currentUser() {
@@ -38,25 +39,25 @@ class ArtistSignupController {
   register() {
     let context = this;
 
-  this.$http.put('/api/users/' + this.$scope.currentUser._id + '/updateArtistInfo', {
-        bio: context.$scope.bio,
-        medium: context.$scope.selectedMedium,
-        submedium: context.$scope.selectedSubmedium,
-        age: context.$scope.age,
-        natives: context.$scope.natives,
-        org: context.$scope.org,
-        experience:context.$scope.experience,
-        facebook: context.$scope.faceBookUrl,
-        instagram: context.$scope.instagramUrl,
-        twitter: context.$scope.twitterUrl,
-        etsy: context.$scope.etsyUrl,
-        soundcloud: context.$scope.soundCloudUrl,
-        behance: context.$scope.behanceUrl
-      }).then(function(res) {
-      console.log(res);
+    this.$http.put('/api/users/' + this.$scope.currentUser._id + '/updateArtistInfo', {
+          bio: context.$scope.bio,
+          medium: context.$scope.selectedMedium,
+          submedium: context.$scope.selectedSubmedium,
+          age: context.$scope.age,
+          natives: context.$scope.natives,
+          org: context.$scope.org,
+          experience:context.$scope.experience,
+          facebook: context.$scope.faceBookUrl,
+          instagram: context.$scope.instagramUrl,
+          twitter: context.$scope.twitterUrl,
+          etsy: context.$scope.etsyUrl,
+          soundcloud: context.$scope.soundCloudUrl,
+          behance: context.$scope.behanceUrl
+    }).then(function() {
+      context.$window.location.reload();
+      context.$state.go('artistSignupContent');
     });
 
-    this.$state.go('artistSignupContent');
     //.then(() => {
     //  context.$timeout(this.$state.go('artistSignupContent'), 1000);
     //  //this.$state.go('main');
