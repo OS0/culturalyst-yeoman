@@ -238,31 +238,31 @@
       <label for="age">How old are you?</label>
         <div class="radio">
           <label>
-            <input type="radio" name="age" id="age-18" value="age-18">
+            <input type="radio" name="age" id="age-18" value="age-18" ng-model="age">
             -18
           </label>
         </div>
         <div class="radio">
           <label>
-            <input type="radio" name="age" id="age18-24" value="age18-24">
+            <input type="radio" name="age" id="age18-24" value="age18-24" ng-model="age" >
             18-24
           </label>
         </div>
         <div class="radio">
           <label>
-            <input type="radio" name="age" id="age25-44" value="age25-44">
+            <input type="radio" name="age" id="age25-44" value="age25-44" ng-model="age">
             25-44
           </label>
         </div>
         <div class="radio">
           <label>
-            <input type="radio" name="age" id="age45-64" value="age45-64">
+            <input type="radio" name="age" id="age45-64" value="age45-64" ng-model="age">
             45-64
           </label>
         </div>
         <div class="radio">
           <label>
-            <input type="radio" name="age" id="age65+" value="age65+">
+            <input type="radio" name="age" id="age65+" value="age65+" ng-model="age">
             65+
           </label>
         </div>
@@ -273,13 +273,13 @@
         <label for="native">Are You Native to this City?</label>
         <div class="radio">
           <label>
-            <input type="radio" name="native" id="isNative" value="true">
+            <input type="radio" name="native" id="isNative" value="true" ng-model="natives">
             Yes
           </label>
         </div>
         <div class="radio">
           <label>
-            <input type="radio" name="native" id="notNative" value="false">
+            <input type="radio" name="native" id="notNative" value="false" ng-model="natives">
             No
           </label>
         </div>
@@ -290,13 +290,13 @@
         <label for="org">Are You An Organization?</label>
         <div class="radio">
           <label>
-            <input type="radio" name="org" id="isOrg" value="true">
+            <input type="radio" name="org" id="isOrg" value="true" ng-model="org">
             Yes
           </label>
         </div>
         <div class="radio">
           <label>
-            <input type="radio" name="org" id="notOrg" value="false">
+            <input type="radio" name="org" id="notOrg" value="false" ng-model="org">
             No
           </label>
         </div>
@@ -305,7 +305,7 @@
       <!--Experience-->
       <div class="form-group">
       <label for="experience">Experience</label>
-        <select class="form-control">
+        <select class="form-control" ng-model="experience">
           <option>Beginner</option>
           <option>Intermediate</option>
           <option>Professional</option>
