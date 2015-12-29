@@ -144,3 +144,26 @@ exports.showResults = function(req, res, next) {
       return next(err);
     });
 };
+
+// exports.showAllResults = function(req, res, next) {
+//   var artist_id = req.params.user_id;
+
+//   Content.findAll({
+//       where: {
+//         user_id: artist_id,
+//       }
+//     })
+//     .then(function(content) {
+//       console.log("AHHHHHHHHHHHHHHH");
+//       if (!content) {
+//         console.log('No content');
+//         return res.status(444).end();
+//       }
+//       res.json(content);
+//     })
+//     .catch(function(err) {
+//       return next(err);
+//     });
+// };
+
+

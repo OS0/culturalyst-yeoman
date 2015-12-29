@@ -4,6 +4,36 @@
   height: 300px;
 }
 
+.artistNav{
+  height:180px;
+  width: 100%;
+  background-color: white;
+  clear: both;
+  padding: 7px 0px;
+  display: block;
+  position:fixed;
+  padding-top: 50px;
+}
+
+.profilePic .signature .socialButtons {
+    float: left;
+    margin: 0px;
+    width: 33.33%;
+}
+
+.profilePic2{
+
+}
+
+.mediaBar{
+  height:15px;
+  background-color: #CDE8DF;
+}
+
+.socials{
+  padding-top: 15px;
+  font-size: 20px;
+}
 .postBod {
   background-color: #5bc0de;
   margin-top: 10px;
@@ -11,14 +41,21 @@
 }
 
 .artistBack {
-  background-image: {{artist.img}};
   color: white;
+  height: 500px;
+}
+
+.jumbotron {
+    background-color: blue;
+    height:600px;
 }
 
 .profileImg {
   height: 200px;
   border-radius:50%;
-  border:1px solid white;
+  border:5px solid white;
+  padding:0px;
+  vertical-align: center;
 }
 
 .postImg {
@@ -49,8 +86,31 @@
 }
 .artistModal{
   margin: 20px 0px;
+  background-color: white;
 }
+
+
 .post{
   height:300px;
 }
+
+.contentNav{
+  height:180px;
+  width: 100%;
+  background-color: white;
+  clear: both;
+  padding: 7px 0px;
+  display: block;
+  position:fixed;
+  padding-top: 50px;
+}
+
+.uiView{
+  margin-left: 20px;
+}
+
+a{
+  color: inherit;
+}
+
 

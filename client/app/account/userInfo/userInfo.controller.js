@@ -23,8 +23,8 @@ class UserInfoController {
         location: this.$scope.currentUser.location
       })
       .then(() => {
-        console.log("I $promise I love you!");
-      // this.$state.go('main');
+        // console.log("I $promise I love you!");
+        this.$state.go('main');
       })
       .catch(err => {
         console.log(err.status, err.data);

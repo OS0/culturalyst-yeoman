@@ -52,5 +52,7 @@ class SignupController {
   }
 }
 
+
+
 angular.module('culturalystApp')
   .controller('SignupController', SignupController);

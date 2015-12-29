@@ -82,7 +82,7 @@
     <div class="wrapper">
       <h1 align="left">Blues Musicians</h1>
       
-      <div class="scrolls">
+     <!--  <div class="scrolls">
         
 
       <div class="card">
@@ -92,10 +92,50 @@
           <p class="card-text">bio</p>
           <a href="#" class="btn btn-primary">Button</a>
         </div>
+      </div> -->
+
+  <div class="col-md-12">
+  <div class="col-sm-4">
+    <div class="thumbnail">
+      <div class="overlay">
+        <i class="fa fa-share md"></i>
       </div>
+      <img class="img-responsive" alt="a" src="assets/img/cover_photo_1.png">
+    </div>
+    <div class="row">
+      <div class="col-md-3">
+        <h3><span class="label label-info">Jun 12</span></h3>
+      </div>
+      <div class="col-md-9">
+          <strong>Business &amp; Entrepreneurs Workshop</strong><br>
+          <em>at Grand Hotel Italia</em><br>
+          <span class="small">10:00 AM - 21:00 PM</span>
+      </div>
+    </div>
+  </div>
+
+    <div class="col-sm-4">
+    <div class="thumbnail">
+      <div class="overlay">
+        <i class="fa fa-share md"></i>
+      </div>
+      <img class="img-responsive" alt="a" src="assets/img/rascle.png">
+    </div>
+    <div class="row">
+      <div class="col-md-3">
+        <h3><span class="label label-info">Jun 12</span></h3>
+      </div>
+      <div class="col-md-9">
+          <strong>Business &amp; Entrepreneurs Workshop</strong><br>
+          <em>at Grand Hotel Italia</em><br>
+          <span class="small">10:00 AM - 21:00 PM</span>
+      </div>
+    </div>
+  </div>
+  
 
 
-
+<!-- 
       <div class="card">
         <img class="card-img-top" src="assets/img/cover_photo_1.png" alt="Card image cap">
         <div class="card-block">
@@ -112,7 +152,7 @@
             <p class="card-text">Bio.</p>
             <a href="#" class="btn btn-primary">Button</a>
           </div>
-      </div>
+      </div> -->
 
     </div>
 
@@ -132,7 +172,9 @@
         <img class="card-img-top" src="assets/img/cover_photo_5.png" alt="Card image cap">
         <div class="card-block">
           <h4 class="card-title">Card title</h4>
-          <p class="card-text">bio</p>
+          <img class="profilePic" ng-src="{{artist.picUrl}}"/>
+                    <div class="profileName">
+                      <h2 >{{artist.name}}</h2>
           <a href="#" class="btn btn-primary">Button</a>
         </div>
       </div>

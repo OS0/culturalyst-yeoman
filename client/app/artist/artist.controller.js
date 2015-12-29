@@ -26,14 +26,16 @@ angular.module('culturalystApp')
 
 
      $scope.saveContent = function(post){
+      console.log($scope.postId);
       if ($scope.photo){
-        $http.put('/api/content/' + $scope.artistId, {_id: $scope.postId, info: post}).then(function(response){
+        $http.put('/api/content/' + $scope.postId, {_id: $scope.postId, info: post}).then(function(response){
             console.log(response.data);
             $scope.posts.push(response.data);
             $scope.photo = false;
         })
       } else {
-        $http.post('/api/content/' + $scope.artistId, {_id: $scope.postId, info: post, type: "post"}).then(function(response){
+        $scope.photo 
+        $http.post('/api/content/' + $scope.artistId, {info: post, type: "post"}).then(function(response){
             console.log(response.data);
             $scope.posts.push(response.data);
         })
@@ -42,15 +44,13 @@ angular.module('culturalystApp')
 
     $scope.saveContentPhoto = function(url){
       console.log('this was fired');
-        $http.post('/api/content/' + $scope.artistId, {_id: $scope.postId,url: url, type:"post"}).then(function(response){
+        $http.post('/api/content/' + $scope.artistId, {_id: $scope.postId, url: url, type:"post"}).then(function(response){
             console.log(response.data);
-            $scope.posts.push(response.data);
             $scope.postId = response.data._id;
         })
     };
 
     $scope.getArtistContent = function(){
-      console.log('this fired');
       console.log($scope.artistId);
       $http.get('/api/content/' + $scope.artistId +'/getContent').then(function(response){
         console.log(response.data);

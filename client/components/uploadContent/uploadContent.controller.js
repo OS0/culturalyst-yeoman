@@ -73,7 +73,7 @@ angular.module('culturalystApp.uploadArtistContent', ['ngFileUpload'])
     $scope.getArtistContent = function(){
       console.log('this fired');
       console.log($scope.artistId);
-      $http.get('/api/content/' + $scope.artistId +'/getContent').then(function(response){
+      $http.get('/api/content/' + $scope.artistId +'/getAllContent').then(function(response){
         console.log(response.data);
         response.data.forEach(function(img){
           $scope.gallery.push(img);

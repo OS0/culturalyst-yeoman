@@ -230,7 +230,17 @@ exports.updateArtistInfo = function(req, res, next) {
   var bio = req.body.bio;
   var medium = req.body.medium;
   var submedium = req.body.submedium;
+  var age = req.body.age;
+  var natives = req.body.natives;
+  var org = req.body.org;
+  var experience = req.body.experience;
   var reward = req.body.reward;
+  var facebook = req.body.facebook;
+  var instagram = req.body.instagram;
+  var twitter = req.body.twitter;
+  var etsy = req.body.etsy;
+  var soundcloud = req.body.soundcloud;
+  var behance = req.body.behance;
 
   User.find({
       where: {
@@ -239,10 +249,20 @@ exports.updateArtistInfo = function(req, res, next) {
     })
     .then(function(user) {
         user.role = "artist";
-        user.short = bio;
+        user.bio = bio;
         user.medium = medium;
         user.submedium = submedium;
+        user.age = age;
+        user.natives = natives;
+        user.org = org;
+        user.experience = experience;
         user.reward = reward;
+        user.facebook = facebook;
+        user.instagram = instagram;
+        user.twitter = twitter;
+        user.etsy = etsy;
+        user.soundcloud = soundcloud;
+        user.behance = behance;
         return user.save()
           .then(function() {
             res.status(204).end();
