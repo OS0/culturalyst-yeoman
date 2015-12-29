@@ -335,6 +335,8 @@ exports.registerdb = function(account, id){
 exports.register = function(req,res){
   var userId = req.body._id
   var data = req.body.data
+  data['tos_acceptance'].date = Math.floor(Date.now() / 1000);
+  data['tos_acceptance'].ip = req.connection.remoteAddress;
   stripe.accounts.create(data)
     .then(function(acct){
       exports.registerdb(acct, userId);
@@ -386,7 +388,8 @@ exports.charge = function(req,res){
             }).then(function(charge){
               console.log('charges: ', charge)
               //save charge to db for user/artist dashboard
-            })
+              res.status(204).end()
+            }).catch(handleError(err))
           })
         }
       } else {
