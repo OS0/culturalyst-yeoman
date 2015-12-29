@@ -6,7 +6,7 @@ angular.module('culturalystApp')
     $scope.rewards;
     $http.get('/api/users/me').then(function(res) {
       $scope.me = res.data;
-      $log.log($scope.me);
+      $scope.showMyRewards();
     });
     $state.go('dashUser.myList');
     $scope.mediums = {
@@ -29,7 +29,7 @@ angular.module('culturalystApp')
     };
 
     $scope.showMyRewards = function() {
-      $http.get('/api/rewards/' + $scope.me._id + "/showMyRewards")
+    $http.get('/api/rewards/' + $scope.me._id + "/showMyRewards")
       .then(function(rewards) {
         $scope.rewards = rewards.data;
       })
