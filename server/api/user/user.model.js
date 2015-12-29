@@ -62,7 +62,7 @@ module.exports = function(sequelize, DataTypes) {
     account: {
       type: DataTypes.STRING,
       unique: true
-    }
+    },
   }, {
 
     /**
