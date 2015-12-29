@@ -85,6 +85,17 @@ exports.create = function(req, res) {
     .catch(handleError(res));
 };
 
+exports.addUserReward = function(req, res) {
+  var reward = req.body;
+  UserRewards.create({
+    user_id: req.params.user_id,
+    reward_id: reward._id,
+    amount: reward.amount
+  })
+    .then(responseWithResult(res, 201))
+    .catch(handleError(res));
+}
+
 // Updates an existing UserRewards in the DB
 exports.update = function(req, res) {
   if (req.body._id) {

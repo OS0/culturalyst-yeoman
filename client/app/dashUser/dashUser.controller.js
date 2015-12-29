@@ -2,10 +2,11 @@
 
 angular.module('culturalystApp')
   .controller('DashUserCtrl', function ($scope, $log, Auth, $http, $state) {
-    $scope.message = 'Hello';
+    $scope.me;
+    $scope.rewards;
     $http.get('/api/users/me').then(function(res) {
       $scope.me = res.data;
-      $log.log($scope.me);
+      $scope.showMyRewards();
     });
     $state.go('dashUser.myList');
     $scope.mediums = {
@@ -25,34 +26,12 @@ angular.module('culturalystApp')
 
     $scope.toggleMedium = function(medium) {
       $scope.mediums[medium] = $scope.mediums[medium] === false ? true : false;
-    }
+    };
 
-    $scope.favorites = [
-      {
-        img: "data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==",
-        name: 'Alon',
-        title: 'Rapper Extraordinaire'
-      },
-      {
-        img: "data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==",
-        name: 'Sam',
-        title: 'Sculptor'
-      },
-      {
-        img: "data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==",
-        name: 'Brian',
-        title: 'Philosopher'
-      },
-      {
-        img: "data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==",
-        name: 'Mykia',
-        title: 'Token Girl'
-      }
-    ];
-
-    $scope.saveToDB = function() {
-      // check mediums table for true values (on DOM?)
-      // add trues values to something like
-        // api/users/mediums
-    }
+    $scope.showMyRewards = function() {
+    $http.get('/api/rewards/' + $scope.me._id + "/showMyRewards")
+      .then(function(rewards) {
+        $scope.rewards = rewards.data;
+      })
+    };
   });

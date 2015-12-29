@@ -3,7 +3,7 @@
 
 angular.module('culturalystApp.constants', [])
 
-.constant('appConfig', {userRoles:['guest','user','admin','artist']})
+.constant('appConfig', {userRoles:['guest','user','admin']})
 
 ;
 })(angular);
