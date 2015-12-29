@@ -1,5 +1,3 @@
-'use strict';
-
 angular.module('culturalystApp')
   .controller('ConnectCtrl', function ($scope, $http, $location, stripe) {
 
@@ -45,12 +43,12 @@ angular.module('culturalystApp')
                   },
                   type: $scope.type
                 },
+                email: $scope.email,
+                external_account: acct.id,
                 tos_acceptance: {
                   date: null,
                   ip: null
-                },
-                email: $scope.email,
-                external_account: acct.id
+                }
               },
               _id: res.data._id
             }
