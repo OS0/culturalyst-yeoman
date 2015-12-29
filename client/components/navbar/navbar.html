@@ -9,7 +9,7 @@
       </button>
       <div class="logo">
         <a href="/" class="navbar-brand" src="assets/logo.png">
-          <img src="assets/logo.png"/>
+          <img src="https://res.cloudinary.com/culturalyst/image/upload/v1450901124/vphhgdsfr6indvcfavh3.png"/>
         </a>
       </div>
     </div>
@@ -21,13 +21,24 @@
         <li ng-show="nav.isAdmin()" ui-sref-active="active"><a ui-sref="admin">Admin</a></li>
       </ul>
 
+     <!--  <div class="dropdown navbar-right">
+        <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">User
+        <span class="glyphicon glyphicon-user"></span><span class="caret"></span></button>
+        <ul class="dropdown-menu">
+          <li ng-hide="nav.isLoggedIn()" ui-sref-active="active"><a ui-sref="signup">Sign up</a></li>
+          <li ng-show="nav.isNotArtist()" ui-sref-active="active"><a ui-sref="artistSignupInfo">Artist sign up</a></li>
+          <li ng-hide="nav.isLoggedIn()" ui-sref-active="active"><a ui-sref="login">Login</a></li>
+          <li ng-show="nav.isLoggedIn()" ui-sref-active="active"><a href="dashUser"><span class="glyphicon glyphicon-user"></span></a></li>
+          <li ng-show="nav.isLoggedIn()" ui-sref-active="active"><a ui-sref="settings"><span class="glyphicon glyphicon-cog"></span></a></li>
+          <li ng-show="nav.isLoggedIn()"><a ui-sref="logout">Logout</a></li>
+        </ul>
+      </div> -->
+
       <ul class="nav navbar-nav navbar-right">
         <li ng-hide="nav.isLoggedIn()" ui-sref-active="active"><a ui-sref="signup">Sign up</a></li>
-        <li ng-hide="nav.isLoggedIn()" ui-sref-active="active"><a ui-sref="artistSignupInfo">Artist sign up</a></li>
+        <li ng-show="nav.isNotArtist()" ui-sref-active="active"><a ui-sref="artistSignupInfo">Artist sign up</a></li>
         <li ng-hide="nav.isLoggedIn()" ui-sref-active="active"><a ui-sref="login">Login</a></li>
-        <li ng-show="nav.isLoggedIn()"><p class="navbar-text">Hello {{ nav.getCurrentUser().name }}</p> </li>
         <li ng-show="nav.isLoggedIn()" ui-sref-active="active"><a href="dashUser"><span class="glyphicon glyphicon-user"></span></a></li>
-        <li ng-show="nav.isArtist()" ui-sref-active="active"><a href="dashArtist">Artist Dashboard</a></li>
         <li ng-show="nav.isLoggedIn()" ui-sref-active="active"><a ui-sref="settings"><span class="glyphicon glyphicon-cog"></span></a></li>
         <li ng-show="nav.isLoggedIn()"><a ui-sref="logout">Logout</a></li>
       </ul>

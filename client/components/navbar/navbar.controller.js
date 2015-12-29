@@ -8,14 +8,12 @@ class NavbarController {
   }, {
     'title':'Discovery',
     'state':'discovery'
-  }, {
-    'title': 'Y?',
-    'state': 'about'
   }
   ];
 
   isCollapsed = true;
   //end-non-standard
+
 
   constructor(Auth) {
     this.isLoggedIn = Auth.isLoggedIn;
@@ -23,6 +21,13 @@ class NavbarController {
     this.getCurrentUser = Auth.getCurrentUser;
     this.isArtist = Auth.isArtist;
   }
+
+  isNotArtist() {
+    if ( this.isLoggedIn() && !(this.isArtist()) ) {
+      return true;
+    }
+  }
+
 }
 
 angular.module('culturalystApp')
