@@ -6,23 +6,33 @@ angular.module('culturalystApp')
     $scope.form = {};
     $scope.recurring = false;
 
+    var sendToken = function(token, args){
+      $http({
+        method: 'POST',
+        url: 'api/users/charge',
+        data: {
+          token: token.id,
+          amount: $scope.amount * 100,
+          recurring: $scope.recurring,
+          _id: artistId
+        }
+      })
+    }
+    // Configure Checkout
+    var checkout = StripeCheckout.configure({
+        key: 'pk_test_fN4bxAyEBsyBxrDWpaOD4sHk',
+        token: sendToken,
 
+        image: 'http://theredlist.com/media/database/muses/icon/cinematic_men/1980/bill-murray/002-bill-murray-theredlist.jpg',
+        name: 'Culturalyst',
+        description: 'Catalyze Your Favorite Artists',
+        billingAddress: true,
+
+    });
 
     $scope.submit = function(){
-
-          //create token from their card credntials and send to /charge
-      stripe.card.createToken($scope.form).then(function(tok){
-        console.log('tok: ',tok)
-        $http({
-          method: 'POST',
-          url: 'api/users/charge',
-          data: {
-            token: tok.id,
-            amount: $scope.amount,
-            recurring: $scope.recurring,
-            _id: artistId
-          }
-        })
+      checkout.open({
+        amount: $scope.amount * 100
       })
     }
 
