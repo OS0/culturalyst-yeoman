@@ -69,7 +69,7 @@
       <select ng-model="selectedSubmedium"
               ng-options="submedium for submedium in submedia">
       </select>
-
+    
 
       <!--<label for="medium">Medium</label>
       &lt;!&ndash;Video and Film&ndash;&gt;
@@ -233,7 +233,88 @@
           </select>
         </div>
       </div>-->
+            <!--Age-->
+      <div class="form-group">
+      <label for="age">How old are you?</label>
+        <div class="radio">
+          <label>
+            <input type="radio" name="age" id="age-18" value="age-18">
+            -18
+          </label>
+        </div>
+        <div class="radio">
+          <label>
+            <input type="radio" name="age" id="age18-24" value="age18-24">
+            18-24
+          </label>
+        </div>
+        <div class="radio">
+          <label>
+            <input type="radio" name="age" id="age25-44" value="age25-44">
+            25-44
+          </label>
+        </div>
+        <div class="radio">
+          <label>
+            <input type="radio" name="age" id="age45-64" value="age45-64">
+            45-64
+          </label>
+        </div>
+        <div class="radio">
+          <label>
+            <input type="radio" name="age" id="age65+" value="age65+">
+            65+
+          </label>
+        </div>
+      </div>
+
+      <!--Native-->
+      <div class="form-group">
+        <label for="native">Are You Native to this City?</label>
+        <div class="radio">
+          <label>
+            <input type="radio" name="native" id="isNative" value="true">
+            Yes
+          </label>
+        </div>
+        <div class="radio">
+          <label>
+            <input type="radio" name="native" id="notNative" value="false">
+            No
+          </label>
+        </div>
+      </div>
+
+      <!--Organization-->
+      <div class="form-group">
+        <label for="org">Are You An Organization?</label>
+        <div class="radio">
+          <label>
+            <input type="radio" name="org" id="isOrg" value="true">
+            Yes
+          </label>
+        </div>
+        <div class="radio">
+          <label>
+            <input type="radio" name="org" id="notOrg" value="false">
+            No
+          </label>
+        </div>
+      </div>
+
+      <!--Experience-->
+      <div class="form-group">
+      <label for="experience">Experience</label>
+        <select class="form-control">
+          <option>Beginner</option>
+          <option>Intermediate</option>
+          <option>Professional</option>
+          <option>Hobbyist</option>
+      </select>
+      </div>
     </div>
+
+
 
     <button type="submit" class="btm btn-default" style="margin: 10% 45%"
             ng-click="vm.register()">
