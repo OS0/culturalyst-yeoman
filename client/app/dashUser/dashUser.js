@@ -24,7 +24,7 @@ angular.module('culturalystApp')
         templateUrl: 'app/dashUser/dashUser.profile.html'
       })
       .state('dashUser.changePassword', {
-        templateUrl: 'app/account/settings/settings.html'
+        templateUrl: 'app/account/settings/settings.html',
         controller: 'SettingsController',
         controllerAs: 'vm'
       });
