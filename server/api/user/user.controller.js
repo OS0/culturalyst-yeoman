@@ -467,6 +467,7 @@ exports.charge = function(req,res){
               //save charge to db for user/artist dashboard
               res.status(204).end()
             }).catch(handleError(res))
+
           })
         }
       } else {
