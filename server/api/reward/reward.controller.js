@@ -12,6 +12,7 @@
 var _ = require('lodash');
 var sqldb = require('../../sqldb');
 var Reward = sqldb.Reward;
+var Sequelize = require('sequelize');
 
 function handleError(res, statusCode) {
   statusCode = statusCode || 500;
@@ -84,6 +85,15 @@ exports.showRewards = function(req, res) {
       user_id: req.params.user_id
     }
   })
+    .then(handleEntityNotFound(res))
+    .then(responseWithResult(res))
+    .catch(handleError(res));
+};
+
+exports.showMyRewards = function(req, res) {
+  sqldb.sequelize.query(
+    "SELECT * FROM Rewards INNER JOIN (SELECT reward_id from UserRewards WHERE user_id=" + req.params.user_id + ") AS myRewards ON Rewards._id=myRewards.reward_id",
+    { type: sqldb.sequelize.QueryTypes.SELECT })
     .then(handleEntityNotFound(res))
     .then(responseWithResult(res))
     .catch(handleError(res));

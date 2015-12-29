@@ -19,8 +19,6 @@ module.exports = function(sequelize, DataTypes) {
       referencesKey: '_id'
     },
     amount: DataTypes.DECIMAL,
-    name: DataTypes.STRING,
-    info: DataTypes.STRING,
     active: DataTypes.BOOLEAN
   });
 };

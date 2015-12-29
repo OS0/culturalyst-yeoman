@@ -14,5 +14,6 @@ router.patch('/:id', controller.update);
 router.delete('/:id', controller.destroy);
 router.get('/myRewards/:user_id', controller.showRewards);
 router.post('/newReward/:user_id', auth.isAuthenticated(), controller.newReward);
+router.get('/:user_id/showMyRewards', auth.isAuthenticated(), controller.showMyRewards);
 
 module.exports = router;
