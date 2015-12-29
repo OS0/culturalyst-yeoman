@@ -4,6 +4,7 @@ angular.module('culturalystApp')
   .factory('MediaList', function () {
     // Service logic
 
+    // Expanded mediaList arranged alphabetically
     var mediaList = [
       {'name': 'Animation', 'submedia': ['Claymation', 'Drawn Animation', 'Stop Animation']},
       {'name': 'Comedy'},
