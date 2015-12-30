@@ -4,18 +4,31 @@
 
 <!-- <sidebar></sidebar> -->
 <div ng-controller="DiscoveryCtrl">
-	<div id="wrapper">
+	<div>
 		<div id="page-content-wrapper">
 			<div class="container-fluid xyz">
 				<div class="row">
 					<div class="col-lg-12">
-						<section class="jumbotron text-xs-center">
+						<section>
 							<div class="container">
 								<h1 class="jumbotron-heading">Featured Artists in New Orleans</h1>
 								<p class="lead text-muted" align="center">BEGIN TO DISCOVER THE CULTURE AROUND YOU. </p>
 								<select ng-model="medium" ng-options="medium as medium.name for medium in mediaList" ng-change="loadSubMediums(medium); getArtists()" ng-selected="medium"></select>
 								<select ng-model="selectedSubmedium" ng-options="submedium for submedium in submedia" ng-change="getArtists()" ng-change="getFaces()"></select>
 							</div>
+              <div class="form-group">
+                <p>Filters</p>
+                <label>Age</label>
+                <select ng-model="selectedAge" ng-options="age as age.age for age in ageList"></select>
+                <label>Organization</label>
+                <select ng-model="selectedOrg" ng-options="org as org.org for org in orgList"></select>
+                <label>Native</label>
+                <select ng-model="selectedNative" ng-options="native as native.native for native in nativeList"></select>
+                <label>Gender</label>
+                <select ng-model="selectedGender" ng-options="gender as gender.gender for gender in genderList"></select>
+                <label>Experience</label>
+                <select ng-model="selectedExperience" ng-options="experience as experience.experience for experience in expList"></select>
+              </div>
 						</section>
 					</div>
 				</div>
@@ -35,7 +48,7 @@
         <div class="row">
             <!-- for $scope to work we would need a controller -->
             <div class="album text-muted">
-              <a ng-repeat="artist in artists | filter:searchText | filter:{$:medium.name}" href="artist/{{artist._id}}">
+              <a ng-repeat="artist in artists | filter:searchText | filter:{$:medium.name} | filter:{$:selectedAge.age} | filter:{$:selectedOrg.org} | filter:{$:selectedNative.natives} | filter:{$:selectedGender.gender} | filter:{$:selectedExperience.experience}" href="artist/{{artist._id}}">
               <div class="card" >
                 <div>
                     <img class="profilePic" ng-src="{{artist.picUrl}}"/>
@@ -53,7 +66,8 @@
         </div>
       </div>
     </div><!-- /#wrapper -->
-    <footer></footer>
+  </div>
+  <footer></footer>
 
 
 

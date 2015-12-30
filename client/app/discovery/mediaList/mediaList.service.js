@@ -10,6 +10,7 @@ angular.module('culturalystApp')
       {'name': 'Comedy'},
       {'name': 'Comics', 'submedia': ['Anime', 'Graphic Novels']},
       {'name': 'Crafts and DIY', 'submedia': ['Crochet', 'Cross Stitch', 'Knitting', 'Lettering Arts']},
+      {'name': 'Culture Bearers', 'submedia': ['Mardi Gras Indians', 'Social Aid and Pleasure Clubs']},
       {'name': 'Dance and Theater', 'submedia': ['Ballet', 'Ballroom', 'Hip-hop', 'Lyrical','Theater', 'Plays', 'Musicals']},
       {'name': 'Education'},
       {'name': 'Games'},
