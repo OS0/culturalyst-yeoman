@@ -1,5 +1,5 @@
 /* Toggle Styles */
-#menu-toggle, #menu-toggle-2 {
+.menu-toggle, .menu-toggle-2 {
   padding: 10px;
 }
 #wrapper {
@@ -19,10 +19,10 @@
 #sidebar-wrapper {
    z-index: 1000;
    position: absolute;
-   left: 250px;
+   /*left: 250px;*/
    width: 0;
-   height: 100%;
-   margin-left: -250px;
+   height: 72%;
+   /*margin-left: -250px;*/
    overflow-y: auto;
    background: #fff;
    -webkit-transition: all 0.5s ease;
@@ -127,6 +127,9 @@ li.submedium a {
    }
 
    #sidebar-wrapper {
+       width: 70px;
+   }
+   #sidebar-wrapper:hover {
        width: 250px;
    }
 

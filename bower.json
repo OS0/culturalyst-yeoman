@@ -28,6 +28,6 @@
     "angular-mocks": "~1.4.0"
   },
   "resolutions": {
-    "lodash": "3.10.0"
+    "lodash": "3.10.x"
   }
 }

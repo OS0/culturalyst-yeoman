@@ -15,22 +15,23 @@ class SidebarController {
   constructor($log) {
       this.$log = $log;
       this.$log.info('sidebar loaded');
+      $('#menu ul').hide();
   }
-  sidebarToggle () {
-    $("#menu-toggle").mouseover(function(e) {
-        e.preventDefault();
-        $("#wrapper").toggleClass("toggled");
-    });
-     $("#menu-toggle-2").mouseover(function(e) {
-        e.preventDefault();
-        $("#wrapper").toggleClass("toggled-2");
-        $('#menu ul').hide();
-    });
-  }
+  // sidebarToggle () {
+  //   $(".menu-toggle").mouseover(function(e) {
+  //       e.preventDefault();
+  //       $("#wrapper").toggleClass("toggled");
+  //   });
+  //    $(".menu-toggle-2").mouseover(function(e) {
+  //       e.preventDefault();
+  //       $("#wrapper").toggleClass("toggled-2");
+  //       $('#menu ul').hide();
+  //   });
+  // }
    initMenu() {
       $('#menu ul').hide();
       $('#menu ul').children('.current').parent().show();
-      //$('#menu ul:first').show();
+      $('#menu ul:first').show();
       $('#menu li a').click(
         function() {
           var checkElement = $(this).next();
@@ -39,6 +40,7 @@ class SidebarController {
             }
           if((checkElement.is('ul')) && (!checkElement.is(':visible'))) {
             $('#menu ul:visible').slideUp('normal');
+            // checkElement.toggleClass('active');
             checkElement.slideDown('normal');
             return false;
             }

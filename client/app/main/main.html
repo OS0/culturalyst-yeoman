@@ -1,5 +1,5 @@
 <navbar></navbar>
-<div ng-controller="MainController">
+<div ng-controller="MainController" ng-init="mc.getFeatured()">
   <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
     <!-- Indicators -->
     <ol class="carousel-indicators">
@@ -28,7 +28,6 @@
           ...
         </div>
       </div>
-      <!-- ... -->
       <div class="carousel-tagline">
         <div class="tagline white center">
           <h2>culturalyst</h2>
@@ -50,7 +49,7 @@
     </a>
   </div>
 
-  
+
 <!-- JUMBOTRON + BUTTONS-->
 
 
@@ -58,195 +57,59 @@
       <div class="container">
         <h1 class="jumbotron-heading" align="center">Featured Artists in New Orleans</h1>
         <p class="lead text-muted" align="center">BEGIN TO DISCOVER THE CULTURE AROUND YOU. </p>
-        <p>
-          <a href="#" class="btn btn-primary">Music</a>
-          <a href="#" class="btn btn-primary">Writing</a>
-          <a href="#" class="btn btn-primary">Film</a>
-          <a href="#" class="btn btn-primary">Visual Art</a>
-          <a href="#" class="btn btn-primary">Photography</a>
-          <a href="/discovery/dance" class="btn btn-primary">Dance</a>
-          <a href="#" class="btn btn-primary">Culture Bearers</a>
-          <a href="#" class="btn btn-primary">Comedy</a>
-          <a href="#" class="btn btn-primary">Performing Arts</a>
-          <a href="#" class="btn btn-primary">Design</a>
-          <a href="#" class="btn btn-primary">Code</a>
-          <a href="#" class="btn btn-primary">Gaming</a>
+        <p class="medium-buttons">
+          <a href="#" class="btn btn-primary hvr-shrink hvr-shutter-in-vertical">Music</a>
+          <a href="#" class="btn btn-primary hvr-shrink hvr-sweep-to-right">Writing</a>
+          <a href="#" class="btn btn-primary hvr-shrink hvr-radial-in">Film</a>
+          <a href="#" class="btn btn-primary hvr-shrink hvr-rectangle-out">Visual Art</a>
+          <a href="#" class="btn btn-primary hvr-shrink hvr-sweep-to-bottom">Photography</a>
+          <a href="/discovery/dance" class="btn btn-primary hvr-shrink hvr-bottom-bounce">Dance</a>
+          <a href="#" class="btn btn-primary hvr-shrink hvr-back-pulse">Culture Bearers</a>
+          <a href="#" class="btn btn-primary hvr-shrink hvr-shutter-in-vertical">Comedy</a>
+          <a href="#" class="btn btn-primary hvr-shrink hvr-bounce-to-top">Performing Arts</a>
+          <a href="#" class="btn btn-primary hvr-shrink hvr-sweep-to-left">Design</a>
+          <a href="#" class="btn btn-primary hvr-shrink hvr-sweep-to-bottom">Code</a>
+          <a href="#" class="btn btn-primary hvr-shrink hvr-fade">Gaming</a>
         </p>
 
       </div>
     </section>
 
-
-
-<div id="container1">
-    <div class="wrapper">
-      <h1 align="left">Blues Musicians</h1>
-      
-     <!--  <div class="scrolls">
-        
-
-      <div class="card">
-        <img class="card-img-top" src="assets/img/cover_photo_1.png" alt="Card image cap">
-        <div class="card-block">
-          <h4 class="card-title">Card title</h4>
-          <p class="card-text">bio</p>
-          <a href="#" class="btn btn-primary">Button</a>
-        </div>
-      </div> -->
-
-  <div class="col-md-12">
-  <div class="col-sm-4">
-    <div class="thumbnail">
-      <div class="overlay">
-        <i class="fa fa-share md"></i>
-      </div>
-      <img class="img-responsive" alt="a" src="assets/img/cover_photo_1.png">
-    </div>
-    <div class="row">
-      <div class="col-md-3">
-        <h3><span class="label label-info">Jun 12</span></h3>
-      </div>
-      <div class="col-md-9">
-          <strong>Business &amp; Entrepreneurs Workshop</strong><br>
-          <em>at Grand Hotel Italia</em><br>
-          <span class="small">10:00 AM - 21:00 PM</span>
-      </div>
-    </div>
-  </div>
-
-    <div class="col-sm-4">
-    <div class="thumbnail">
-      <div class="overlay">
-        <i class="fa fa-share md"></i>
-      </div>
-      <img class="img-responsive" alt="a" src="assets/img/rascle.png">
-    </div>
-    <div class="row">
-      <div class="col-md-3">
-        <h3><span class="label label-info">Jun 12</span></h3>
-      </div>
-      <div class="col-md-9">
-          <strong>Business &amp; Entrepreneurs Workshop</strong><br>
-          <em>at Grand Hotel Italia</em><br>
-          <span class="small">10:00 AM - 21:00 PM</span>
-      </div>
-    </div>
-  </div>
-  
-
-
-<!-- 
-      <div class="card">
-        <img class="card-img-top" src="assets/img/cover_photo_1.png" alt="Card image cap">
-        <div class="card-block">
-          <h4 class="card-title">Card title</h4>
-          <p class="card-text">Bio.</p>
-          <a href="#" class="btn btn-primary">Button</a>
-        </div>
-      </div>
-
-      <div class="card">
-          <img class="card-img-top" src="assets/img/cover_photo_1.png" alt="Card image cap">
-          <div class="card-block">
-            <h4 class="card-title">Card title</h4>
-            <p class="card-text">Bio.</p>
-            <a href="#" class="btn btn-primary">Button</a>
-          </div>
-      </div> -->
-
-    </div>
-
-  </div>
-  
-</div>  
-
-
-<div id="container1">
-    <div class="wrapper">
-      <h1 align="left">Graffiti Artists</h1>
-      
+      <h1 align="center">Musicians</h1>
       <div class="scrolls">
-        
-
-      <div class="card">
-        <img class="card-img-top" src="assets/img/cover_photo_5.png" alt="Card image cap">
-        <div class="card-block">
-          <h4 class="card-title">Card title</h4>
-          <img class="profilePic" ng-src="{{artist.picUrl}}"/>
-                    <div class="profileName">
-                      <h2 >{{artist.name}}</h2>
-          <a href="#" class="btn btn-primary">Button</a>
-        </div>
-      </div>
-
-
-
-      <div class="card">
-        <img class="card-img-top" src="assets/img/cover_photo_5.png" alt="Card image cap">
-        <div class="card-block">
-          <h4 class="card-title">Card title</h4>
-          <p class="card-text">Bio.</p>
-          <a href="#" class="btn btn-primary">Button</a>
-        </div>
-      </div>
-
-      <div class="card">
-          <img class="card-img-top" src="assets/img/cover_photo_5.png" alt="Card image cap">
-          <div class="card-block">
-            <h4 class="card-title">Card title</h4>
-            <p class="card-text">Bio.</p>
-            <a href="#" class="btn btn-primary">Button</a>
+      <div class="album text-muted">
+        <a href="artist/{{featured._id}}">
+        <div class="card card-main" ng-repeat="feature in featuredArtists | filter: {medium: 'Music'}">
+          <img class="card-img-bottom card-cover" src="assets/img/{{feature.img}}"/>
+          <div>
+              <img class="profilePic profile-main" ng-src="assets/img/{{feature.picUrl}}"/>
+              <div class="profileName">
+                <h3 class='name-main'> {{feature.name}}</h3>
+                <p class='medium-main'> {{feature.medium}} > {{feature.submedium}}</p>
+              </div>
           </div>
+        </div>
+        </a>
       </div>
-
     </div>
+
+      <h1 align="center">Visual Artists</h1>
+
+      <div class="scrolls">
+        <div class="album text-muted">
+          <a href="artist/{{featured._id}}">
+          <div class="card card-main" ng-repeat="feature in featuredArtists | filter: {medium: 'Art'}">
+            <img class="card-img-bottom card-cover" src="assets/img/{{feature.img}}"/>
+            <div>
+                <img class="profilePic profile-main" ng-src="assets/img/{{feature.picUrl}}"/>
+                <div class="profileName">
+                  <h3 class='name-main'> {{feature.name}}</h3>
+                  <p class='medium-main'> {{feature.medium}} > {{feature.submedium}}</p>
+                </div>
+            </div>
+          </div>
+          </a>
+        </div>
     </div>
-  
-</div> 
-<!-- <div id="thumbs"></div>  
-<div id="container">
-
-<div class="row">
-
-      <div class="card">
-  <img class="card-img-top" src="assets/img/cover_photo_1.png" alt="Card image cap">
-  <div class="card-block">
-    <h4 class="card-title">Card title</h4>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="btn btn-primary">Button</a>
-  </div>
-  </div>
-
-
-      <div class="card">
-  <img class="card-img-top" src="assets/img/cover_photo_1.png" alt="Card image cap">
-  <div class="card-block">
-    <h4 class="card-title">Card title</h4>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="btn btn-primary">Button</a>
-  </div>
-  </div>
-
-  <div class="card">
-  <img class="card-img-top" src="assets/img/cover_photo_1.png" alt="Card image cap">
-  <div class="card-block">
-    <h4 class="card-title">Card title</h4>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="btn btn-primary">Button</a>
-  </div>
-  </div>
-
-  
- 
-  </div>
-
-</div>
-
-
-</div> -->
-
-
-
-
 
 <footer></footer>

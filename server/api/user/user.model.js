@@ -67,6 +67,8 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING,
       unique: true
     },
+    github: DataTypes.TEXT,
+    featured: DataTypes.BOOLEAN
   }, {
 
     /**

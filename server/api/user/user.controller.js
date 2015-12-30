@@ -123,6 +123,20 @@ exports.showResults = function(req, res, next) {
     });
 };
 
+// show featured artists
+exports.showFeatured = function(req, res) {
+  console.log('something noticeable');
+  User.findAll({
+    where: {
+      featured: true
+    }
+  })
+  .then(function(users) {
+    res.status(200).json(users);
+  })
+  .catch(handleError(res));
+};
+
 /**
  * Deletes a user
  * restriction: 'admin'

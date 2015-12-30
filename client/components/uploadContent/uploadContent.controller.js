@@ -1,17 +1,6 @@
 'use strict';
 
 
-
-// class UploadController {
-//
-//   constructor($log) {
-//       this.$log = $log;
-//       this.$log.info('uploader works!');
-//   }
-//
-//
-// } 
-
 angular.module('culturalystApp.uploadArtistContent', ['ngFileUpload'])
     .controller('UploadCtrl', ['$scope', '$rootScope','$location', 'Upload', '$http',
   /* Uploading with Angular File Upload */
@@ -51,7 +40,7 @@ angular.module('culturalystApp.uploadArtistContent', ['ngFileUpload'])
       });
     };
     // });
-    
+
     $scope.saveContent = function(url){
         $http.post('/api/content/' + $scope.artistId, {url: url, type:'profile'}).then(function(response){
             $scope.gallery.push(response.data);
@@ -94,7 +83,7 @@ angular.module('culturalystApp.uploadArtistContent', ['ngFileUpload'])
       })
     };
 
-    
+
 
     /* Modify the look and fill of the dropzone when files are being dragged over it */
     $scope.dragOverClass = function($event) {
@@ -236,4 +225,3 @@ angular.module('culturalystApp.uploadArtistContent', ['ngFileUpload'])
     //     console.log(response.data);
     //   })
     // };
-
