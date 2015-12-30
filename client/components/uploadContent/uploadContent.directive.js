@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('culturalystApp.uploadArtistContent')
+angular.module('culturalystApp')
   .directive('uploadContent', function () {
     return {
       templateUrl: 'components/uploadContent/uploadContent.html',

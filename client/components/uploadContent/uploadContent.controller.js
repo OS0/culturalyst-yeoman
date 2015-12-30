@@ -1,7 +1,7 @@
 'use strict';
 
 
-angular.module('culturalystApp.uploadArtistContent', ['ngFileUpload'])
+angular.module('culturalystApp')
     .controller('UploadCtrl', ['$scope', '$rootScope','$location', 'Upload', '$http',
   /* Uploading with Angular File Upload */
   function($scope, $rootScope, $location, $upload, $http) {
