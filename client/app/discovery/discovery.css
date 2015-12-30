@@ -127,7 +127,7 @@
   height:230px;
   width:320px;
   padding-top: 10px;*/
-  
+
 
 
 .card-text {
@@ -150,6 +150,7 @@
 }
 
 footer {
+  z-index: 1000;
   padding-top: 3rem;
   padding-bottom: 3rem;
 }
@@ -248,4 +249,3 @@ footer p {
   -webkit-transform: translate3d(0,0,0);
   transform: translate3d(0,0,0);
 }
-

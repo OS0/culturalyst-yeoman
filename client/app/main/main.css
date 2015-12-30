@@ -14,10 +14,11 @@
 /*@import url(http://fonts.googleapis.com/css?family=Raleway:400,800|Roboto+Slab:300);*/
 
 body {
-  font-family: Roboto Slab;
+  /*font-family: Roboto Slab;*/
+  font-family: 'Open Sans', sans-serif;
 }
 .card {
-  margin: 2rem auto;
+  /*margin: 2rem auto;*/
   background-color: white;
   box-shadow: 1px 1px 10px #999;
   width: 385px;
@@ -50,7 +51,8 @@ body {
 	overflow-x: scroll;
  	overflow-y:hidden;*/
   height: 400px;
-  white-space:nowrap
+  white-space:nowrap;
+  margin-left: 20px;
 }
 
 .card-title {
@@ -63,8 +65,11 @@ body {
 	width:50px;
 	word-wrap: initial;
 }
-.card > img{
-	width:346px;
+.card-main > img{
+	width:106%;
+  margin-left: -10px;
+  margin-top: -10px;
+  border-radius: 5px;
 }
 
 *{margin: 0;padding: 0;}
@@ -73,6 +78,10 @@ body {
   padding: 0;
   background-color: #eee;
   height: 300px;
+}
+.profile-main {
+  border: 2px solid #fff;
+  margin-top: -60px;
 }
 
 
@@ -116,6 +125,21 @@ body {
 .jumbotron .container {
   max-width: 90rem;
 }
+
+/*.medium-buttons > a:hover {
+  background-color: #209 !important;
+}*/
+
+/* BUTTON BACKGROUND TRANSITIONS */
+.hvr-shutter-in-vertical:before, .hvr-radial-in:before, .hvr-rectangle-out, .hvr-shutter-out-horizontal {
+  background: #428BCA !important;
+}
+
+.hvr-sweep-to-bottom:before, .hvr-shutter-in-vertical, .hvr-sweep-to-right:before, .hvr-radial-in, .hvr-rectangle-out:before, .hvr-shutter-out-horizontal:before, .hvr-bounce-in:before, .hvr-back-pulse:before  {
+  background: #209 !important;
+}
+
+
 
 /*.album {
   padding-top: 3rem;
@@ -210,6 +234,45 @@ right: 0;
 }
 .overlay {
 background-color: rgba(33,154,200,0.75);
+}
+/* MEDIA QUERIES */
+@media screen and (max-width: 550px) {
+    .carousel-tagline {
+        display: none;
+    }
+}
+
+/*@media screen and (max-width: 625px) {
+    .carousel-tagline {
+        width: 225px;
+    }
+}*/
+
+@media screen and (min-width: 625px) and (max-width: 725px) {
+    .carousel-tagline {
+        width: 250px;
+    }
+    .tagline h2 {
+      font-size: 2em;
+    }
+}
+
+@media screen and (max-width: 961px) {
+    .carousel-tagline {
+        /*display: none;*/
+    }
+}
+
+@media screen and (max-width: 1025px) {
+    .carousel-tagline {
+        width: 300px;
+    }
+}
+
+@media screen and (max-width: 1281px) {
+    .carousel-tagline {
+        /*display: none;*/
+    }
 }
 /*.hover-div {
   width: 100% !important;

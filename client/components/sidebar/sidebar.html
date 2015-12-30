@@ -1,14 +1,16 @@
 <!-- Sidebar -->
 <div id="sidebar-wrapper" ng-controller='SidebarController'>
-  <div data-toggle="collapse" ng-mouseover="sidebar.sidebarToggle()">
-    <div data-toggle="collapse" aria-hidden="true">
+  <!-- <div id="menu-toggle"></div>
+  <div id="menu-toggle-2"></div> -->
+  <div class="menu-toggle" data-toggle="collapse" ng-mouseover="sidebar.sidebarToggle()">
+    <div class="menu-toggle-2" data-toggle="collapse" aria-hidden="true">
       <ul class="sidebar-nav nav-pills nav-stacked" id="menu" >
 
-        <li class="active medium" ng-click="sidebar.initMenu()">
+        <li class="medium active" ng-click="sidebar.initMenu()">
           <span class="fa-stack fa-lg pull-left"><i class="fa fa-music fa-stack-1x"></i></span><a href="#">Music</a>
           <ul class="nav-pills nav-stacked" style="list-style-type:none;">
-            <li class="submedium"><a href="#">Hip Hop</a></li>
-            <li class="submedium"><a href="#">Zydeco</a></li>
+            <li class="submedium"><span class="fa-stack fa-lg pull-left"><i class="fa fa-music fa-stack-1x"></i></span><a href="#">Hip Hop</a></li>
+            <li class="submedium"><span class="fa-stack fa-lg pull-left"><i class="fa fa-music fa-stack-1x"></i></span><a href="#">Zydeco</a></li>
           </ul>
         </li>
         <li class="medium">
