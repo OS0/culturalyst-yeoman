@@ -97,7 +97,7 @@ class ArtistSignupController {
       context.$scope.rewards.push(context.$scope.newReward);
       context.$scope.newReward = {};
     })
-    
+
   }
 
   deleteReward() {
@@ -110,6 +110,7 @@ class ArtistSignupController {
   done() {
     this.state.go('main');
   }
+
 }
 
 angular.module('culturalystApp')

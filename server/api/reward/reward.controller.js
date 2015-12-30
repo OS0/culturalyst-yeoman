@@ -13,6 +13,7 @@ var _ = require('lodash');
 var sqldb = require('../../sqldb');
 var Reward = sqldb.Reward;
 var Sequelize = require('sequelize');
+import stripe from '../../config/stripe'
 
 function handleError(res, statusCode) {
   statusCode = statusCode || 500;
@@ -109,6 +110,7 @@ exports.create = function(req, res) {
 exports.newReward = function(req, res) {
   req.body.user_id = req.params.user_id;
   console.log(req.body)
+  exports.createPlan(req,res);
   Reward.create(req.body)
     .then(responseWithResult(res, 201))
     .catch(handleError(res));
@@ -138,6 +140,37 @@ exports.destroy = function(req, res) {
     }
   })
     .then(handleEntityNotFound(res))
-    .then(removeEntity(res))
+    .then(function(res){
+      exports.deletePlan(res)
+      removeEntity(res)
+    })
     .catch(handleError(res));
 };
+
+//Creates a stripe subscription plan for artist based on reward
+exports.createPlan = function(req,res){
+  console.log('creating plan!')
+  var reward = req.body
+  var plan = 'user' + reward.user_id + 'plan' + reward.amount
+  stripe.plans.create({
+    amount: reward.amount * 100,
+    interval: 'month',
+    name: 'reward.title',
+    currency: 'usd',
+    id: plan,
+    statement_descriptor: 'Culturalyst Artist Support'
+  }).then(function(plan){
+    console.log('plan: ', plan)
+    res.status(204).end();
+  }).catch(handleError(res))
+}
+
+//Deletes a stripe subscription plan when artist deletes a reward
+exports.deletePlan = function(reward){
+  var plan = 'user' + reward.user_id + 'plan' + reward.amount
+  stripe.plans.del(plan).then(function(confirmation){
+    console.log('confirmation: ', confirmation);
+  }).catch(function(err){
+    console.log('err: ', err);
+  })
+}
