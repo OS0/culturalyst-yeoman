@@ -10,7 +10,7 @@ class ArtistSignupController {
   submitted = false;
   //end-non-standard
 
-  constructor(Auth, $state, $log, $scope, $http, $timeout, MediaList) {
+  constructor(Auth, $state, $log, $scope, $http, $timeout, MediaList, stripe) {
     this.Auth = Auth;
     this.$state = $state;
     this.$log = $log;
@@ -106,7 +106,7 @@ class ArtistSignupController {
       context.$scope.rewards.push(context.$scope.newReward);
       context.$scope.newReward = {};
     })
-    
+
   }
 
   deleteReward() {
@@ -119,6 +119,7 @@ class ArtistSignupController {
   done() {
     this.state.go('main');
   }
+
 }
 
 angular.module('culturalystApp')

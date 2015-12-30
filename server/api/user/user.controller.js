@@ -4,10 +4,7 @@ import {User} from '../../sqldb';
 import passport from 'passport';
 import config from '../../config/environment';
 import jwt from 'jsonwebtoken';
-var stripe = require('stripe')('sk_test_iJGQtNCDSmOSroJKVAlFCdbB')
-
-var CLIENT_ID = 'ca_7Yac6i1E5MoE5YvDGx9tNYRrBq1tKddQ';
-var API_KEY = 'sk_test_iJGQtNCDSmOSroJKVAlFCdbB';
+import stripe from '../../config/stripe'
 
 function validationError(res, statusCode) {
   statusCode = statusCode || 422;
@@ -325,13 +322,71 @@ exports.register = function(req,res){
     })
 }
 
-//charge customer
+//Subscribe Customer to monthly payments
+exports.subscribe= function(req,res){
+  var amount = req.body.amount
+  var artistId = req.body._id
+  //for subscriptions
+  var recurring = req.body.recurring
+  //find Artist by ID
+  var feePercent = 30/(amount/100)
+
+  User.find({
+      where: {
+        _id: artistId
+      }
+    })
+    .then(function(user) {
+      console.log('user: ', user)
+      console.log('useracct: ', JSON.parse(user.dataValues.account))
+      if(user){
+        //if custID
+        if(req.body.customer){
+          //create charge
+          stripe.customers.createSubscription(req.body.customer,
+            {
+              plan: 'user' + artistID + 'plan' + amount/100,
+              application_fee_percent: 10.4 + feePercent
+            }).then( function(charge){
+              //store charge to db for user/artist dashboard
+              console.log('charge: ', charge)
+              res.status(204).end()
+          }).catch(handleError(res))
+        } else {
+          //create cutomer from card token
+          return stripe.customers.create({
+            source: req.body.token
+          }).then(function(customer){
+            console.log('customer: ',customer)
+            //create charge from cust id
+            return stripe.customers.createSubscription(customer,
+              {
+                plan: 'user' + artistID + 'plan' + amount/100,
+                application_fee_percent: 10.4 + feePercent
+              }
+            ).then(function(subscription){
+              console.log('sub: ', subscription)
+              //save charge to db for user/artist dashboard
+              res.status(204).end()
+            }).catch(handleError(res))
+          })
+        }
+      } else {
+        console.log('no user found bruh')
+
+      }
+    });
+}
+
+//One time charge to customer
 exports.charge = function(req,res){
   var amount = req.body.amount
   var artistId = req.body._id
   //for subscriptions
   var recurring = req.body.recurring
   //find Artist by ID
+  var fee = amount * 0.104 + 30
+  console.log(fee)
 
   User.find({
       where: {
@@ -348,10 +403,14 @@ exports.charge = function(req,res){
           stripe.charges.create({
             amount: amount,
             currency: 'usd',
-            customer: customer
+            customer: req.body.customer,
+            destination: JSON.parse(user.dataValues.account).id,
+            application_fee: fee
           }).then( function(charge){
               //store charge to db for user/artist dashboard
-          })
+              console.log('charge: ', charge)
+              res.status(204).end()
+          }).catch(handleError(res))
         } else {
           //create cutomer from card token
           return stripe.customers.create({
@@ -364,12 +423,12 @@ exports.charge = function(req,res){
               currency: 'usd',
               customer: customer.id,
               destination: JSON.parse(user.dataValues.account).id,
-              application_fee: 500
+              application_fee: fee
             }).then(function(charge){
               console.log('charges: ', charge)
               //save charge to db for user/artist dashboard
               res.status(204).end()
-            }).catch(handleError(err))
+            }).catch(handleError(res))
           })
         }
       } else {
