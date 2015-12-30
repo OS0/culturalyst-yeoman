@@ -6,14 +6,14 @@
 				<div class="row">
 					<div class="col-lg-12">
 						<section>
-							<div class="container">
-								<h1 class="jumbotron-heading">Featured Artists in New Orleans</h1>
-								<p class="lead text-muted" align="center">BEGIN TO DISCOVER THE CULTURE AROUND YOU. </p>
+							<div class="container" align="center">
+								<h1 align="center">Featured Artists in New Orleans</h1>
+								<p class="lead text-muted" align="center">BEGIN TO DISCOVER THE CULTURE AROUND YOU.</p>
+                <label>Medium</label>
 								<select ng-model="medium" ng-options="medium as medium.name for medium in mediaList" ng-change="loadSubMediums(medium); getArtists()" ng-selected="medium"></select>
 								<select ng-model="selectedSubmedium" ng-options="submedium for submedium in submedia" ng-change="getArtists()" ng-change="getFaces()"></select>
 							</div>
-              <div class="form-group">
-                <p>Filters</p>
+              <div class="form-group" align="center">
                 <label>Age</label>
                 <select ng-model="selectedAge" ng-options="age as age.age for age in ageList"></select>
                 <label>Organization</label>
