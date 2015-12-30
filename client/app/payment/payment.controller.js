@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('culturalystApp')
-  .controller('PaymentCtrl', function ($scope, $location, stripe, $http) {
+  .controller('PaymentCtrl', ['$scope', '$location', 'angular-stripe', '$http', function ($scope, $location, stripe, $http) {
     var artistId = $location.path().split('/').pop();
     $scope.form = {};
     $scope.recurring = false;
@@ -26,4 +26,4 @@ angular.module('culturalystApp')
       })
     }
 
-  });
+  }]);

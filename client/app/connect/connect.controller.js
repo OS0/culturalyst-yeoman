@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('culturalystApp')
-  .controller('ConnectCtrl', function ($scope, $http, $location, stripe) {
+  .controller('ConnectCtrl', ['$scope', '$http', '$location', 'angular-stripe', function ($scope, $http, $location, stripe) {
 
     var artistId = $location.path().split('/').pop();
 
@@ -53,4 +53,4 @@ angular.module('culturalystApp')
 
 
 
-  });
+  }]);
