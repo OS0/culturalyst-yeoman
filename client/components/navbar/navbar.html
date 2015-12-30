@@ -38,7 +38,7 @@
         <li ng-hide="nav.isLoggedIn()" ui-sref-active="active"><a ui-sref="signup">Sign up</a></li>
         <li ng-show="nav.isNotArtist()" ui-sref-active="active"><a ui-sref="artistSignupInfo">Artist sign up</a></li>
         <li ng-hide="nav.isLoggedIn()" ui-sref-active="active"><a ui-sref="login">Login</a></li>
-        <li ng-show="nav.isLoggedIn()" ui-sref-active="active"><a href="dashUser"><span class="glyphicon glyphicon-user"></span></a></li>
+        <li ng-show="nav.isLoggedIn()" ui-sref-active="active"><a ui-sref="dashUser.rewards"><span class="glyphicon glyphicon-user"></span></a></li>
         <li ng-show="nav.isLoggedIn()" ui-sref-active="active"><a ui-sref="settings"><span class="glyphicon glyphicon-cog"></span></a></li>
         <li ng-show="nav.isLoggedIn()"><a ui-sref="logout">Logout</a></li>
       </ul>

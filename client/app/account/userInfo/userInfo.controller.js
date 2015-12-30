@@ -13,7 +13,9 @@ class UserInfoController {
     this.$scope = $scope;
     this.$http = $http;
     this.$scope.currentUser = this.Auth.getCurrentUser();
+    this.isArtist = this.Auth.isArtist;
   }
+
 
   userDetail() {
     console.log("Preparing to Update!")
@@ -21,10 +23,6 @@ class UserInfoController {
         name: this.$scope.currentUser.name,
         email: this.$scope.currentUser.email,
         location: this.$scope.currentUser.location
-      })
-      .then(() => {
-        // console.log("I $promise I love you!");
-        this.$state.go('main');
       })
       .catch(err => {
         console.log(err.status, err.data);

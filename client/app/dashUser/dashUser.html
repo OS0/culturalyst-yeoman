@@ -4,12 +4,13 @@
   <div class="row">
     <div class="col-sm-3 col-md-2 sidebar">
       <ul class="nav nav-sidebar">
-        <li><a ui-sref=".myList">My Lyst</a></li>
-        <li><a ui-sref=".rewards">Rewards</a></li>
+        <li><a ui-sref=".rewards">My Rewards</a></li>
         <li><a ui-sref=".profile">User Info</a></li>
         <li><a ui-sref=".changePassword">Change Password</a></li>
-      </ul>
-      <ul class="nav nav-sidebar">
+        <li ng-show="!(isArtist())"><a ui-sref=".artistInfo">Become an Artist</a></li>
+        <li ng-show="isArtist()"><a ui-sref=".artistInfo">Artist Info</a></li>
+        <li ng-show="isArtist()"><a ui-sref=".content">Content</a></li>
+        <li ng-show="isArtist()"><a ui-sref=".offers">My Offers</a></li>
       </ul>
     </div>
     <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">

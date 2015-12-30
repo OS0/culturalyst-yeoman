@@ -14,12 +14,14 @@ class SignupController {
     this.$scope = $scope;
     this.$http = $http;
     this.$timeout = $timeout;
+    this.isArtist = this.Auth.isArist;
   }
 
   currentUser() {
     //this.$log.info(this.Auth.getCurrentUser());
     return this.Auth.getCurrentUser;
   }
+
 
   register(form) {
     this.submitted = true;
@@ -34,7 +36,7 @@ class SignupController {
         .then(() => {
           context.$log.log(context.user);
           // Account created, redirect to signup details view
-          this.$state.go('userInfo');
+          this.$state.go('dashUser.profile');
         })
         .catch(err => {
           err = err.data;

@@ -1,14 +1,13 @@
 'use strict';
 
 angular.module('culturalystApp')
-  .controller('DashUserCtrl', function ($scope, $log, Auth, $http, $state) {
+  .controller('DashUserCtrl', function ($scope, $log, $location, Auth, $http, $state) {
     $scope.me;
     $scope.rewards;
     $http.get('/api/users/me').then(function(res) {
       $scope.me = res.data;
       $scope.showMyRewards();
     });
-    $state.go('dashUser.myList');
     $scope.mediums = {
       music: false,
       writing: false,
@@ -34,4 +33,6 @@ angular.module('culturalystApp')
         $scope.rewards = rewards.data;
       })
     };
+
+    $scope.isArtist = Auth.isArtist;
   });
