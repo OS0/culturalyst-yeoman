@@ -5,7 +5,7 @@ angular.module('culturalystApp')
     var artistId = $location.path().split('/').pop();
     $scope.form = {};
     $scope.recurring = false;
-
+    // Payment
     var sendToken = function(token, args){
       $http({
         method: 'POST',
@@ -36,4 +36,14 @@ angular.module('culturalystApp')
       })
     }
 
+    // Rewards
+    $scope.getRewards = function(){
+      $http({
+        method: 'GET',
+        url: 'api/reward/myRewards/' + artistId
+      }).then(function(data){
+        console.log('rewards: ',data)
+        $scope.rewards = data;
+      })
+    }
   }]);
