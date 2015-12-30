@@ -23,5 +23,5 @@ router.post('/charge', controller.charge);
 // set this up just like you did for the user info
 // router.put('/:id/updateArtist', auth.isAuthenticated(), controller.updateArtistInfo);
 
-router.get('/show/featured', controller.showFeatured);
+router.get('/featured', controller.showFeatured);
 module.exports = router;

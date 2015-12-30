@@ -7,8 +7,7 @@ class MainController {
   constructor($http, $scope, socket) {
     this.$http = $http;
     this.$scope = $scope;
-
-
+    
     $scope.featuredArtists = [{
       _id: 1,
         name: 'Milton Meadow',
@@ -58,10 +57,10 @@ class MainController {
   getFeatured() {
     let context = this;
     console.log('something from rascle');
-    this.$http.get('/api/users/show/featured')
+    this.$http.get('/api/users/featured')
     .then(function(featured) {
       console.log(featured);
-      // context.$scope.featuredArtists = featured.data;
+      context.$scope.featuredArtists = featured.data;
     });
   }
 
