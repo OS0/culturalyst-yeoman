@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('culturalystApp')
-.controller('DiscoveryCtrl', function($scope, MediaList, $http){
+.controller('DiscoveryCtrl', function($scope, MediaList, $http, $location){
   $scope.mediaList = MediaList.getMediaList();
   console.log('hi')
   console.log($scope.artists)
@@ -49,4 +49,13 @@ angular.module('culturalystApp')
       $scope.selectedMedium = medium.name;
       $scope.submedia = medium.submedia;
     };
+
+    $scope.populatePage = function() {
+      $scope.pageMedium = $location.path().split('/').pop();
+      $http.get('/api/users/discovery/' + $scope.pageMedium + '/undefined' ).then(function(response) {
+        $scope.artists = response.data;
+        console.log($scope.pageMedium, 'populatePage');
+      })
+    }
+    $scope.populatePage()
 });
