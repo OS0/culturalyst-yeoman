@@ -133,15 +133,14 @@ exports.showResults = function(req, res, next) {
       }
     })
     .then(function(content) {
-      console.log("AHHHHHHHHHHHHHHH");
       if (!content) {
         console.log('No content');
-        return res.status(444).end();
+        res.status(444).end();
       }
       res.json(content);
     })
     .catch(function(err) {
-      return next(err);
+      next(err);
     });
 };
 
