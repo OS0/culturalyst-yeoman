@@ -85,12 +85,12 @@ exports.show = function(req, res, next) {
     })
     .then(function(user) {
       if (!user) {
-        return res.status(404).end();
+        res.status(404).end();
       }
       res.json(user.profile);
     })
     .catch(function(err) {
-      return next(err);
+      next(err);
     });
 };
 
@@ -109,7 +109,7 @@ exports.showResults = function(req, res, next) {
     .then(function(users) {
       if (!users) {
         console.log('No users');
-        return res.status(404).end();
+        res.status(404).end();
       }
       var array = [];
       users.forEach(function(img){
@@ -119,7 +119,7 @@ exports.showResults = function(req, res, next) {
 
     })
     .catch(function(err) {
-      return next(err);
+      next(err);
     });
 };
 
@@ -165,13 +165,13 @@ exports.changePassword = function(req, res, next) {
     .then(function(user) {
       if (user.authenticate(oldPass)) {
         user.password = newPass;
-        return user.save()
+        user.save()
           .then(function() {
             res.status(204).end();
           })
           .catch(validationError(res));
       } else {
-        return res.status(403).end();
+        res.status(403).end();
       }
     });
 };
@@ -194,7 +194,7 @@ exports.updateUserInfo = function(req, res, next) {
         user.name = name;
         user.email = email;
         user.location = location;
-        return user.save()
+        user.save()
           .then(function() {
             res.status(204).end();
           })
@@ -212,7 +212,7 @@ exports.updateArtistContent = function(req, res, next) {
     })
     .then(function(user) {
         user.picUrl = url;
-        return user.save()
+        user.save()
           .then(function() {
             res.status(204).end();
           })
@@ -231,7 +231,7 @@ exports.updateArtistCover = function(req, res, next) {
     })
     .then(function(user) {
         user.img = url;
-        return user.save()
+        user.save()
           .then(function() {
             res.status(204).end();
           })
@@ -277,7 +277,7 @@ exports.updateArtistInfo = function(req, res, next) {
         user.etsy = etsy;
         user.soundcloud = soundcloud;
         user.behance = behance;
-        return user.save()
+        user.save()
           .then(function() {
             res.status(204).end();
           })
@@ -312,12 +312,12 @@ exports.me = function(req, res, next) {
     })
     .then(function(user) { // don't ever give out the password or salt
       if (!user) {
-        return res.status(401).end();
+        res.status(401).end();
       }
       res.json(user);
     })
     .catch(function(err) {
-      return next(err);
+      next(err);
     });
 };
 
@@ -338,7 +338,7 @@ exports.registerdb = function(account, id){
     })
     .then(function(user) {
         user.account = JSON.stringify(account)
-        return user.save()
+        user.save()
           .then(function() {
             res.status(204).end();
           })
@@ -386,12 +386,12 @@ exports.charge = function(req,res){
           })
         } else {
           //create cutomer from card token
-          return stripe.customers.create({
+          stripe.customers.create({
             source: req.body.token
           }).then(function(customer){
             console.log('customer: ',customer)
             //create charge from cust id
-            return stripe.charges.create({
+            stripe.charges.create({
               amount: amount,
               currency: 'usd',
               customer: customer.id,
