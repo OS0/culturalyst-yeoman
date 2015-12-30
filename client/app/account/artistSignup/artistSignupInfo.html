@@ -1,53 +1,8 @@
 <navbar></navbar>
 
-<script>
-  $(document).ready(function() {
-    $('.sub').hide();
-    $('#film').on('click', function() {
-      $('#filmSub').toggle();
-    });
-    $('#music').on('click', function() {
-      $('#musicSub').toggle();
-    });
-    $('#dance').on('click', function() {
-      $('#dtSub').toggle();
-    });
-    $('#lit').on('click', function() {
-      $('#litSub').toggle();
-    });
-    $('#comics').on('click', function() {
-      $('#comicSub').toggle();
-    });
-    $('#drawPaint').on('click', function() {
-      $('#drawPaintSub').toggle();
-    });
-    $('#animation').on('click', function() {
-      $('#animateSub').toggle();
-    });
-    $('#photography').on('click', function() {
-      $('#photoSub').toggle();
-    });
-    $('#craftsDIY').on('click', function() {
-      $('#craftSub').toggle();
-    })
-  });
-</script>
-
 <div>
   <!--<form ng-submit="vm.register(InfoForm)">-->
   <form>
-    <!--Name-->
-    <div class="form-group" style="width: 80%; margin: 5% 10% 0 10%">
-      <label for="name">Name</label>
-      <input type="text" class="form-control" placeholder="Name"
-             value="{{currentUser.name}}">
-    </div>
-    <!--Email-->
-    <div class="form-group" style="width: 80%; margin: 5% 10% 0 10%">
-      <label for="email">Email address</label>
-      <input type="email" class="form-control" placeholder="Email"
-             value="{{currentUser.name}}">
-    </div>
     <!--Bio-->
     <div class="form-group" style="width: 80%; margin: 5% 10% 0% 10%">
       <label for="bio">Biography</label>
@@ -323,7 +278,7 @@
         <h4>Social Media Links</h4>
       </div>
       <!--Social Media Handles-->
-      <div>
+      <div style="display: block">
         <!--Facebook-->
         <div class="form-group" style="width: 80%; margin: 5% 10% 0 10%">
           <p>Link to your Facebook</p>
@@ -357,9 +312,9 @@
       </div>
     </div>
 
-    <button type="submit" class="btm btn-default" style="margin: 10% 45%"
+    <button type="submit" class="btn btn-primary btn-block" style="margin: 10% 45%"
             ng-click="vm.register()">
-      Next
+      Save
     </button>
 
   </form>

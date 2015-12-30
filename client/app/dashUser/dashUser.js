@@ -9,24 +9,32 @@ angular.module('culturalystApp')
         controller: 'DashUserCtrl',
         controllerAs: 'dash'
       })
-      .state('dashUser.myList', {
-        templateUrl: 'app/dashUser/dashUser.myList.html'
-      })
       .state('dashUser.rewards', {
         templateUrl: 'app/dashUser/dashUser.rewards.html'
       })
-      .state('dashUser.messages', {
-        templateUrl: 'app/dashUser/dashUser.messages.html'
-      })
-      .state('dashUser.mediums', {
-        templateUrl: 'app/dashUser/dashUser.mediums.html'
-      })
       .state('dashUser.profile', {
-        templateUrl: 'app/dashUser/dashUser.profile.html'
+        templateUrl: 'app/account/userInfo/userInfo.html',
+        controller: 'UserInfoController',
+        controllerAs: 'vm'
       })
       .state('dashUser.changePassword', {
         templateUrl: 'app/account/settings/settings.html',
         controller: 'SettingsController',
-        controllerAs: 'vm2'
+        controllerAs: 'settings'
+      })
+      .state('dashUser.artistInfo', {
+        templateUrl: 'app/account/artistSignup/artistSignupInfo.html',
+        controller: 'ArtistSignupController',
+        controllerAs: 'vm'
+      })
+      .state('dashUser.content', {
+        templateUrl: 'app/account/artistSignup/artistSignupContent.html',
+        controller: 'ArtistSignupController',
+        controllerAs: 'vm'
+      })
+      .state('dashUser.offers', {
+        templateUrl: 'app/account/artistSignup/artistSignupRewards.html',
+        controller: 'ArtistSignupController',
+        controllerAs: 'vm'
       });
   });

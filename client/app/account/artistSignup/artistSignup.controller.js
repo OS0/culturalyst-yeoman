@@ -2,10 +2,7 @@
 
 class ArtistSignupController {
   //start-non-standard
-  user = {
-    //catalyst: true,
-    //creative: true
-  };
+  user = {};
   errors = {};
   submitted = false;
   //end-non-standard
@@ -24,6 +21,7 @@ class ArtistSignupController {
     this.$scope.newReward = {};
     this.$scope.mediaList = this.MediaList.getMediaList();
     this.$window = $window;
+    this.isArtist = this.Auth.isArtist;
   }
 
   //currentUser() {
@@ -34,6 +32,7 @@ class ArtistSignupController {
     this.$scope.selectedMedium = medium.name;
     this.$scope.submedia = medium.submedia;
   };
+
 
   // go to content
   register() {
@@ -54,8 +53,10 @@ class ArtistSignupController {
           soundcloud: context.$scope.soundCloudUrl,
           behance: context.$scope.behanceUrl
     }).then(function() {
-      context.$window.location.reload();
-      context.$state.go('artistSignupContent');
+      context.$state.go('dashUser.artistInfo', {reload: true});
+      if (context.$scope.currentUser.role !== 'artist') {
+        context.$window.location.reload();
+      }
     });
 
     //.then(() => {
@@ -75,29 +76,6 @@ class ArtistSignupController {
     //this.$state.go('artistSignupContent');
 
   }
-
-  // go to rewards
-  content() {
-
-    // refactor to grab from the html forms
-    //this.Auth.updateUserInfo({
-    //    name: this.user.name
-    //    //what properties do we need to grab from
-    //  })
-    //  .then(() => {
-    //    this.$state.go('artistSignupRewards');
-    //  });
-
-    this.$state.go('artistSignupRewards');
-
-  }
-
-  //list(){}
-
-  addField() {
-    this.$log.log('this was called');
-    this.list.push({});
-  };
 
   showRewards() {
     let context = this;
