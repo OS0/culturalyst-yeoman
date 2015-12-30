@@ -23,7 +23,7 @@
                 <label>Organization</label>
                 <select ng-model="selectedOrg" ng-options="org as org.org for org in orgList"></select>
                 <label>Native</label>
-                <select ng-model="selectedNative" ng-options="native as native.native for native in nativeList"></select>
+                <select ng-model="selectedNative" ng-options="natives as natives.natives for natives in nativeList"></select>
                 <label>Gender</label>
                 <select ng-model="selectedGender" ng-options="gender as gender.gender for gender in genderList"></select>
                 <label>Experience</label>
@@ -38,7 +38,7 @@
 				<div class="row">
 					<div id="custom-search-input">
 						<div class="input-group col-md-12">
-							<input type="text" class="search-query form-control" placeholder="Search" ng-model="searchText" />
+							<input type="text" class="search-query form-control" placeholder="Search" ng-model="searchText">
 						</div>
 					</div>
 				</div>
