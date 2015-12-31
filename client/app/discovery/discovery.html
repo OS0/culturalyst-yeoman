@@ -6,24 +6,47 @@
 				<div class="row">
 					<div class="col-lg-12">
 						<section>
-							<div class="container" align="center">
-								<h1 align="center">Featured Artists in New Orleans</h1>
-								<p class="lead text-muted" align="center">BEGIN TO DISCOVER THE CULTURE AROUND YOU.</p>
-                <label>Medium</label>
-								<select ng-model="medium" ng-options="medium as medium.name for medium in mediaList" ng-change="loadSubMediums(medium); getArtists()" ng-selected="medium"></select>
-								<select ng-model="selectedSubmedium" ng-options="submedium for submedium in submedia" ng-change="getArtists()" ng-change="getFaces()"></select>
+              <h1 align="center">Featured Artists in New Orleans</h1>
+                  <p class="lead text-muted" align="center">BEGIN TO DISCOVER THE CULTURE AROUND YOU.</p>
+							<div class="row form-inline" align="center">
+                <div class="col-xs-4">
+  								<select class="form-control" ng-model="medium" ng-options="medium as medium.name for medium in mediaList" ng-change="loadSubMediums(medium); getArtists()" ng-selected="medium">
+                    <option value="" selected disabled>Medium</option>        
+                  </select>
+                </div>
+                <div class="col-xs-4">
+  								<select class="form-control" ng-model="selectedSubmedium" ng-options="submedium for submedium in submedia" ng-change="getArtists()" ng-change="getFaces()">
+                    <option value="" selected disabled>Submedium</option>        
+                  </select>
+                </div>
 							</div>
+              <br>
               <div class="form-group" align="center">
-                <label>Age</label>
-                <select ng-model="selectedAge" ng-options="age as age.age for age in ageList"></select>
-                <label>Organization</label>
-                <select ng-model="selectedOrg" ng-options="org as org.org for org in orgList"></select>
-                <label>Native</label>
-                <select ng-model="selectedNative" ng-options="natives as natives.natives for natives in nativeList"></select>
-                <label>Gender</label>
-                <select ng-model="selectedGender" ng-options="gender as gender.gender for gender in genderList"></select>
-                <label>Experience</label>
-                <select ng-model="selectedExperience" ng-options="experience as experience.experience for experience in expList"></select>
+                <div class="col-xs-2">
+                  <select class="form-control" ng-model="selectedAge" ng-options="age as age.age for age in ageList">
+                    <option value="" selected disabled>Age</label>
+                  </select>
+                </div>
+                <div class="col-xs-2">
+                  <select class="form-control" ng-model="selectedOrg" ng-options="org as org.org for org in orgList">
+                    <option value="" selected disabled>Organization</label>
+                  </select>
+                </div>
+                <div class="col-xs-2">
+                  <select class="form-control" ng-model="selectedNative" ng-options="natives as natives.natives for natives in nativeList">
+                    <option value="" selected disabled>Native</label>
+                  </select>
+                </div>
+                <div class="col-xs-2">
+                  <select class="form-control" ng-model="selectedGender" ng-options="gender as gender.gender for gender in genderList">
+                    <option value="" selected disabled>Gender</label>
+                  </select>
+                </div>
+                <div class="col-xs-2">
+                  <select class="form-control" ng-model="selectedExperience" ng-options="experience as experience.experience for experience in expList">
+                    <option value="" selected disabled>Experience</label>
+                  </select>
+                </div>
               </div>
 						</section>
 					</div>
