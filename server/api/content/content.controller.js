@@ -106,8 +106,8 @@ exports.update = function(req, res) {
       _id: req.params.id
     }
   })
-    .then(handleEntityNotFound(res))
     .then(saveUpdates(req.body))
+    .then(handleEntityNotFound(res))
     .then(responseWithResult(res))
     .catch(handleError(res));
 };
