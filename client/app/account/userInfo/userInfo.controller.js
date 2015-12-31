@@ -18,6 +18,7 @@ class UserInfoController {
 
 
   userDetail() {
+    let context = this;
     console.log("Preparing to Update!")
     this.$http.put('/api/users/' + this.Auth.getCurrentUser()._id + '/updateUserInfo', {
         name: this.$scope.currentUser.name,
@@ -25,7 +26,7 @@ class UserInfoController {
         location: this.$scope.currentUser.location
       })
       .then(() => {
-        this.message = 'Profile successfully updated.';
+        context.message = 'Profile successfully updated.';
       })
       .catch(err => {
         console.log(err.status, err.data);

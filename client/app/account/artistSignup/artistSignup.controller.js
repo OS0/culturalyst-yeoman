@@ -53,7 +53,7 @@ class ArtistSignupController {
           soundcloud: context.$scope.soundCloudUrl,
           behance: context.$scope.behanceUrl
     }).then(function() {
-      this.message = 'Profile successfully updated.';
+      context.message = 'Profile successfully updated.';
       if (context.$scope.currentUser.role !== 'artist') {
         context.$window.location.reload();
       }
