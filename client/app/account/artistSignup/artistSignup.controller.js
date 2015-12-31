@@ -38,25 +38,25 @@ class ArtistSignupController {
   register() {
     let context = this;
 
-
-  this.$http.put('/api/users/' + this.$scope.currentUser._id + '/updateArtistInfo', {
-        short_bio: context.$scope.short_bio,
-        vid_bio: context.$scope.vid_bio,
-        bio: context.$scope.bio,
-        medium: context.$scope.selectedMedium,
-        submedium: context.$scope.selectedSubmedium,
-        age: context.$scope.age,
-        natives: context.$scope.natives,
-        org: context.$scope.org,
-        experience:context.$scope.experience,
-        facebook: context.$scope.faceBookUrl,
-        instagram: context.$scope.instagramUrl,
-        twitter: context.$scope.twitterUrl,
-        etsy: context.$scope.etsyUrl,
-        soundcloud: context.$scope.soundCloudUrl,
-        behance: context.$scope.behanceUrl
-      }).then(function(res) {
-      console.log(res);
+    this.$http.put('/api/users/' + this.$scope.currentUser._id + '/updateArtistInfo', {
+          bio: context.$scope.bio,
+          medium: context.$scope.selectedMedium,
+          submedium: context.$scope.selectedSubmedium,
+          age: context.$scope.age,
+          natives: context.$scope.natives,
+          org: context.$scope.org,
+          experience:context.$scope.experience,
+          facebook: context.$scope.faceBookUrl,
+          instagram: context.$scope.instagramUrl,
+          twitter: context.$scope.twitterUrl,
+          etsy: context.$scope.etsyUrl,
+          soundcloud: context.$scope.soundCloudUrl,
+          behance: context.$scope.behanceUrl
+    }).then(function() {
+      context.message = 'Profile successfully updated.';
+      if (context.$scope.currentUser.role !== 'artist') {
+        context.$window.location.reload();
+      }
     });
 
     //.then(() => {
