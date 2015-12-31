@@ -81,4 +81,4 @@ angular.module('culturalystApp')
         $scope.rewards = data;
       })
     }
-  }]);
+  });
