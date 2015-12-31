@@ -1,12 +1,59 @@
 <navbar></navbar>
 <div ng-controller="DiscoveryCtrl">
+<!--   <div class="jumbotron text-center artistBack" style="background-image:url('/assets/img/cover_photo_7.png');" ng-init="getArtistContent()"> -->
 	<div>
-		<div id="page-content-wrapper">
+		<div id="page-content-wrapper" style="background-image:url('/assets/img/cover_photo_7.png'); background-size:cover;">
 			<div class="container-fluid xyz">
-				<div class="row">
+				<div class="row" align="center">
 					<div class="col-lg-12">
-						<section>
-							<div class="container" align="center">
+          <div class="bannerFont">
+            <h1 align="center" style="font-family: 'Abel' !important;">Dig Deep into Your Culture</h1>
+                  <p class="lead text-muted" align="center">Search by Medium and Genre and filter to your heart's desire</p>
+          </div>
+            <section align="center">
+            <div class="filters" align="center">
+              <div class="row form-inline" align="center">
+                <div class="col-xs-6">
+                  <select class="form-control" ng-model="medium" ng-options="medium as medium.name for medium in mediaList" ng-change="loadSubMediums(medium); getArtists()" ng-selected="medium" style="width:400px">
+                    <option value="" selected disabled>Medium</option>        
+                  </select>
+                </div>
+                <div class="col-xs-6">
+                  <select class="form-control" ng-model="selectedSubmedium" ng-options="submedium for submedium in submedia" ng-change="getArtists()" ng-change="getFaces()" style="width:400px">
+                    <option value="" selected disabled>Submedium</option>        
+                  </select>
+                </div>
+              </div>
+              <br>
+              <div class="form-group" align="center">
+                <div class="col-xs-3">
+                  <select class="form-control" ng-model="selectedAge" ng-options="age as age.age for age in ageList">
+                    <option value="" selected disabled>Age</label>
+                  </select>
+                </div>
+<!--                 <div class="col-xs-2">
+                  <select class="form-control" ng-model="selectedOrg" ng-options="org as org.org for org in orgList">
+                    <option value="" selected disabled>Organization</label>
+                  </select>
+                </div> -->
+                <div class="col-xs-3">
+                  <select class="form-control" ng-model="selectedNative" ng-options="natives as natives.natives for natives in nativeList">
+                    <option value="" selected disabled>Native</label>
+                  </select>
+                </div>
+                <div class="col-xs-3">
+                  <select class="form-control" ng-model="selectedGender" ng-options="gender as gender.gender for gender in genderList">
+                    <option value="" selected disabled>Gender</label>
+                  </select>
+                </div>
+                <div class="col-xs-3">
+                  <select class="form-control" ng-model="selectedExperience" ng-options="experience as experience.experience for experience in expList">
+                    <option value="" selected disabled>Experience</label>
+                  </select>
+                </div>
+              </div>
+              </div>
+							<!-- <div class="container" align="center">
 								<h1 align="center">Featured Artists in New Orleans</h1>
 								<p class="lead text-muted" align="center">BEGIN TO DISCOVER THE CULTURE AROUND YOU.</p>
                 <label>Medium</label>
@@ -24,7 +71,8 @@
                 <select ng-model="selectedGender" ng-options="gender as gender.gender for gender in genderList"></select>
                 <label>Experience</label>
                 <select ng-model="selectedExperience" ng-options="experience as experience.experience for experience in expList"></select>
-              </div>
+              </div> -->
+
 						</section>
 					</div>
 				</div>
@@ -63,4 +111,5 @@
       </div>
     </div><!-- /#wrapper -->
   </div>
+  <br><br><br><br><br><br><br><br><br><br><br><br>
   <footer></footer>

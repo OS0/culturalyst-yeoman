@@ -16,13 +16,33 @@
     </div>
     <!--1/3 column-->
     <div class="col-lg-3 text-center" style="width: 25%">
-      <div class="socials">
-      <i ng-if="artist.facebook" class="fa fa-facebook"></i>
-      <i ng-if="artist.twitter" class="fa fa-twitter"></i>
-      <i ng-if="artist.instagram" class="fa fa-instagram"></i>
-      <i ng-if="artist.soundcloud" class="fa fa-soundcloud"></i>
-      <i ng-if="artist.behance" class="fa fa-behance"></i>
-    </div>
+      <div class="row socials" style="display: flex; flex-direction: row">
+        <div ng-show="artist.facebook" class="social-icon">
+          <a href="facebook.com">
+            <i class="fa fa-facebook"></i>
+          </a>
+        </div>
+        <div ng-show="artist.twitter" class="social-icon">
+          <a href="twitter.com">
+            <i class="fa fa-twitter"></i>
+          </a>
+        </div>
+        <div ng-show="artist.instagram" class="social-icon">
+          <a href="instagram.com">
+            <i class="fa fa-instagram"></i>
+          </a>
+        </div>
+        <div ng-show="artist.soundcloud" class="social-icon">
+          <a href="soundcloud.com">
+            <i class="fa fa-soundcloud"></i>
+          </a>
+        </div>
+        <div ng-show="artist.behance" class="social-icon">
+          <a href="behance.com">
+            <i class="fa fa-behance"></i>
+          </a>
+        </div>
+      </div>
     <div class="actionButtons">
       <a href="/payment/{{artistId}}" class="catalyzeBtn btn btn-default btn-md">Catalyze</a>
       <button class="followBtn btn btn-default btn-md">Follow</button>
@@ -53,23 +73,23 @@
         <h3 class="col-lg-4 text-center"><a ui-sref=".posts">Posts</a></h3>
         <h3 class="col-lg-4 text-center"><a ui-sref=".catalysts">Catalysts</a></h3>
       </div>
+      <div ui-view></div>
     </div>
     <!--1/3 column-->
     <div class="col-lg-3 text-center" style="width: 25%">
       <h3 class="text-center">Rewards</h3>
+        <div class="container">
+          <div class="row">
+            <div class="card card-block text-xs-center" ng-repeat="reward in rewards">
+              <h4 class="card-title">{{reward.title}}</h4>
+              <p class="card-text">{{reward.info}}</p>
+              <a href="#" class="btn btn-primary">Choose this reward</a>
+            </div>
+            </div>
+          </div>
     </div>
-      <div ui-view></div>
   </div>
 </div>
 
 
 
-<div class="container">
-  <div class="row">
-    <div class="card card-block text-xs-center" ng-repeat="reward in rewards">
-      <h4 class="card-title">{{reward.title}}</h4>
-      <p class="card-text">{{reward.info}}</p>
-      <a href="#" class="btn btn-primary">Choose this reward</a>
-    </div>
-    </div>
-  </div>

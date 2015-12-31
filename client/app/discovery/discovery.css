@@ -42,6 +42,10 @@
   margin: 20px 0;
 }
 
+.bannerFont {
+  font-family: 'Abel' !important;
+  color:white;
+}
 #banner {
   border-bottom: none;
   margin-top: -20px;

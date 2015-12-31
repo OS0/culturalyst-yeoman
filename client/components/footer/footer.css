@@ -6,7 +6,7 @@
     padding: 0;
 }
 @font-face {
-    font-family:'Poiret One';
+    font-family:'Abel';
 }
 [data-icon]:before {
     font-family: 'zocial';
@@ -15,11 +15,12 @@
 }
 .footer-img {
   width: 150px;
-  margin-left: 37px;
+  margin-left: 194px;
   margin-bottom: 5px;
 }
 body {
-    font-family: 'Poiret One';
+    font-family: font-family: 'Abel', sans-serif;
+    font-size: 1.7em;
 }
 a {
     text-decoration: none;
@@ -44,8 +45,8 @@ footer {
 
 
 footer .splitter {
-    background-color: #3276b1;
-    background-image: -webkit-gradient(linear, 0 100%, 100% 0, color-stop(.25, rgba(255, 255, 255, .2)), color-stop(.25, transparent),
+    background-color: #CDE8DF;
+    /*background-image: -webkit-gradient(linear, 0 100%, 100% 0, color-stop(.25, rgba(255, 255, 255, .2)), color-stop(.25, transparent),
         color-stop(.5, transparent), color-stop(.5, rgba(255, 255, 255, .2)),
         color-stop(.75, rgba(255, 255, 255, .2)), color-stop(.75, transparent),
         to(transparent));
@@ -53,7 +54,7 @@ footer .splitter {
         transparent 50%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 75%,
         transparent 75%, transparent);
         -webkit-background-size: 50px 50px;
-    -moz-background-size: 50px 50px;
+    -moz-background-size: 50px 50px;*/
     background-size: 50px 50px;
     -moz-box-shadow: 1px 1px 8px gray;
     -webkit-box-shadow: 1px 1px 8px gray;
@@ -93,7 +94,7 @@ footer > ul li .icon {
 }
 footer > ul li .text {
     color: #848889;
-    font-size: 13px;
+    font-size: 14px;
     line-height: 20px;
     margin-left: 105px;
     position: relative;
@@ -156,6 +157,7 @@ footer .bar-wrap {
 .social-footer .icon {
     display: inline-block;
     font-size: 36px;
+    color: #CDE8DF;
     -ms-transition: -ms-transform .3s linear;
     -o-transition:  -o-transform .3s linear;
     transition: transform .3s linear;

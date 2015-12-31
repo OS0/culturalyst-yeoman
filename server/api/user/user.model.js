@@ -91,7 +91,13 @@ module.exports = function(sequelize, DataTypes) {
           'img': this.img,
           'earned': this.earned,
           'budget': this.budget,
-          'supporters': this.supporters
+          'supporters': this.supporters,
+          'facebook': this.facebook,
+          'instagram': this.instagram,
+          'twitter': this.twitter,
+          'etsy': this.etsy,
+          'soundcloud': this.soundcloud,
+          'behance': this.behance
         };
       },
 
