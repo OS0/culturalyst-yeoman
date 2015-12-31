@@ -16,9 +16,10 @@ angular.module('culturalystApp', [
 ])
 
 
-  .config(function($urlRouterProvider, $stateProvider, $locationProvider) {
+  .config(function($urlRouterProvider, $stateProvider, $locationProvider, stripeProvider) {
     $urlRouterProvider
       .otherwise('/');
 
     $locationProvider.html5Mode(true);
+    stripeProvider.setPublishableKey('pk_test_fN4bxAyEBsyBxrDWpaOD4sHk');
   });

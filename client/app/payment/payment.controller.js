@@ -34,12 +34,10 @@ angular.module('culturalystApp')
     var checkout = StripeCheckout.configure({
         key: 'pk_test_fN4bxAyEBsyBxrDWpaOD4sHk',
         token: sendToken,
-
         image: 'http://theredlist.com/media/database/muses/icon/cinematic_men/1980/bill-murray/002-bill-murray-theredlist.jpg',
         name: 'Culturalyst',
         description: 'Catalyze Your Favorite Artists',
         billingAddress: true,
-
     });
 
     $scope.submit = function(amount){
@@ -73,4 +71,14 @@ angular.module('culturalystApp')
       }
     ]
 
-  });
+    // Rewards
+    $scope.getRewards = function(){
+      $http({
+        method: 'GET',
+        url: 'api/reward/myRewards/' + artistId
+      }).then(function(data){
+        console.log('rewards: ',data)
+        $scope.rewards = data;
+      })
+    }
+  }]);

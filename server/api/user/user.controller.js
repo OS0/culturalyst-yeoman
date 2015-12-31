@@ -338,7 +338,7 @@ exports.registerdb = function(account, id){
       }
     })
     .then(function(user) {
-        user.account = JSON.stringify(account)
+        user.account = JSON.stringify(account.id)
         user.save()
           .then(function() {
             res.status(204).end();
@@ -417,6 +417,25 @@ exports.subscribe= function(req,res){
 }
 
 //One time charge to customer
+// exports.chargedb = function(charge,id){
+//   console.log('calling me')
+//   User.find({
+//       where: {
+//         _id: id
+//       }
+//     })
+//     .then(function(user) {
+//         console.log('supps: ',user.supporters)
+//         user.supporters = 1;
+//         user.save()
+//           .then(function() {
+//             console.log('done!')
+//             res.status(204).end();
+//           })
+//           .catch(validationError(res));
+//     });
+// }
+
 exports.charge = function(req,res){
   var amount = req.body.amount
   var artistId = req.body._id
@@ -424,7 +443,6 @@ exports.charge = function(req,res){
   var recurring = req.body.recurring
   //find Artist by ID
   var fee = amount * 0.104 + 30
-  console.log(fee)
 
   User.find({
       where: {
@@ -442,7 +460,7 @@ exports.charge = function(req,res){
             amount: amount,
             currency: 'usd',
             customer: req.body.customer,
-            destination: JSON.parse(user.dataValues.account).id,
+            destination: JSON.parse(user.dataValues.account),
             application_fee: fee
           }).then( function(charge){
               //store charge to db for user/artist dashboard
@@ -460,12 +478,13 @@ exports.charge = function(req,res){
               amount: amount,
               currency: 'usd',
               customer: customer.id,
-              destination: JSON.parse(user.dataValues.account).id,
+              destination: JSON.parse(user.dataValues.account),
               application_fee: fee
             }).then(function(charge){
               console.log('charges: ', charge)
               //save charge to db for user/artist dashboard
               res.status(204).end()
+              // exports.chargedb(charge,artistId);
             }).catch(handleError(res))
 
           })

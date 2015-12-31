@@ -1,4 +1,5 @@
-<form ng-submit="register()" id="payment-form">
+<form class="form-basic" ng-submit="register()" id="payment-form">
+  <h4>Register Your Bank Account and Start Getting Paid!</h4><br>
   <div class="form-row">
     <label>
       <span>Individual or Company?</span>
@@ -64,15 +65,21 @@
   </div>
 
   <div class="form-row">
-    <span>DOB</span>
     <label>
-      <input ng-model="month" type="text" maxlength="2" size="5" la placeholder="Month" required/>
+    <span>Birth Month</span>
+      <input ng-model="month" type="text" maxlength="2" size="5" required/>
     </label>
+  </div>
+  <div class="form-row">
     <label>
-      <input ng-model="day" type="text" maxlength="2" size="5" placeholder="Day" required/>
+    <span>Birth Day</span>
+      <input ng-model="day" type="text" maxlength="2" size="5" required/>
     </label>
+  </div>
+  <div class="form-row">
     <label>
-      <input ng-model="year" type="text" maxlength="4" size="5" placeholder="Year" required/>
+    <span>Birth Year</span>
+      <input ng-model="year" type="text" maxlength="4" size="5" required/>
     </label>
   </div>
   <div class="form-row">
@@ -88,6 +95,6 @@
     </label>
   </div>
   <!-- <input type="submit" name="name" value="submit"> -->
-  <button class="stripe-connect" ng-click="register()" type="submit"><span>Register Your Account</span></button><br>
-  <span class="terms">By registering your account, you agree to our <a href="#">Terms of Service</a> and the <a href="https://stripe.com/connect/account-terms">Stripe Connected Account Agreement</a></span>
+  <button class="btn btn-default" ng-click="register()" type="submit"><span>Connect Your Account</span></button><br>
+  <span class="terms">By connecting your account, you agree to our <a href="#">Terms of Service</a> and the <a href="https://stripe.com/connect/account-terms">Stripe Connected Account Agreement</a></span>
 </form>

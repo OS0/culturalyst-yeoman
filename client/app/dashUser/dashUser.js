@@ -36,5 +36,10 @@ angular.module('culturalystApp')
         templateUrl: 'app/account/artistSignup/artistSignupRewards.html',
         controller: 'ArtistSignupController',
         controllerAs: 'vm'
+      })
+      .state('dashUser.connect', {
+        templateUrl: 'app/connect/connect.html',
+        controller: 'ConnectCtrl',
+        controllerAs: 'vm'
       });
   });

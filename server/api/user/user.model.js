@@ -47,7 +47,7 @@ module.exports = function(sequelize, DataTypes) {
     budget: DataTypes.DECIMAL,
     supporters: {
       type: DataTypes.STRING,
-      default: 0
+      defaultValue: 0
     },
     short_bio:DataTypes.TEXT,
     vid_bio:DataTypes.STRING,

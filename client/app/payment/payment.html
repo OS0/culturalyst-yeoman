@@ -1,0 +1,57 @@
+<navbar></navbar>
+
+
+<div class="container text-center">
+    <h1>Choose Your Reward</h1>
+  <div class="row">
+    <div class="col-md-6">
+
+
+    <div style="width: 25%;">
+      <div class="card card-block text-xs-center rewardCard">
+        <h4 class="card-title">No Reward</h4>
+        <h4 class="card-title">Just keep working hard!</h4>
+        <input type="text" ng-model="amount" ng-init="amount=1.00"/>
+        <a href="#" ng-click="submit(amount)" class="btn btn-primary" style="background-color: #9B30FF;">Catalyze</a>
+      </div>
+    </div>
+
+    <div style="width: 25%;">
+      <div class="card card-block text-xs-center rewardCard" ng-repeat="reward in rewards">
+        <h4 class="card-title">${{reward.amount}} per month</h4>
+        <h4 class="card-title">{{reward.title}}</h4>
+        <p class="card-reward">{{reward.description}}</p>
+        <!-- TODO: add dynamic input values -->
+        <a href="#" ng-click="submit(reward.amount)" class="btn btn-primary" style="background-color: #9B30FF;">Catalyze</a>
+      </div>
+    </div>
+    </div>
+
+    <div class="col-md-6">
+
+
+    <div class="card">
+        <div class="profile">
+            <img src="http://f.cl.ly/items/0z1w0L092q070Q180K3p/36a9325cb67f11e18bb812313804a181_7.jpeg"><div class="border"></div>
+        </div>
+        <div class="name"><p><a href="#">{{artist.name}}</a></p></div>
+        <div class="numbers">
+        <table id="stats">
+            <tbody>
+            <tr>
+                <td>{{artist.supporters}}</td>
+                <td>CATALYSTS</td>
+            </tr>
+            <tr>
+                <td>171</td>
+                <td>FOLLOWERS</td>
+            </tr>
+            </tbody>
+        </table>
+        <div class="divider"></div>
+        </div>
+        <!-- <a href="#" class="btn btn-follow">Follow</a> -->
+    </div>
+  </div>
+  </div>
+</div>
