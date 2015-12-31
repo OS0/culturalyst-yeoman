@@ -59,7 +59,6 @@ angular.module('culturalystApp')
       $http.put('/api/users/' + $scope.artistId +'/updateArtistCover', {url: url})
     };
 
-
     $scope.saveCover = function(imgType){
       $http.put('/api/content/' + $scope.coverId, {type:imgType}).then(function(response){
           console.log(response);
