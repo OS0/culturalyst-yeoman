@@ -13,7 +13,7 @@ angular.module('culturalystApp')
     //$scope.$watch('files', function() {
     $scope.uploadFiles = function(files){
       $scope.files = files;
-      if (!$scope.files) return;
+      if (!$scope.files) { return; }
       angular.forEach(files, function(file){
         if (file && !file.$error) {
           file.upload = $upload.upload({
@@ -53,6 +53,7 @@ angular.module('culturalystApp')
 
     $scope.updateCover = function(imgType, url){
       $http.put('/api/users/' + $scope.artistId +'/updateArtistCover', {url: url})
+    };
 
     $scope.getArtistContent = function(){
       $http.get('/api/content/' + $scope.artistId +'/getAllContent').then(function(response){
@@ -66,7 +67,7 @@ angular.module('culturalystApp')
       $http.get('/api/users/me')
       .then(function(response) {
         $scope.me = response.data;
-        $scope.artistId = response.data._id
+        $scope.artistId = response.data._id;
         $scope.getArtistContent();
       })
     };
@@ -89,6 +90,7 @@ angular.module('culturalystApp')
       }
       return hasFile ? "dragover" : "dragover-err";
     };
+
   }]);
 
 
