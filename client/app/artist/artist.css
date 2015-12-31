@@ -85,7 +85,10 @@
 }
 
 .modal-content {
-  box-shadow: none;
+  box-shadow: 1px 1px 10px #999;
+  position: absolute !important;
+  right: 129px;
+  width:500px;
 }
 .artistModal{
   margin: 20px 0px;
@@ -118,6 +121,7 @@ a{
 
 .rewardCard{
   width:318px !important;
+  background-color: #eeeeee !important;
 }
 
 .artistNav.shrink {

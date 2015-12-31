@@ -13,6 +13,7 @@ angular.module('culturalystApp', [
   'ui.bootstrap',
   'validation.match',
   'angular-stripe',
+  'youtube-embed'
 ])
 
 
