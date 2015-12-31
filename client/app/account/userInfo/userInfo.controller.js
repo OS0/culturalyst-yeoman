@@ -27,7 +27,7 @@ class UserInfoController {
       })
       .then(() => {
         context.message = 'Profile successfully updated.';
-        context.$state.go('discovery')
+        context.$state.go('main')
       })
       .catch(err => {
         console.log(err.status, err.data);
