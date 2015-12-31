@@ -1,13 +1,13 @@
-'use strict';
-
 angular.module('culturalystApp')
-  .controller('ConnectCtrl', ['$scope', '$http', '$location', 'angular-stripe', function ($scope, $http, $location, stripe) {
+  .controller('ConnectCtrl', ['$scope', '$http', '$location', 'stripe', function ($scope, $http, $location, stripe) {
 
     var artistId = $location.path().split('/').pop();
 
 
     $scope.register = function(){
       //TODO: Add bank acct Validation
+      //Add ability to update account
+      console.log($scope.country,$scope.route,$scope.acct)
       $http({
         method: 'GET',
         url: '/api/users/me'
@@ -29,6 +29,8 @@ angular.module('culturalystApp')
               data: {
                 managed: true,
                 legal_entity: {
+                  first_name: $scope.first,
+                  last_name: $scope.last,
                   address: {
                     line1: $scope.address,
                     city: $scope.city,
@@ -36,9 +38,19 @@ angular.module('culturalystApp')
                     postal_code: $scope.zip,
                     country: $scope.country,
                   },
+                  dob: {
+                    day: $scope.day,
+                    month: $scope.month,
+                    year: $scope.year
+                  },
+                  type: $scope.type
                 },
                 email: $scope.email,
-                external_account: acct.id
+                external_account: acct.id,
+                tos_acceptance: {
+                  date: null,
+                  ip: null
+                }
               },
               _id: res.data._id
             }

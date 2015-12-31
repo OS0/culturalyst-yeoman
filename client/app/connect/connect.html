@@ -1,9 +1,22 @@
-<!-- <form action="/register" method="POST" id="payment-form"> -->
-
+<form class="form-basic" ng-submit="register()" id="payment-form">
+  <h4>Register Your Bank Account and Start Getting Paid!</h4><br>
   <div class="form-row">
     <label>
-      <span>Name</span>
-      <input ng-model="name" type="text"/>
+      <span>Individual or Company?</span>
+      <select class="" ng-model="type">
+        <option value="individual">Individual</option>
+        <option value="company">Company</option>
+      </select>
+    </label>
+  </div>
+  <div class="form-row">
+    <label>
+      <span>First Name</span>
+      <input name="first_name" ng-model="first" type="text" required/>
+    </label>
+    <label>
+      <span>Last Name</span>
+      <input ng-model="last" type="text" required/>
     </label>
   </div>
 
@@ -41,35 +54,47 @@
   <div class="form-row">
     <label>
       <span>Last Four of SSN</span>
-      <input ng-model="ssn" type="text"/>
+      <input ng-model="ssn" type="text" required/>
     </label>
   </div>
   <div class="form-row">
     <label>
       <span>Email</span>
-      <input ng-model="email" type="text"/>
+      <input ng-model="email" type="text" required/>
+    </label>
+  </div>
+
+  <div class="form-row">
+    <label>
+    <span>Birth Month</span>
+      <input ng-model="month" type="text" maxlength="2" size="5" required/>
     </label>
   </div>
   <div class="form-row">
     <label>
-      <span>DOB</span>
-      <input ng-model="dob" type="text"/>
+    <span>Birth Day</span>
+      <input ng-model="day" type="text" maxlength="2" size="5" required/>
+    </label>
+  </div>
+  <div class="form-row">
+    <label>
+    <span>Birth Year</span>
+      <input ng-model="year" type="text" maxlength="4" size="5" required/>
     </label>
   </div>
   <div class="form-row">
     <label>
       <span>Bank Routing Number</span>
-      <input ng-model="route" type="text"/>
+      <input ng-model="route" type="text" required/>
     </label>
   </div>
   <div class="form-row">
     <label>
       <span>Bank Account Number</span>
-      <input ng-model="acct" type="text"/>
+      <input ng-model="acct" type="text" required/>
     </label>
   </div>
-
-
-
-  <button ng-click="register()">Register Your Account</button>
-<!-- </form> -->
+  <!-- <input type="submit" name="name" value="submit"> -->
+  <button class="btn btn-default" ng-click="register()" type="submit"><span>Connect Your Account</span></button><br>
+  <span class="terms">By connecting your account, you agree to our <a href="#">Terms of Service</a> and the <a href="https://stripe.com/connect/account-terms">Stripe Connected Account Agreement</a></span>
+</form>

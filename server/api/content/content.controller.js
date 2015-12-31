@@ -191,5 +191,3 @@ exports.showCovers = function(req, res, next) {
       return next(err);
     });
 };
-
-
