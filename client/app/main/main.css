@@ -14,7 +14,9 @@
 /*@import url(http://fonts.googleapis.com/css?family=Raleway:400,800|Roboto+Slab:300);*/
 
 body {
-  font-family: 'Questrial', sans-serif;
+
+  font-family: 'Raleway';
+/*  font-family: 'Abel';*/
 }
 .card {
   /*margin: 2rem auto;*/
@@ -184,18 +186,82 @@ footer p {
   height:32px;
 }*/
 
+.carouselFont{
+  color:black;
+  font-size:100px;
+  width:200px;
+}
+
+.carouselFontSm{
+  color:black;
+  font-size:60px;
+}
+
+.carouselFontSm2{
+  color:black;
+  font-size:32px;
+  width: 352px;
+  color:white;
+}
+.carouselFontSm3{
+  color:black;
+  font-size:60px;
+  width: 352px;
+  color:white;
+}
+
+.carouselFontSm2 h2{
+  width: 250px !important;
+}
+
+.circleText{
+  position:absolute;
+  top:41px;
+  right: 30px;
+}
 
 .carousel-tagline {
-  background: rgba(0, 0, 0, 0.5);
+  /*background: rgba(0, 0, 0, 0.5);*/
   display: block;
-  height: 250px;
-  left: 57%;
-  overflow: hidden;
+  left: -8%;
+  overflow: visible;
   position: absolute;
-  top: 34%;
-  width: 350px;
+  top: -50%;
+  width:200px;
   z-index: 50;
+  font-family:'Amatic SC';
+  color:black;
+  font-size: 200px;
 }
+
+.carousel-tagline2 {
+ /* background: rgba(0, 0, 0, 0.5);*/
+  background-size: 200px;
+  display: block;
+/*  border-radius: 50%;
+*/  left: 46%;
+  overflow: visible;
+  position: absolute;
+  height:200px;
+  top: -20%;
+  z-index: 50;
+  font-family:'Amatic SC';
+  color:black;
+  font-size: 200px;
+}
+
+.circle {
+ background-color: rgba(0, 0, 255, 0.5);
+ height: 400px;
+ z-index:999;
+ position:absolute;
+ top:88%;
+ right:10%;
+ -moz-border-radius:50%;
+ -webkit-border-radius: 50%;
+ width: 400px;
+}
+
 .tagline {
   margin: 0 0 0 0;
   padding: 2em;

@@ -49,6 +49,8 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING,
       default: 0
     },
+    short_bio:DataTypes.TEXT,
+    vid_bio:DataTypes.STRING,
     bio: DataTypes.TEXT,
     provider: DataTypes.STRING,
     salt: DataTypes.STRING,
@@ -67,7 +69,6 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING,
       unique: true
     },
-    github: DataTypes.TEXT,
     featured: DataTypes.BOOLEAN
   }, {
 
@@ -81,7 +82,9 @@ module.exports = function(sequelize, DataTypes) {
           'name': this.name,
           'role': this.role,
           'location': this.location,
-          'short': this.bio,
+          'short_bio':this.short_bio,
+          'vid_bio':this.vid_bio,
+          'bio': this.bio,
           'medium': this.medium,
           'submedium': this.submedium,
           'picUrl': this.picUrl,

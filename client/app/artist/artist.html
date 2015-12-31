@@ -1,7 +1,7 @@
 <navbar></navbar>
 
 <!--Nav-->
-<div class="artistNav" style="margin-top:-50px">
+<div class="artistNav" style="margin-top:-50px" ng-init="getArtistCovers()">
 <div class="mediaBar"></div>
   <!--row-->
   <div class="row">
@@ -12,36 +12,43 @@
     <!--1/3 column-->
     <div class="col-lg-3 text-center" style="width: 50%">
         <h1>{{artist.name}}</h1>
-        <p>{{artist.short}}</p>
+        <p>{{artist.short_bio}}</p>
     </div>
     <!--1/3 column-->
-    <div class="col-lg-3 text-center" style="width: 25%">
+    <div class="col-lg-3 text-center" style="width: 25%;">
       <div class="socials">
-      <i ng-if="artist.facebook" class="fa fa-facebook"></i>
-      <i ng-if="artist.twitter" class="fa fa-twitter"></i>
-      <i ng-if="artist.instagram" class="fa fa-instagram"></i>
-      <i ng-if="artist.soundcloud" class="fa fa-soundcloud"></i>
-      <i ng-if="artist.behance" class="fa fa-behance"></i>
+      <i class="fa fa-facebook"></i>
+      <i class="fa fa-twitter"></i>
+      <i class="fa fa-instagram"></i>
+      <i class="fa fa-soundcloud"></i>
+      <i class="fa fa-behance"></i>
     </div>
     <div class="actionButtons">
       <button class="catalyzeBtn btn btn-default btn-md">Catalyze</button>
-      <button class="followBtn btn btn-default btn-md">Follow</button>
+      <!-- <button class="followBtn btn btn-default btn-md">Follow</button> -->
     </div>
     </div>
   </div>
 </div>
 
-<div class="jumbotron text-center artistBack" style="background-image:url('{{artist.img}}');" ng-init="getArtistContent()">
+<div class="jumbotron text-center artistBack" style="background-image:url('{{artist.img}}'); background-size:cover;" ng-init="getArtistContent()">
   <div class="container">
-<!--     <img class="profileImg" src="{{artist.picUrl}}"/>
- -->    <h2>{{artist.name}}</h2>
-    <p>
-      {{artist.short}}
-    </p>
-   <!--  <a href="/payment/{{artist._id}}" class="btn btn-default btn-lg">Catalyze Me</a> -->
 
   </div>
 </div>
+
+<!-- <div id="carousel" style="height: 650px; text-align: center">
+  <div style="height: 650px">
+    <carousel interval="myInterval" no-wrap="noWrapSlides">
+      <slide ng-repeat="slide in slides" active="slide.active">
+        <img ng-src="{{slide.url}}" style="height: 650px; width:100%">
+        <div class="carousel-caption">
+          <p>{{slide.text}}</p>
+        </div>
+      </slide>
+    </carousel>
+  </div>
+</div> -->
 
 <div class="ContentNav ">
   <!--row-->
@@ -49,16 +56,27 @@
     <!--1/3 column-->
     <div class="col-lg-9" style="width: 75%">
       <div>
-        <h3 class="col-lg-4 text-center"><a ui-sref=".bio">Story</a></h3>
+        <h3 class="col-lg-4 text-center" ><a ng-click="getVideo()" ui-sref=".bio">Story</a></h3>
         <h3 class="col-lg-4 text-center"><a ui-sref=".posts">Posts</a></h3>
         <h3 class="col-lg-4 text-center"><a ui-sref=".catalysts">Catalysts</a></h3>
       </div>
+      <div class="container col-lg-12">
+        <div style="padding-top: 10px; height: 600px;">
+          <div ui-view></div>
+        </div>
+      </div>
     </div>
     <!--1/3 column-->
-    <div class="col-lg-3 text-center" style="width: 25%">
+    <div class="col-lg-3 text-center" style="width: 25%;">
       <h3 class="text-center">Rewards</h3>
+          <div class="card card-block text-xs-center rewardCard" ng-repeat="reward in rewards">
+            <h4 class="card-title">${{reward.amount}}</h4>
+            <h4 class="card-title">{{reward.title}}</h4>
+            <p class="card-reward">{{reward.description}}</p>
+            <a href="#" class="btn btn-primary" style="background-color: #9B30FF;">Choose this reward</a>
+          </div>
+
     </div>
-      <div ui-view></div> 
   </div>
 </div>
 
@@ -150,7 +168,7 @@
 
 
 
-<div class="container">
+<!-- <div class="container">
   <div class="row">
     <div class="card card-block text-xs-center" ng-repeat="reward in rewards">
       <h4 class="card-title">{{reward.title}}</h4>
@@ -158,7 +176,7 @@
       <a href="#" class="btn btn-primary">Choose this reward</a>
     </div>
     </div>
-  </div>
+  </div> -->
 
 
 
