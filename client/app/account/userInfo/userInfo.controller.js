@@ -24,6 +24,9 @@ class UserInfoController {
         email: this.$scope.currentUser.email,
         location: this.$scope.currentUser.location
       })
+      .then(() => {
+        this.message = 'Profile successfully updated.';
+      })
       .catch(err => {
         console.log(err.status, err.data);
       });
