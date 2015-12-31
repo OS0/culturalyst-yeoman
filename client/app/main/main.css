@@ -53,7 +53,7 @@ body {
  	overflow-y:hidden;*/
   height: 400px;
   white-space:nowrap;
-  margin-left: 20px;
+  margin-left: 28px;
 }
 
 .card-title {
@@ -86,7 +86,7 @@ body {
 }
 
 
-./*navbar-text {
+/*navbar-text {
   margin-left: 15px;
 }
 
@@ -114,6 +114,10 @@ body {
   margin-bottom: 0;
   background-color: #fff;
 }
+.big-header {
+  height: 275px;
+  margin-top: 30px;
+}
 
 .jumbotron p:last-child {
   margin-bottom: 0;
@@ -130,12 +134,22 @@ body {
 /*.medium-buttons > a:hover {
   background-color: #209 !important;
 }*/
-
-/* BUTTON BACKGROUND TRANSITIONS */
-.hvr-shutter-in-vertical:before, .hvr-radial-in:before, .hvr-rectangle-out, .hvr-shutter-out-horizontal {
-  background: #428BCA !important;
+.hvr-shrink {
+  border: none;
 }
-
+.btn-1, .btn-8, .btn-11 {
+  background-color: #ee9ab3;
+}
+.btn-2, .btn-7, .btn-9 {
+  background-color: #fca27e;
+}
+.btn-3, .btn-6, .btn-12 {
+  background-color: #84cbad;
+}
+.btn-4, .btn-5, .btn-10 {
+  background-color: #a3e170;
+}
+/* BUTTON BACKGROUND TRANSITIONS */
 .hvr-sweep-to-bottom:before, .hvr-shutter-in-vertical, .hvr-sweep-to-right:before, .hvr-radial-in, .hvr-rectangle-out:before, .hvr-shutter-out-horizontal:before, .hvr-bounce-in:before, .hvr-back-pulse:before  {
   background: #209 !important;
 }

@@ -15,6 +15,8 @@
 }
 .footer-img {
   width: 150px;
+  margin-left: 37px;
+  margin-bottom: 5px;
 }
 body {
     font-family: 'Verdana', sans-serif;
@@ -65,7 +67,7 @@ footer > ul {
     margin: 0 auto;
     max-width: 1200px;
     overflow: hidden;
-    padding: 25px 0;
+    padding: 5px 0;
     position: relative;
     width: 95%;
 }
@@ -95,7 +97,7 @@ footer > ul li .text {
     line-height: 20px;
     margin-left: 105px;
     position: relative;
-    text-align: justify;
+    /*text-align: justify;*/
 }
 .text h4 {
     color: #FFFFFF;
@@ -114,7 +116,7 @@ footer > ul li .text {
 
 footer .bar {
     background-color: #595959;
-    padding: 20px 0;
+    padding: 10px 0;
 }
 footer .bar-wrap {
     font-size: 12px;

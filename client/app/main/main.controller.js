@@ -7,7 +7,7 @@ class MainController {
   constructor($http, $scope, socket) {
     this.$http = $http;
     this.$scope = $scope;
-    
+
     $scope.featuredArtists = [{
       _id: 1,
         name: 'Milton Meadow',
@@ -34,7 +34,7 @@ class MainController {
         name: 'Adelaide Cree',
         medium: 'Art',
         submedium: 'Esoteric',
-        img:'cover_photo_1.png',
+        img:'cover_photo_6.png',
         picUrl: 'richkoala.jpg'
       },{
         _id: 5,
