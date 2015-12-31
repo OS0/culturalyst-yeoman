@@ -15,7 +15,7 @@ angular.module('culturalystApp')
     console.log($scope.artistId);
     $scope.delta;
     $scope.artist;
-    $scope.videoID;
+    $scope.vid_link_url;
 
     $scope.checkIfArtist = function(){
       if ($scope.user === $scope.artistId){
@@ -26,12 +26,26 @@ angular.module('culturalystApp')
       }
     };
 
-    $http.get('/api/users/' + $scope.artistId).then(function(res) {
-      console.log(res);
-      $scope.artist = res.data;
-      console.log($scope.artist);
-      $scope.getRewards();
-    });
+    // $http.get('/api/users/' + $scope.artistId).then(function(res) {
+    //   console.log(res);
+    //   $scope.artist = res.data;
+    //   console.log($scope.artist);
+    //   $scope.getRewards();
+    // });
+
+    $http.get('/api/users/' + $scope.artistId)
+        .then(function(res) {
+          $scope.artist = res.data;
+          console.log(res);
+          console.log('the artist');
+          console.log($scope.artist);
+          console.log('the artist video link');
+          console.log($scope.artist.vid_bio);
+          //$scope.vid_link_id = $scope.artist.vid_bio;
+          //or
+          $scope.vid_link_url = res.data.vid_bio/*.split('=').pop()*/;
+          $scope.getRewards();
+        });
 
 
     $http.get('/api/content/' + $scope.artistId).then(function(res) {
