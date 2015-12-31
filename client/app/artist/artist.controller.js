@@ -1,8 +1,10 @@
 'use strict';
 
 angular.module('culturalystApp')
-  .controller('ArtistCtrl', ['$scope', '$rootScope','$location', 'Upload', '$http', 'Auth', '$sce',
-    function($scope, $rootScope, $location, $upload, $http, Auth, $sce) {
+  .controller('ArtistCtrl', ['$scope', '$rootScope','$location', 'Upload', '$http', 'Auth', '$sce', '$state',
+    function($scope, $rootScope, $location, $upload, $http, Auth, $sce, $state) {
+
+      $state.go('artist.bio');
 
     $scope.artistId = $location.path().split('/').pop();
     $scope.posts = [];
@@ -13,18 +15,22 @@ angular.module('culturalystApp')
     $scope.user = Auth.getCurrentUser()._id;
     console.info($scope.user);
     console.log($scope.artistId);
-    $scope.delta;
+    // $scope.delta;
     $scope.artist;
     $scope.vid_link_url;
 
-    $scope.checkIfArtist = function(){
-      if ($scope.user === $scope.artistId){
-        delta = visible;
-        console.log(true)
-      } else{
-        delta = hidden;
-      }
-    };
+
+    $scope.checkIfArtist = function() {
+      console.info($scope.user, $scope.artistId);
+        if ($scope.user === $scope.artistId || $scope.user === undefined) {
+          console.log(true);
+          return 1;
+        } else {
+          console.log(false);
+          return 0;
+        }
+      };
+
 
     // $http.get('/api/users/' + $scope.artistId).then(function(res) {
     //   console.log(res);
@@ -32,6 +38,7 @@ angular.module('culturalystApp')
     //   console.log($scope.artist);
     //   $scope.getRewards();
     // });
+
 
     $http.get('/api/users/' + $scope.artistId)
         .then(function(res) {
@@ -41,6 +48,10 @@ angular.module('culturalystApp')
           console.log($scope.artist);
           console.log('the artist video link');
           console.log($scope.artist.vid_bio);
+          // console.log(res);
+          // console.log('the artist');
+          // console.log($scope.artist);
+          console.info($scope.artist.vid_bio);
           //$scope.vid_link_id = $scope.artist.vid_bio;
           //or
           $scope.vid_link_url = res.data.vid_bio/*.split('=').pop()*/;

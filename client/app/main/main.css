@@ -15,14 +15,14 @@
 
 body {
 
-  font-family: 'Raleway';
-/*  font-family: 'Abel';*/
+  /*font-family: 'Raleway';*/
+  font-family: 'Abel';
 }
 .card {
   /*margin: 2rem auto;*/
   background-color: white;
   box-shadow: 1px 1px 10px #999;
-  width: 385px;
+  width: 359px;
   margin:10px;
   padding:10px;
  	content: center;
@@ -230,7 +230,7 @@ footer p {
 
 .circleText{
   position:absolute;
-  top:41px;
+  top:6px;
   right: 30px;
 }
 
@@ -240,7 +240,7 @@ footer p {
   left: -8%;
   overflow: visible;
   position: absolute;
-  top: -50%;
+  top: -58%;
   width:200px;
   z-index: 50;
   font-family:'Amatic SC';

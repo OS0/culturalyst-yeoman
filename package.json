@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "main": "server/app.js",
   "dependencies": {
+    "angular-youtube-embed": "^1.1.1",
     "babel-runtime": "^5.8.20",
     "body-parser": "^1.13.3",
     "composable-middleware": "^0.3.0",

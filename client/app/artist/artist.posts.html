@@ -37,7 +37,7 @@
 <!--               </div>
  -->            </div>
         </div>
-        <div class="col-lg-6" style="visibility: {{delta}}">
+        <div class="col-lg-6" ng-show="checkIfArtist()">
           <div class="modal-dialog col-md-3">
           <div class="modal-content">
               <div class="modal-header">
@@ -54,12 +54,12 @@
                   <div>
                   <button class="btn btn-primary btn-sm" data-dismiss="modal" aria-hidden="true" ng-click="saveContent(post)">Post</button>
                     <ul class="pull-left list-inline">
-                    <li><a ngf-select="uploadFiles($files)"><i class="glyphicon glyphicon-upload"></i></a>
+                    <!-- <li><a ngf-select="uploadFiles($files)"><i class="glyphicon glyphicon-upload"></i></a> -->
   <!--                     <div class="upload_button_holder">
                           <div href="#" class="upload_button"  multiple title="upload" resetOnClick="true" >Upload</div>
                       </div> -->
                     </li>
-                    <li><a href=""><i class="glyphicon glyphicon-camera"></i></a></li>
+<!--                     <li><a href=""><i class="glyphicon glyphicon-camera"></i></a></li> -->
                     </ul>
                 </div>
               </div>
