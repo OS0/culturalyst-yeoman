@@ -4,15 +4,13 @@
     <h3 class="panel-title"></h3>
   </div>
   <div class="panel-body container-fluid">
-    <div class="col-md-4 card" ng-repeat="reward in rewards">
-      <div class="reward-price">
-        <h3>{{reward.amount | currency}}</h3>
-      </div>
-      <div class="reward-header">
-        <h3>{{reward.title}}</h3>
-      </div>
-      <div class="reward-description">
-        <h4>{{reward.description}}</h4>
+    <div class="card card-main" ng-repeat="reward in rewards" style="width: 300px">
+      <div style="height: 100px">
+        <img class="profilePic profile-main" style="position: relative; top: 60px" src="{{reward.picUrl}}"/>
+        <div class="profileName">
+          <h3 class='name-main'> {{reward.name}}</h3>
+          <p class='medium-main'> {{reward.title}} | {{reward.amount | currency}}</p>
+        </div>
       </div>
     </div>
   </div>

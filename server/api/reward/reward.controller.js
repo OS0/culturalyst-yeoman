@@ -92,7 +92,7 @@ exports.showRewards = function(req, res) {
 
 exports.showMyRewards = function(req, res) {
   sqldb.sequelize.query(
-  "SELECT r._id, r.title, r.amount, r.user_id, r.type, r.description, u.picUrl FROM  UserRewards as ur INNER JOIN  Rewards as r ON ur.reward_id=r._id INNER JOIN Users as u ON r.user_id=u._id WHERE ur.user_id=" + req.params.user_id,
+  "SELECT r._id, r.title, r.amount, r.user_id, r.type, r.description, u.picUrl, u.name FROM  UserRewards as ur INNER JOIN  Rewards as r ON ur.reward_id=r._id INNER JOIN Users as u ON r.user_id=u._id WHERE ur.user_id=" + req.params.user_id,
     { type: sqldb.sequelize.QueryTypes.SELECT })
     .then(handleEntityNotFound(res))
     .then(responseWithResult(res))
