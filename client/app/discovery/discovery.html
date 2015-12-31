@@ -45,7 +45,7 @@
             <!-- for $scope to work we would need a controller -->
             <div class="album text-muted">
               <a ng-repeat="artist in artists | filter:searchText | filter:{$:medium.name} | filter:{$:selectedAge.age} | filter:{$:selectedOrg.org} | filter:{$:selectedNative.natives} | filter:{$:selectedGender.gender} | filter:{$:selectedExperience.experience}" href="artist/{{artist._id}}">
-              <div class="card" >
+              <div class="card discover-card" >
                 <div>
                     <img class="profilePic" ng-src="{{artist.picUrl}}"/>
                     <div class="profileName">
@@ -53,7 +53,7 @@
                       <p>{{artist.medium}} > {{artist.submedium}}</p>
                     </div>
                 </div>
-                <img class="card-img-bottom" ng-src="{{artist.img}}"/>
+                <img class="card-img-bottom coverPic" ng-src="{{artist.img}}"/>
               </div>
               </a>
             </div>

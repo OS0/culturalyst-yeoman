@@ -22,7 +22,7 @@
   margin-bottom: 30px;
 }
 
-.drop-box {
+/*.drop-box {
   background: #F8F8F8;
   border: 2px dashed #D2D2D2;
   width: 200px;
@@ -30,9 +30,53 @@
   text-align: center;
   padding: 25px;
   margin: 0 auto;
+}*/
+
+.drag-drop {
+  width: 326px;
+  height: 164px;
+  text-align: center;
+  vertical-align: middle;
+  border: 2px dashed #ddd;
+  margin: 0 auto;
+}
+/*.drag-drop:-moz-drag-over {
+  border: 3px dashed #000;
+}*/
+.drag-text {
+  margin-top: 65px;
+  color: #aaa;
+}
+
+#preview, #status {
+  margin-top: 10px;
 }
 
 .preview {
+  width: 300px;
+  height: 300px;
+  margin: auto;
+}
+
+.preview img {
+  max-width: 75%;
+  height: auto;
+}
+
+.signup-card {
+  margin-top: 175px;
+}
+
+#card-img-top {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.card-block button {
+  margin-left: 75px;
+  margin-top: 6px;
+}
+/*.preview {
   text-align: center;
   width: 300px;
   margin: 0 auto;
@@ -42,12 +86,12 @@
   width: 200px;
   height: 200px;
   margin-top: 25px;
-  /*border-radius: 50%;*/
+  border-radius: 50%;
 }
 
 .continue-btn {
   margin-top: 20px;
-}
+} */
 
 .upload_button {
     display: inline-block;
@@ -64,6 +108,7 @@
     text-decoration: none;
     text-align: center;
     cursor: pointer;
+    margin-top: 25px;
 }
 
 
