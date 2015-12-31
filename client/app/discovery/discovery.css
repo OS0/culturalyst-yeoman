@@ -114,13 +114,11 @@
   border: 0;
 }
 
-.discover-card > img {
-  margin-bottom: .75rem;
-  height:220px;
-  width:320px;
- /* margin-bottom: 2rem;
-  border: 0;
-  background-color: #d3d3d3;*/
+.card-main > img{
+  width:106%;
+  margin-left: -10px;
+  margin-top: -10px;
+  border-radius: 5px;
 }
 
 /*.card > img {
@@ -143,6 +141,11 @@
     background-size: cover;
     display: inline;
     border:solid #d3d3d3;
+}
+
+.profile-main {
+  border: 2px solid #fff;
+  margin-top: -60px;
 }
 
 .profileName {

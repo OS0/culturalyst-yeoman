@@ -68,15 +68,16 @@
             <!-- for $scope to work we would need a controller -->
             <div class="album text-muted">
               <a ng-repeat="artist in artists | filter:searchText | filter:{$:medium.name} | filter:{$:selectedAge.age} | filter:{$:selectedOrg.org} | filter:{$:selectedNative.natives} | filter:{$:selectedGender.gender} | filter:{$:selectedExperience.experience}" href="artist/{{artist._id}}">
-              <div class="card discover-card" >
+              <div class="card card-main" >
+                <img class="card-img-bottom card-cover" ng-src="{{artist.img}}"/>
                 <div>
-                    <img class="profilePic" ng-src="{{artist.picUrl}}"/>
+                    <img class="profilePic profile-main" ng-src="{{artist.picUrl}}"/>
                     <div class="profileName">
-                      <h2 >{{artist.name}}</h2>
-                      <p>{{artist.medium}} > {{artist.submedium}}</p>
+                      <h3 class="name-main">{{artist.name}}</h2>
+                      <p class="medium-name">{{artist.medium}} > {{artist.submedium}}</p>
                     </div>
                 </div>
-                <img class="card-img-bottom coverPic" ng-src="{{artist.img}}"/>
+                
               </div>
               </a>
             </div>
