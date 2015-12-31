@@ -241,6 +241,8 @@ exports.updateArtistCover = function(req, res, next) {
 
 exports.updateArtistInfo = function(req, res, next) {
   var userId = req.user._id;
+  var short_bio = req.body.short_bio;
+  var vid_bio=req.body.vid_bio;
   var bio = req.body.bio;
   var medium = req.body.medium;
   var submedium = req.body.submedium;
@@ -263,6 +265,8 @@ exports.updateArtistInfo = function(req, res, next) {
     })
     .then(function(user) {
         user.role = "artist";
+        user.short_bio = short_bio;
+        user.vid_bio = vid_bio;
         user.bio = bio;
         user.medium = medium;
         user.submedium = submedium;

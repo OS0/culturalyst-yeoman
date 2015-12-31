@@ -134,6 +134,7 @@ exports.showResults = function(req, res, next) {
       }
     })
     .then(function(content) {
+      console.log("Post Results");
       if (!content) {
         console.log('No content');
         res.status(444).end();
@@ -145,25 +146,50 @@ exports.showResults = function(req, res, next) {
     });
 };
 
-// exports.showAllResults = function(req, res, next) {
-//   var artist_id = req.params.user_id;
+exports.showUploadResults = function(req, res, next) {
+  var artist_id = req.params.user_id;
 
-//   Content.findAll({
-//       where: {
-//         user_id: artist_id,
-//       }
-//     })
-//     .then(function(content) {
-//       console.log("AHHHHHHHHHHHHHHH");
-//       if (!content) {
-//         console.log('No content');
-//         return res.status(444).end();
-//       }
-//       res.json(content);
-//     })
-//     .catch(function(err) {
-//       return next(err);
-//     });
-// };
+  Content.findAll({
+      where: {
+        user_id: artist_id,
+        type:"cover"
+      }
+    })
+    .then(function(content) {
+      console.log("Upload Results");
+      if (!content) {
+        console.log('No content');
+        return res.status(444).end();
+      }
+      res.json(content);
+    })
+    .catch(function(err) {
+      return next(err);
+    });
+};
+
+
+
+exports.showCovers = function(req, res, next) {
+  var artist_id = req.params.user_id;
+
+  Content.findAll({
+      where: {
+        user_id: artist_id,
+        type:"cover"
+      }
+    })
+    .then(function(content) {
+      console.log("AHHHHHHHHHHHHHHH");
+      if (!content) {
+        console.log('No content');
+        return res.status(444).end();
+      }
+      res.json(content);
+    })
+    .catch(function(err) {
+      return next(err);
+    });
+};
 
 

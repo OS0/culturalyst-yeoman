@@ -1,19 +1,87 @@
 <navbar></navbar>
 
+<br><br>
+<h2 align="center">Artist Signup: Step 1</h2>
+<h3 align="center">Basic Information</h3>
+<script>
+  $(document).ready(function() {
+    $('.sub').hide();
+    $('#film').on('click', function() {
+      $('#filmSub').toggle();
+    });
+    $('#music').on('click', function() {
+      $('#musicSub').toggle();
+    });
+    $('#dance').on('click', function() {
+      $('#dtSub').toggle();
+    });
+    $('#lit').on('click', function() {
+      $('#litSub').toggle();
+    });
+    $('#comics').on('click', function() {
+      $('#comicSub').toggle();
+    });
+    $('#drawPaint').on('click', function() {
+      $('#drawPaintSub').toggle();
+    });
+    $('#animation').on('click', function() {
+      $('#animateSub').toggle();
+    });
+    $('#photography').on('click', function() {
+      $('#photoSub').toggle();
+    });
+    $('#craftsDIY').on('click', function() {
+      $('#craftSub').toggle();
+    })
+  });
+</script>
+
+
 <div>
   <!--<form ng-submit="vm.register(InfoForm)">-->
   <form>
-    <!--Bio-->
-    <div class="form-group" style="width: 80%; margin: 5% 10% 0% 10%">
-      <label for="bio">Biography</label>
-      <textarea class="form-control" rows="3" value="{{currentUser.bio}}"
-                ng-model="bio">
+
+    <!--Name-->
+    <div class="form-group" style="width: 80%; margin: 5% 10% 0 10%">
+      <label for="name">Name</label>
+      <input type="text" class="form-control" placeholder="Name"
+             value="{{currentUser.name}}">
+    </div>
+    <!--Email-->
+    <div class="form-group" style="width: 80%; margin: 5% 10% 0 10%">
+      <label for="email">Email address</label>
+      <input type="email" class="form-control" placeholder="Email"
+             value="{{currentUser.email}}">
+    </div>
+   <!--  Short Bio -->
+     <div class="form-group" style="width: 80%; margin: 5% 10% 0% 10%">
+      <label for="short-bio">One Liner</label>
+      <textarea class="form-control" placeholder="Short description for the top of your artist profile" ng-model="short_bio" value="{{currentUser.short_bio}}"> 
       </textarea>
     </div>
-    <!--Media/Medium-->
+<!--     Youtube Link -->
+    <div class="form-group" style="width: 80%; margin: 5% 10% 0 10%">
+      <label for="youtube">Introduction Video</label>
+      <input type="link" class="form-control" placeholder="YouTube Link" ng-model="vid_bio"  value="{{currentUser.vid_bio}}">
+     
+    </div>
+
+
+    <!--Bio-->
     <div class="form-group" style="width: 80%; margin: 5% 10% 0% 10%">
+      <label for="bio">Your Story</label>
+      <textarea class="form-control" placeholder="Tell your story. How did you become an artist? Why are you on Culturalyst? What is your vision for your creativity? How do you want to connect with your fans and your community?" rows="3" value="{{currentUser.bio}}" ng-model="bio">
+      </textarea>
+    </div>
+
+
+    <!--Media/Medium-->
 
       <label for="medium">In what medium do you create?</label>
+
+    <div class="form-group" style="width: 80%; margin: 5% 10% 0% 10%">
+    <label for="medium">Your Medium</label>
+
       <!--Medium-->
       <select ng-model="medium"
               ng-options="medium as medium.name for medium in mediaList"
@@ -22,18 +90,20 @@
       </select>
 
       <!--subMedia-->
+      <label for="medium">Your Submedium</label>
       <select ng-model="selectedSubmedium"
               ng-options="submedium for submedium in submedia">
       </select>
       <br></br>
 
             <!--Age-->
+      <br><br><br>
       <div class="form-group">
       <label for="age">How old are you?</label>
         <div class="radio">
           <label>
             <input type="radio" name="age" id="age-18" value="age-18" ng-model="age">
-            -18
+            >18
           </label>
         </div>
         <div class="radio">
@@ -44,14 +114,26 @@
         </div>
         <div class="radio">
           <label>
-            <input type="radio" name="age" id="age25-44" value="age25-44" ng-model="age">
-            25-44
+            <input type="radio" name="age" id="age25-34" value="age25-44" ng-model="age">
+            25-34
           </label>
         </div>
         <div class="radio">
           <label>
-            <input type="radio" name="age" id="age45-64" value="age45-64" ng-model="age">
-            45-64
+            <input type="radio" name="age" id="age35-44" value="age25-44" ng-model="age">
+            35-44
+          </label>
+        </div>
+        <div class="radio">
+          <label>
+            <input type="radio" name="age" id="age45-54" value="age45-64" ng-model="age">
+            45-54
+          </label>
+        </div>
+         <div class="radio">
+          <label>
+            <input type="radio" name="age" id="age55-64" value="age45-64" ng-model="age">
+            55-64
           </label>
         </div>
         <div class="radio">
@@ -62,6 +144,7 @@
         </div>
       </div>
 
+      <br><br>
       <!--Native-->
       <div class="form-group">
         <label for="native">Are You Native to this City?</label>
@@ -80,7 +163,7 @@
       </div>
 
       <!--Organization-->
-      <div class="form-group">
+<!--       <div class="form-group">
         <label for="org">Are You An Organization?</label>
         <div class="radio">
           <label>
@@ -94,11 +177,12 @@
             No
           </label>
         </div>
-      </div>
+      </div> -->
 
       <!--Experience-->
+      <br><br>
       <div class="form-group">
-      <label for="experience">Experience</label>
+      <label for="experience">What level of experience are currently in?</label>
         <select class="form-control" ng-model="experience">
           <option>Beginner</option>
           <option>Intermediate</option>

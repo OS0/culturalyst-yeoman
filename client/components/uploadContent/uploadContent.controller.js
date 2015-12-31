@@ -8,6 +8,7 @@ angular.module('culturalystApp')
     var d = new Date();
     $scope.artistId;
     $scope.gallery;
+    $scope.coverId;
 
     $scope.title = "Image (" + d.getDate() + " - " + d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds() + ")";
     //$scope.$watch('files', function() {
@@ -32,6 +33,7 @@ angular.module('culturalystApp')
             data.context = {custom: {photo: $scope.title}};
             file.result = data;
             $rootScope.photos.push(data);
+            console.log(data);
             $scope.saveContent(data.secure_url);
           }).error(function (data, status, headers, config) {
             file.result = data;
@@ -42,9 +44,11 @@ angular.module('culturalystApp')
     // });
 
     $scope.saveContent = function(url){
-      $http.post('/api/content/' + $scope.artistId, {url: url, type:'profile'}).then(function(response){
-        $scope.gallery.push(response.data);
-      })
+        $http.post('/api/content/' + $scope.artistId, {url: url, type:'profile'}).then(function(response){
+            $scope.coverId = response.data._id;
+            $scope.gallery.push(response.data);
+            console.log(response.data);
+        })
     };
 
     $scope.updateImg = function(imgType, url){
@@ -55,7 +59,18 @@ angular.module('culturalystApp')
       $http.put('/api/users/' + $scope.artistId +'/updateArtistCover', {url: url})
     };
 
-    $scope.getArtistContent = function(){
+
+    $scope.saveCover = function(imgType){
+      $http.put('/api/content/' + $scope.coverId, {type:imgType}).then(function(response){
+          console.log(response);
+      })
+    };
+
+
+
+    $scope.getArtistCovers = function(){
+      console.log('this fired');
+      console.log($scope.artistId);
       $http.get('/api/content/' + $scope.artistId +'/getAllContent').then(function(response){
         $scope.gallery = response.data
       })
@@ -67,8 +82,10 @@ angular.module('culturalystApp')
       $http.get('/api/users/me')
       .then(function(response) {
         $scope.me = response.data;
-        $scope.artistId = response.data._id;
-        $scope.getArtistContent();
+        $scope.artistId = response.data._id
+        console.log($scope.me);
+        console.log($scope.artistId);
+        $scope.getArtistCovers();
       })
     };
 

@@ -13,16 +13,18 @@
   display: block;
   position:fixed;
   padding-top: 50px;
+  z-index: 999;
 }
+
+/*.smaller{
+  height:100px;
+  background-color: black;
+}*/
 
 .profilePic .signature .socialButtons {
     float: left;
     margin: 0px;
     width: 33.33%;
-}
-
-.profilePic2{
-
 }
 
 .mediaBar{
@@ -35,7 +37,7 @@
   font-size: 20px;
 }
 .postBod {
-  background-color: #5bc0de;
+  background-color: white;
   margin-top: 10px;
   margin-bottom: 10px;
 }
@@ -79,6 +81,7 @@
 
 .modal-dialog {
   margin-top: 0px;
+  width: 530px !important;
 }
 
 .modal-content {
@@ -113,4 +116,23 @@ a{
   color: inherit;
 }
 
+.rewardCard{
+  width:318px !important;
+}
 
+.artistNav.shrink {
+  min-height: 35px;
+}
+
+.catalyzeBtn{
+  background-color:#9B30FF;
+  color:white;
+  font-size: 20px;
+  width:200px;
+  height:55px;
+}
+.profilePicSm {
+  height:40px !important;
+  width: 40px !important;
+  border-radius: 50% !important;
+}
