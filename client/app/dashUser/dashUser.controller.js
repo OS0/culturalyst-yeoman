@@ -7,6 +7,11 @@ angular.module('culturalystApp')
     $http.get('/api/users/me').then(function(res) {
       $scope.me = res.data;
       $scope.showMyRewards();
+      if ($scope.me.role === 'artist') {
+        $state.go('dashUser.content');
+      } else {
+        $state.go('dashUser.profile');
+      }
     });
     // $scope.mediums = {
     //   music: false,

@@ -38,21 +38,10 @@
 
 
 <div>
-  <!--<form ng-submit="vm.register(InfoForm)">-->
+  <h1 align="center">Artist Info</h1><br>
+
   <form>
 
-    <!--Name-->
-    <div class="form-group" style="width: 80%; margin: 5% 10% 0 10%">
-      <label for="name">Name</label>
-      <input type="text" class="form-control" placeholder="Name"
-             value="{{currentUser.name}}">
-    </div>
-    <!--Email-->
-    <div class="form-group" style="width: 80%; margin: 5% 10% 0 10%">
-      <label for="email">Email address</label>
-      <input type="email" class="form-control" placeholder="Email"
-             value="{{currentUser.email}}">
-    </div>
    <!--  Short Bio -->
      <div class="form-group" style="width: 80%; margin: 5% 10% 0% 10%">
       <label for="short-bio">One Liner</label>
@@ -68,20 +57,18 @@
 
     <!--Bio-->
     <div class="form-group" style="width: 80%; margin: 5% 10% 0% 10%">
-      <label for="bio">Your Story</label>
-      <textarea class="form-control" placeholder="Tell your story. How did you become an artist? Why are you on Culturalyst? What is your vision for your creativity? How do you want to connect with your fans and your community?" rows="3" value="{{currentUser.bio}}" ng-model="bio">
+      <label for="bio">Biography</label>
+      <textarea class="form-control" rows="3" value="{{currentUser.bio}}"
+                ng-model="bio">
       </textarea>
     </div>
-
-
     <!--Media/Medium-->
+    <div class="form-group" style="width: 80%; margin: 5% 10% 0% 10%">
 
       <label for="medium">In what medium do you create?</label>
-
-    <div class="form-group" style="width: 80%; margin: 5% 10% 0% 10%">
-    <label for="medium">Your Medium</label>
-
+      </br>
       <!--Medium-->
+      <label>Medium:</label>
       <select ng-model="medium"
               ng-options="medium as medium.name for medium in mediaList"
               ng-change="vm.loadSubMediums(medium)"
@@ -89,20 +76,19 @@
       </select>
 
       <!--subMedia-->
-      <label for="medium">Your Submedium</label>
+      <label>Genre:</label>
       <select ng-model="selectedSubmedium"
               ng-options="submedium for submedium in submedia">
       </select>
       <br></br>
 
             <!--Age-->
-      <br><br><br>
       <div class="form-group">
       <label for="age">How old are you?</label>
         <div class="radio">
           <label>
             <input type="radio" name="age" id="age-18" value="age-18" ng-model="age">
-            >18
+            under 18
           </label>
         </div>
         <div class="radio">
@@ -113,37 +99,24 @@
         </div>
         <div class="radio">
           <label>
-            <input type="radio" name="age" id="age25-34" value="age25-44" ng-model="age">
-            25-34
+            <input type="radio" name="age" id="age25-44" value="age25-44" ng-model="age">
+            25-44
           </label>
         </div>
         <div class="radio">
           <label>
-            <input type="radio" name="age" id="age35-44" value="age25-44" ng-model="age">
-            35-44
-          </label>
-        </div>
-        <div class="radio">
-          <label>
-            <input type="radio" name="age" id="age45-54" value="age45-64" ng-model="age">
-            45-54
-          </label>
-        </div>
-         <div class="radio">
-          <label>
-            <input type="radio" name="age" id="age55-64" value="age45-64" ng-model="age">
-            55-64
+            <input type="radio" name="age" id="age45-64" value="age45-64" ng-model="age">
+            45-64
           </label>
         </div>
         <div class="radio">
           <label>
             <input type="radio" name="age" id="age65+" value="age65+" ng-model="age">
-            65+
+            >65
           </label>
         </div>
       </div>
 
-      <br><br>
       <!--Native-->
       <div class="form-group">
         <label for="native">Are You Native to this City?</label>
@@ -162,7 +135,7 @@
       </div>
 
       <!--Organization-->
-<!--       <div class="form-group">
+      <div class="form-group">
         <label for="org">Are You An Organization?</label>
         <div class="radio">
           <label>
@@ -176,12 +149,11 @@
             No
           </label>
         </div>
-      </div> -->
+      </div>
 
       <!--Experience-->
-      <br><br>
       <div class="form-group">
-      <label for="experience">What level of experience are currently in?</label>
+      <label for="experience">Experience</label>
         <select class="form-control" ng-model="experience">
           <option>Beginner</option>
           <option>Intermediate</option>
@@ -190,12 +162,6 @@
       </select>
       </div>
     </div>
-
-    <p class="help-block"> {{ vm.message }} </p>
-    <button type="submit" class="btn btn-primary btn-block" style="margin: 7% 35%"
-            ng-click="vm.register()">
-      Save
-    </button>
 ​
     <!--Include links to you Social Media accounts here-->
     <div >
@@ -242,6 +208,5 @@
             ng-click="vm.register()">
       Save
     </button>
-
   </form>
 </div>

@@ -24,9 +24,10 @@
         ngf-drag-over-class="dragOverClass($event)"
         ng-model="files"
         ng-multiple="true">
-        <h2 align="center">Artist Signup: Step 2</h2>
         <h3 align="center">Upload Content</h3>
-        <p align="center">Upload a profile picture and a cover photo.</p>
+        <h3 class='upload-header'>Add Your Profile and Cover Photos</h3>
+        <p>Drag and drop your photos, or click browse to find a file.</p>
+        <p>You're file shows up below, where you can add it as a profile of cover picture.</p>
         <form>
             <div class="form_line">
                 <div class="form_controls">
@@ -67,10 +68,9 @@
         <div class="card signup-card">
         <img id="card-img-top" src="{{item.url}}">
         <div class="card-block">
-          <button align="center" href="#" ng-click="updateImg(profile, item.url)" class="btn btn-primary">Make Profile Picture</button>
-          <button align="center" ng-click="updateCover(cover, item.url)" href="#" class="btn btn-primary">Make Cover</a>
-         <!--  <button align="center" ng-click="saveCover('cover')" href="#" class="btn btn-primary">Make Cover</a> -->
-
+          <button align="center" href="#" ng-click="updateImg(profile, item.url)" class="btn btn-primary">Make Profile Photo</button>
+          <button align="center" ng-click="updateCover(profile, item.url)" href="#" class="btn btn-primary">Make Cover Photo</button>
+          <p class="help-block"> {{ message }} </p>
         </div>
         </div>
       </div>

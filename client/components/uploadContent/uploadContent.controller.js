@@ -52,11 +52,17 @@ angular.module('culturalystApp')
     };
 
     $scope.updateImg = function(imgType, url){
-      $http.put('/api/users/' + $scope.artistId +'/updateArtistContent', {url: url})
+      $http.put('/api/users/' + $scope.artistId +'/updateArtistContent', {url: url}).then(function() {
+        $scope.message="Profile Picture Updated";
+        console.log($scope.message);
+      })
     };
 
     $scope.updateCover = function(imgType, url){
-      $http.put('/api/users/' + $scope.artistId +'/updateArtistCover', {url: url})
+      $http.put('/api/users/' + $scope.artistId +'/updateArtistCover', {url: url}).then(function() {
+        $scope.message="Cover Photo Updated";
+                console.log($scope.message);
+      })
     };
 
     $scope.saveCover = function(imgType){
