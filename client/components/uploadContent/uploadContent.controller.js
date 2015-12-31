@@ -7,7 +7,7 @@ angular.module('culturalystApp')
   function($scope, $rootScope, $location, $upload, $http) {
     var d = new Date();
     $scope.artistId;
-    $scope.gallery = [];
+    $scope.gallery;
 
     $scope.title = "Image (" + d.getDate() + " - " + d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds() + ")";
     //$scope.$watch('files', function() {
@@ -42,43 +42,31 @@ angular.module('culturalystApp')
     // });
 
     $scope.saveContent = function(url){
-        $http.post('/api/content/' + $scope.artistId, {url: url, type:'profile'}).then(function(response){
-            $scope.gallery.push(response.data);
-        })
+      $http.post('/api/content/' + $scope.artistId, {url: url, type:'profile'}).then(function(response){
+        $scope.gallery.push(response.data);
+      })
     };
 
     $scope.updateImg = function(imgType, url){
-        $http.put('/api/users/' + $scope.artistId +'/updateArtistContent', {url: url}).then(function(response){
-            console.log(response.status);
-        })
+      $http.put('/api/users/' + $scope.artistId +'/updateArtistContent', {url: url})
     };
 
     $scope.updateCover = function(imgType, url){
-        $http.put('/api/users/' + $scope.artistId +'/updateArtistCover', {url: url}).then(function(response){
-            console.log(response.status);
-        })
-    };
+      $http.put('/api/users/' + $scope.artistId +'/updateArtistCover', {url: url})
 
     $scope.getArtistContent = function(){
-      console.log('this fired');
-      console.log($scope.artistId);
       $http.get('/api/content/' + $scope.artistId +'/getAllContent').then(function(response){
-        console.log(response.data);
-        response.data.forEach(function(img){
-          $scope.gallery.push(img);
-        });
-        console.log('content: ', response);
+        $scope.gallery = response.data
       })
     };
 
 
 
-     $scope.getArtistID = function(){
-        $http.get('/api/users/me').then(function(response) {
+    $scope.getArtistID = function(){
+      $http.get('/api/users/me')
+      .then(function(response) {
         $scope.me = response.data;
         $scope.artistId = response.data._id
-        console.log($scope.me);
-        console.log($scope.artistId);
         $scope.getArtistContent();
       })
     };
