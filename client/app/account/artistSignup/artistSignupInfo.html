@@ -38,7 +38,8 @@
 
 
 <div>
-  <!--<form ng-submit="vm.register(InfoForm)">-->
+  <h1 align="center">Artist Info</h1><br>
+
   <form>
 
     <!--Name-->
@@ -77,11 +78,9 @@
     <!--Media/Medium-->
 
       <label for="medium">In what medium do you create?</label>
-
-    <div class="form-group" style="width: 80%; margin: 5% 10% 0% 10%">
-    <label for="medium">Your Medium</label>
-
+      </br>
       <!--Medium-->
+      <label>Medium:</label>
       <select ng-model="medium"
               ng-options="medium as medium.name for medium in mediaList"
               ng-change="vm.loadSubMediums(medium)"
@@ -89,7 +88,7 @@
       </select>
 
       <!--subMedia-->
-      <label for="medium">Your Submedium</label>
+      <label>Genre:</label>
       <select ng-model="selectedSubmedium"
               ng-options="submedium for submedium in submedia">
       </select>
@@ -102,7 +101,7 @@
         <div class="radio">
           <label>
             <input type="radio" name="age" id="age-18" value="age-18" ng-model="age">
-            >18
+            under 18
           </label>
         </div>
         <div class="radio">
@@ -138,7 +137,7 @@
         <div class="radio">
           <label>
             <input type="radio" name="age" id="age65+" value="age65+" ng-model="age">
-            65+
+            >65
           </label>
         </div>
       </div>
@@ -190,12 +189,6 @@
       </select>
       </div>
     </div>
-
-    <p class="help-block"> {{ vm.message }} </p>
-    <button type="submit" class="btn btn-primary btn-block" style="margin: 7% 35%"
-            ng-click="vm.register()">
-      Save
-    </button>
 ​
     <!--Include links to you Social Media accounts here-->
     <div >

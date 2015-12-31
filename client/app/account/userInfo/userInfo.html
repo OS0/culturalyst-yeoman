@@ -1,12 +1,10 @@
 <navbar></navbar>
 
 <div>
-  <h1 align="center">Catalyst Profile</h1><br>
+  <h1 align="center">Basic Info</h1><br>
 
   <div align="center">
     <h2>Welcome, {{currentUser.name}}!</h2><br>
-    We're glad you're here. We just need a bit more information to get you set
-    up.
   </div>
   <br><br>
 
@@ -73,24 +71,12 @@
       </div>
     </div>
 
-
-    <!--Birthday-->
- <!--    <div class="form-group">
-      <label class="col-sm-3 control-label">Birthday</label>
-      <div class="col-sm-9">
-        <input type="date" id="birthDate" class="form-control"
-               ng-model="currentUser.birthday" value="{{currentUser.birthday}}">
-      </div>
-    </div> -->
-
-
-  <upload-content></upload-content>
-
     <div class="form-group">
     </div>
     <br><br><br><br>
     <div class="form-group" align="">
       <div class="col-sm-9 col-sm-offset-3">
+        <p class="help-block"> {{ vm.message }} </p>
         <button type="submit" class="btn btn-primary btn-block"
                 ng-click="vm.userDetail()">
           Save Profile
@@ -100,4 +86,3 @@
   <br><br>
   </form>
 </div>
-<footer></footer>
