@@ -6,7 +6,7 @@
     padding: 0;
 }
 @font-face {
-    font-family:'Poiret One';
+    font-family:'Abel';
 }
 [data-icon]:before {
     font-family: 'zocial';
@@ -19,7 +19,7 @@
   margin-bottom: 5px;
 }
 body {
-    font-family: 'Poiret One';
+    font-family: 'Abel';
 }
 a {
     text-decoration: none;
