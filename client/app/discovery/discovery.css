@@ -99,29 +99,33 @@
   max-width: 90rem;
 }
 
-.row{
+.row {
   margin-left: 1px;
   margin-right:1px;
   width:100%;
 }
 
+#profile-name {
+  padding-bottom: 40px;
+}
 
-.card {
+
+/*.card {
   float: left;
   width: 33.333%;
   padding: .75rem;
   margin-bottom: 2rem;
   border: 0;
-}
+}*/
 
-.discover-card > img {
+/*.discover-card > img {
   margin-bottom: .75rem;
   height:220px;
-  width:320px;
+  width:320px;*/
  /* margin-bottom: 2rem;
   border: 0;
   background-color: #d3d3d3;*/
-}
+/*}*/
 
 /*.card > img {
   height:230px;
