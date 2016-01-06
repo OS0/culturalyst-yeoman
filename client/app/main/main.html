@@ -1,5 +1,5 @@
 <navbar></navbar>
-<div ng-controller="MainController" ng-init="mc.getFeatured()">
+<div id="main-background" ng-controller="MainController" ng-init="mc.getFeatured()">
   <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
     <!-- Wrapper for slides -->
     <div class="carousel-inner" role="listbox">
@@ -63,7 +63,7 @@
       </div>
     </section>
 
-        <h1 class="jumbotron-heading" align="center">Featured Artists in New Orleans</h1>
+      <h1 class="jumbotron-heading" align="center">Featured Artists in New Orleans</h1>
       <div class="scrolls">
       <div class="album text-muted">
         <a href="artist/{{featured._id}}">

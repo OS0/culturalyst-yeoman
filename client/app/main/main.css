@@ -18,6 +18,10 @@ body {
   /*font-family: 'Raleway';*/
   font-family: 'Abel';
 }
+
+.navbar-default{
+  background-color:#FFE3EB !important;
+}
 .card {
   /*margin: 2rem auto;*/
   background-color: white;
@@ -112,8 +116,12 @@ body {
   padding-top: 3rem;
   padding-bottom: 3rem;
   margin-bottom: 0;
-  background-color: #fff;
+  background-color: #E0FFFF;
   height:400px !important;
+}
+
+#main-background{
+  background-color: #fffcee;
 }
 .big-header {
   height: 275px;
@@ -126,6 +134,7 @@ body {
 
 .jumbotron-heading {
   font-weight: 300;
+  font-family: 'Abel';
 }
 
 .jumbotron .container {

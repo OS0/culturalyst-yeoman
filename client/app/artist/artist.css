@@ -42,14 +42,11 @@
   margin-bottom: 10px;
 }
 
-.artistBack {
-  color: white;
-  height: 500px;
-}
 
-.jumbotron {
-    background-color: blue;
-    height:600px;
+
+#artist-jumbo {
+    color: white;
+    height:750px !important;
 }
 
 .profileImg {

@@ -45,18 +45,18 @@
       </div>
     <div class="actionButtons">
       <a href="/payment/{{artistId}}" class="catalyzeBtn btn btn-default btn-md">Catalyze</a>
-      <button class="followBtn btn btn-default btn-md">Follow</button>
-    </div>
+<!--       <button class="followBtn btn btn-default btn-md">Follow</button>
+ -->    </div>
     </div>
   </div>
 </div>
 
-<div class="jumbotron text-center artistBack" style="background-image:url('{{artist.img}}');" ng-init="getArtistContent()">
+<div id="artist-jumbo"class="jumbotron text-center artistBack" style="background-image:url('{{artist.img}}');" ng-init="getArtistContent()">
   <div class="container">
 <!--     <img class="profileImg" src="{{artist.picUrl}}"/>
  -->    <h2>{{artist.name}}</h2>
     <p>
-      {{artist.short}}
+      {{artist.short_bio}}
     </p>
    <!--  <a href="/payment/{{artist._id}}" class="btn btn-default btn-lg">Catalyze Me</a> -->
 
@@ -76,18 +76,17 @@
       <div ui-view></div>
     </div>
     <!--1/3 column-->
-    <div class="col-lg-3 text-center" style="width: 25%">
-      <h3 class="text-center">Rewards</h3>
-        <div class="container">
-          <div class="row">
-            <div class="card card-block text-xs-center" ng-repeat="reward in rewards">
-              <h4 class="card-title">{{reward.title}}</h4>
-              <p class="card-text">{{reward.info}}</p>
-              <a href="#" class="btn btn-primary">Choose this reward</a>
-            </div>
-            </div>
+    <div class="col-lg-3 text-center" style="width: 25%;">
+          <h3 class="text-center">Rewards</h3>
+          <div class="card card-block text-xs-center rewardCard"
+               ng-repeat="reward in rewards">
+            <h4 class="card-title">${{reward.amount}}</h4>
+            <h4 class="card-title">{{reward.title}}</h4>
+            <p class="card-reward">{{reward.description}}</p>
+            <a href="#" class="btn btn-primary" style="background-color: #9B30FF;">Choose
+              this reward</a>
           </div>
-    </div>
+        </div>
   </div>
 </div>
 
