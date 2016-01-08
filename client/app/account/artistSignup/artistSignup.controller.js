@@ -101,7 +101,7 @@ class ArtistSignupController {
   }
 
   deleteReward() {
-    console.log("DELETING!")
+    console.log("DELETING!");
     // this.$http.delete('/api/rewards/' + id).then(function(res) {
     //   console.log(res);
     // }
