@@ -27,9 +27,10 @@ module.exports = function(config) {
       'client/bower_components/angularfire/dist/angularfire.js',
       'client/bower_components/ng-file-upload/ng-file-upload.js',
       'client/bower_components/ng-file-upload-shim/ng-file-upload-shim.js',
-      'client/bower_components/cloudinary_js/js/jquery.cloudinary.js',
+      'client/bower_components/cloudinary-core/cloudinary-core.js',
       'client/bower_components/cloudinary_ng/js/angular.cloudinary.js',
       'client/bower_components/angular-stripe/release/angular-stripe.js',
+      'client/bower_components/angular-youtube-mb/src/angular-youtube-embed.js',
       'client/bower_components/angular-mocks/angular-mocks.js',
       // endbower
       'node_modules/socket.io-client/socket.io.js',
