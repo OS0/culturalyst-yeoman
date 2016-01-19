@@ -11,22 +11,22 @@ class MainController {
     $scope.featuredArtists = [{
       _id: 1,
         name: 'Milton Meadow',
-        medium: 'Music',
-        submedium: 'Folk',
+        medium: 'Culture Bearer',
+        submedium: 'Wild Magnolias',
         img:'cover_photo_2.png',
         picUrl: 'ar.png'
       }, {
         _id: 2,
-        name: 'Jamtown',
+        name: 'Jason Rida',
         medium: 'Music',
-        submedium: 'Baby Making Music',
+        submedium: 'Brass',
         img:'cover_photo_5.png',
-        picUrl: 'rascle.png'
+        picUrl: 'vic.png'
       },{
         _id: 3,
         name: 'Lillian Grass',
-        medium: 'Music',
-        submedium: 'Meow Hop',
+        medium: 'Dance',
+        submedium: 'Hip-hop',
         img:'cover_photo_5.png',
         picUrl: 'bk.png'
       },{
@@ -42,7 +42,7 @@ class MainController {
         medium: 'Art',
         submedium: 'Abstract Dreamscapes',
         img:'cover_photo_3.png',
-        picUrl: 'vic.png'
+        picUrl: 'rascle.png'
       }, {
         _id: 6,
         name: 'Vivangelo',

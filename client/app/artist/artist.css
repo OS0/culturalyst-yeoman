@@ -21,6 +21,10 @@
   background-color: black;
 }*/
 
+.social-icon{
+  padding: 4px;
+}
+
 .profilePic .signature .socialButtons {
     float: left;
     margin: 0px;
@@ -35,6 +39,7 @@
 .socials{
   padding-top: 15px;
   font-size: 20px;
+  padding-left: 121px;
 }
 .postBod {
   background-color: white;
@@ -96,7 +101,9 @@
 .post{
   height:300px;
 }
-
+.dateTime{
+  color:blue;
+}
 .contentNav{
   height:180px;
   width: 100%;
