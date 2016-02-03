@@ -8,4 +8,4 @@ dist
 /server/config/local.env.js
 npm-debug.log
 test.sqlite
-dev.sqlite
+.DS_Store

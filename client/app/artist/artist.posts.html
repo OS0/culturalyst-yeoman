@@ -14,7 +14,7 @@
           </p>
         </div> -->
         <div class="col-lg-6">
-            <div class="modal-dialog" ng-repeat="post in posts | limitTo: 10 | orderBy: created">
+            <div class="modal-dialog" ng-repeat="post in posts | limitTo: 10 | orderBy: timestamp">
 <!--               <div class="modal-content">
  -->                    <div class="card">
                       <!-- <img class="card-img-top" src="{{post.url}}"/> -->
@@ -24,6 +24,7 @@
                       <div class='col-sm-4'style="width: 75%">
                         <!-- <img class="profilePicSm" src="{{artist.picUrl}}"/> -->
                         <p>{{artist.name}}: {{post.info}}</p>
+                        <p class="dateTime">{{post.timestamp}}</p>
                       </div>
                       
 
@@ -37,7 +38,7 @@
 <!--               </div>
  -->            </div>
         </div>
-        <div class="col-lg-6" ng-show="checkIfArtist()">
+        <div class="col-lg-6">
           <div class="modal-dialog col-md-3">
           <div class="modal-content">
               <div class="modal-header">

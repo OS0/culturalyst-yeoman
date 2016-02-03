@@ -43,10 +43,13 @@ module.exports = function(sequelize, DataTypes) {
     //Medium and Submedium will be removed on join table connections
     medium: DataTypes.STRING,
     submedium: DataTypes.STRING,
-    earned: DataTypes.STRING,
+    earned: {
+      type: DataTypes.INTEGER,
+      defaultValue: 0
+    },
     budget: DataTypes.DECIMAL,
     supporters: {
-      type: DataTypes.STRING,
+      type: DataTypes.INTEGER,
       defaultValue: 0
     },
     short_bio:DataTypes.TEXT,
@@ -91,7 +94,13 @@ module.exports = function(sequelize, DataTypes) {
           'img': this.img,
           'earned': this.earned,
           'budget': this.budget,
-          'supporters': this.supporters
+          'supporters': this.supporters,
+          'facebook': this.facebook,
+          'instagram': this.instagram,
+          'twitter': this.twitter,
+          'etsy': this.etsy,
+          'soundcloud': this.soundcloud,
+          'behance': this.behance
         };
       },
 

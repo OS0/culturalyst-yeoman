@@ -18,6 +18,10 @@ body {
   /*font-family: 'Raleway';*/
   font-family: 'Abel';
 }
+
+.navbar-default{
+  background-color:#FFE3EB !important;
+}
 .card {
   /*margin: 2rem auto;*/
   background-color: white;
@@ -53,7 +57,7 @@ body {
  	overflow-y:hidden;*/
   height: 400px;
   white-space:nowrap;
-  margin-left: 28px;
+  margin-left: 210px;
 }
 
 .card-title {
@@ -112,7 +116,12 @@ body {
   padding-top: 3rem;
   padding-bottom: 3rem;
   margin-bottom: 0;
-  background-color: #fff;
+  background-color: #E0FFFF;
+  height:400px !important;
+}
+
+#main-background{
+  background-color: #fffcee;
 }
 .big-header {
   height: 275px;
@@ -125,6 +134,7 @@ body {
 
 .jumbotron-heading {
   font-weight: 300;
+  font-family: 'Abel';
 }
 
 .jumbotron .container {
@@ -137,17 +147,41 @@ body {
 .hvr-shrink {
   border: none;
 }
-.btn-1, .btn-8, .btn-11 {
-  background-color: #ee9ab3;
+.btn-1 {
+  background-color: #ffd100;
 }
-.btn-2, .btn-7, .btn-9 {
-  background-color: #fca27e;
+.btn-8{
+  background-color: #e91e63;
 }
-.btn-3, .btn-6, .btn-12 {
-  background-color: #84cbad;
+.btn-11 {
+  background-color: #7ce0d3;
 }
-.btn-4, .btn-5, .btn-10 {
-  background-color: #a3e170;
+.btn-2{
+  background-color: #395eee;
+}
+.btn-7{
+  background-color: #ff8200;
+}
+.btn-9 {
+  background-color: #1cc77e;
+}
+.btn-3{
+  background-color: #69a1e1;
+} 
+.btn-6{
+  background-color: #410e83;
+} 
+.btn-12 {
+  background-color: #51ccaa;
+}
+.btn-4{
+  background-color: #811ba5;
+}
+.btn-5{
+  background-color: #f6a5c0;
+}
+.btn-10 {
+  background-color: #f9423a;
 }
 /* BUTTON BACKGROUND TRANSITIONS */
 .hvr-sweep-to-bottom:before, .hvr-shutter-in-vertical, .hvr-sweep-to-right:before, .hvr-radial-in, .hvr-rectangle-out:before, .hvr-shutter-out-horizontal:before, .hvr-bounce-in:before, .hvr-back-pulse:before  {
@@ -237,10 +271,10 @@ footer p {
 .carousel-tagline {
   /*background: rgba(0, 0, 0, 0.5);*/
   display: block;
-  left: -8%;
+  left: -6%;
   overflow: visible;
   position: absolute;
-  top: -58%;
+  top: -45%;
   width:200px;
   z-index: 50;
   font-family:'Amatic SC';
@@ -269,8 +303,8 @@ footer p {
  height: 400px;
  z-index:999;
  position:absolute;
- top:88%;
- right:10%;
+ top:98%;
+ right:4%;
  -moz-border-radius:50%;
  -webkit-border-radius: 50%;
  width: 400px;

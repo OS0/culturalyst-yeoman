@@ -13,6 +13,7 @@ module.exports = function(sequelize, DataTypes) {
     info: DataTypes.STRING,
     url: DataTypes.STRING,
     active: DataTypes.BOOLEAN,
-    type: DataTypes.STRING
+    type: DataTypes.STRING,
+    timestamp: DataTypes.STRING,
   });
 };

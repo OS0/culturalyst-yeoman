@@ -42,6 +42,10 @@
   margin: 20px 0;
 }
 
+.bannerFont {
+  font-family: 'Abel' !important;
+  color:white;
+}
 #banner {
   border-bottom: none;
   margin-top: -20px;
@@ -51,6 +55,10 @@
   font-size: 60px;
   line-height: 1;
   letter-spacing: -1px;
+}
+
+#page-content-wrapper{
+  min-height: 800px;
 }
 
 .hero-unit {
