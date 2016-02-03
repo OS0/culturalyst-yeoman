@@ -57,11 +57,11 @@ class MainController {
   getFeatured() {
     let context = this;
     console.log('something from rascle');
-    this.$http.get('/api/users/featured')
-    .then(function(featured) {
-      console.log(featured);
-      context.$scope.featuredArtists = featured.data;
-    });
+    //this.$http.get('/api/users/featured')
+    //.then(function(featured) {
+    //  console.log(featured);
+    //  context.$scope.featuredArtists = featured.data;
+    //});
   }
 
 }
