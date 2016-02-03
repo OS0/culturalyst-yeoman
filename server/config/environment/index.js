@@ -43,8 +43,8 @@ var all = {
 
   // add for other services like esty later
   facebook: {
-    clientID:     process.env.FACEBOOK_ID || 'id',
-    clientSecret: process.env.FACEBOOK_SECRET || 'secret',
+    clientID:     process.env.FACEBOOK_ID || '1645967642343052',
+    clientSecret: process.env.FACEBOOK_SECRET || 'cd6772874412c2182bbdb27a02f07d81',
     callbackURL:  (process.env.DOMAIN || '') + '/auth/facebook/callback'
   },
 

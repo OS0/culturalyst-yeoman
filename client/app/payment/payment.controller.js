@@ -2,14 +2,14 @@
 
 angular.module('culturalystApp')
   .controller('PaymentCtrl', function ($scope, $location, stripe, $http) {
-    var artistId = $location.path().split('/').pop();
+    $scope.artistId = $location.path().split('/').pop();
     $scope.form = {};
     $scope.recurring = false;
 
     //GET ARTIST INFO
     $http({
       method: 'GET',
-      url: '/api/users/' + artistId
+      url: '/api/users/' + $scope.artistId
     }).then(function(data){
       console.log(data)
       $scope.artist = data.data
@@ -26,7 +26,7 @@ angular.module('culturalystApp')
           token: token.id,
           amount: $scope.amountToPay * 100,
           recurring: $scope.recurring,
-          _id: artistId
+          _id: $scope.artistId
         }
       })
     }
@@ -48,37 +48,12 @@ angular.module('culturalystApp')
     }
     // Rewards
     $scope.getRewards = function(){
-      $http({
-        method: 'GET',
-        url: 'api/reward/myRewards/' + artistId
-      }).then(function(data){
-        console.log('rewards: ',data)
-        $scope.rewards = data;
-      })
-    }
-
+      $http.get('api/rewards/myRewards/' + $scope.artistId).then(function(response){
+        console.log('rewards: ',response.data);
+        $scope.rewards = response.data;
+        console.log($scope.rewards);
+      });
+    };
+    $scope.getRewards();
     //MOCK REWARD DATA
-    $scope.rewards = [
-      {
-        amount: 30,
-        title: 'Help A Brotha Out',
-        description: 'You will really be helping a brotha out with this one.'
-      },
-      {
-        amount: 50,
-        title: 'Help A Brotha Out',
-        description: 'You will really be helping a brotha out with this one.'
-      }
-    ]
-
-    // Rewards
-    $scope.getRewards = function(){
-      $http({
-        method: 'GET',
-        url: 'api/reward/myRewards/' + artistId
-      }).then(function(data){
-        console.log('rewards: ',data)
-        $scope.rewards = data;
-      })
-    }
   });

@@ -42,6 +42,8 @@ class ArtistSignupController {
           bio: context.$scope.bio,
           medium: context.$scope.selectedMedium,
           submedium: context.$scope.selectedSubmedium,
+          vid_bio: context.$scope.vid_bio,
+          short_bio:context.$scope.short_bio,
           age: context.$scope.age,
           natives: context.$scope.natives,
           org: context.$scope.org,
@@ -101,7 +103,7 @@ class ArtistSignupController {
   }
 
   deleteReward() {
-    console.log("DELETING!")
+    console.log("DELETING!");
     // this.$http.delete('/api/rewards/' + id).then(function(res) {
     //   console.log(res);
     // }
