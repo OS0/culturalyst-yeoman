@@ -1,4 +1,3 @@
-
 <!-- <div id="uploader" ng-init='getArtistID()'>
   <h3 class='upload-header'>Add Your Profile and Cover Photos</h3>
     <div ngf-drop ngf-select ng-model="files" class="drop-box profile-box form-group"
@@ -14,65 +13,73 @@
   <button class="btn btn-default btn-md continue-btn" type="button" name="button" ng-click="vm.content()"> Save & Continue</button>
 </div> -->
 
-
-
 <div class="container" align="center">
   <div class="wrapperBig">
     <div id="uploader"
-        ng-init='getArtistID()'
-        ngf-drop="uploadFiles($files)"
-        ngf-drag-over-class="dragOverClass($event)"
-        ng-model="files"
-        ng-multiple="true">
-        <h3 align="center">Upload Content</h3>
-        <h3 class='upload-header'>Add Your Profile and Cover Photos</h3>
-        <p>Drag and drop your photos, or click browse to find a file.</p>
-        <p>You're file shows up below, where you can add it as a profile oR cover picture.</p>
-        <form>
-            <div class="form_line">
-                <div class="form_controls">
-                    <div type="text" class="form-control drag-drop"  ng-model="title">
-                      <p class="drag-text">Drag and Drop Photo or Click Browse </p>
-                    </div>
-                </div>
+         ng-init='getArtistID()'
+         ngf-drop="uploadFiles($files)"
+         ngf-drag-over-class="dragOverClass($event)"
+         ng-model="files"
+         ng-multiple="true">
+      <h3 align="center">Upload Content</h3>
+      <h3 class='upload-header'>Add Your Profile and Cover Photos</h3>
+      <p>Drag and drop your photos, or click browse to find a file.</p>
+      <p>You're file shows up below, where you can add it as a profile oR cover
+        picture.</p>
+      <form>
+        <div class="form_line">
+          <div class="form_controls">
+            <div type="text" class="form-control drag-drop" ng-model="title">
+              <p class="drag-text">Drag and Drop Photo or Click Browse </p>
             </div>
-            <div class="form_line">
-                <div class="form_controls">
-                    <div class="upload_button_holder">
-                        <div href="#" class="upload_button" ngf-select="uploadFiles($files)" multiple title="upload" resetOnClick="true">Browse</div>
-                    </div>
+          </div>
+        </div>
+        <div class="form_line">
+          <div class="form_controls">
+            <div class="upload_button_holder">
+              <div href="#" class="upload_button"
+                   ngf-select="uploadFiles($files)" multiple title="upload"
+                   resetOnClick="true">Browse
+              </div>
+            </div>
 
-                </div>
-            </div>
-        </form>
-        <label id="status">Status:</label>
-        <div class="file" ng-repeat="file in files">
-            <p>{{file.name}} {{f.$error}} {{f.$errorParam}}</p>
-            <div class="status">{{file.status}}</div>
-            <div class="progress-bar">
-              <div class="progress" style="width: {{file.progress}}%" ng-init="progress=0"></div>
-            </div>
-            <div class="form_line">
-                <label id="preview">Preview:</label>
-                <div class="form_controls">
-                    <div class="preview">
-                        <img ngf-src="file.result.url || file">
-                        <p class="help-block"> {{ message }} </p>
-                    </div>
-                </div>
-            </div>
+          </div>
         </div>
-    </div>
-    </div>
-    <div class = "wrapperSmall">
-        <div ng-repeat="item in gallery">
-        <div class="card signup-card">
-        <img id="card-img-top" src="{{item.url}}">
-        <div class="card-block">
-          <button align="center" href="#" ng-click="updateImg(profile, item.url)" class="btn btn-primary">Make Profile Photo</button>
-          <button align="center" ng-click="updateCover(profile, item.url)" href="#" class="btn btn-primary">Make Cover Photo</button>
+      </form>
+      <label id="status">Status:</label>
+      <div class="file" ng-repeat="file in files">
+        <p>{{file.name}} {{f.$error}} {{f.$errorParam}}</p>
+        <div class="status">{{file.status}}</div>
+        <div class="progress-bar">
+          <div class="progress" style="width: {{file.progress}}%"
+               ng-init="progress=0"></div>
         </div>
+        <div class="form_line">
+          <label id="preview">Preview:</label>
+          <div class="form_controls">
+            <div class="preview">
+              <img ngf-src="file.result.url || file">
+              <p class="help-block"> {{ message }} </p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
+  </div>
+  <div class="wrapperSmall">
+    <div ng-repeat="item in gallery">
+      <div class="card signup-card">
+        <img id="card-img-top" src="{{item.url}}">
+        <div class="card-block">
+          <button align="center" href="#"
+                  ng-click="updateImg(profile, item.url)"
+                  class="btn btn-primary">Make Profile Photo
+          </button>
+          <button align="center" ng-click="updateCover(profile, item.url)"
+                  href="#" class="btn btn-primary">Make Cover Photo
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

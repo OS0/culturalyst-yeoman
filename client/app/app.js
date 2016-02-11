@@ -14,13 +14,8 @@ angular.module('culturalystApp', [
   'validation.match',
   'angular-stripe',
   'youtube-embed'
-])
-
-
-  .config(function($urlRouterProvider, $stateProvider, $locationProvider, stripeProvider) {
-    $urlRouterProvider
-      .otherwise('/');
-
-    $locationProvider.html5Mode(true);
-    stripeProvider.setPublishableKey('pk_test_fN4bxAyEBsyBxrDWpaOD4sHk');
-  });
+]).config(function($urlRouterProvider, $stateProvider, $locationProvider, stripeProvider) {
+  $urlRouterProvider.otherwise('/');
+  $locationProvider.html5Mode(true);
+  stripeProvider.setPublishableKey('pk_test_fN4bxAyEBsyBxrDWpaOD4sHk');
+});

@@ -13,21 +13,25 @@
         <div class="form-group">
           <label>Email</label>
 
-          <input type="email" name="email" class="form-control" ng-model="vm.user.email" required>
+          <input type="email" name="email" class="form-control"
+                 ng-model="vm.user.email" required>
         </div>
 
         <div class="form-group">
           <label>Password</label>
 
-          <input type="password" name="password" class="form-control" ng-model="vm.user.password" required>
+          <input type="password" name="password" class="form-control"
+                 ng-model="vm.user.password" required>
         </div>
 
         <div class="form-group has-error">
-          <p class="help-block" ng-show="form.email.$error.required && form.password.$error.required && vm.submitted">
-             Please enter your email and password.
+          <p class="help-block"
+             ng-show="form.email.$error.required && form.password.$error.required && vm.submitted">
+            Please enter your email and password.
           </p>
-          <p class="help-block" ng-show="form.email.$error.email && vm.submitted">
-             Please enter a valid email.
+          <p class="help-block"
+             ng-show="form.email.$error.email && vm.submitted">
+            Please enter a valid email.
           </p>
 
           <p class="help-block">{{ vm.errors.other }}</p>
@@ -37,21 +41,20 @@
           <button class="btn btn-inverse btn-lg btn-login" type="submit">
             Login
           </button>
-          <a class="btn btn-default btn-lg btn-register" style="color:black !important;" ui-sref="signup">
+          <a class="btn btn-default btn-lg btn-register"
+             style="color:black !important;" ui-sref="signup">
             Register
           </a>
+        </div>
+        <br><br><br>
+        <div class="row">
+          <div class="col-sm-4 col-md-3">
+            <oauth-buttons classes="btn-block"></oauth-buttons>
+          </div>
         </div>
       </form>
     </div>
   </div>
 </div>
-
-
-
-
-
-
-
-
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 <footer></footer>
