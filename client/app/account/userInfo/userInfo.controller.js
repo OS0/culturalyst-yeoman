@@ -19,7 +19,7 @@ class UserInfoController {
 
   userDetail() {
     let context = this;
-    console.log("Preparing to Update!")
+    //console.log("Preparing to Update!")
     this.$http.put('/api/users/' + this.Auth.getCurrentUser()._id + '/updateUserInfo', {
         name: this.$scope.currentUser.name,
         email: this.$scope.currentUser.email,

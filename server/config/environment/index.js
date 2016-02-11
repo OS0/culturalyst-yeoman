@@ -29,7 +29,7 @@ var all = {
 
   // Secret for session, you will want to change this and make it an environment variable
   secrets: {
-    session: 'culturalyst-secret'
+    session: 'catalyze-culture-secret'
   },
 
   // MongoDB connection options
@@ -43,8 +43,8 @@ var all = {
 
   // add for other services like esty later
   facebook: {
-    clientID:     process.env.FACEBOOK_ID || '1645967642343052',
-    clientSecret: process.env.FACEBOOK_SECRET || 'cd6772874412c2182bbdb27a02f07d81',
+    clientID:     process.env.FACEBOOK_ID || 'id',
+    clientSecret: process.env.FACEBOOK_SECRET || 'secret',
     callbackURL:  (process.env.DOMAIN || '') + '/auth/facebook/callback'
   },
 

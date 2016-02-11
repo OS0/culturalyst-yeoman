@@ -93,7 +93,8 @@ module.exports = function(config) {
     // - Safari (only Mac)
     // - PhantomJS
     // - IE (only Windows)
-    browsers: ['PhantomJS'],
+    //browsers: ['PhantomJS'],
+    browsers: ['ChromeCanary'],
 
     // Continuous Integration mode
     // if true, it capture browsers, run tests and exit
