@@ -12,7 +12,7 @@ User.sync()
     return User.destroy({where: {}});
   })
   .then(function() {
-    User.bulkCreate([{
+    return User.bulkCreate([{
         provider: 'local',
         name: 'Test User',
         email: 'test@example.com',
@@ -26,20 +26,20 @@ User.sync()
         password: 'admin',
         profilePicture: null
       }/*, {
-        provider: 'local',
-        role: 'catalyst',
-        name: 'Catalyst',
-        email: 'catalyst@example.com',
-        password: 'catalyst',
-        profilePicture: null
-      }, {
-        provider: 'local',
-        role: 'creative',
-        name: 'Creative',
-        email: 'creative@example.com',
-        password: 'creative',
-        profilePicture: null
-      }*/])
+       provider: 'local',
+       role: 'catalyst',
+       name: 'Catalyst',
+       email: 'catalyst@example.com',
+       password: 'catalyst',
+       profilePicture: null
+       }, {
+       provider: 'local',
+       role: 'creative',
+       name: 'Creative',
+       email: 'creative@example.com',
+       password: 'creative',
+       profilePicture: null
+       }*/])
       .then(function() {
         console.log('finished populating users');
       });
