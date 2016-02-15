@@ -9,6 +9,7 @@ client/bower_components
 # Development Database
 dev.sqlite
 test.sqlite
+dist.sqlite
 
 # Compiled Code
 dist
