@@ -13,9 +13,13 @@
               <p class="lead text-muted" align="center">Search by Medium and
                 Genre and filter to your heart's desire</p>
             </div>
+
+            <!-- Filters -->
             <section align="center">
               <div class="filters" align="center">
                 <div class="row form-inline" align="center">
+
+                  <!-- Medium -->
                   <div class="col-xs-6">
                     <select class="form-control" ng-model="medium"
                             ng-options="medium as medium.name for medium in mediaList"
@@ -24,6 +28,8 @@
                       <option value="" selected disabled>Medium</option>
                     </select>
                   </div>
+
+                  <!-- Sub Medium -->
                   <div class="col-xs-6">
                     <select class="form-control" ng-model="selectedSubmedium"
                             ng-options="submedium for submedium in submedia"
@@ -33,37 +39,49 @@
                     </select>
                   </div>
                 </div>
+
                 <br>
+
                 <div class="form-group" align="center">
-                  <div class="col-xs-3">
+                  <!-- Age -->
+                  <!--<div class="col-xs-3">
                     <select class="form-control" ng-model="selectedAge"
                             ng-options="age as age.age for age in ageList">
                       <option value="" selected disabled>Age</label>
                     </select>
-                  </div>
-                  <!--                 <div class="col-xs-2">
-                                    <select class="form-control" ng-model="selectedOrg" ng-options="org as org.org for org in orgList">
-                                      <option value="" selected disabled>Organization</label>
-                                    </select>
-                                  </div> -->
-                  <div class="col-xs-3">
+                  </div>-->
+
+                  <!-- Organization -->
+                  <!--<div class="col-xs-2">
+                    <select class="form-control" ng-model="selectedOrg"
+                            ng-options="org as org.org for org in orgList">
+                      <option value="" selected disabled>Organization</label>
+                    </select>
+                  </div>-->
+
+                  <!-- Place Space -->
+                  <!--<div class="col-xs-3">
                     <select class="form-control" ng-model="selectedNative"
                             ng-options="natives as natives.natives for natives in nativeList">
                       <option value="" selected disabled>Native</label>
                     </select>
-                  </div>
-                  <div class="col-xs-3">
+                  </div>-->
+
+                  <!-- Gender -->
+                  <!--<div class="col-xs-3">
                     <select class="form-control" ng-model="selectedGender"
                             ng-options="gender as gender.gender for gender in genderList">
                       <option value="" selected disabled>Gender</label>
                     </select>
-                  </div>
-                  <div class="col-xs-3">
+                  </div>-->
+
+                  <!-- Experience -->
+                  <!--<div class="col-xs-3">
                     <select class="form-control" ng-model="selectedExperience"
                             ng-options="experience as experience.experience for experience in expList">
                       <option value="" selected disabled>Experience</label>
                     </select>
-                  </div>
+                  </div>-->
                 </div>
               </div>
               <!-- <div class="container" align="center">
