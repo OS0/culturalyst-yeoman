@@ -1,101 +1,138 @@
 <navbar></navbar>
-<div id="main-background" ng-controller="MainController" ng-init="mc.getFeatured()">
-  <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+
+<div id="main-background" ng-controller="MainController"
+     ng-init="mc.getFeatured()">
+  <div id="carousel-example-generic" class="carousel slide"
+       data-ride="carousel">
     <!-- Wrapper for slides -->
     <div class="carousel-inner" role="listbox">
       <div class="item active">
-        <img src="https://res.cloudinary.com/culturalyst/image/upload/v1450900980/fwkys40zftlbrrpxegno.png">
+        <img
+          src="https://res.cloudinary.com/culturalyst/image/upload/v1450900980/fwkys40zftlbrrpxegno.png">
         <div class="carousel-caption">
         </div>
       </div>
     </div>
-<!-- 
-      <div class="item">
-        <img src="assets/img/cover_photo_2.png" alt="/assets/img/cover_photo_2">
+    <!--<div class="item">
+      <img src="assets/img/cover_photo_2.png" alt="/assets/img/cover_photo_2">
+    </div>
+    <div class="item">
+      <img src="assets/img/cover_photo_3.png" alt="/assets/img/cover_photo_3">
+    </div>
+    ...-->
+    <div class="carousel-tagline">
+      <div class="tagline white center">
+        <h2 class="carouselFontSm">Make Culture abundant in your city.</h2>
       </div>
-      <div class="item">
-        <img src="assets/img/cover_photo_3.png" alt="/assets/img/cover_photo_3">
-      </div> -->
-
-      <!-- ... -->
-        <div class="carousel-tagline">
-          <div class="tagline white center">
-            <h2 class="carouselFontSm">Make Culture abundant in your city.</h2>
-          </div>
-        </div>
-
-          <div class="carousel-tagline2">
-            <div class="tagline white center">
-              <div class="circle">
-                <div class="circleText">
-                  <h2 class="carouselFontSm3">How?</h2>
-                  <h4 class="carouselFontSm2">1. Search our city-based artist directory.</h4>
-                  <h4 class="carouselFontSm2">2. Catalyze artists that move you.</h4>
-                  <h4 class="carouselFontSm2">3. Get a relationship with <br> those artists.</h4>
-                </div>
-              </div>
-          </div>
-        </div>
-
     </div>
 
-<!-- JUMBOTRON + BUTTONS-->
-
-
-    <section class="jumbotron">
-      <div class="container">
-         <h1 class="jumbotron-heading" align="center">Begin to Discover the Culture Around You. </h1>
-        <p class="medium-buttons">
-          <a href="/discovery/Music" class="btn btn-primary btn-1 hvr-shrink hvr-back-pulse">Music</a>
-          <a href="/discovery/Writing" class="btn btn-primary btn-2 hvr-shrink hvr-back-pulse">Writing</a>
-          <a href="/discovery/Film" class="btn btn-primary btn-3 hvr-shrink hvr-back-pulse">Film</a>
-          <a href="/discovery/Visual" class="btn btn-primary btn-4 hvr-shrink hvr-back-pulse">Visual Art</a>
-          <a href="/discovery/Photography" class="btn btn-primary btn-5 hvr-shrink hvr-back-pulse">Photography</a>
-          <a href="/discovery/Dance" class="btn btn-primary btn-6 hvr-shrink hvr-back-pulse">Dance</a>
-          <a href="/discovery/Bearers" class="btn btn-primary btn-7 hvr-shrink hvr-back-pulse">Culture Bearers</a>
-          <a href="/discovery/Comedy" class="btn btn-primary btn-8 hvr-shrink hvr-back-pulse">Comedy</a>
-          <a href="/discovery/Crafts" class="btn btn-primary btn-9 hvr-shrink hvr-back-pulse">Performing Arts</a>
-          <a href="/discovery/Design" class="btn btn-primary btn-10 hvr-shrink hvr-back-pulse">Design</a>
-          <a href="/discovery/Code" class="btn btn-primary btn-11 hvr-shrink hvr-back-pulse">Code</a>
-          <a href="/discovery/Sculpture" class="btn btn-primary btn-12 hvr-shrink hvr-back-pulse">Sculpture</a>
-        </p>
-
+    <div class="carousel-tagline2">
+      <div class="tagline white center">
+        <div class="circle">
+          <div class="circleText">
+            <h2 class="carouselFontSm3">How?</h2>
+            <h4 class="carouselFontSm2">1. Search our city-based artist
+              directory.</h4>
+            <h4 class="carouselFontSm2">2. Catalyze artists that move you.</h4>
+            <h4 class="carouselFontSm2">3. Get a relationship with <br> those
+              artists.</h4>
+          </div>
+        </div>
       </div>
-    </section>
+    </div>
 
-      <h1 class="jumbotron-heading" align="center">Featured Artists in New Orleans</h1>
-      <div class="scrolls">
-      <div class="album text-muted">
-        <a href="artist/{{featured._id}}">
+  </div>
+
+  <!-- Mediums Buttons -->
+  <section class="jumbotron">
+    <div class="container">
+      <h1 class="jumbotron-heading" align="center">
+        Begin to Discover the Culture Around You.
+      </h1>
+      <p class="medium-buttons">
+        <a href="/discovery/Music"
+           class="btn btn-primary btn-1 hvr-shrink hvr-back-pulse">Music</a>
+        <a href="/discovery/Writing"
+           class="btn btn-primary btn-2 hvr-shrink hvr-back-pulse">Writing</a>
+        <a href="/discovery/Film"
+           class="btn btn-primary btn-3 hvr-shrink hvr-back-pulse">Film</a>
+        <a href="/discovery/Visual"
+           class="btn btn-primary btn-4 hvr-shrink hvr-back-pulse">Visual
+          Art</a>
+        <a href="/discovery/Photography"
+           class="btn btn-primary btn-5 hvr-shrink hvr-back-pulse">Photography</a>
+        <a href="/discovery/Dance"
+           class="btn btn-primary btn-6 hvr-shrink hvr-back-pulse">Dance</a>
+        <a href="/discovery/Bearers"
+           class="btn btn-primary btn-7 hvr-shrink hvr-back-pulse">Culture
+          Bearers</a>
+        <a href="/discovery/Comedy"
+           class="btn btn-primary btn-8 hvr-shrink hvr-back-pulse">Comedy</a>
+        <a href="/discovery/Crafts"
+           class="btn btn-primary btn-9 hvr-shrink hvr-back-pulse">Performing
+          Arts</a>
+        <a href="/discovery/Design"
+           class="btn btn-primary btn-10 hvr-shrink hvr-back-pulse">Design</a>
+        <a href="/discovery/Code"
+           class="btn btn-primary btn-11 hvr-shrink hvr-back-pulse">Code</a>
+        <a href="/discovery/Sculpture"
+           class="btn btn-primary btn-12 hvr-shrink hvr-back-pulse">Sculpture</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- TODO: Add buttons for Curated Artist. See issue #82 -->
+  <div class="curated-artist">
+    <!-- Copy the template above -->
+  </div>
+
+
+  <!--&lt;!&ndash; Display Featured Artist &ndash;&gt;
+  <h1 class="jumbotron-heading" align="center">
+    Featured Artists in NewOrleans
+  </h1>
+  <div class="scrolls">
+    <div class="album text-muted">
+      <a href="artist/{{featured._id}}">
         <div class="card card-main" ng-repeat="feature in featuredArtists">
-          <img class="card-img-bottom card-cover" src="assets/img/{{feature.img}}"/>
+          <img class="card-img-bottom card-cover"
+               src="assets/img/{{feature.img}}"/>
           <div>
-              <img class="profilePic profile-main" ng-src="assets/img/{{feature.picUrl}}"/>
-              <div class="profileName">
-                <h3 class='name-main'> {{feature.name}}</h3>
-                <p class='medium-main'> {{feature.medium}} | {{feature.submedium}}</p>
-              </div>
+            <img class="profilePic profile-main"
+                 ng-src="assets/img/{{feature.picUrl}}"/>
+            <div class="profileName">
+              <h3 class='name-main'> {{feature.name}}</h3>
+              <p class='medium-main'> {{feature.medium}} |
+                {{feature.submedium}}</p>
+            </div>
+          </div>
+
+        </div>
+      </a>
+    </div>
+  </div>-->
+
+  <!--<div class="scrolls">
+    <div class="album text-muted">
+      <a href="artist/{{featured._id}}">
+        <div class="card card-main"
+             ng-repeat="feature in featuredArtists | filter: {medium: 'Art'}">
+          <img class="card-img-bottom card-cover"
+               src="assets/img/{{feature.img}}"/>
+          <div>
+            <img class="profilePic profile-main"
+                 ng-src="assets/img/{{feature.picUrl}}"/>
+            <div class="profileName">
+              <h3 class='name-main'> {{feature.name}}</h3>
+              <p class='medium-main'> {{feature.medium}} |
+                {{feature.submedium}}</p>
+            </div>
           </div>
         </div>
-        </a>
-      </div>
+      </a>
     </div>
+  </div>-->
 
-<!--       <div class="scrolls">
-        <div class="album text-muted">
-          <a href="artist/{{featured._id}}">
-          <div class="card card-main" ng-repeat="feature in featuredArtists | filter: {medium: 'Art'}">
-            <img class="card-img-bottom card-cover" src="assets/img/{{feature.img}}"/>
-            <div>
-                <img class="profilePic profile-main" ng-src="assets/img/{{feature.picUrl}}"/>
-                <div class="profileName">
-                  <h3 class='name-main'> {{feature.name}}</h3>
-                  <p class='medium-main'> {{feature.medium}} | {{feature.submedium}}</p>
-                </div>
-            </div>
-          </div> -->
-          </a>
-        </div>
-    </div>
+</div>
 
 <footer></footer>
