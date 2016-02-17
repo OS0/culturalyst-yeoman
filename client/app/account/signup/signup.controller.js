@@ -31,7 +31,7 @@ class SignupController {
       this.Auth.createUser({
           name: this.user.name,
           email: this.user.email,
-          password: this.user.password,
+          password: this.user.password
         })
         .then(() => {
           context.$log.log(context.user);

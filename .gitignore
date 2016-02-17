@@ -7,8 +7,8 @@ npm-debug.log
 client/bower_components
 
 # Development Database
-dev.sqlite
 test.sqlite
+dev.sqlite
 dist.sqlite
 
 # Compiled Code

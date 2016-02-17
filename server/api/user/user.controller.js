@@ -340,7 +340,7 @@ exports.registerdb = function(account, id){
     .then(function(user) {
         user.account = JSON.stringify(account.id)
         user.save()
-          .then(function() {
+          .then(function(res) {
             res.status(204).end();
           })
           .catch(validationError(res));
@@ -350,8 +350,8 @@ exports.registerdb = function(account, id){
 exports.register = function(req,res){
   var userId = req.body._id
   var data = req.body.data
-  data['tos_acceptance'].date = Math.floor(Date.now() / 1000);
-  data['tos_acceptance'].ip = req.connection.remoteAddress;
+  data.tos_acceptance.date = Math.floor(Date.now() / 1000);
+  data.tos_acceptance.ip = req.connection.remoteAddress;
   stripe.accounts.create(data)
     .then(function(acct){
       exports.registerdb(acct, userId);
