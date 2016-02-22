@@ -74,7 +74,7 @@
 <div class="container" align="center">
   <div class="wrapperBig">
     <div id="uploader"
-         vm.getArtistID()
+         ng-init="vm.getArtistID()"
          ngf-drop="uploadFiles($files)"
          ngf-drag-over-class="vm.dragOverClass($event)"
          ng-model="files"
