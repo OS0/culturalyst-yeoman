@@ -51,7 +51,7 @@ class UploadController {
       .then(res => {
         this.$scope.me = res.data;
         this.$scope.artistId = res.data._id;
-        getArtistCovers();
+        this.getArtistCovers();
       });
   }
 
