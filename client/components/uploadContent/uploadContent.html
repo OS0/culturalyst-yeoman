@@ -1,18 +1,4 @@
-<!-- <div id="uploader" ng-init='getArtistID()'>
-  <h3 class='upload-header'>Add Your Profile and Cover Photos</h3>
-    <div ngf-drop ngf-select ng-model="files" class="drop-box profile-box form-group"
-        ngf-drag-over-class="'dragover'" ngf-multiple="true" ngf-allow-dir="true"
-        accept="image/*,application/pdf"
-        ngf-pattern="'image/*,application/pdf'">Click to add your photo or drop it here</div>
-  <div class="preview">
-            <div class="img-view">
-              <img ngf-src="!files[0].$error && files[0]">
-            </div>
-          </div>
-          <div ngf-no-file-drop>File Drag/Drop is not supported for this browser</div>
-  <button class="btn btn-default btn-md continue-btn" type="button" name="button" ng-click="vm.content()"> Save & Continue</button>
-</div> -->
-
+<!--
 <div class="container" align="center">
   <div class="wrapperBig">
     <div id="uploader"
@@ -83,3 +69,77 @@
     </div>
   </div>
 </div>
+-->
+
+<div class="container" align="center">
+  <div class="wrapperBig">
+    <div id="uploader"
+         ng-init="vm.getArtistID()"
+         ngf-drop="uploadFiles($files)"
+         ngf-drag-over-class="vm.dragOverClass($event)"
+         ng-model="files"
+         ng-multiple="true">
+      <h3 align="center">Upload Content</h3>
+      <h3 class='upload-header'>Add Your Profile and Cover Photos</h3>
+      <p>Drag and drop your photos, or click browse to find a file.</p>
+      <p>You're file shows up below, where you can add it as a profile oR cover
+        picture.</p>
+      <form>
+        <div class="form_line">
+          <div class="form_controls">
+            <div type="text" class="form-control drag-drop" ng-model="title">
+              <p class="drag-text">Drag and Drop Photo or Click Browse </p>
+            </div>
+          </div>
+        </div>
+        <div class="form_line">
+          <div class="form_controls">
+            <div class="upload_button_holder">
+              <div href="#" class="upload_button"
+                   ngf-select="vm.uploadFiles($files)" multiple title="upload"
+                   resetOnClick="true">Browse
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </form>
+      <label id="status">Status:</label>
+      <div class="file" ng-repeat="file in files">
+        <p>{{file.name}} {{f.$error}} {{f.$errorParam}}</p>
+        <div class="status">{{file.status}}</div>
+        <div class="progress-bar">
+          <div class="progress" style="width: {{file.progress}}%"
+               ng-init="progress=0"></div>
+        </div>
+        <div class="form_line">
+          <label id="preview">Preview:</label>
+          <div class="form_controls">
+            <div class="preview">
+              <img ngf-src="file.result.url || file">
+              <p class="help-block"> {{ message }} </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="wrapperSmall">
+    <div ng-repeat="item in gallery">
+      <div class="card signup-card">
+        <p>the item in gallery</p>
+        <img id="card-img-top" src="{{item.url}}">
+        <div class="card-block">
+          <button align="center" href="#"
+                  ng-click="vm.updateImg(profile, item.url)"
+                  class="btn btn-primary">Make Profile Photo
+          </button>
+          <button align="center" ng-click="vm.updateCover(profile, item.url)"
+                  href="#" class="btn btn-primary">Make Cover Photo
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

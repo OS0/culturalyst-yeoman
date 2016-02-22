@@ -1,26 +1,25 @@
 angular.module('culturalystApp')
-  .controller('ConnectCtrl', ['$scope', '$http', '$location', 'stripe', function ($scope, $http, $location, stripe) {
+  .controller('ConnectCtrl', ['$scope', '$http', '$location', 'stripe', function($scope, $http, $location, stripe) {
 
     var artistId = $location.path().split('/').pop();
 
-
-    $scope.register = function(){
+    $scope.register = function() {
       //TODO: Add bank acct Validation
       //Add ability to update account
-      console.log($scope.country,$scope.route,$scope.acct)
+      console.log($scope.country, $scope.route, $scope.acct);
       $http({
         method: 'GET',
         url: '/api/users/me'
-      }).then(function(res){
-        console.log('res: ',res)
+      }).then(function(res) {
+        console.log('res: ', res);
         //creates a bank acct token
         stripe.bankAccount.createToken({
           country: $scope.country,
           routing_number: $scope.route,
           account_number: $scope.acct
-        }).then(function(acct){
-          console.log('registering bruh')
-          console.log('banking: ',acct)
+        }).then(function(acct) {
+          console.log('registering bruh');
+          console.log('banking: ', acct);
           //send data to server
           $http({
             method: 'PUT',
@@ -56,13 +55,6 @@ angular.module('culturalystApp')
             }
           })
         })
-
       })
-
-
-
     };
-
-
-
   }]);
