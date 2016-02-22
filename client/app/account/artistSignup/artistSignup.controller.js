@@ -85,7 +85,7 @@ class ArtistSignupController {
       context.$http.get('api/rewards/myRewards/' + user._id)
       .then(function(res) {
         context.$scope.rewards = res.data;
-        console.log(context.$scope.rewards);
+        //console.log(context.$scope.rewards);
       })
     })
   }

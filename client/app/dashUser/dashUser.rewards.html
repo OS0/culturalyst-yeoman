@@ -5,12 +5,15 @@
       <h3 class="panel-title"></h3>
     </div>
     <div class="panel-body container-fluid">
-      <div class="card card-main" ng-repeat="reward in rewards" style="width: 300px">
+      <div class="card card-main" ng-repeat="reward in rewards"
+           style="width: 300px">
         <div style="height: 100px">
-          <img class="profilePic profile-main" style="position: relative; top: 60px" src="{{reward.picUrl}}"/>
+          <img class="profilePic profile-main"
+               style="position: relative; top: 60px" src="{{reward.picUrl}}"/>
           <div class="profileName">
             <h3 class='name-main'> {{reward.name}}</h3>
-            <p class='medium-main'> {{reward.title}} | {{reward.amount | currency}}</p>
+            <p class='medium-main'> {{reward.title}} | {{reward.amount |
+              currency}}</p>
           </div>
         </div>
       </div>

@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('culturalystApp')
-  .controller('DashUserCtrl', function ($scope, $log, $location, Auth, $http, $state) {
+  .controller('DashUserCtrl', function($scope, $log, $location, Auth, $http, $state) {
     $scope.me;
     $scope.rewards;
     $http.get('/api/users/me').then(function(res) {
@@ -13,6 +13,7 @@ angular.module('culturalystApp')
         $state.go('dashUser.profile');
       }
     });
+
     // $scope.mediums = {
     //   music: false,
     //   writing: false,
@@ -29,15 +30,15 @@ angular.module('culturalystApp')
     // };
 
     // $scope.toggleMedium = function(medium) {
-    //   $scope.mediums[medium] = $scope.mediums[medium] === false ? true : false;
-    // };
+    //   $scope.mediums[medium] = $scope.mediums[medium] === false ? true :
+    // false; };
 
     $scope.showMyRewards = function() {
-    $http.get('/api/rewards/' + $scope.me._id + "/showMyRewards")
-      .then(function(rewards) {
-        console.log(rewards.data);
-        $scope.rewards = rewards.data;
-      })
+      $http.get('/api/rewards/' + $scope.me._id + "/showMyRewards")
+        .then(function(rewards) {
+          //console.log(rewards.data);
+          $scope.rewards = rewards.data;
+        })
     };
 
     $scope.isArtist = Auth.isArtist;

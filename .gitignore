@@ -13,13 +13,13 @@ dist.sqlite
 
 # Compiled Code
 dist
+.tmp
 
 # Production Auth. Secrets
 /server/config/local.env.js
 
 # Dot files
 .DS_Store
-.tmp
 
 ### Covers Sublime Test
 

@@ -5,6 +5,7 @@ angular.module('culturalystApp')
     return {
       templateUrl: 'components/uploadContent/uploadContent.html',
       restrict: 'E',
-      controller:'UploadCtrl'
+      controller:'UploadController',
+      controllerAs: 'vm'
     };
   });
