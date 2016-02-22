@@ -1,171 +1,148 @@
 'use strict';
 
-angular.module('culturalystApp')
-  .controller('UploadCtrl', ['$scope', '$rootScope', '$location', 'Upload', '$http',
-    /* Uploading with Angular File Upload */
-    function($scope, $rootScope, $location, $upload, $http) {
-      var d = new Date();
-      $scope.artistId;
-      $scope.gallery;
-      $scope.coverId;
+class UploadController {
+  constructor(Auth, Upload, $scope, $rootScope, $location, $http, $log) {
+    // Auth
+    this.isLoggedIn = Auth.isLoggedIn;
+    this.isAdmin = Auth.isAdmin;
+    this.getCurrentUser = Auth.getCurrentUser;
+    this.isArtist = Auth.isArtist;
+    // Services
+    this.Upload = Upload;
+    this.$scope = $scope;
+    this.$rootScope = $rootScope;
+    this.$location = $location;
+    this.$http = $http;
+    this.$log = $log;
+    // Variables
+    this.date = new Date();
+    // Scope name spacing
+    this.$scope.title = "Image (" + this.date.getDate() + " - " + this.date.getHours() + ":" + this.date.getMinutes() + ":" + this.date.getSeconds() + ")";
+  }
 
-      $scope.title = "Image (" + d.getDate() + " - " + d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds() + ")";
-      //$scope.$watch('files', function() {
-      $scope.uploadFiles = function(files) {
-        $scope.files = files;
-        if (!$scope.files) {
-          return;
-        }
-        angular.forEach(files, function(file) {
-          if (file && !file.$error) {
-            file.upload = $upload.upload({
-              url: "https://api.cloudinary.com/v1_1/" + $.cloudinary.config().cloud_name + "/upload",
-              fields: {
-                upload_preset: $.cloudinary.config().upload_preset,
-                tags: 'myphotoalbum',
-                context: 'photo=' + $scope.title
-              },
-              file: file
-            }).progress(function(e) {
-              file.progress = Math.round((e.loaded * 100.0) / e.total);
-              file.status = "Uploading... " + file.progress + "%";
-            }).success(function(data, status, headers, config) {
-              $rootScope.photos = $rootScope.photos || [];
-              data.context = {custom: {photo: $scope.title}};
-              file.result = data;
-              $rootScope.photos.push(data);
-              console.log(data);
-              $scope.saveContent(data.secure_url);
-            }).error(function(data, status, headers, config) {
-              file.result = data;
-            });
-          }
-        });
-      };
-      // });
+  //Static Methods: FIXME: Don't make static
+  cloudinaryConfig() {
+    return {
+      cloud_name: 'culturalyst',
+      upload_preset: 'lebxtfjo',
+      api_key: '521965896796486'
+    };
+  };
 
-      $scope.saveContent = function(url) {
-        $http.post('/api/content/' + $scope.artistId, {
-          url: url,
-          type: 'profile'
-        }).then(function(response) {
-          $scope.coverId = response.data._id;
-          $scope.gallery.push(response.data);
-          console.log(response.data);
-        })
-      };
-
-      $scope.updateImg = function(imgType, url) {
-        $http.put('/api/users/' + $scope.artistId + '/updateArtistContent', {url: url}).then(function() {
-          $scope.message = "Profile Picture Updated";
-          console.log($scope.message);
-        })
-      };
-
-      $scope.updateCover = function(imgType, url) {
-        $http.put('/api/users/' + $scope.artistId + '/updateArtistCover', {url: url}).then(function() {
-          $scope.message = "Cover Photo Updated";
-          console.log($scope.message);
-        })
-      };
-
-      $scope.saveCover = function(imgType) {
-        $http.put('/api/content/' + $scope.coverId, {type: imgType}).then(function(response) {
-          console.log(response);
-        })
-      };
-
-
-      $scope.getArtistCovers = function() {
-        console.log('this fired');
-        console.log($scope.artistId);
-        $http.get('/api/content/' + $scope.artistId + '/getAllContent').then(function(response) {
-          $scope.gallery = response.data
-        })
-      };
-
-
-      $scope.getArtistID = function() {
-        $http.get('/api/users/me')
-          .then(function(response) {
-            $scope.me = response.data;
-            $scope.artistId = response.data._id
-            console.log($scope.me);
-            console.log($scope.artistId);
-            $scope.getArtistCovers();
-          })
-      };
-
-
-      /* Modify the look and fill of the dropzone when files are being dragged over it */
-      $scope.dragOverClass = function($event) {
-        var items = $event.dataTransfer.items;
-        var hasFile = false;
-        if (items != null) {
-          for (var i = 0; i < items.length; i++) {
-            if (items[i].kind == 'file') {
-              hasFile = true;
-              break;
-            }
-          }
-        } else {
+  dragOverClass($event) {
+    var items = $event.dataTransfer.items;
+    var hasFile = false;
+    if (items != null) {
+      for (var i = 0; i < items.length; i++) {
+        if (items[i].kind == 'file') {
           hasFile = true;
+          break;
         }
-        return hasFile ? "dragover" : "dragover-err";
-      };
+      }
+    } else {
+      hasFile = true;
+    }
+    return hasFile ? "dragover" : "dragover-err";
+  };
 
-    }]);
+  // Getters
+  getArtistID() {
+    this.$http.get('/api/users/me')
+      .then(res => {
+        this.$scope.me = res.data;
+        this.$scope.artistId = res.data._id;
+        getArtistCovers();
+      });
+  }
 
+  getArtistCovers() {
+    this.$http.get('/api/content/' + this.$scope.artistId + '/getAllContent')
+      .then(res => {
+        this.$log.info('ln:72 Checking res: ', res);
+        this.$log.info('ln:73 Checking res.data: ', res.data);
+        this.$scope.gallery = this.$scope.gallery || [];
+        this.$scope.gallery.push(res.data);
+      });
+  };
 
-//   .controller('UploadCtrl', ['$scope', 'Upload', '$timeout', '$http',
-// '$location', function ($scope, Upload, $timeout, $http, $location) {
-// $scope.$watch('files', function () { $scope.upload($scope.files); });
-// $scope.$watch('file', function () { if ($scope.file != null) { $scope.files
-// = [$scope.file]; } });
+  // Setters
+  saveCover(imgType) {
+    this.$http.put('/api/content/' + this.$scope.coverId, {type: imgType})
+      .then((res)=> {
+        //this.$log.info(res);
+      });
+  };
 
-//     $scope.artistId;
+  saveContent(url) {
+    this.$http.post('/api/content/' + this.$scope.artistId, {
+        url: url,
+        type: 'profile'
+      })
+      .then((res) => {
+        this.$scope.coverId = res.data._id;
+        this.$log.info('ln:94 Checking scope.gallery: ', this.$scope.gallery);
+        this.$scope.gallery = this.$scope.gallery || [];
+        this.$log.info('ln:96 Checking scope.gallery again: ', this.$scope.gallery);
+        this.$scope.gallery.push(res.data);
+        this.$log.info('ln:98 Checking scope.gallery one more time: ', this.$scope.gallery);
+        //this.$log.info(res.data);
+      });
+  };
 
-//     $scope.log ='';
+  updateImg(imgType, url) {
+    this.$http.put('/api/users/' + this.$scope.artistId + '/updateArtistContent', {url: url})
+      .then(() => {
+        this.$scope.message = "Profile Picture Updated";
+        //this.$log.info(this.$scope.message);
+      });
+  };
 
-//     $scope.getArtistID = function(){
-//         $http.get('/api/users/me').then(function(response) {
-//         $scope.me = response.data;
-//         $scope.artistId = response.data._id
-//         console.log($scope.me);
-//         console.log($scope.artistId);
-//       })
-//     };
+  updateCover(imgType, url) {
+    this.$http.put('/api/users/' + this.$scope.artistId + '/updateArtistCover', {url: url})
+      .then(()=> {
+        this.$scope.message = "Cover Photo Updated";
+        //this.$log.info(this.$scope.message);
+      })
+  };
 
-//     $scope.saveContent = function(imgName){
-//         $http.post('/api/content/' + $scope.artistId + '/' + imgName, {name:
-// imgName}).then(function(response){ console.log(response.data); }) };
+  // Upload file
+  uploadFiles(files) {
+    this.$scope.files = files;
+    if (!this.$scope.files) {
+      return;
+    }
+    let context = this;
+    files.forEach((file) => {
+      this.$log.info('ln:127 Checking file', file);
+      if (file && !file.$error) {
+        //console.log($.cloudinary);
+        //this.$log.warn("gama", context.cloudinaryConfig);
+        file.upload = this.Upload.upload({
+          url: "https://api.cloudinary.com/v1_1/" + this.cloudinaryConfig().cloud_name + "/upload",
+          fields: {
+            upload_preset: this.cloudinaryConfig().upload_preset,
+            tags: 'myphotoalbum',
+            context: 'photo=' + this.$scope.title
+          },
+          file: file
+        }).progress((e) => {
+          this.$log.info('ln:140 Checking event', e);
+          file.progress = Math.round((e.loaded * 100.0) / e.total);
+          file.status = "Uploading... " + file.progress + "%";
+        }).success((data, status, headers, config) => {
+          this.$rootScope.photos = this.$rootScope.photos || [];
+          data.context = {custom: {photo: this.$scope.title}};
+          file.result = data;
+          this.$rootScope.photos.push(data);
+          //console.log(data);
+          this.saveContent(data.secure_url);
+        }).error((data, status, headers, config) => {
+          file.result = data;
+        });
+      }
+    });
+  }
+}
 
-//     $scope.test = function(){
-//         console.log('this fired');
-//     }
-
-//     $scope.upload = function (files) {
-//         if (files && files.length) {
-//             for (var i = 0; i < files.length; i++) {
-//               var file = files[i];
-//               if (!file.$error) {
-//                 Upload.upload({
-//                     url:
-// 'https://angular-file-upload-cors-srv.appspot.com/upload', data: { username:
-// $scope.username, file: file } }).progress(function (evt) { var
-// progressPercentage = parseInt(100.0 * evt.loaded / evt.total); $scope.log =
-// 'progress: ' + progressPercentage + '% ' + evt.config.data.file.name + '\n'
-// + $scope.log; }).success(function (data, status, headers, config) {
-// console.log('This data: ', data); var imgName = data.result[0].name;
-// console.log(imgName); $scope.saveContent(imgName); $timeout(function() {
-// $scope.log = 'file: ' + config.data.file.name + ', Response: ' +
-// JSON.stringify(data) + '\n' + $scope.log; }); }); } } } };
-
-// }]);
-
-// $scope.getArtistProfile = function() {
-//   $http.get('/api/users/artist/' + artistId).then(function(response) {
-//     $scope.artist = response.data;
-//     console.log(response.data);
-//   })
-// };
+angular.module('culturalystApp')
+  .controller('UploadController', UploadController);
