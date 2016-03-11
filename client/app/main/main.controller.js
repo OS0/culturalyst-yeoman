@@ -24,10 +24,10 @@ class MainController {
         picUrl: 'vic.png'
       },{
         _id: 3,
-        name: 'Lillian Grass',
-        medium: 'Dance',
-        submedium: 'Hip-hop',
-        img:'cover_photo_5.png',
+        name: 'Steve Glass',
+        medium: 'Photography',
+        submedium: 'Aerial',
+        img:'cover_photo_7.png',
         picUrl: 'bk.png'
       },{
         _id: 4,
@@ -48,7 +48,7 @@ class MainController {
         name: 'Vivangelo',
         medium: 'Art',
         submedium: 'Lace Work',
-        img:'cover_photo_6.png',
+        img:'cover_photo_8.png',
         picUrl: 'mykia.png'
     }];
 

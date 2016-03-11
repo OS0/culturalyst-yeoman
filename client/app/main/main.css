@@ -20,7 +20,9 @@ body {
 }
 
 .navbar-default{
-  background-color:#FFE3EB !important;
+  background-color:white!important;
+  height: 50px;
+  font-size: 19px;
 }
 .card {
   /*margin: 2rem auto;*/
@@ -120,6 +122,20 @@ body {
   height:400px !important;
 }
 
+.jumbotron-garden {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  margin-bottom: 0;
+  background-color: #FFF0F5;
+  height:400px !important;
+}
+
+.jumbotron-garden .jumbotron-heading{
+    font-weight: 300;
+  font-family: 'Abel';
+  padding-bottom: 25px;
+}
+
 #main-background{
   background-color: #fffcee;
 }
@@ -135,20 +151,21 @@ body {
 .jumbotron-heading {
   font-weight: 300;
   font-family: 'Abel';
+  padding-bottom: 25px;
 }
 
 .jumbotron .container {
   max-width: 90rem;
 }
 
-/*.medium-buttons > a:hover {
-  background-color: #209 !important;
-}*/
+.medium-buttons a {
+  font-size: 19px;
+}
 .hvr-shrink {
   border: none;
 }
 .btn-1 {
-  background-color: #ffd100;
+  background-color: #6A5ACD;
 }
 .btn-8{
   background-color: #e91e63;
