@@ -23,7 +23,7 @@
                   <div class="medium-filters" align="center">
                     <div class="row form-inline" align="center">
                       <div class="col-xs-6">
-                        <select class="form-control-medium" ng-model="medium" ng-options="medium as medium.name for medium in mediaList" ng-change="loadSubMediums(medium); getArtists()" ng-selected="medium" style="width:400px">
+                        <select class="form-control-medium" ng-model="medium" ng-options="medium as medium.name for medium in mediaList" ng-change="loadSubMediums(medium); getArtists()" ng-selected="medium">
                           <option value="" selected disabled>Medium</option>        
                         </select>
                       </div>
@@ -40,7 +40,7 @@
 
 
 
-                  <button data-toggle="collapse" class="btn btn-info" data-target="#filter-group">Filters</button>
+                  <button align="left" data-toggle="collapse" class="btn btn-info" data-target="#filter-group">Filters</button>
                   <div id="filter-group" class="collapse" align="center">
                       <div class="col-xs-3">
                         <select class="form-control" ng-model="selectedAge" ng-options="age as age.age for age in ageList">
@@ -107,4 +107,4 @@
   </div>
 </div>
 
-<footer></footer>
+<!-- <footer></footer> -->

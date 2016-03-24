@@ -125,7 +125,7 @@
 
 .card {
   float: left;
-  width: 33.333%;
+  width: 359px;
   padding: .75rem;
   margin-bottom: 2rem;
   border: 0;
@@ -277,6 +277,7 @@ footer p {
 
 .form-control-medium{
   font-size: 30px;
+  width: 400px;
 }
 
 /*CSS for Filters*/
@@ -292,6 +293,18 @@ footer p {
 .container-fluid{
   padding-right: 0px !important;
   padding-left: 0px !important;
+}
+
+@media (max-width: 960px) {
+  .form-control-medium{
+    width: 150px !important;
+  }
+
+  .card {
+    width: 290px !important;
+    padding: 7px !important;
+    text-align: center;
+  }
 }
 
 
