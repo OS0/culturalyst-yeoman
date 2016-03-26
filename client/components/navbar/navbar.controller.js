@@ -6,8 +6,8 @@ class NavbarController {
     'title': 'Home',
     'state': 'main'
   }, {
-    'title':'Discovery',
-    'state':'discovery'
+    'title': 'Discovery',
+    'state': 'discovery'
   }
   ];
 
@@ -15,15 +15,16 @@ class NavbarController {
   //end-non-standard
 
 
-  constructor(Auth) {
+  constructor(Auth, $log) {
     this.isLoggedIn = Auth.isLoggedIn;
     this.isAdmin = Auth.isAdmin;
     this.getCurrentUser = Auth.getCurrentUser;
     this.isArtist = Auth.isArtist;
+    this.$log = $log;
   }
 
   isNotArtist() {
-    if ( this.isLoggedIn() && !(this.isArtist()) ) {
+    if (this.isLoggedIn() && !(this.isArtist())) {
       return true;
     }
   }
