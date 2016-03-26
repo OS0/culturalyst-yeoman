@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('culturalystApp')
-  .controller('ArtistCtrl', ['$scope', '$rootScope','$location', 'Upload', '$http', 'Auth', '$sce', '$state',
+  .controller('ArtistCtrl', ['$scope', '$rootScope','$location', 'Upload', '$http', 'Auth', '$sce','$state',
     function($scope, $rootScope, $location, $upload, $http, Auth, $sce, $state) {
 
       $state.go('artist.bio');
@@ -38,6 +38,13 @@ angular.module('culturalystApp')
     //   $scope.getRewards();
     // });
 
+    $(function() { 
+
+    $("#main-content > .row").niceScroll();
+
+    }
+
+    );
 
     $http.get('/api/users/' + $scope.artistId)
         .then(function(res) {
@@ -162,6 +169,7 @@ angular.module('culturalystApp')
       //   }
       // });
     };
+
 
     // carasole
       $scope.myInterval = 5000;

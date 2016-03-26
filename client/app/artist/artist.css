@@ -145,3 +145,66 @@ a{
   width: 40px !important;
   border-radius: 50% !important;
 }
+
+
+form.tab-form-demo .tab-pane {
+    margin: 20px 20px;
+  }
+
+.container {
+width:100%;
+}
+
+
+#main-content{
+     min-height: 100%;
+    height: auto; 
+   
+}
+#main-content > .row {
+ overflow-x:scroll;
+     overflow-y:hidden;
+    white-space:nowrap;
+}    
+#main-content > .row [class*="col-lg"], #main-content > .row [class*="col-md"], #main-content > .row [class*="col-sm"] {
+    float:none;
+    display:inline-block;
+}
+@media (max-width: 960px) {
+  .profileImg {
+    height: 65px;
+    border-radius:50%;
+    border:2px blue;
+    padding-top:2px;
+    vertical-align: center;
+    margin-top: 7px;
+  }
+
+  #artistInfo h1{
+    font-size: 20px !important;
+  }
+
+   #artistInfo p{
+    font-size: 15px !important;
+  }
+
+  .artistNav {
+    height: 145px;
+    margin-top: 6px;
+  }
+
+  .catalyzeBtn{
+    width:88px;
+    height: 42px;
+    margin-right: 2px;
+  }
+
+  #artist-jumbo {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50%;
+    height: 425px !important;
+    min-height: 12rem;
+    width: 100%;
+  }
+}

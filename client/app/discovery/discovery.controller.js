@@ -3,8 +3,6 @@
 angular.module('culturalystApp')
 .controller('DiscoveryCtrl', function($scope, MediaList, $http, $location){
   $scope.mediaList = MediaList.getMediaList();
-  console.log('hi')
-  console.log($scope.artists)
 
     $scope.ageList = [
       {"age": "age-18"},
@@ -45,16 +43,17 @@ angular.module('culturalystApp')
     }
 
     $scope.loadSubMediums = function(medium){
-      console.log(medium.name)
       $scope.selectedMedium = medium.name;
       $scope.submedia = medium.submedia;
     };
 
+    //Note: populatePage = fn for when user clicks on medium button
+    //TODO: Have value of dropdown become pageMedium
     $scope.populatePage = function() {
       $scope.pageMedium = $location.path().split('/').pop();
       $http.get('/api/users/discovery/' + $scope.pageMedium + '/undefined' ).then(function(response) {
+        // $('#mediaID').val('Music').change();
         $scope.artists = response.data;
-        console.log($scope.pageMedium, 'populatePage');
       })
     }
     $scope.populatePage()

@@ -33,6 +33,7 @@ body {
   padding:10px;
  	content: center;
  	border-radius: 5px;
+  text-align: center;
 }
 
 .wrapper {
@@ -59,6 +60,7 @@ body {
  	overflow-y:hidden;*/
   height: 400px;
   white-space:nowrap;
+  padding-left: 35px;
 }
 
 .card-title {

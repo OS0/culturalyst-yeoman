@@ -54,6 +54,7 @@ class MainController {
 
 
   }
+  //TODO: Unclear what this fn is supposed to do
   getFeatured() {
     let context = this;
     console.log('something from rascle');

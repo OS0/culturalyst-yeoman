@@ -24,22 +24,18 @@
                     <div class="row form-inline" align="center">
                       <div class="col-xs-6">
                         <select class="form-control-medium" ng-model="medium" ng-options="medium as medium.name for medium in mediaList" ng-change="loadSubMediums(medium); getArtists()" ng-selected="medium">
-                          <option value="" selected disabled>Medium</option>        
+                          <option id="mediaID" value="">Medium</option>        
                         </select>
                       </div>
                       <div class="col-xs-6">
-                        <select class="form-control-medium" ng-model="selectedSubmedium" ng-options="submedium for submedium in submedia" ng-change="getArtists()" ng-change="getFaces()" style="width:400px">
+                        <select class="form-control-medium" ng-model="selectedSubmedium" ng-options="submedium for submedium in submedia" ng-change="getArtists()" style="width:400px">
                           <option value="" selected disabled>Genre</option>        
                         </select>
                       </div>
                     </div>
                   </div>
 
-    
-
-
-
-
+  
                   <button align="left" data-toggle="collapse" class="btn btn-info" data-target="#filter-group">Filters</button>
                   <div id="filter-group" class="collapse" align="center">
                       <div class="col-xs-3">
