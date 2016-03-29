@@ -84,13 +84,17 @@ exports.show = function(req, res) {
 exports.create = function(req, res) {
   console.log('Were inside create...')
   var id = req.params.id;
+  var date = new Date();
+  var n = date.toDateString();
+  var time = date.toLocaleTimeString();
   // console.log(req.body);
   Content.create({
     name: req.body.name,
     user_id: id,
     url:req.body.url,
     info: req.body.info,
-    type: req.body.type
+    type: req.body.type,
+    timestamp: n + ' ' + time,
   })
     .then(responseWithResult(res, 201))
     .catch(handleError(res));
@@ -139,6 +143,9 @@ exports.showResults = function(req, res, next) {
         console.log('No content');
         res.status(444).end();
       }
+      var time = content.timestamp;
+      console.log(content);
+      console.log(time);
       res.json(content);
     })
     .catch(function(err) {

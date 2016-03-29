@@ -18,6 +18,12 @@ body {
   /*font-family: 'Raleway';*/
   font-family: 'Abel';
 }
+
+.navbar-default{
+  background-color:white!important;
+  height: 50px;
+  font-size: 19px;
+}
 .card {
   /*margin: 2rem auto;*/
   background-color: white;
@@ -27,6 +33,7 @@ body {
   padding:10px;
  	content: center;
  	border-radius: 5px;
+  text-align: center;
 }
 
 .wrapper {
@@ -53,7 +60,7 @@ body {
  	overflow-y:hidden;*/
   height: 400px;
   white-space:nowrap;
-  margin-left: 210px;
+  padding-left: 35px;
 }
 
 .card-title {
@@ -108,38 +115,63 @@ body {
   color: #fff;
 }*/
 
-.jumbotron {
+.Discover_jumbo {
   padding-top: 3rem;
   padding-bottom: 3rem;
   margin-bottom: 0;
-  background-color: #fff;
+  background-color: #E0FFFF;
   height:400px !important;
+}
+
+.Garden_jumbo {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  margin-bottom: 0;
+  background-color: #FFF0F5;
+  height:400px !important;
+}
+
+.Garden_jumbo  .jumbotron-heading{
+    font-weight: 300;
+  font-family: 'Abel';
+  padding-bottom: 25px;
+}
+
+#main-background{
+  background-color: #fffcee;
 }
 .big-header {
   height: 275px;
   margin-top: 30px;
 }
 
-.jumbotron p:last-child {
+.Discover_jumbo p:last-child {
   margin-bottom: 0;
 }
 
 .jumbotron-heading {
   font-weight: 300;
+  font-family: 'Abel';
+  padding-bottom: 25px;
 }
 
-.jumbotron .container {
+.Discover_jumbo .container {
   max-width: 90rem;
 }
 
-/*.medium-buttons > a:hover {
-  background-color: #209 !important;
-}*/
+.medium-buttons a {
+  font-size: 19px;
+}
+
+.medium-buttons {
+  text-align: center;
+}
+
 .hvr-shrink {
   border: none;
 }
 .btn-1 {
-  background-color: #ffd100;
+  background-color: #6A5ACD;
 }
 .btn-8{
   background-color: #e91e63;
@@ -179,7 +211,35 @@ body {
   background: #209 !important;
 }
 
+.btn-garden1 {
+  background-color: white;
+  width: 150px;
+  height:150px;
+  font-size: 20px;
+  line-height: 135px;
+  text-align: center;
+  padding-bottom: 10px 16px;
+    border-radius: 75px;
+  margin: 30px;
+  margin-top: 40px
+}
 
+.btn-garden1 img{
+  font-size: 20px;
+}
+
+.btn-garden2 {
+  background-color: black;
+  width: 150px;
+  height:150px;
+  font-size: 20px;
+  line-height: 135px;
+  text-align: center;
+  padding-bottom: 10px 16px;
+    border-radius: 75px;
+  margin: 30px;
+  margin-top: 40px
+}
 
 /*.album {
   padding-top: 3rem;
@@ -340,6 +400,15 @@ right: 0;
 background-color: rgba(33,154,200,0.75);
 }
 /* MEDIA QUERIES */
+
+
+
+@media (max-width: 960px) {
+  .jumbrotron {
+    height: 800px !important;
+  }
+}
+
 @media screen and (max-width: 550px) {
     .carousel-tagline {
         display: none;
@@ -364,6 +433,9 @@ background-color: rgba(33,154,200,0.75);
 @media screen and (max-width: 961px) {
     .carousel-tagline {
         /*display: none;*/
+    }
+    .jumbotron {
+      height: 800px;
     }
 }
 

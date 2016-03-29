@@ -42,6 +42,8 @@ class ArtistSignupController {
           bio: context.$scope.bio,
           medium: context.$scope.selectedMedium,
           submedium: context.$scope.selectedSubmedium,
+          vid_bio: context.$scope.vid_bio,
+          short_bio:context.$scope.short_bio,
           age: context.$scope.age,
           natives: context.$scope.natives,
           org: context.$scope.org,

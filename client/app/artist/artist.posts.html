@@ -1,22 +1,11 @@
 <div class="postBod">
   <div class="container">
     <div class="row">
-<!--       <div class="col-md-1">
-        <img src="http://placehold.it/40x40">
-      </div>
-      <div class="col-md-2">
-        <div class="userInfoPost">
-          <span>Uhlawn</span>
-        </div>
-        <div class="messagePost">
-          <p>
-            Thank God for Culturalyst!
-          </p>
-        </div> -->
+
         <div class="col-lg-6">
-            <div class="modal-dialog" ng-repeat="post in posts | limitTo: 10 | orderBy: created">
+            <div class="modal-dialog" ng-repeat="post in posts | limitTo: 10 | orderBy: timestamp">
 <!--               <div class="modal-content">
- -->                    <div class="card">
+ -->                 <div class="card">
                       <!-- <img class="card-img-top" src="{{post.url}}"/> -->
                       <div class='col-sm-4' style="width: 25%">
                         <img class="profilePicSm" src="{{artist.picUrl}}"/>
@@ -24,20 +13,13 @@
                       <div class='col-sm-4'style="width: 75%">
                         <!-- <img class="profilePicSm" src="{{artist.picUrl}}"/> -->
                         <p>{{artist.name}}: {{post.info}}</p>
+                        <p class="dateTime">{{post.timestamp}}</p>
                       </div>
-                      
-
-                    </div>
-<!--                     <div class="col-md-3">
-                      <span>{{artist.name}}</span>
-                      <span>{{post.created}}</span>
-                      <p>{{post.info}}</p>
-                    </div> -->
-
-<!--               </div>
- -->            </div>
+              </div>
+          </div>
         </div>
-        <div class="col-lg-6" ng-show="checkIfArtist()">
+
+        <div class="col-lg-6">
           <div class="modal-dialog col-md-3">
           <div class="modal-content">
               <div class="modal-header">
@@ -53,86 +35,11 @@
               <div class="modal-footer">
                   <div>
                   <button class="btn btn-primary btn-sm" data-dismiss="modal" aria-hidden="true" ng-click="saveContent(post)">Post</button>
-                    <ul class="pull-left list-inline">
-                    <!-- <li><a ngf-select="uploadFiles($files)"><i class="glyphicon glyphicon-upload"></i></a> -->
-  <!--                     <div class="upload_button_holder">
-                          <div href="#" class="upload_button"  multiple title="upload" resetOnClick="true" >Upload</div>
-                      </div> -->
-                    </li>
-<!--                     <li><a href=""><i class="glyphicon glyphicon-camera"></i></a></li> -->
-                    </ul>
                 </div>
               </div>
             </div>
           </div>
         </div>
-
-
-
-
-
-
-        
-      </div>
-    </div>
   </div>
 </div>
-<!-- 
-<div class="postBod">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-1">
-        <img src="http://placehold.it/40x40">
-      </div>
-      <div class="col-md-2">
-        <div class="userInfoPost">
-          <span>Uhlawn</span>
-        </div>
-        <div class="messagePost">
-          <p>
-            
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-</div> -->
-<!-- <div class="postBod">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-1">
-        <img src="http://placehold.it/40x40">
-      </div>
-      <div class="col-md-2">
-        <div class="userInfoPost">
-          <span>Uhlawn</span>
-        </div>
-        <div class="messagePost">
-          <p>
-            Thank God for Culturalyst!
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-</div> -->
 
-<!-- <div class="postBod">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-1">
-        <img src="http://placehold.it/40x40">
-      </div>
-      <div class="col-md-2">
-        <div class="userInfoPost">
-          <span>Uhlawn</span>
-        </div>
-        <div class="messagePost">
-          <p>
-            Thank God for Culturalyst!
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-</div> -->

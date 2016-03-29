@@ -43,10 +43,13 @@ module.exports = function(sequelize, DataTypes) {
     //Medium and Submedium will be removed on join table connections
     medium: DataTypes.STRING,
     submedium: DataTypes.STRING,
-    earned: DataTypes.STRING,
+    earned: {
+      type: DataTypes.INTEGER,
+      defaultValue: 0
+    },
     budget: DataTypes.DECIMAL,
     supporters: {
-      type: DataTypes.STRING,
+      type: DataTypes.INTEGER,
       defaultValue: 0
     },
     short_bio:DataTypes.TEXT,

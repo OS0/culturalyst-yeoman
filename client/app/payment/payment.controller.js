@@ -1,19 +1,51 @@
 'use strict';
 
 angular.module('culturalystApp')
-  .controller('PaymentCtrl', function ($scope, $location, stripe, $http) {
-    var artistId = $location.path().split('/').pop();
+  .controller('PaymentCtrl', function ($scope, $location, stripe, $http, Auth) {
+    $scope.artistId = $location.path().split('/').pop();
     $scope.form = {};
     $scope.recurring = false;
+
+    //GET USER INFO
+    $http({
+      method:'GET',
+      url: '/api/users/me'
+    }).then(function(data){
+      $scope.user = data.data
+      console.log($scope.user);
+    });
 
     //GET ARTIST INFO
     $http({
       method: 'GET',
-      url: '/api/users/' + artistId
+      url: '/api/users/' + $scope.artistId
     }).then(function(data){
       console.log(data)
       $scope.artist = data.data
-    })
+    });
+
+    $http({
+      method: 'POST',
+      url: '/api/user_rewards/',
+      data: {
+        user_id: 1,
+        reward_id: 2,
+        amount: 3,
+        active: true,
+      }
+    }).then(function(data){
+      console.log(data)
+      console.log('this fired!')
+    });
+
+    $http({
+      method: 'GET',
+      url: '/api/user_rewards/'
+    }).then(function(data){
+      console.log(data)
+      console.log('this fired!')
+    });
+
 
     $scope.artist = {}
     // Payment
@@ -26,7 +58,7 @@ angular.module('culturalystApp')
           token: token.id,
           amount: $scope.amountToPay * 100,
           recurring: $scope.recurring,
-          _id: artistId
+          _id: $scope.artistId
         }
       })
     }
@@ -34,51 +66,46 @@ angular.module('culturalystApp')
     var checkout = StripeCheckout.configure({
         key: 'pk_test_fN4bxAyEBsyBxrDWpaOD4sHk',
         token: sendToken,
-        image: 'http://theredlist.com/media/database/muses/icon/cinematic_men/1980/bill-murray/002-bill-murray-theredlist.jpg',
         name: 'Culturalyst',
-        description: 'Catalyze Your Favorite Artists',
+        description: 'Catalyze Your Favorite Culture',
         billingAddress: true,
     });
 
-    $scope.submit = function(amount){
+    $scope.submit = function(amount, id){
       $scope.amountToPay = amount;
+      $scope.rewardID = id;
+      console.log('Amount:', $scope.amountToPay);
+      console.log('RewardID:', $scope.rewardID);
       checkout.open({
         amount: amount * 100
       })
+      $scope.addReward();
     }
     // Rewards
     $scope.getRewards = function(){
+      $http.get('api/rewards/myRewards/' + $scope.artistId).then(function(response){
+        console.log('rewards: ',response.data);
+        $scope.rewards = response.data;
+        console.log($scope.rewards);
+      });
+    };
+
+    //Send reward to User Rewards Table
+    $scope.addReward = function(){
       $http({
-        method: 'GET',
-        url: 'api/reward/myRewards/' + artistId
+        method: 'POST',
+        url: 'api/user_rewards/addUserReward/' + $scope.user._id,
+        data: {
+          user_id: $scope.user._id,
+          reward_id: $scope.rewardID,
+          amount: $scope.amountToPay
+        }
       }).then(function(data){
-        console.log('rewards: ',data)
-        $scope.rewards = data;
-      })
+      console.log('Reward was added to User');
+    });
     }
 
+    $scope.getRewards();
     //MOCK REWARD DATA
-    $scope.rewards = [
-      {
-        amount: 30,
-        title: 'Help A Brotha Out',
-        description: 'You will really be helping a brotha out with this one.'
-      },
-      {
-        amount: 50,
-        title: 'Help A Brotha Out',
-        description: 'You will really be helping a brotha out with this one.'
-      }
-    ]
-
-    // Rewards
-    $scope.getRewards = function(){
-      $http({
-        method: 'GET',
-        url: 'api/reward/myRewards/' + artistId
-      }).then(function(data){
-        console.log('rewards: ',data)
-        $scope.rewards = data;
-      })
-    }
   });
+

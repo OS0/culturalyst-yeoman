@@ -2,20 +2,23 @@
 
 <!--Nav-->
 <div class="artistNav" style="margin-top:-50px">
-<div class="mediaBar"></div>
+<!-- <div class="mediaBar"></div> -->
   <!--row-->
-  <div class="row">
+  <div class="artistRow">
     <!--1/3 column-->
-    <div class="col-lg-3 text-center" style="width: 25%">
+    <div class="col-lg-3 col-xs-6 text-center" style="width: 25%">
       <img class="profileImg" src="{{artist.picUrl}}"/>
     </div>
     <!--1/3 column-->
-    <div class="col-lg-3 text-center" style="width: 50%">
+    <div class="col-lg-3 col-xs-6 text-center" style="width: 50%">
+      <div id="artistInfo">
         <h1>{{artist.name}}</h1>
-        <p>{{artist.short}}</p>
+        <!-- <p>{{artist.short_bio}}</p> -->
+        <p>{{artist.medium}} <span>|</span id="medium_seperator"> <span>{{artist.submedium}}</span></p>  
+      </div>
     </div>
     <!--1/3 column-->
-    <div class="col-lg-3 text-center" style="width: 25%">
+    <div class="col-lg-3 col-xs-6 text-center" style="width: 25%">
       <div class="row socials" style="display: flex; flex-direction: row">
         <div ng-show="artist.facebook" class="social-icon">
           <a href="facebook.com">
@@ -45,51 +48,119 @@
       </div>
     <div class="actionButtons">
       <a href="/payment/{{artistId}}" class="catalyzeBtn btn btn-default btn-md">Catalyze</a>
-      <button class="followBtn btn btn-default btn-md">Follow</button>
-    </div>
+<!--       <button class="followBtn btn btn-default btn-md">Follow</button>
+ -->    </div>
     </div>
   </div>
 </div>
 
-<div class="jumbotron text-center artistBack" style="background-image:url('{{artist.img}}');" ng-init="getArtistContent()">
-  <div class="container">
-<!--     <img class="profileImg" src="{{artist.picUrl}}"/>
- -->    <h2>{{artist.name}}</h2>
-    <p>
-      {{artist.short}}
-    </p>
-   <!--  <a href="/payment/{{artist._id}}" class="btn btn-default btn-lg">Catalyze Me</a> -->
-
-  </div>
+<div id="artist-jumbo" class="jumbotron text-center artistBack" style="background-image:url('{{artist.img}}');" ng-init="getArtistContent()">
 </div>
 
 <div class="ContentNav ">
-  <!--row-->
-  <div class="row">
-    <!--1/3 column-->
-    <div class="col-lg-9" style="width: 75%">
+
+<!--   <div class="row">
+
+    <div class="col-lg-9 col-xs-6 " style="width: 75%">
       <div>
-        <h3 class="col-lg-4 text-center"><a ui-sref=".bio">Story</a></h3>
-        <h3 class="col-lg-4 text-center"><a ui-sref=".posts">Posts</a></h3>
-        <h3 class="col-lg-4 text-center"><a ui-sref=".catalysts">Catalysts</a></h3>
+        <h3 class="col-lg-4 col-xs-6 text-center"><a ui-sref=".bio">Story</a></h3>
+        <h3 class="col-lg-4  col-xs-6 text-center"><a ui-sref=".posts">Posts</a></h3>
+        <h3 class="col-lg-4 col-xs-6 text-center"><a ui-sref=".catalysts">Catalysts</a></h3>
       </div>
       <div ui-view></div>
     </div>
-    <!--1/3 column-->
-    <div class="col-lg-3 text-center" style="width: 25%">
-      <h3 class="text-center">Rewards</h3>
-        <div class="container">
-          <div class="row">
-            <div class="card card-block text-xs-center" ng-repeat="reward in rewards">
-              <h4 class="card-title">{{reward.title}}</h4>
-              <p class="card-text">{{reward.info}}</p>
-              <a href="#" class="btn btn-primary">Choose this reward</a>
+
+    <div class="col-lg-3  col-xs-6 text-center" style="width: 25%;">
+          <h3 class="text-center">Rewards</h3>
+          <div class="card card-block text-xs-center rewardCard"
+               ng-repeat="reward in rewards">
+            <h4 class="card-title">${{reward.amount}}</h4>
+            <h4 class="card-title">{{reward.title}}</h4>
+            <p class="card-reward">{{reward.description}}</p>
+            <a href="#" class="btn btn-primary" style="background-color: #9B30FF;">Choose
+              this reward</a>
+          </div>
+        </div>
+  </div> -->
+
+<!--   <div>
+    <ul>
+        <li><a href ng:click="selected=1">First</a></li>
+        <liclass=".col-xs-12 .col-sm-6 .col-lg-8"><a href ng:click="selected=2">Second</a></li>
+        <liclass=".col-xs-12 .col-sm-6 .col-lg-8"><a href ng:click="selected=3">Third</a></li>
+    </ul> -->
+
+
+<!--     <div ng:show="selected == 2">
+        This is second content...
+    </div>
+
+    <div ng:show="selected == 3">
+        This is third content...
+    </div> -->
+
+<!--   </div> -->
+
+      <div class="container" id="main-content">
+        <div class="row">
+            <div class="col-lg-3 col-md-4 col-xs-6">
+                <h1><a href ng:click="selected=2">About</a></h1>
             </div>
+            <div class="col-lg-3 col-md-4 col-xs-6">
+                <h1><a href ng:click="selected=1">Work</a></h1>
             </div>
+            <div class="col-lg-3 col-md-4 col-xs-6">
+                <h1><a href ng:click="selected=3">Journal</a></h1>
+            </div>
+            <div class="col-lg-3 col-md-4 col-xs-6">
+                <h1><a href ng:click="selected=4">Rewards</a></h1>
+            </div>
+        </div>
+    </div>
+
+
+    <div ng:show="selected == 1">
+      <div id="souncloud">
+     <!--  TODO: Add soundcloud drop in Artist signup process -->
+        <iframe width="80%" height="450" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/205759395&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true"></iframe>
+      </div>
+    </div>
+
+    <div ng:show="selected == 2">
+    <div class="card">
+      <h4 class="card-title">Story</h4>
+      <p class="card-text">{{artist.bio}}</p>
+    </div>
+<!-- 
+      <script src="https://www.youtube.com/iframe_api"></script>
+      <p>{{artist.bio}}</p>
+      <br><br><br>
+      <div align="center">
+        <h4>{{artist.name}}'s Introduction to Culturalyst</h4>
+        <br><br><br>
+      </div> -->
+    </div>
+
+    <div ng:show="selected == 3">
+    </div>
+
+    <div ng:show="selected == 4">
+          <h3 class="text-center">Rewards</h3>
+          <div class="card card-block text-xs-center rewardCard"
+               ng-repeat="reward in rewards">
+            <h4 class="card-title">${{reward.amount}}</h4>
+            <h4 class="card-title">{{reward.title}}</h4>
+            <p class="card-reward">{{reward.description}}</p>
+            <a href="/payment/{{artistId}}" class="btn btn-primary" style="background-color: #9B30FF;">Choose
+              this reward</a>
           </div>
     </div>
-  </div>
+
+
+
 </div>
+
+<!-- <footer></footer> -->
 
 
 

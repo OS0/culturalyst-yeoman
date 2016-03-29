@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('culturalystApp')
-  .controller('ArtistCtrl', ['$scope', '$rootScope','$location', 'Upload', '$http', 'Auth', '$sce', '$state',
+  .controller('ArtistCtrl', ['$scope', '$rootScope','$location', 'Upload', '$http', 'Auth', '$sce','$state',
     function($scope, $rootScope, $location, $upload, $http, Auth, $sce, $state) {
 
       $state.go('artist.bio');
@@ -9,7 +9,6 @@ angular.module('culturalystApp')
     $scope.artistId = $location.path().split('/').pop();
     $scope.posts = [];
     $scope.postId;
-    $scope.photo = false;
     $scope.rewards;
     $scope.slides;
     $scope.user = Auth.getCurrentUser()._id;
@@ -39,6 +38,13 @@ angular.module('culturalystApp')
     //   $scope.getRewards();
     // });
 
+    $(function() { 
+
+    $("#main-content > .row").niceScroll();
+
+    }
+
+    );
 
     $http.get('/api/users/' + $scope.artistId)
         .then(function(res) {
@@ -62,6 +68,7 @@ angular.module('culturalystApp')
     $http.get('/api/content/' + $scope.artistId).then(function(res) {
       console.log(res);
       $scope.content = res.data;
+      console.log($scope.content);
     });
 
 
@@ -121,16 +128,13 @@ angular.module('culturalystApp')
 
     $scope.getArtistCovers = function(){
       $http.get('/api/content/' + $scope.artistId +'/getCovers').then(function(response){
-        console.log('covers', response.data);
         $scope.slides = response.data;
       })
     };
 
     $scope.getRewards = function(){
       $http.get('api/rewards/myRewards/' + $scope.artistId).then(function(response){
-        console.log(response.data);
         $scope.rewards = response.data;
-        console.log($scope.rewards);
       });
     };
 
@@ -165,6 +169,7 @@ angular.module('culturalystApp')
       //   }
       // });
     };
+
 
     // carasole
       $scope.myInterval = 5000;

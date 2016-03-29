@@ -18,6 +18,7 @@ function onConnect(socket) {
   });
 
   // Insert sockets below
+  require('../api/user_reward/user_reward.socket').register(socket);
   require('../api/media/media.socket').register(socket);
 
 }

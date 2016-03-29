@@ -43,6 +43,7 @@
 }
 
 .bannerFont {
+  padding-top: 20px; 
   font-family: 'Abel' !important;
   color:white;
 }
@@ -55,6 +56,11 @@
   font-size: 60px;
   line-height: 1;
   letter-spacing: -1px;
+}
+
+#page-content-wrapper{
+  min-height: 800px;
+  padding: 0px !important;
 }
 
 .hero-unit {
@@ -119,7 +125,7 @@
 
 .card {
   float: left;
-  width: 33.333%;
+  width: 359px;
   padding: .75rem;
   margin-bottom: 2rem;
   border: 0;
@@ -260,3 +266,46 @@ footer p {
   -webkit-transform: translate3d(0,0,0);
   transform: translate3d(0,0,0);
 }
+
+/*CSS for mediums && submedium*/
+.medium-filters{
+  margin-top:60px;
+  margin-bottom: 50px;
+  font-size: 20px;
+
+}
+
+.form-control-medium{
+  font-size: 30px;
+  width: 400px;
+}
+
+/*CSS for Filters*/
+.filter-group {
+  background-color: white;
+  height: 60px;
+  padding: 10px;
+  width: 100%;
+  box-shadow: -2px 9px 42px 0px rgba(0,0,0,0.51);
+  opacity: 20%
+}
+
+.container-fluid{
+  padding-right: 0px !important;
+  padding-left: 0px !important;
+}
+
+@media (max-width: 960px) {
+  .form-control-medium{
+    width: 150px !important;
+  }
+
+  .card {
+    width: 290px !important;
+    padding: 7px !important;
+    text-align: center;
+  }
+}
+
+
+
