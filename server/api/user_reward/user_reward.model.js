@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = function(sequelize, DataTypes) {
-  return sequelize.define('UserRewards', {
+  return sequelize.define('UserReward', {
     _id: {
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -10,15 +10,15 @@ module.exports = function(sequelize, DataTypes) {
     },
     user_id: {
       type: DataTypes.INTEGER,
-      references: 'User',
+      references: 'Users',
       referencesKey: '_id'
     },
     reward_id: {
       type: DataTypes.INTEGER,
-      references: 'Reward',
+      references: 'Rewards',
       referencesKey: '_id'
     },
-    amount: DataTypes.DECIMAL,
+    amount: DataTypes.INTEGER,
     active: DataTypes.BOOLEAN
   });
 };

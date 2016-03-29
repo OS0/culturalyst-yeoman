@@ -2,12 +2,12 @@
 
 var proxyquire = require('proxyquire').noPreserveCache();
 
-var userRewardsCtrlStub = {
-  index: 'userRewardsCtrl.index',
-  show: 'userRewardsCtrl.show',
-  create: 'userRewardsCtrl.create',
-  update: 'userRewardsCtrl.update',
-  destroy: 'userRewardsCtrl.destroy'
+var userRewardCtrlStub = {
+  index: 'userRewardCtrl.index',
+  show: 'userRewardCtrl.show',
+  create: 'userRewardCtrl.create',
+  update: 'userRewardCtrl.update',
+  destroy: 'userRewardCtrl.destroy'
 };
 
 var routerStub = {
@@ -19,26 +19,26 @@ var routerStub = {
 };
 
 // require the index with our stubbed out modules
-var userRewardsIndex = proxyquire('./index.js', {
+var userRewardIndex = proxyquire('./index.js', {
   'express': {
     Router: function() {
       return routerStub;
     }
   },
-  './user_rewards.controller': userRewardsCtrlStub
+  './user_reward.controller': userRewardCtrlStub
 });
 
-describe('UserRewards API Router:', function() {
+describe('UserReward API Router:', function() {
 
   it('should return an express router instance', function() {
-    userRewardsIndex.should.equal(routerStub);
+    userRewardIndex.should.equal(routerStub);
   });
 
   describe('GET /api/user_rewards', function() {
 
-    it('should route to userRewards.controller.index', function() {
+    it('should route to userReward.controller.index', function() {
       routerStub.get
-        .withArgs('/', 'userRewardsCtrl.index')
+        .withArgs('/', 'userRewardCtrl.index')
         .should.have.been.calledOnce;
     });
 
@@ -46,9 +46,9 @@ describe('UserRewards API Router:', function() {
 
   describe('GET /api/user_rewards/:id', function() {
 
-    it('should route to userRewards.controller.show', function() {
+    it('should route to userReward.controller.show', function() {
       routerStub.get
-        .withArgs('/:id', 'userRewardsCtrl.show')
+        .withArgs('/:id', 'userRewardCtrl.show')
         .should.have.been.calledOnce;
     });
 
@@ -56,9 +56,9 @@ describe('UserRewards API Router:', function() {
 
   describe('POST /api/user_rewards', function() {
 
-    it('should route to userRewards.controller.create', function() {
+    it('should route to userReward.controller.create', function() {
       routerStub.post
-        .withArgs('/', 'userRewardsCtrl.create')
+        .withArgs('/', 'userRewardCtrl.create')
         .should.have.been.calledOnce;
     });
 
@@ -66,9 +66,9 @@ describe('UserRewards API Router:', function() {
 
   describe('PUT /api/user_rewards/:id', function() {
 
-    it('should route to userRewards.controller.update', function() {
+    it('should route to userReward.controller.update', function() {
       routerStub.put
-        .withArgs('/:id', 'userRewardsCtrl.update')
+        .withArgs('/:id', 'userRewardCtrl.update')
         .should.have.been.calledOnce;
     });
 
@@ -76,9 +76,9 @@ describe('UserRewards API Router:', function() {
 
   describe('PATCH /api/user_rewards/:id', function() {
 
-    it('should route to userRewards.controller.update', function() {
+    it('should route to userReward.controller.update', function() {
       routerStub.patch
-        .withArgs('/:id', 'userRewardsCtrl.update')
+        .withArgs('/:id', 'userRewardCtrl.update')
         .should.have.been.calledOnce;
     });
 
@@ -86,9 +86,9 @@ describe('UserRewards API Router:', function() {
 
   describe('DELETE /api/user_rewards/:id', function() {
 
-    it('should route to userRewards.controller.destroy', function() {
+    it('should route to userReward.controller.destroy', function() {
       routerStub.delete
-        .withArgs('/:id', 'userRewardsCtrl.destroy')
+        .withArgs('/:id', 'userRewardCtrl.destroy')
         .should.have.been.calledOnce;
     });
 

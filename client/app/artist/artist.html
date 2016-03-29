@@ -127,7 +127,7 @@
     </div>
 
     <div ng:show="selected == 2">
-    <div class="card card-block">
+    <div class="card">
       <h4 class="card-title">Story</h4>
       <p class="card-text">{{artist.bio}}</p>
     </div>
@@ -151,7 +151,7 @@
             <h4 class="card-title">${{reward.amount}}</h4>
             <h4 class="card-title">{{reward.title}}</h4>
             <p class="card-reward">{{reward.description}}</p>
-            <a href="#" class="btn btn-primary" style="background-color: #9B30FF;">Choose
+            <a href="/payment/{{artistId}}" class="btn btn-primary" style="background-color: #9B30FF;">Choose
               this reward</a>
           </div>
     </div>

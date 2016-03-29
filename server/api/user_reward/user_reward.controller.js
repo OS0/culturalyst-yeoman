@@ -11,7 +11,7 @@
 
 var _ = require('lodash');
 var sqldb = require('../../sqldb');
-var UserRewards = sqldb.UserRewards;
+var UserReward = sqldb.UserReward;
 
 function handleError(res, statusCode) {
   statusCode = statusCode || 500;
@@ -59,16 +59,16 @@ function removeEntity(res) {
   };
 }
 
-// Gets a list of UserRewardss
+// Gets a list of UserRewards
 exports.index = function(req, res) {
-  UserRewards.findAll()
+  UserReward.findAll()
     .then(responseWithResult(res))
     .catch(handleError(res));
 };
 
-// Gets a single UserRewards from the DB
+// Gets a single UserReward from the DB
 exports.show = function(req, res) {
-  UserRewards.find({
+  UserReward.find({
     where: {
       _id: req.params.id
     }
@@ -78,30 +78,31 @@ exports.show = function(req, res) {
     .catch(handleError(res));
 };
 
-// Creates a new UserRewards in the DB
+// Creates a new UserReward in the DB
 exports.create = function(req, res) {
-  UserRewards.create(req.body)
+  UserReward.create(req.body)
     .then(responseWithResult(res, 201))
     .catch(handleError(res));
 };
 
 exports.addUserReward = function(req, res) {
   var reward = req.body;
-  UserRewards.create({
-    user_id: req.params.user_id,
-    reward_id: reward._id,
+  console.log(reward);
+  UserReward.create({
+    user_id: reward.user_id,
+    reward_id: reward.reward_id,
     amount: reward.amount
   })
     .then(responseWithResult(res, 201))
     .catch(handleError(res));
 }
 
-// Updates an existing UserRewards in the DB
+// Updates an existing UserReward in the DB
 exports.update = function(req, res) {
   if (req.body._id) {
     delete req.body._id;
   }
-  UserRewards.find({
+  UserReward.find({
     where: {
       _id: req.params.id
     }
@@ -112,9 +113,9 @@ exports.update = function(req, res) {
     .catch(handleError(res));
 };
 
-// Deletes a UserRewards from the DB
+// Deletes a UserReward from the DB
 exports.destroy = function(req, res) {
-  UserRewards.find({
+  UserReward.find({
     where: {
       _id: req.params.id
     }

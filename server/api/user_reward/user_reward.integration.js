@@ -3,65 +3,16 @@
 var app = require('../..');
 var request = require('supertest');
 
-var newUserRewards;
+var newUserReward;
 
-describe('UserRewards API:', function() {
+describe('UserReward API:', function() {
 
   describe('GET /api/user_rewards', function() {
-    var userRewardss;
-
-    beforeEach(function(done) {
-      request(app)
-        .get('/api/user_rewards')
-        .expect(200)
-        .expect('Content-Type', /json/)
-        .end(function(err, res) {
-          if (err) {
-            return done(err);
-          }
-          userRewardss = res.body;
-          done();
-        });
-    });
-
-    it('should respond with JSON array', function() {
-      userRewardss.should.be.instanceOf(Array);
-    });
-
-  });
-
-  describe('POST /api/user_rewards', function() {
-    beforeEach(function(done) {
-      request(app)
-        .post('/api/user_rewards')
-        .send({
-          name: 'New UserRewards',
-          info: 'This is the brand new userRewards!!!'
-        })
-        .expect(201)
-        .expect('Content-Type', /json/)
-        .end(function(err, res) {
-          if (err) {
-            return done(err);
-          }
-          newUserRewards = res.body;
-          done();
-        });
-    });
-
-    it('should respond with the newly created userRewards', function() {
-      newUserRewards.name.should.equal('New UserRewards');
-      newUserRewards.info.should.equal('This is the brand new userRewards!!!');
-    });
-
-  });
-
-  describe('GET /api/user_rewards/:id', function() {
     var userRewards;
 
     beforeEach(function(done) {
       request(app)
-        .get('/api/user_rewards/' + newUserRewards._id)
+        .get('/api/user_rewards')
         .expect(200)
         .expect('Content-Type', /json/)
         .end(function(err, res) {
@@ -73,26 +24,75 @@ describe('UserRewards API:', function() {
         });
     });
 
-    afterEach(function() {
-      userRewards = {};
+    it('should respond with JSON array', function() {
+      userRewards.should.be.instanceOf(Array);
     });
 
-    it('should respond with the requested userRewards', function() {
-      userRewards.name.should.equal('New UserRewards');
-      userRewards.info.should.equal('This is the brand new userRewards!!!');
+  });
+
+  describe('POST /api/user_rewards', function() {
+    beforeEach(function(done) {
+      request(app)
+        .post('/api/user_rewards')
+        .send({
+          name: 'New UserReward',
+          info: 'This is the brand new userReward!!!'
+        })
+        .expect(201)
+        .expect('Content-Type', /json/)
+        .end(function(err, res) {
+          if (err) {
+            return done(err);
+          }
+          newUserReward = res.body;
+          done();
+        });
+    });
+
+    it('should respond with the newly created userReward', function() {
+      newUserReward.name.should.equal('New UserReward');
+      newUserReward.info.should.equal('This is the brand new userReward!!!');
+    });
+
+  });
+
+  describe('GET /api/user_rewards/:id', function() {
+    var userReward;
+
+    beforeEach(function(done) {
+      request(app)
+        .get('/api/user_rewards/' + newUserReward._id)
+        .expect(200)
+        .expect('Content-Type', /json/)
+        .end(function(err, res) {
+          if (err) {
+            return done(err);
+          }
+          userReward = res.body;
+          done();
+        });
+    });
+
+    afterEach(function() {
+      userReward = {};
+    });
+
+    it('should respond with the requested userReward', function() {
+      userReward.name.should.equal('New UserReward');
+      userReward.info.should.equal('This is the brand new userReward!!!');
     });
 
   });
 
   describe('PUT /api/user_rewards/:id', function() {
-    var updatedUserRewards
+    var updatedUserReward
 
     beforeEach(function(done) {
       request(app)
-        .put('/api/user_rewards/' + newUserRewards._id)
+        .put('/api/user_rewards/' + newUserReward._id)
         .send({
-          name: 'Updated UserRewards',
-          info: 'This is the updated userRewards!!!'
+          name: 'Updated UserReward',
+          info: 'This is the updated userReward!!!'
         })
         .expect(200)
         .expect('Content-Type', /json/)
@@ -100,18 +100,18 @@ describe('UserRewards API:', function() {
           if (err) {
             return done(err);
           }
-          updatedUserRewards = res.body;
+          updatedUserReward = res.body;
           done();
         });
     });
 
     afterEach(function() {
-      updatedUserRewards = {};
+      updatedUserReward = {};
     });
 
-    it('should respond with the updated userRewards', function() {
-      updatedUserRewards.name.should.equal('Updated UserRewards');
-      updatedUserRewards.info.should.equal('This is the updated userRewards!!!');
+    it('should respond with the updated userReward', function() {
+      updatedUserReward.name.should.equal('Updated UserReward');
+      updatedUserReward.info.should.equal('This is the updated userReward!!!');
     });
 
   });
@@ -120,7 +120,7 @@ describe('UserRewards API:', function() {
 
     it('should respond with 204 on successful removal', function(done) {
       request(app)
-        .delete('/api/user_rewards/' + newUserRewards._id)
+        .delete('/api/user_rewards/' + newUserReward._id)
         .expect(204)
         .end(function(err, res) {
           if (err) {
@@ -130,9 +130,9 @@ describe('UserRewards API:', function() {
         });
     });
 
-    it('should respond with 404 when userRewards does not exist', function(done) {
+    it('should respond with 404 when userReward does not exist', function(done) {
       request(app)
-        .delete('/api/user_rewards/' + newUserRewards._id)
+        .delete('/api/user_rewards/' + newUserReward._id)
         .expect(404)
         .end(function(err, res) {
           if (err) {

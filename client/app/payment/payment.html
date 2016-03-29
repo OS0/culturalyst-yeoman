@@ -21,8 +21,8 @@
                ng-repeat="reward in rewards">
             <h4 class="card-title">${{reward.amount}}</h4>
             <h4 class="card-title">{{reward.title}}</h4>
-            <p class="card-reward">{{reward.description}}</p>
-             <a href="#" ng-click="submit(reward.amount)" class="btn btn-primary" style="background-color: #9B30FF;">Choose this Reward</a>
+            <p class="card-reward">{{reward.description}} {{reward._id}}</p>
+             <a href="#" ng-click="submit(reward.amount, reward._id)" class="btn btn-primary" style="background-color: #9B30FF;">Choose this Reward</a>
           </div>
     </div>
 
